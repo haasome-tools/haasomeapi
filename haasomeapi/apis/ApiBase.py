@@ -2,6 +2,7 @@ import hmac
 import hashlib
 import inspect
 import requests
+import collections
 
 from typing import Dict
 from typing import List
@@ -16,7 +17,10 @@ class ApiBase:
 
     @staticmethod
     def generate_signature(parameters: Dict[str, str], privatekey: str):
+
         parameter_string = ""
+
+        parameters = collections.OrderedDict(sorted(parameters.items()))
 
         for key, value in parameters.items():
             parameter_string += "&" + str(key) + "=" + str(value)
@@ -34,9 +38,10 @@ class ApiBase:
 
     def _execute_request(self, endpoint: str, parameters: Dict[str, str]):
 
-        # Authorize is set by default
-
         url = self.baseUrl + endpoint
+
+        # Authorize is set by default
+        parameters = collections.OrderedDict(sorted(parameters.items()))
 
         paramSig = ApiBase.generate_signature(parameters, self.privateKey)
 
@@ -51,7 +56,6 @@ class ApiBase:
 
         #return requests.get(url).json()
         test = requests.get(url).json()
-        #print(test)
         return test
 
     @staticmethod

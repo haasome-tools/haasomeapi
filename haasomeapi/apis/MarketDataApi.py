@@ -7,8 +7,6 @@ from haasomeapi.dataobjects.marketdata.PriceTick import PriceTick
 from haasomeapi.dataobjects.marketdata.Orderbook import Orderbook
 from haasomeapi.dataobjects.marketdata.TradeContainer import TradeContainer
 
-from haasomeapi.dataobjects.accountdata.BaseOrder import BaseOrder
-from haasomeapi.dataobjects.accountdata.OrderContainer import OrderContainer
 from haasomeapi.dataobjects.util.HaasomeClientResponse import HaasomeClientResponse
 
 

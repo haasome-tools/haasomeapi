@@ -1,4 +1,3 @@
-import json
 from haasomeapi.apis.ApiBase import ApiBase
 
 from haasomeapi.enums.EnumErrorCode import EnumErrorCode
@@ -69,7 +68,6 @@ class AccountDataApi(ApiBase):
         leverageorderlist = {}
 
         for orderstr, order in order_container.exchangeOrderList.items():
-            print(order)
             exchangeorderlist[orderstr] = super()._from_json(order, BaseOrder)
 
         for orderstr, order in order_container.marginOrderList.items():

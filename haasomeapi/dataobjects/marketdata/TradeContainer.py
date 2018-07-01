@@ -8,4 +8,4 @@ class TradeContainer:
     timeStamp: datetime
     unixTimeStamp: int
 
-    lastTrade: List[Trade]
+    lastTrades: List[Trade]

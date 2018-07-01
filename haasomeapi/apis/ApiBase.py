@@ -19,7 +19,7 @@ class ApiBase:
         parameter_string = ""
 
         for key, value in parameters.items():
-            parameter_string += "&" + key + "=" + value
+            parameter_string += "&" + str(key) + "=" + str(value)
 
         parameter_string = parameter_string.replace("&", "", 1)
 

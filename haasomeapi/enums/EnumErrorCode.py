@@ -1,7 +1,9 @@
 from enum import Enum
 
+
 class EnumErrorCode(Enum):
     SUCCESS = 100
+    FAILURE = 900
     INVALID_REQUEST = 1001
     INVALID_SIGNATURE = 1002
     INVALID_BOT_GUID = 1003

@@ -56,6 +56,7 @@ class ApiBase:
 
         #return requests.get(url).json()
         test = requests.get(url).json()
+        print(test)
         return test
 
     @staticmethod

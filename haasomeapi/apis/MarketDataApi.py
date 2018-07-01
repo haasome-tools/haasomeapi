@@ -18,14 +18,22 @@ class MarketDataApi(ApiBase):
     def get_all_price_sources(self):
         response = super()._execute_request("/GetAllPriceSources", {})
 
-        return HaasomeClientResponse(EnumErrorCode(int(response["ErrorCode"])),
-                                     response["ErrorMessage"], response["Result"])
+        try:
+            return HaasomeClientResponse(EnumErrorCode(int(response["ErrorCode"])),
+                                         response["ErrorMessage"], response["Result"])
+        except:
+            return HaasomeClientResponse(EnumErrorCode(int(response["ErrorCode"])),
+                                         response["ErrorMessage"], {})
 
     def get_enabled_price_sources(self):
         response = super()._execute_request("/GetEnabledPriceSources", {})
 
-        return HaasomeClientResponse(EnumErrorCode(int(response["ErrorCode"])),
-                                     response["ErrorMessage"], response["Result"])
+        try:
+            return HaasomeClientResponse(EnumErrorCode(int(response["ErrorCode"])),
+                                         response["ErrorMessage"], response["Result"])
+        except:
+            return HaasomeClientResponse(EnumErrorCode(int(response["ErrorCode"])),
+                                         response["ErrorMessage"], {})
 
     def get_all_price_markets(self):
         response = super()._execute_request("/GetAllPriceMarkets", {})
@@ -35,8 +43,12 @@ class MarketDataApi(ApiBase):
         for market in response["Result"]:
             markets.append(super()._from_json(market, Market))
 
-        return HaasomeClientResponse(EnumErrorCode(int(response["ErrorCode"])),
-                                     response["ErrorMessage"], markets)
+        try:
+            return HaasomeClientResponse(EnumErrorCode(int(response["ErrorCode"])),
+                                         response["ErrorMessage"], markets)
+        except:
+            return HaasomeClientResponse(EnumErrorCode(int(response["ErrorCode"])),
+                                         response["ErrorMessage"], {})
 
     def get_price_markets(self, pricesource: EnumPriceSource):
         response = super()._execute_request("/GetPriceMarkets", {"priceSourceName": EnumPriceSource(pricesource).name.capitalize()})
@@ -46,8 +58,12 @@ class MarketDataApi(ApiBase):
         for market in response["Result"]:
             markets.append(super()._from_json(market, Market))
 
-        return HaasomeClientResponse(EnumErrorCode(int(response["ErrorCode"])),
-                                     response["ErrorMessage"], markets)
+        try:
+            return HaasomeClientResponse(EnumErrorCode(int(response["ErrorCode"])),
+                                         response["ErrorMessage"], markets)
+        except:
+            return HaasomeClientResponse(EnumErrorCode(int(response["ErrorCode"])),
+                                         response["ErrorMessage"], {})
 
     def get_price_ticker(self, pricesource: EnumPriceSource, primarycoin: str, secondarycoin: str, contractname: str):
         response = super()._execute_request("/GetPriceTicker",
@@ -56,8 +72,12 @@ class MarketDataApi(ApiBase):
                                              "secondaryCoin": secondarycoin,
                                              "contractName": contractname})
 
-        return HaasomeClientResponse(EnumErrorCode(int(response["ErrorCode"])),
-                                     response["ErrorMessage"], super()._from_json(response["Result"], PriceTick))
+        try:
+            return HaasomeClientResponse(EnumErrorCode(int(response["ErrorCode"])),
+                                         response["ErrorMessage"], super()._from_json(response["Result"], PriceTick))
+        except:
+            return HaasomeClientResponse(EnumErrorCode(int(response["ErrorCode"])),
+                                         response["ErrorMessage"], {})
 
     def get_price_ticker_from_market(self, market: Market):
         return self.get_price_ticker(market.priceSource, market.primaryCurrency, market.secondaryCurrency,
@@ -70,8 +90,12 @@ class MarketDataApi(ApiBase):
                                              "secondaryCoin": secondarycoin,
                                              "contractName": contractname})
 
-        return HaasomeClientResponse(EnumErrorCode(int(response["ErrorCode"])),
-                                     response["ErrorMessage"], super()._from_json(response["Result"], PriceTick))
+        try:
+            return HaasomeClientResponse(EnumErrorCode(int(response["ErrorCode"])),
+                                         response["ErrorMessage"], super()._from_json(response["Result"], PriceTick))
+        except:
+            return HaasomeClientResponse(EnumErrorCode(int(response["ErrorCode"])),
+                                         response["ErrorMessage"], {})
 
     def get_minute_price_ticker_from_market(self, market: Market):
         return self.get_minute_price_ticker(market.priceSource, market.primaryCurrency, market.secondaryCurrency,
@@ -84,8 +108,12 @@ class MarketDataApi(ApiBase):
                                              "secondaryCoin": secondarycoin,
                                              "contractName": contractname})
 
-        return HaasomeClientResponse(EnumErrorCode(int(response["ErrorCode"])),
-                                     response["ErrorMessage"], super()._from_json(response["Result"], TradeContainer))
+        try:
+            return HaasomeClientResponse(EnumErrorCode(int(response["ErrorCode"])),
+                                         response["ErrorMessage"], super()._from_json(response["Result"], TradeContainer))
+        except:
+            return HaasomeClientResponse(EnumErrorCode(int(response["ErrorCode"])),
+                                         response["ErrorMessage"], {})
 
     def get_last_trades_from_market(self, market: Market):
         return self.get_last_trades(market.priceSource, market.primaryCurrency, market.secondaryCurrency,
@@ -97,9 +125,12 @@ class MarketDataApi(ApiBase):
                                              "primaryCoin": primarycoin,
                                              "secondaryCoin": secondarycoin,
                                              "contractName": contractname})
-
-        return HaasomeClientResponse(EnumErrorCode(int(response["ErrorCode"])),
-                                     response["ErrorMessage"], super()._from_json(response["Result"], Orderbook))
+        try:
+            return HaasomeClientResponse(EnumErrorCode(int(response["ErrorCode"])),
+                                         response["ErrorMessage"], super()._from_json(response["Result"], Orderbook))
+        except:
+            return HaasomeClientResponse(EnumErrorCode(int(response["ErrorCode"])),
+                                         response["ErrorMessage"], {})
 
     def get_order_book_from_market(self, market: Market):
         return self.get_order_book(market.priceSource, market.primaryCurrency, market.secondaryCurrency,
@@ -119,8 +150,12 @@ class MarketDataApi(ApiBase):
         for pricetick in response["Result"]:
             priceticks.append(super()._from_json(pricetick, PriceTick))
 
-        return HaasomeClientResponse(EnumErrorCode(int(response["ErrorCode"])),
-                                     response["ErrorMessage"], priceticks)
+        try:
+            return HaasomeClientResponse(EnumErrorCode(int(response["ErrorCode"])),
+                                         response["ErrorMessage"], priceticks)
+        except:
+            return HaasomeClientResponse(EnumErrorCode(int(response["ErrorCode"])),
+                                         response["ErrorMessage"], {})
 
     def get_history_from_market(self, market: Market, interval: int, depth: int):
         return self.get_history(market.priceSource, market.primaryCurrency, market.secondaryCurrency,

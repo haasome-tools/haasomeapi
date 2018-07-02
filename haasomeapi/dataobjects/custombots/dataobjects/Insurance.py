@@ -1,12 +1,12 @@
 from typing import List
-from haasomeapi.enums.EnumInsurances import EnumInsurances
+from haasomeapi.enums.EnumInsurance import EnumInsurance
 
 from haasomeapi.dataobjects.custombots.dataobjects.IndicatorOption import IndicatorOption
 
 
 class Insurance:
     guid: str
-    insuranceType: EnumInsurances
+    insuranceType: EnumInsurance
 
     insuranceTypeShortName: str
     insuranceTypeFullName: str

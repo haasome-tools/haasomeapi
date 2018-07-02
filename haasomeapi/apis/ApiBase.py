@@ -78,9 +78,14 @@ class ApiBase:
         else:
             instance: cls = cls()
             for name, value in data.items():
-                func = lambda s: s[:1].lower() + s[1:] if s else ''
-                name = func(name)
-                field_type = annotations.get(name)
+
+                if name == "GUID":
+                    name = "guid"
+                else:
+                    func = lambda s: s[:1].lower() + s[1:] if s else ''
+                    name = func(name)
+                    field_type = annotations.get(name)
+
                 if inspect.isclass(field_type) and isinstance(value, (dict, tuple, list, set, frozenset)):
                     setattr(instance, name, ApiBase._from_json(value, field_type))
                 else:

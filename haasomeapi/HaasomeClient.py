@@ -3,7 +3,7 @@ from haasomeapi.apis.AccountDataApi import AccountDataApi
 from haasomeapi.apis.MarketDataApi import MarketDataApi
 from haasomeapi.apis.AdvancedOrderApi import AdvancedOrderApi
 from haasomeapi.apis.TradeApi import TradeApi
-
+from haasomeapi.apis.TradeBotApi import TradeBotApi
 
 class HaasomeClient:
 
@@ -13,7 +13,7 @@ class HaasomeClient:
         self.advancedOrderApi = AdvancedOrderApi(connectionstring, privatekey)
         #self.customBotApi = CustomBotApi(connectionstring, privatekey)
         self.tradeApi = TradeApi(connectionstring, privatekey)
-        #self.tradeBotApi = TradeBotApi(connectionstring, privatekey)
+        self.tradeBotApi = TradeBotApi(connectionstring, privatekey)
 
     def test_credentials(self):
         result = self.marketDataApi.getEnabledPriceSources()

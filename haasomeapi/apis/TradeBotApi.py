@@ -1,26 +1,21 @@
 import datetime
-from haasomeapi.apis.ApiBase import ApiBase
 
+from haasomeapi.apis.ApiBase import ApiBase
 from haasomeapi.enums.EnumErrorCode import EnumErrorCode
-from haasomeapi.enums.EnumCoinPosition import EnumCoinPosition
-from haasomeapi.enums.EnumLimitOrderPriceType import EnumLimitOrderPriceType
-from haasomeapi.enums.EnumFundPosition import EnumFundPosition
+
 from haasomeapi.enums.EnumSafety import EnumSafety
 from haasomeapi.enums.EnumIndicator import EnumIndicator
 from haasomeapi.enums.EnumInsurance import EnumInsurance
 from haasomeapi.enums.EnumPriceSource import EnumPriceSource
-from haasomeapi.enums.EnumPriceChartType import EnumPriceChartType
+from haasomeapi.enums.EnumFundPosition import EnumFundPosition
 from haasomeapi.enums.EnumCoinPosition import EnumCoinPosition
-from haasomeapi.dataobjects.marketdata.Market import Market
-from haasomeapi.dataobjects.marketdata.PriceTick import PriceTick
-from haasomeapi.dataobjects.marketdata.Orderbook import Orderbook
-from haasomeapi.dataobjects.marketdata.TradeContainer import TradeContainer
+from haasomeapi.enums.EnumPriceChartType import EnumPriceChartType
+from haasomeapi.enums.EnumLimitOrderPriceType import EnumLimitOrderPriceType
 
 from haasomeapi.dataobjects.custombots.dataobjects.Safety import Safety
 from haasomeapi.dataobjects.custombots.dataobjects.Indicator import Indicator
 from haasomeapi.dataobjects.custombots.dataobjects.Insurance import Insurance
 from haasomeapi.dataobjects.custombots.dataobjects.IndicatorOption import IndicatorOption
-
 
 from haasomeapi.dataobjects.tradebot.TradeBot import TradeBot
 from haasomeapi.dataobjects.util.HaasomeClientResponse import HaasomeClientResponse
@@ -31,8 +26,8 @@ class TradeBotApi(ApiBase):
     def __init__(self, connectionstring: str, privatekey: str):
         ApiBase.__init__(self, connectionstring, privatekey)
 
-    def _convert_json_bot_to_trade_bot_object(self, jsonStr):
-        botinitial = super()._from_json(jsonStr, TradeBot)
+    def _convert_json_bot_to_trade_bot_object(self, jsonstr: str):
+        botinitial = super()._from_json(jsonstr, TradeBot)
 
         indicators = {}
         safeties = {}

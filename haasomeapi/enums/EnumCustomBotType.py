@@ -1,5 +1,6 @@
 from enum import Enum
 
+
 class EnumCustomBotType(Enum):
     MARKET_MAKING_BOT = 1,
     PING_PONG_BOT = 2,
@@ -15,4 +16,5 @@ class EnumCustomBotType(Enum):
     SCRIPT_BOT = 16,
     CRYPTO_INDEX_BOT = 17,
     HAAS_SCRIPT_BOT = 18,
-    EMAIL_BOT = 19
+    EMAIL_BOT = 19,
+    BASE_CUSTOM_BOT = 1000

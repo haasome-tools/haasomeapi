@@ -1,3 +1,6 @@
+import json
+
+
 class CryptoIndexBotIndexSaveObject:
     coin: str
     amount: float
@@ -5,3 +8,4 @@ class CryptoIndexBotIndexSaveObject:
     buyThreshold: float
     sellThreshold: float
     stopLoss: float
+

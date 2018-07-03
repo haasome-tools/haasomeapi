@@ -92,22 +92,22 @@ class TradeBotApi(ApiBase):
 
         return HaasomeClientResponse(EnumErrorCode.BOT_DOSENOT_EXIT, "Bot Could Not Be Found", {})
 
-    def activate_bot(self, botguid: str):
+    def activate_trade_bot(self, botguid: str):
         response = super()._execute_request("/ActivateTradeBot",  {"botGuid": botguid})
 
         try:
             return HaasomeClientResponse(EnumErrorCode(int(response["ErrorCode"])),
-                                         response["ErrorMessage"], response["Result"])
+                                         response["ErrorMessage"], bool(response["Result"]))
         except:
             return HaasomeClientResponse(EnumErrorCode(int(response["ErrorCode"])),
                                          response["ErrorMessage"], {})
 
-    def deactivate_bot(self, botguid: str):
+    def deactivate_trade_bot(self, botguid: str):
         response = super()._execute_request("/DeactivateBot",  {"botGuid": botguid})
 
         try:
             return HaasomeClientResponse(EnumErrorCode(int(response["ErrorCode"])),
-                                         response["ErrorMessage"], response["Result"])
+                                         response["ErrorMessage"], bool(response["Result"]))
         except:
             return HaasomeClientResponse(EnumErrorCode(int(response["ErrorCode"])),
                                          response["ErrorMessage"], {})
@@ -136,7 +136,7 @@ class TradeBotApi(ApiBase):
 
         try:
             return HaasomeClientResponse(EnumErrorCode(int(response["ErrorCode"])),
-                                         response["ErrorMessage"], response["Result"])
+                                         response["ErrorMessage"], bool(response["Result"]))
         except:
             return HaasomeClientResponse(EnumErrorCode(int(response["ErrorCode"])),
                                          response["ErrorMessage"], {})
@@ -156,7 +156,7 @@ class TradeBotApi(ApiBase):
 
         try:
             return HaasomeClientResponse(EnumErrorCode(int(response["ErrorCode"])),
-                                         response["ErrorMessage"], response["Result"])
+                                         response["ErrorMessage"], bool(response["Result"]))
         except:
             return HaasomeClientResponse(EnumErrorCode(int(response["ErrorCode"])),
                                          response["ErrorMessage"], {})
@@ -190,7 +190,7 @@ class TradeBotApi(ApiBase):
                                          response["ErrorMessage"], {})
 
     def setup_trade_bot(self, botguid: str, botname: str, accountguid: str, primarycoin: str, secondarycoin: str,
-                  contractname: str, leverage: float, groupid: str, useconsensus: bool, copymarketstoelements: bool):
+                        contractname: str, leverage: float, groupid: str, useconsensus: bool, copymarketstoelements: bool):
 
         response = super()._execute_request("/SetupSpotBotTradeAmount",  {"botGuid": botguid,
                                                                           "botName": botname,
@@ -237,9 +237,9 @@ class TradeBotApi(ApiBase):
                                          response["ErrorMessage"], {})
 
     def setup_leverage_bot_trade_amount(self, botguid: str, coinposition: EnumFundPosition , tradeamount: float,
-                                    lastlongprice: float, lastshortprice: float, entertemplateid: str, exittemplateid: str,
-                                    highspeedenabled: bool, allin: bool, ordertimeout: int, templatetimeout: int,
-                                    maxtradeamount: bool, limitordertype: EnumLimitOrderPriceType, usehiddenorders: bool, fee: float):
+                                        lastlongprice: float, lastshortprice: float, entertemplateid: str, exittemplateid: str,
+                                        highspeedenabled: bool, allin: bool, ordertimeout: int, templatetimeout: int,
+                                        maxtradeamount: bool, limitordertype: EnumLimitOrderPriceType, usehiddenorders: bool, fee: float):
 
         response = super()._execute_request("/SetupLeverageBotTradeAmount", {"botGuid": botguid,
                                                                              "fundsPosition": EnumFundPosition(coinposition).name.capitalize(),
@@ -349,7 +349,7 @@ class TradeBotApi(ApiBase):
                                          response["ErrorMessage"], {})
 
     def setup_safety(self, botguid: str, elementguid: str, pricesource: EnumPriceSource, primarycoin: str,
-                        secondarycoin: str, contractname: str, mappedbuysignal: EnumFundPosition , mappedsellsignal: EnumFundPosition ):
+                     secondarycoin: str, contractname: str, mappedbuysignal: EnumFundPosition , mappedsellsignal: EnumFundPosition ):
         response = super()._execute_request("/SetupTradeBotSafety",  {"botGuid": botguid,
                                                                       "elementGuid": elementguid,
                                                                       "priceSourceName":EnumPriceSource(pricesource).name.capitalize(),
@@ -487,8 +487,8 @@ class TradeBotApi(ApiBase):
                                          response["ErrorMessage"], {})
 
     def clone_trade_bot(self, botguid: str, botname: str, accountguid: str, primarycoin: str, secondarycoin: str,
-                  contractname: str, leverage: float, copysafeties: bool, copyindicators: bool, copyinsurances: bool,
-                  copyparameters: bool, copymarkettoelements: bool):
+                        contractname: str, leverage: float, copysafeties: bool, copyindicators: bool, copyinsurances: bool,
+                        copyparameters: bool, copymarkettoelements: bool):
 
         response = super()._execute_request("/CloneTradeBot",  {"botGuid": botguid,
                                                                 "botName": botname,

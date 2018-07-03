@@ -185,7 +185,7 @@ class TradeApi(ApiBase):
 
         try:
             return HaasomeClientResponse(EnumErrorCode(int(response["ErrorCode"])),
-                                         response["ErrorMessage"], response["Result"])
+                                         response["ErrorMessage"], bool(response["Result"]))
         except:
             return HaasomeClientResponse(EnumErrorCode(int(response["ErrorCode"])),
                                          response["ErrorMessage"], {})
@@ -196,7 +196,7 @@ class TradeApi(ApiBase):
 
         try:
             return HaasomeClientResponse(EnumErrorCode(int(response["ErrorCode"])),
-                                         response["ErrorMessage"], response["Result"])
+                                         response["ErrorMessage"], bool(response["Result"]))
         except:
             return HaasomeClientResponse(EnumErrorCode(int(response["ErrorCode"])),
                                          response["ErrorMessage"], {})

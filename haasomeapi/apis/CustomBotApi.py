@@ -1,18 +1,11 @@
 import json
-import datetime
 
 from typing import List
 from haasomeapi.apis.ApiBase import ApiBase
 from haasomeapi.enums.EnumErrorCode import EnumErrorCode
-from haasomeapi.dataobjects.accountdata.BaseOrder import BaseOrder
 from haasomeapi.dataobjects.marketdata.Market import Market
-from haasomeapi.enums.EnumSafety import EnumSafety
-from haasomeapi.enums.EnumIndicator import EnumIndicator
-from haasomeapi.enums.EnumInsurance import EnumInsurance
-from haasomeapi.enums.EnumPriceSource import EnumPriceSource
-from haasomeapi.enums.EnumFundPosition import EnumFundPosition
-from haasomeapi.enums.EnumCoinPosition import EnumCoinPosition
-from haasomeapi.enums.EnumPriceChartType import EnumPriceChartType
+from haasomeapi.dataobjects.accountdata.BaseOrder import BaseOrder
+
 from haasomeapi.enums.EnumOrderType import EnumOrderType
 from haasomeapi.enums.EnumCurrencyType import EnumCurrencyType
 from haasomeapi.enums.EnumCustomBotType import EnumCustomBotType
@@ -21,24 +14,19 @@ from haasomeapi.enums.EnumFlashSpreadOptions import EnumFlashSpreadOptions
 from haasomeapi.enums.EnumMadHatterIndicators import EnumMadHatterIndicators
 from haasomeapi.enums.EnumOrderBotTriggerType import EnumOrderBotTriggerType
 from haasomeapi.enums.EnumAccumulationBotStopType import EnumAccumulationBotStopType
-from haasomeapi.dataobjects.custombots.dataobjects.Safety import Safety
-from haasomeapi.dataobjects.custombots.dataobjects.Indicator import Indicator
-from haasomeapi.dataobjects.custombots.dataobjects.Insurance import Insurance
-from haasomeapi.dataobjects.custombots.dataobjects.IndicatorOption import IndicatorOption
 
-from haasomeapi.dataobjects.tradebot.TradeBot import TradeBot
-from haasomeapi.dataobjects.custombots.BaseCustomBot import BaseCustomBot
-from haasomeapi.dataobjects.custombots.AccumulationBot import AccumulationBot
-from haasomeapi.dataobjects.custombots.CryptoIndexBot import CryptoIndexBot
 from haasomeapi.dataobjects.custombots.EmailBot import EmailBot
-from haasomeapi.dataobjects.custombots.FlashCrashBot import FlashCrashBot
-from haasomeapi.dataobjects.custombots.InterExchangeArbitrageBot import InterExchangeArbitrageBot
-from haasomeapi.dataobjects.custombots.MadHatterBot import MadHatterBot
-from haasomeapi.dataobjects.custombots.MarketMakingBot import MarketMakingBot
 from haasomeapi.dataobjects.custombots.OrderBot import OrderBot
-from haasomeapi.dataobjects.custombots.ScalperBot import ScalperBot
 from haasomeapi.dataobjects.custombots.ScriptBot import ScriptBot
+from haasomeapi.dataobjects.custombots.ScalperBot import ScalperBot
+from haasomeapi.dataobjects.custombots.MadHatterBot import MadHatterBot
+from haasomeapi.dataobjects.custombots.FlashCrashBot import FlashCrashBot
+from haasomeapi.dataobjects.custombots.BaseCustomBot import BaseCustomBot
+from haasomeapi.dataobjects.custombots.CryptoIndexBot import CryptoIndexBot
+from haasomeapi.dataobjects.custombots.AccumulationBot import AccumulationBot
+from haasomeapi.dataobjects.custombots.MarketMakingBot import MarketMakingBot
 from haasomeapi.dataobjects.custombots.ZoneRecoveryBot import ZoneRecoveryBot
+from haasomeapi.dataobjects.custombots.InterExchangeArbitrageBot import InterExchangeArbitrageBot
 
 from haasomeapi.dataobjects.util.HaasomeClientResponse import HaasomeClientResponse
 from haasomeapi.dataobjects.custombots.dataobjects.EmailBotAction import EmailBotAction
@@ -168,7 +156,7 @@ class CustomBotApi(ApiBase):
 
         try:
             return HaasomeClientResponse(EnumErrorCode(int(response["ErrorCode"])),
-                                         response["ErrorMessage"], response["Result"])
+                                         response["ErrorMessage"], bool(response["Result"]))
         except:
             return HaasomeClientResponse(EnumErrorCode(int(response["ErrorCode"])),
                                          response["ErrorMessage"], {})
@@ -178,7 +166,7 @@ class CustomBotApi(ApiBase):
 
         try:
             return HaasomeClientResponse(EnumErrorCode(int(response["ErrorCode"])),
-                                         response["ErrorMessage"], response["Result"])
+                                         response["ErrorMessage"], bool(response["Result"]))
         except:
             return HaasomeClientResponse(EnumErrorCode(int(response["ErrorCode"])),
                                          response["ErrorMessage"], {})
@@ -221,7 +209,7 @@ class CustomBotApi(ApiBase):
 
         try:
             return HaasomeClientResponse(EnumErrorCode(int(response["ErrorCode"])),
-                                         response["ErrorMessage"], response["Result"])
+                                         response["ErrorMessage"], bool(response["Result"]))
         except:
             return HaasomeClientResponse(EnumErrorCode(int(response["ErrorCode"])),
                                          response["ErrorMessage"], {})
@@ -628,7 +616,7 @@ class CustomBotApi(ApiBase):
 
         try:
             return HaasomeClientResponse(EnumErrorCode(int(response["ErrorCode"])),
-                                         response["ErrorMessage"], response["Result"])
+                                         response["ErrorMessage"], bool(response["Result"]))
         except:
             return HaasomeClientResponse(EnumErrorCode(int(response["ErrorCode"])),
                                          response["ErrorMessage"], {})
@@ -638,7 +626,7 @@ class CustomBotApi(ApiBase):
 
         try:
             return HaasomeClientResponse(EnumErrorCode(int(response["ErrorCode"])),
-                                         response["ErrorMessage"], response["Result"])
+                                         response["ErrorMessage"], bool(response["Result"]))
         except:
             return HaasomeClientResponse(EnumErrorCode(int(response["ErrorCode"])),
                                          response["ErrorMessage"], {})
@@ -650,7 +638,7 @@ class CustomBotApi(ApiBase):
 
         try:
             return HaasomeClientResponse(EnumErrorCode(int(response["ErrorCode"])),
-                                         response["ErrorMessage"], response["Result"])
+                                         response["ErrorMessage"], self._convert_json_bot_to_custom_bot_specific(EnumCustomBotType.FLASH_CRASH_BOT, response["Result"]))
         except:
             return HaasomeClientResponse(EnumErrorCode(int(response["ErrorCode"])),
                                          response["ErrorMessage"], {})
@@ -699,7 +687,7 @@ class CustomBotApi(ApiBase):
 
         try:
             return HaasomeClientResponse(EnumErrorCode(int(response["ErrorCode"])),
-                                         response["ErrorMessage"], response["Result"])
+                                         response["ErrorMessage"], bool(response["Result"]))
         except:
             return HaasomeClientResponse(EnumErrorCode(int(response["ErrorCode"])),
                                          response["ErrorMessage"], {})

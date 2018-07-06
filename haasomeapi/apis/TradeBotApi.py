@@ -189,7 +189,7 @@ class TradeBotApi(ApiBase):
             return HaasomeClientResponse(EnumErrorCode(int(response["ErrorCode"])),
                                          response["ErrorMessage"], {})
 
-    def setup_trade_bot(self, botguid: str, botname: str, accountguid: str, primarycoin: str, secondarycoin: str,
+    def setup_trade_bot(self, accountguid: str, botguid: str, botname: str, primarycoin: str, secondarycoin: str,
                         contractname: str, leverage: float, groupid: str, useconsensus: bool, copymarketstoelements: bool):
 
         response = super()._execute_request("/SetupSpotBotTradeAmount",  {"botGuid": botguid,
@@ -486,7 +486,7 @@ class TradeBotApi(ApiBase):
             return HaasomeClientResponse(EnumErrorCode(int(response["ErrorCode"])),
                                          response["ErrorMessage"], {})
 
-    def clone_trade_bot(self, botguid: str, botname: str, accountguid: str, primarycoin: str, secondarycoin: str,
+    def clone_trade_bot(self, accountguid: str, botguid: str, botname: str, primarycoin: str, secondarycoin: str,
                         contractname: str, leverage: float, copysafeties: bool, copyindicators: bool, copyinsurances: bool,
                         copyparameters: bool, copymarkettoelements: bool):
 

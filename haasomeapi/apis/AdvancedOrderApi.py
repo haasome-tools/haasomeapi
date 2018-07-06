@@ -60,7 +60,7 @@ class AdvancedOrderApi(ApiBase):
             return HaasomeClientResponse(EnumErrorCode(int(response["ErrorCode"])),
                                          response["ErrorMessage"], {})
 
-    def add_stop_order(self, name: str, accountguid: str, primarycoin: str, secondarycoin: str,
+    def add_stop_order(self, accountguid: str, name: str, primarycoin: str, secondarycoin: str,
                        direction: EnumOrderType, executingtemplateguid: str, triggerprice: float, executionprice: float,
                        amount: float, startorderonactivation: bool, startorderprice: float, starttemplateguid: str,
                        activate: bool):
@@ -87,7 +87,7 @@ class AdvancedOrderApi(ApiBase):
             return HaasomeClientResponse(EnumErrorCode(int(response["ErrorCode"])),
                                          response["ErrorMessage"], {})
 
-    def add_stop_order_leverage(self, name: str, accountguid: str, primarycoin: str, secondarycoin: str,
+    def add_stop_order_leverage(self, accountguid: str, name: str, primarycoin: str, secondarycoin: str,
                                 contractname: str, leverage: float, direction: EnumOrderType,
                                 executingtemplateguid: str, triggerprice: float, executionprice: float,
                                 amount: float, startorderonactivation: bool, startorderprice: float,
@@ -116,7 +116,7 @@ class AdvancedOrderApi(ApiBase):
             return HaasomeClientResponse(EnumErrorCode(int(response["ErrorCode"])),
                                          response["ErrorMessage"], {})
 
-    def add_take_profit_order(self, name: str, accountguid: str, primarycoin: str, secondarycoin: str,
+    def add_take_profit_order(self, accountguid: str, name: str,  primarycoin: str, secondarycoin: str,
                               direction: EnumOrderType, executingtemplateguid: str, triggerprice: float, executionprice: float,
                               amount: float, startorderonactivation: bool, startorderprice: float, starttemplateguid: str,
                               activate: bool):
@@ -173,7 +173,7 @@ class AdvancedOrderApi(ApiBase):
             return HaasomeClientResponse(EnumErrorCode(int(response["ErrorCode"])),
                                          response["ErrorMessage"], {})
 
-    def add_trailing_stop_order(self, name: str, accountguid: str, primarycoin: str, secondarycoin: str,
+    def add_trailing_stop_order(self, accountguid: str, name: str,  primarycoin: str, secondarycoin: str,
                               direction: EnumOrderType, executingtemplateguid: str, trailingstoppercentage: float,
                               amount: float, startorderonactivation: bool, startorderprice: float, starttemplateguid: str,
                               activate: bool):
@@ -200,7 +200,7 @@ class AdvancedOrderApi(ApiBase):
             return HaasomeClientResponse(EnumErrorCode(int(response["ErrorCode"])),
                                          response["ErrorMessage"], {})
 
-    def add_trailing_stop_leverage(self, name: str, accountguid: str, primarycoin: str, secondarycoin: str,
+    def add_trailing_stop_leverage(self, accountguid: str, name: str, primarycoin: str, secondarycoin: str,
                                    contractname: str, leverage: float, direction: EnumOrderType, executingtemplateguid: str,
                                    trailingstoppercentage: float, amount: float, startorderonactivation: bool,
                                    startorderprice: float, starttemplateguid: str, activate: bool):
@@ -228,14 +228,14 @@ class AdvancedOrderApi(ApiBase):
             return HaasomeClientResponse(EnumErrorCode(int(response["ErrorCode"])),
                                          response["ErrorMessage"], {})
 
-    def setup_stop_order(self, guid: str, name: str, accountguid: str, primarycoin: str, secondarycoin: str,
+    def setup_stop_order(self, accountguid: str, orderguid: str, name: str, primarycoin: str, secondarycoin: str,
                          direction: EnumOrderType, executingtemplateguid: str, triggerprice: float,
                          executionprice: float,
                          amount: float, startorderonactivation: bool, startorderprice: float, starttemplateguid: str,
                          activate: bool):
 
         response = super()._execute_request("/AddStopOrder",
-                                            {"guid": guid,
+                                            {"guid": orderguid,
                                              "name": name,
                                              "accountGuid": accountguid,
                                              "primaryCoin": primarycoin,
@@ -258,14 +258,14 @@ class AdvancedOrderApi(ApiBase):
             return HaasomeClientResponse(EnumErrorCode(int(response["ErrorCode"])),
                                          response["ErrorMessage"], {})
 
-    def setup_stop_order_leverage(self, guid: str, name: str, accountguid: str, primarycoin: str, secondarycoin: str,
+    def setup_stop_order_leverage(self, accountguid: str, orderguid: str, name: str, primarycoin: str, secondarycoin: str,
                                   contractname: str, leverage: float, direction: EnumOrderType,
                                   executingtemplateguid: str, triggerprice: float, executionprice: float,
                                   amount: float, startorderonactivation: bool, startorderprice: float,
                                   starttemplateguid: str, activate: bool):
 
         response = super()._execute_request("/AddStopOrder",
-                                            {"guid": guid,
+                                            {"guid": orderguid,
                                              "name": name,
                                              "accountGuid": accountguid,
                                              "primaryCoin": primarycoin,
@@ -289,13 +289,13 @@ class AdvancedOrderApi(ApiBase):
             return HaasomeClientResponse(EnumErrorCode(int(response["ErrorCode"])),
                                          response["ErrorMessage"], {})
 
-    def setup_take_profit_order(self, guid: str, name: str, accountguid: str, primarycoin: str, secondarycoin: str,
+    def setup_take_profit_order(self, accountguid: str, orderguid: str, name: str, primarycoin: str, secondarycoin: str,
                               direction: EnumOrderType, executingtemplateguid: str, triggerprice: float, executionprice: float,
                               amount: float, startorderonactivation: bool, startorderprice: float, starttemplateguid: str,
                               activate: bool):
 
         response = super()._execute_request("/AddTakeProfitOrder",
-                                             {"guid": guid,
+                                             {"guid": orderguid,
                                               "name": name,
                                               "accountGuid": accountguid,
                                               "primaryCoin": primarycoin,
@@ -318,14 +318,14 @@ class AdvancedOrderApi(ApiBase):
             return HaasomeClientResponse(EnumErrorCode(int(response["ErrorCode"])),
                                          response["ErrorMessage"], {})
 
-    def setup_take_profit_order_leverage(self, guid: str, name: str, accountguid: str, primarycoin: str, secondarycoin: str,
+    def setup_take_profit_order_leverage(self, accountguid: str, orderguid: str, name: str, primarycoin: str, secondarycoin: str,
                                          contractname: str, leverage: float, direction: EnumOrderType,
                                          executingtemplateguid: str, triggerprice: float, executionprice: float,
                                          amount: float, startorderonactivation: bool, startorderprice: float,
                                          starttemplateguid: str, activate: bool):
 
         response = super()._execute_request("/AddTakeProfitOrder",
-                                            {"guid": guid,
+                                            {"guid": orderguid,
                                              "name": name,
                                              "accountGuid": accountguid,
                                              "primaryCoin": primarycoin,
@@ -348,13 +348,13 @@ class AdvancedOrderApi(ApiBase):
             return HaasomeClientResponse(EnumErrorCode(int(response["ErrorCode"])),
                                          response["ErrorMessage"], {})
 
-    def setup_trailing_stop_order(self, guid: str, name: str, accountguid: str, primarycoin: str, secondarycoin: str,
+    def setup_trailing_stop_order(self, accountguid: str, orderguid: str, name: str, primarycoin: str, secondarycoin: str,
                               direction: EnumOrderType, executingtemplateguid: str, trailingstoppercentage: float,
                               amount: float, startorderonactivation: bool, startorderprice: float, starttemplateguid: str,
                               activate: bool):
 
         response = super()._execute_request("/AddTrailingStopOrder",
-                                             {"guid": guid,
+                                             {"guid": orderguid,
                                               "name": name,
                                               "accountGuid": accountguid,
                                               "primaryCoin": primarycoin,
@@ -376,13 +376,13 @@ class AdvancedOrderApi(ApiBase):
             return HaasomeClientResponse(EnumErrorCode(int(response["ErrorCode"])),
                                          response["ErrorMessage"], {})
 
-    def setup_trailing_stop_leverage(self, guid: str, name: str, accountguid: str, primarycoin: str, secondarycoin: str,
+    def setup_trailing_stop_leverage(self, accountguid: str, orderguid: str, name: str, primarycoin: str, secondarycoin: str,
                                    contractname: str, leverage: float, direction: EnumOrderType, executingtemplateguid: str,
                                    trailingstoppercentage: float, amount: float, startorderonactivation: bool,
                                    startorderprice: float, starttemplateguid: str, activate: bool):
 
         response = super()._execute_request("/AddTrailingStopOrder",
-                                             {"guid": guid,
+                                             {"guid": orderguid,
                                               "name": name,
                                               "accountGuid": accountguid,
                                               "primaryCoin": primarycoin,

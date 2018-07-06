@@ -52,12 +52,11 @@ class ApiBase:
             url = url + paramSig[0]
             url = url + "&sig="+paramSig[1]
 
-        print(url)
-
+        #print(url)
         #return requests.get(url).json()
-        test = requests.get(url).json()
-        print(test)
-        return test
+        #test = requests.get(url).json()
+        #print(test)
+        return requests.get(url).json()
 
     @staticmethod
     def _from_json(data, cls):

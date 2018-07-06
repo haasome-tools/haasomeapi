@@ -171,7 +171,7 @@ class CustomBotApi(ApiBase):
             return HaasomeClientResponse(EnumErrorCode(int(response["ErrorCode"])),
                                          response["ErrorMessage"], {})
 
-    def new_custom_bot(self, bottype: EnumCustomBotType, botname: str, accountguid: str, primarycoin: str,
+    def new_custom_bot(self, accountguid: str, bottype: EnumCustomBotType, botname: str, primarycoin: str,
                        secondarycoin: str, contractname: str):
 
         response = super()._execute_request("/GetCustomBot", {"botType": EnumCustomBotType(bottype).name.capitalize(),
@@ -188,7 +188,7 @@ class CustomBotApi(ApiBase):
             return HaasomeClientResponse(EnumErrorCode(int(response["ErrorCode"])),
                                          response["ErrorMessage"], {})
 
-    def new_custom_bot_from_market(self, bottype: EnumCustomBotType, botname: str, accountguid: str, market: Market):
+    def new_custom_bot_from_market(self, accountguid: str, bottype: EnumCustomBotType, botname: str, market: Market):
 
         response = super()._execute_request("/GetCustomBot", {"botType": EnumCustomBotType(bottype).name.capitalize(),
                                                               "botName": botname,
@@ -255,7 +255,7 @@ class CustomBotApi(ApiBase):
             return HaasomeClientResponse(EnumErrorCode(int(response["ErrorCode"])),
                                          response["ErrorMessage"], {})
 
-    def backtest_custom_bot_on_market(self, botguid: str, minutestotest: int, accountguid: str, primarycoin: str,
+    def backtest_custom_bot_on_market(self, accountguid: str, botguid: str, minutestotest: int, primarycoin: str,
                                       secondarycoin: str, contractname: str):
 
         response = super()._execute_request("/BacktestCustomBot",  {"botGuid": botguid,
@@ -272,7 +272,7 @@ class CustomBotApi(ApiBase):
             return HaasomeClientResponse(EnumErrorCode(int(response["ErrorCode"])),
                                          response["ErrorMessage"], {})
 
-    def clone_custom_bot(self, bottype: EnumCustomBotType, botguid: str, botname: str, accountguid: str,
+    def clone_custom_bot(self, accountguid: str, bottype: EnumCustomBotType, botguid: str, botname: str, 
                          primarycoin: str,secondarycoin: str, contractname: str, leverage: float):
 
         response = super()._execute_request("/CloneCustomBot",  {"botGuid": botguid,
@@ -290,7 +290,7 @@ class CustomBotApi(ApiBase):
             return HaasomeClientResponse(EnumErrorCode(int(response["ErrorCode"])),
                                          response["ErrorMessage"], {})
 
-    def clone_custom_bot_simple(self, botguid: str, botname: str, accountguid: str):
+    def clone_custom_bot_simple(self, accountguid: str, botguid: str, botname: str):
 
         response = super()._execute_request("/CloneCustomBotSimple",  {"botGuid": botguid,
                                                                  "botName": botname,
@@ -303,7 +303,7 @@ class CustomBotApi(ApiBase):
             return HaasomeClientResponse(EnumErrorCode(int(response["ErrorCode"])),
                                          response["ErrorMessage"], {})
 
-    def setup_accumulation_bot(self, botguid: str, botname: str, accountguid: str, primarycoin: str, secondarycoin: str,
+    def setup_accumulation_bot(self, accountguid: str, botguid: str, botname: str, primarycoin: str, secondarycoin: str,
                                stoptype: EnumAccumulationBotStopType, stoptypevalue: float, randomordersizex: float,
                                randomordersizey: float, randomordertimex: int, randomordertimey: int,
                                direction: EnumOrderType, triggeronprice: bool, triggerwhenhigher: bool, triggervalue: float):
@@ -330,7 +330,7 @@ class CustomBotApi(ApiBase):
             return HaasomeClientResponse(EnumErrorCode(int(response["ErrorCode"])),
                                          response["ErrorMessage"], {})
 
-    def setup_crypto_index_bot(self, botguid: str, botname: str, accountguid: str, templateguid: str, basecoin: str,
+    def setup_crypto_index_bot(self, accountguid: str, botguid: str, botname: str, templateguid: str, basecoin: str,
                                totalIndexValue: float, individualgrowth: bool, allocateprofits: bool, index: List[CryptoIndexBotIndexSaveObject] ):
 
         response = super()._execute_request("/SetupCryptoIndexBot",  {"botGuid": botguid,
@@ -349,7 +349,7 @@ class CustomBotApi(ApiBase):
             return HaasomeClientResponse(EnumErrorCode(int(response["ErrorCode"])),
                                          response["ErrorMessage"], {})
 
-    def setup_email_bot(self, botguid: str, botname: str, accountguid: str, primarycoin: str, secondarycoin: str,
+    def setup_email_bot(self, accountguid: str, botguid: str, botname: str, primarycoin: str, secondarycoin: str,
                         contractname: str, leverage: float, tradeamount: float, fee: float, templateguid: str,
                         position: str, actions: List[EmailBotAction], stoploss: float, minchangetobuy: float,
                         minchangetosell: float):
@@ -376,7 +376,7 @@ class CustomBotApi(ApiBase):
             return HaasomeClientResponse(EnumErrorCode(int(response["ErrorCode"])),
                                          response["ErrorMessage"], {})
 
-    def setup_flash_crash_bot(self, botguid: str, botname: str, accountguid: str, primarycoin: str, secondarycoin: str,
+    def setup_flash_crash_bot(self, accountguid: str, botguid: str, botname: str, primarycoin: str, secondarycoin: str,
                               fee: float, baseprice: float,  priceSpreadType: EnumFlashSpreadOptions, pricespread: float,
                               percentageboost: float, minpercentage: float, maxpercentage: float, amounttype: EnumCurrencyType,
                               amountspread: float, buyamount: float, sellamount: float, refilldelay: int, safetyenabled: bool,
@@ -415,7 +415,7 @@ class CustomBotApi(ApiBase):
             return HaasomeClientResponse(EnumErrorCode(int(response["ErrorCode"])),
                                          response["ErrorMessage"], {})
 
-    def setup_inter_exchange_arbitrage_bot(self, botguid: str, botname: str, accountguid: str, primarycoin: str, secondarycoin: str,
+    def setup_inter_exchange_arbitrage_bot(self, accountguid: str, botguid: str, botname: str, primarycoin: str, secondarycoin: str,
                                            accountguid2: str, primarycoin2: str, secondarycoin2: str, tradeamount: float,
                                            triggerlevel: float, templateguid: str, maxamount: float, maxtrades: int):
 
@@ -439,7 +439,7 @@ class CustomBotApi(ApiBase):
             return HaasomeClientResponse(EnumErrorCode(int(response["ErrorCode"])),
                                          response["ErrorMessage"], {})
 
-    def setup_intellibot_alice(self, botguid: str, botname: str, accountguid: str, primarycoin: str, secondarycoin: str,
+    def setup_intellibot_alice(self, accountguid: str, botguid: str, botname: str, primarycoin: str, secondarycoin: str,
                                contractname: str, leverage: float, tradeamount: float, fee: float):
 
         response = super()._execute_request("/SetupIntellibotAlice",  {"botGuid": botguid,
@@ -458,7 +458,7 @@ class CustomBotApi(ApiBase):
             return HaasomeClientResponse(EnumErrorCode(int(response["ErrorCode"])),
                                          response["ErrorMessage"], {})
 
-    def setup_market_making_bot(self, botguid: str, botname: str, accountguid: str, primarycoin: str, secondarycoin: str,
+    def setup_market_making_bot(self, accountguid: str, botguid: str, botname: str, primarycoin: str, secondarycoin: str,
                                 tradeamount: float, fee: float, offset: float, resettimeout: int, usedsecondorder: bool,
                                 secondoffset: float):
 
@@ -480,7 +480,7 @@ class CustomBotApi(ApiBase):
             return HaasomeClientResponse(EnumErrorCode(int(response["ErrorCode"])),
                                          response["ErrorMessage"], {})
 
-    def setup_mad_hatter_bot(self, botguid: str, botname: str, accountguid: str, primarycoin: str, secondarycoin: str,
+    def setup_mad_hatter_bot(self, accountguid: str, botguid: str, botname: str, primarycoin: str, secondarycoin: str,
                              templateguid: str, position: str, fee: float, tradeamount: float, useconsensus: bool,
                              disableafterstoploss: bool, interval: int, includeincompleteinterval: bool):
 
@@ -504,7 +504,7 @@ class CustomBotApi(ApiBase):
             return HaasomeClientResponse(EnumErrorCode(int(response["ErrorCode"])),
                                          response["ErrorMessage"], {})
 
-    def setup_order_bot(self, botguid: str, botname: str, accountguid: str, primarycoin: str, secondarycoin: str):
+    def setup_order_bot(self, accountguid: str, botguid: str, botname: str, primarycoin: str, secondarycoin: str):
 
         response = super()._execute_request("/SetupOrderBot",  {"botGuid": botguid,
                                                                     "botName": botname,
@@ -518,7 +518,7 @@ class CustomBotApi(ApiBase):
             return HaasomeClientResponse(EnumErrorCode(int(response["ErrorCode"])),
                                          response["ErrorMessage"], {})
 
-    def setup_ping_pong_bot(self, botguid: str, botname: str, accountguid: str, primarycoin: str, secondarycoin: str,
+    def setup_ping_pong_bot(self, accountguid: str, botguid: str, botname: str, primarycoin: str, secondarycoin: str,
                             contractbame: str, leverage: float, tradeamount: float, position: str, fee: float):
 
         response = super()._execute_request("/SetupPingPongBot",  {"botGuid": botguid,
@@ -538,7 +538,7 @@ class CustomBotApi(ApiBase):
             return HaasomeClientResponse(EnumErrorCode(int(response["ErrorCode"])),
                                          response["ErrorMessage"], {})
 
-    def setup_scalper_bot(self, botguid: str, botname: str, accountguid: str, primarycoin: str, secondarycoin: str,
+    def setup_scalper_bot(self, accountguid: str, botguid: str, botname: str, primarycoin: str, secondarycoin: str,
                           templateguid :str, contractbame: str, leverage: float, tradeamount: float, targetpercentage: float,
                           safetythreshold: float, position: str, fee: float):
 
@@ -562,7 +562,7 @@ class CustomBotApi(ApiBase):
             return HaasomeClientResponse(EnumErrorCode(int(response["ErrorCode"])),
                                          response["ErrorMessage"], {})
 
-    def setup_script_bot(self, botguid: str, botname: str, accountguid: str, primarycoin: str, secondarycoin: str,
+    def setup_script_bot(self, accountguid: str, botguid: str, botname: str, primarycoin: str, secondarycoin: str,
                          templateguid :str, contractbame: str, leverage: float, tradeamount: float, fee: float,
                          position: str, scriptid: str):
 
@@ -586,7 +586,7 @@ class CustomBotApi(ApiBase):
             return HaasomeClientResponse(EnumErrorCode(int(response["ErrorCode"])),
                                          response["ErrorMessage"], {})
 
-    def setup_zone_recovery_bot(self, botguid: str, botname: str, accountguid: str, primarycoin: str, secondarycoin: str,
+    def setup_zone_recovery_bot(self, accountguid: str, botguid: str, botname: str, primarycoin: str, secondarycoin: str,
                                 contractname: str, leverage: float, tradeamount: float, maxtradeamount: float,
                                 factorlong: float, factorshort: float, targetprofit: float, zone: float):
 

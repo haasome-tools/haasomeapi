@@ -34,11 +34,22 @@ from haasomeapi.dataobjects.custombots.dataobjects.CryptoIndexBotIndexSaveObject
 
 
 class CustomBotApi(ApiBase):
+    """ The Custom Bot API Class.
+    Gives access to the Custom Bot api endpoints
+
+    :param connectionstring: str: Connection String Formatted Ex. http://127.0.0.1:9000
+    :param privatekey: str: Private Key Set In The Haas Settings
+    """
 
     def __init__(self, connectionstring: str, privatekey: str):
         ApiBase.__init__(self, connectionstring, privatekey)
 
     def _convert_json_bot_to_custom_bot_object(self, jsonstr: str):
+        """ Internal function to easily convert json strings to BaseCustomBot objects
+        :param jsonstr: str: 
+
+        :returns: :class:`~haasomeapi.dataobjects.custombots.BaseCustomBot`
+        """
 
         botinitial = super()._from_json(jsonstr, BaseCustomBot)
 
@@ -52,6 +63,11 @@ class CustomBotApi(ApiBase):
         return botinitial
 
     def _convert_json_bot_to_custom_bot_specific(self, bottype: EnumCustomBotType, jsonstr: str):
+        """ Internal function to easily convert json strings to specific custom bot objects
+        :param bottype: :class:`~haasomeapi.enums.EnumCustomBotType`
+        :param jsonstr: str: 
+        :returns: any: Returns a Class Instance of bottype specified
+        """
 
         botinitial = None
 
@@ -98,6 +114,12 @@ class CustomBotApi(ApiBase):
         return botinitial
 
     def _convert_index_list_to_json(self, index: List[CryptoIndexBotIndexSaveObject]):
+        """ Internal fucntion to converts a CryptoIndexBotIndexSaveObject list to a json string
+
+        :param index: List[CryptoIndexBotIndexSaveObject]: 
+
+        :returns: str: Json string representation of specified list
+        """
         index_fixed = []
 
         for i in index:
@@ -107,6 +129,13 @@ class CustomBotApi(ApiBase):
         return json.dumps(index_fixed, sort_keys=True)
 
     def _convert_emails_list_to_json(self, actions: List[EmailBotAction]):
+        """ Internal fucntion to converts a EmailBotAction list to a json string
+
+        :param actions: List[EmailBotAction]: 
+
+        :returns: str: Json string representation of the specified list
+
+        """
 
         actions_fixed = []
 
@@ -124,6 +153,10 @@ class CustomBotApi(ApiBase):
 
 
     def get_all_custom_bots(self):
+        """ Returns all custom bots created
+
+        :returns: List[:class:`~haasomeapi.dataobjects.custombots.BaseCustomBot`]
+        """
         response = super()._execute_request("/AllCustomBots", {})
 
         bots = []
@@ -139,7 +172,15 @@ class CustomBotApi(ApiBase):
             return HaasomeClientResponse(EnumErrorCode(int(response["ErrorCode"])),
                                          response["ErrorMessage"], {})
 
-    def get_custom_bot(self, bottype: EnumCustomBotType, botguid: str):
+    def get_custom_bot(self,  botguid: str, bottype: EnumCustomBotType):
+        """ Returns custom bot matching bot guid
+
+        :param botguid: str: the bot 
+        :param bottype: :class:`~haasomeapi.enums.EnumCustomBotType`: Type of bot to return 
+
+        :returns: any: Specified bottype object
+
+        """
 
         response = super()._execute_request("/GetCustomBot", {"botGuid": botguid})
 
@@ -152,6 +193,14 @@ class CustomBotApi(ApiBase):
                                          response["ErrorMessage"], {})
 
     def activate_custom_bot(self, botguid: str, withextra: bool):
+        """ Activates a custom bot
+
+        :param botguid: str: Bot guid
+        :param withextra: bool: with extra
+
+        :returns: bool: If activation was successful
+
+        """
         response = super()._execute_request("/ActivateCustomBot",  {"botGuid": botguid, "extra": str(withextra).lower()})
 
         try:
@@ -162,6 +211,14 @@ class CustomBotApi(ApiBase):
                                          response["ErrorMessage"], {})
 
     def deactivate_custom_bot(self, botguid: str, withextra: bool):
+        """ Deactivates a custom bot
+
+        :param botguid: str: Bot guid
+        :param withextra: bool: with extra
+
+        :returns: bool: If deactivation was successful
+
+        """
         response = super()._execute_request("/DeactivateCustomBot",  {"botGuid": botguid, "extra": str(withextra).lower()})
 
         try:
@@ -173,6 +230,18 @@ class CustomBotApi(ApiBase):
 
     def new_custom_bot(self, accountguid: str, bottype: EnumCustomBotType, botname: str, primarycoin: str,
                        secondarycoin: str, contractname: str):
+        """ Create a new custom bot
+
+        :param accountguid: str: Account guid
+        :param bottype: :class:`~haasomeapi.enums.EnumCustomBotType`: The bottype to create 
+        :param botname: str: Name for the new custom bot
+        :param primarycoin: str: Primary currency Ex. If BNB/BTC then set this to BNB
+        :param secondarycoin: str: Secondary currency Ex. If BNB/BTC then set this to BTC
+        :param contractname: str: Contract name (Optional)
+
+        :returns: any: Specified bot type object
+
+        """
 
         response = super()._execute_request("/GetCustomBot", {"botType": EnumCustomBotType(bottype).name.capitalize(),
                                                               "botName": botname,
@@ -189,6 +258,16 @@ class CustomBotApi(ApiBase):
                                          response["ErrorMessage"], {})
 
     def new_custom_bot_from_market(self, accountguid: str, bottype: EnumCustomBotType, botname: str, market: Market):
+        """ Create a new custom bot from market object
+
+        :param accountguid: str: Account guid
+        :param bottype: :class:`~haasomeapi.enums.EnumCustomBotType`: The bottype to create 
+        :param botname: str: Name for the new custom bot
+        :parama market: :class:`~haasomeapi.dataobjects.marketdata.Market`: Market object to use
+
+        :returns: any: Specified bot type object
+
+        """
 
         response = super()._execute_request("/GetCustomBot", {"botType": EnumCustomBotType(bottype).name.capitalize(),
                                                               "botName": botname,
@@ -205,6 +284,11 @@ class CustomBotApi(ApiBase):
                                          response["ErrorMessage"], {})
 
     def remove_custom_bot(self, botguid: str):
+        """
+
+        :param botguid: str: 
+
+        """
         response = super()._execute_request("/RemoveCustomBot",  {"botGuid": botguid})
 
         try:
@@ -215,6 +299,11 @@ class CustomBotApi(ApiBase):
                                          response["ErrorMessage"], {})
 
     def clear_custom_bot(self, botguid: str):
+        """
+
+        :param botguid: str: 
+
+        """
         response = super()._execute_request("/ClearCustomBot",  {"botGuid": botguid})
 
         try:
@@ -225,6 +314,12 @@ class CustomBotApi(ApiBase):
                                          response["ErrorMessage"], {})
 
     def clear_custom_bot_specific(self, bottype: EnumCustomBotType, botguid: str):
+        """
+
+        :param bottype: EnumCustomBotType: 
+        :param botguid: str: 
+
+        """
         response = super()._execute_request("/ClearCustomBot",  {"botGuid": botguid})
 
         try:
@@ -235,6 +330,12 @@ class CustomBotApi(ApiBase):
                                          response["ErrorMessage"], {})
 
     def backtest_custom_bot(self, botguid: str, minutestotest: int):
+        """
+
+        :param botguid: str: 
+        :param minutestotest: int: 
+
+        """
         response = super()._execute_request("/BacktestCustomBot",  {"botGuid": botguid, "minutesToTest": minutestotest})
 
         try:
@@ -245,6 +346,13 @@ class CustomBotApi(ApiBase):
                                          response["ErrorMessage"], {})
 
     def backtest_custom_bot_unix_time(self, botguid: str, startunix: int, endunix: int):
+        """
+
+        :param botguid: str: 
+        :param startunix: int: 
+        :param endunix: int: 
+
+        """
         response = super()._execute_request("/BacktestCustomBot",  {"botGuid": botguid, "startUnix": startunix,
                                                                     "endunix": endunix})
 
@@ -257,6 +365,16 @@ class CustomBotApi(ApiBase):
 
     def backtest_custom_bot_on_market(self, accountguid: str, botguid: str, minutestotest: int, primarycoin: str,
                                       secondarycoin: str, contractname: str):
+        """
+
+        :param accountguid: str: 
+        :param botguid: str: 
+        :param minutestotest: int: 
+        :param primarycoin: str: 
+        :param secondarycoin: str: 
+        :param contractname: str: 
+
+        """
 
         response = super()._execute_request("/BacktestCustomBot",  {"botGuid": botguid,
                                                                     "minutesToTest": minutestotest,
@@ -274,6 +392,18 @@ class CustomBotApi(ApiBase):
 
     def clone_custom_bot(self, accountguid: str, bottype: EnumCustomBotType, botguid: str, botname: str, 
                          primarycoin: str,secondarycoin: str, contractname: str, leverage: float):
+        """
+
+        :param accountguid: str: 
+        :param bottype: EnumCustomBotType: 
+        :param botguid: str: 
+        :param botname: str: 
+        :param primarycoin: str: 
+        :param secondarycoin: str: 
+        :param contractname: str: 
+        :param leverage: float: 
+
+        """
 
         response = super()._execute_request("/CloneCustomBot",  {"botGuid": botguid,
                                                                  "botName": botname,
@@ -291,6 +421,13 @@ class CustomBotApi(ApiBase):
                                          response["ErrorMessage"], {})
 
     def clone_custom_bot_simple(self, accountguid: str, botguid: str, botname: str):
+        """
+
+        :param accountguid: str: 
+        :param botguid: str: 
+        :param botname: str: 
+
+        """
 
         response = super()._execute_request("/CloneCustomBotSimple",  {"botGuid": botguid,
                                                                  "botName": botname,
@@ -307,6 +444,25 @@ class CustomBotApi(ApiBase):
                                stoptype: EnumAccumulationBotStopType, stoptypevalue: float, randomordersizex: float,
                                randomordersizey: float, randomordertimex: int, randomordertimey: int,
                                direction: EnumOrderType, triggeronprice: bool, triggerwhenhigher: bool, triggervalue: float):
+        """
+
+        :param accountguid: str: 
+        :param botguid: str: 
+        :param botname: str: 
+        :param primarycoin: str: 
+        :param secondarycoin: str: 
+        :param stoptype: EnumAccumulationBotStopType: 
+        :param stoptypevalue: float: 
+        :param randomordersizex: float: 
+        :param randomordersizey: float: 
+        :param randomordertimex: int: 
+        :param randomordertimey: int: 
+        :param direction: EnumOrderType: 
+        :param triggeronprice: bool: 
+        :param triggerwhenhigher: bool: 
+        :param triggervalue: float: 
+
+        """
 
         response = super()._execute_request("/SetupAccumulationBot",  {"botGuid": botguid,
                                                                        "botName": botname,
@@ -332,6 +488,19 @@ class CustomBotApi(ApiBase):
 
     def setup_crypto_index_bot(self, accountguid: str, botguid: str, botname: str, templateguid: str, basecoin: str,
                                totalIndexValue: float, individualgrowth: bool, allocateprofits: bool, index: List[CryptoIndexBotIndexSaveObject] ):
+        """
+
+        :param accountguid: str: 
+        :param botguid: str: 
+        :param botname: str: 
+        :param templateguid: str: 
+        :param basecoin: str: 
+        :param totalIndexValue: float: 
+        :param individualgrowth: bool: 
+        :param allocateprofits: bool: 
+        :param index: List[CryptoIndexBotIndexSaveObject]: 
+
+        """
 
         response = super()._execute_request("/SetupCryptoIndexBot",  {"botGuid": botguid,
                                                                       "botName": botname,
@@ -353,6 +522,25 @@ class CustomBotApi(ApiBase):
                         contractname: str, leverage: float, tradeamount: float, fee: float, templateguid: str,
                         position: str, actions: List[EmailBotAction], stoploss: float, minchangetobuy: float,
                         minchangetosell: float):
+        """
+
+        :param accountguid: str: 
+        :param botguid: str: 
+        :param botname: str: 
+        :param primarycoin: str: 
+        :param secondarycoin: str: 
+        :param contractname: str: 
+        :param leverage: float: 
+        :param tradeamount: float: 
+        :param fee: float: 
+        :param templateguid: str: 
+        :param position: str: 
+        :param actions: List[EmailBotAction]: 
+        :param stoploss: float: 
+        :param minchangetobuy: float: 
+        :param minchangetosell: float: 
+
+        """
 
         response = super()._execute_request("/SetupEmailBot",  {"botGuid": botguid,
                                                                 "botName": botname,
@@ -382,6 +570,34 @@ class CustomBotApi(ApiBase):
                               amountspread: float, buyamount: float, sellamount: float, refilldelay: int, safetyenabled: bool,
                               safetytriggerlevel: float, safetymoveinout: bool, followthetrend: bool, followthetrendchannelrange: int,
                               followthetrendchanneloffset: int, followthetrendtimeout: int):
+        """
+
+        :param accountguid: str: 
+        :param botguid: str: 
+        :param botname: str: 
+        :param primarycoin: str: 
+        :param secondarycoin: str: 
+        :param fee: float: 
+        :param baseprice: float: 
+        :param priceSpreadType: EnumFlashSpreadOptions: 
+        :param pricespread: float: 
+        :param percentageboost: float: 
+        :param minpercentage: float: 
+        :param maxpercentage: float: 
+        :param amounttype: EnumCurrencyType: 
+        :param amountspread: float: 
+        :param buyamount: float: 
+        :param sellamount: float: 
+        :param refilldelay: int: 
+        :param safetyenabled: bool: 
+        :param safetytriggerlevel: float: 
+        :param safetymoveinout: bool: 
+        :param followthetrend: bool: 
+        :param followthetrendchannelrange: int: 
+        :param followthetrendchanneloffset: int: 
+        :param followthetrendtimeout: int: 
+
+        """
 
         response = super()._execute_request("/SetupFlashCrashBot",  {"botGuid": botguid,
                                                                      "botName": botname,
@@ -418,6 +634,23 @@ class CustomBotApi(ApiBase):
     def setup_inter_exchange_arbitrage_bot(self, accountguid: str, botguid: str, botname: str, primarycoin: str, secondarycoin: str,
                                            accountguid2: str, primarycoin2: str, secondarycoin2: str, tradeamount: float,
                                            triggerlevel: float, templateguid: str, maxamount: float, maxtrades: int):
+        """
+
+        :param accountguid: str: 
+        :param botguid: str: 
+        :param botname: str: 
+        :param primarycoin: str: 
+        :param secondarycoin: str: 
+        :param accountguid2: str: 
+        :param primarycoin2: str: 
+        :param secondarycoin2: str: 
+        :param tradeamount: float: 
+        :param triggerlevel: float: 
+        :param templateguid: str: 
+        :param maxamount: float: 
+        :param maxtrades: int: 
+
+        """
 
         response = super()._execute_request("/SetupInterExchangeArbitrageBot",  {"botGuid": botguid,
                                                                                  "botName": botname,
@@ -441,6 +674,19 @@ class CustomBotApi(ApiBase):
 
     def setup_intellibot_alice(self, accountguid: str, botguid: str, botname: str, primarycoin: str, secondarycoin: str,
                                contractname: str, leverage: float, tradeamount: float, fee: float):
+        """
+
+        :param accountguid: str: 
+        :param botguid: str: 
+        :param botname: str: 
+        :param primarycoin: str: 
+        :param secondarycoin: str: 
+        :param contractname: str: 
+        :param leverage: float: 
+        :param tradeamount: float: 
+        :param fee: float: 
+
+        """
 
         response = super()._execute_request("/SetupIntellibotAlice",  {"botGuid": botguid,
                                                                        "botName": botname,
@@ -461,6 +707,21 @@ class CustomBotApi(ApiBase):
     def setup_market_making_bot(self, accountguid: str, botguid: str, botname: str, primarycoin: str, secondarycoin: str,
                                 tradeamount: float, fee: float, offset: float, resettimeout: int, usedsecondorder: bool,
                                 secondoffset: float):
+        """
+
+        :param accountguid: str: 
+        :param botguid: str: 
+        :param botname: str: 
+        :param primarycoin: str: 
+        :param secondarycoin: str: 
+        :param tradeamount: float: 
+        :param fee: float: 
+        :param offset: float: 
+        :param resettimeout: int: 
+        :param usedsecondorder: bool: 
+        :param secondoffset: float: 
+
+        """
 
         response = super()._execute_request("/SetupMarketMakingBot",  {"botGuid": botguid,
                                                                        "botName": botname,
@@ -483,6 +744,23 @@ class CustomBotApi(ApiBase):
     def setup_mad_hatter_bot(self, accountguid: str, botguid: str, botname: str, primarycoin: str, secondarycoin: str,
                              templateguid: str, position: str, fee: float, tradeamount: float, useconsensus: bool,
                              disableafterstoploss: bool, interval: int, includeincompleteinterval: bool):
+        """
+
+        :param accountguid: str: 
+        :param botguid: str: 
+        :param botname: str: 
+        :param primarycoin: str: 
+        :param secondarycoin: str: 
+        :param templateguid: str: 
+        :param position: str: 
+        :param fee: float: 
+        :param tradeamount: float: 
+        :param useconsensus: bool: 
+        :param disableafterstoploss: bool: 
+        :param interval: int: 
+        :param includeincompleteinterval: bool: 
+
+        """
 
         response = super()._execute_request("/SetupMadHatterBot",  {"botGuid": botguid,
                                                                     "botName": botname,
@@ -505,6 +783,15 @@ class CustomBotApi(ApiBase):
                                          response["ErrorMessage"], {})
 
     def setup_order_bot(self, accountguid: str, botguid: str, botname: str, primarycoin: str, secondarycoin: str):
+        """
+
+        :param accountguid: str: 
+        :param botguid: str: 
+        :param botname: str: 
+        :param primarycoin: str: 
+        :param secondarycoin: str: 
+
+        """
 
         response = super()._execute_request("/SetupOrderBot",  {"botGuid": botguid,
                                                                     "botName": botname,
@@ -520,6 +807,20 @@ class CustomBotApi(ApiBase):
 
     def setup_ping_pong_bot(self, accountguid: str, botguid: str, botname: str, primarycoin: str, secondarycoin: str,
                             contractbame: str, leverage: float, tradeamount: float, position: str, fee: float):
+        """
+
+        :param accountguid: str: 
+        :param botguid: str: 
+        :param botname: str: 
+        :param primarycoin: str: 
+        :param secondarycoin: str: 
+        :param contractbame: str: 
+        :param leverage: float: 
+        :param tradeamount: float: 
+        :param position: str: 
+        :param fee: float: 
+
+        """
 
         response = super()._execute_request("/SetupPingPongBot",  {"botGuid": botguid,
                                                                     "botName": botname,
@@ -541,6 +842,23 @@ class CustomBotApi(ApiBase):
     def setup_scalper_bot(self, accountguid: str, botguid: str, botname: str, primarycoin: str, secondarycoin: str,
                           templateguid :str, contractbame: str, leverage: float, tradeamount: float, targetpercentage: float,
                           safetythreshold: float, position: str, fee: float):
+        """
+
+        :param accountguid: str: 
+        :param botguid: str: 
+        :param botname: str: 
+        :param primarycoin: str: 
+        :param secondarycoin: str: 
+        :param templateguid :str: 
+        :param contractbame: str: 
+        :param leverage: float: 
+        :param tradeamount: float: 
+        :param targetpercentage: float: 
+        :param safetythreshold: float: 
+        :param position: str: 
+        :param fee: float: 
+
+        """
 
         response = super()._execute_request("/SetupScalpingBot",  {"botGuid": botguid,
                                                                    "botName": botname,
@@ -565,6 +883,22 @@ class CustomBotApi(ApiBase):
     def setup_script_bot(self, accountguid: str, botguid: str, botname: str, primarycoin: str, secondarycoin: str,
                          templateguid :str, contractbame: str, leverage: float, tradeamount: float, fee: float,
                          position: str, scriptid: str):
+        """
+
+        :param accountguid: str: 
+        :param botguid: str: 
+        :param botname: str: 
+        :param primarycoin: str: 
+        :param secondarycoin: str: 
+        :param templateguid :str: 
+        :param contractbame: str: 
+        :param leverage: float: 
+        :param tradeamount: float: 
+        :param fee: float: 
+        :param position: str: 
+        :param scriptid: str: 
+
+        """
 
         response = super()._execute_request("/SetupScriptBot",  {"botGuid": botguid,
                                                                  "botName": botname,
@@ -589,6 +923,23 @@ class CustomBotApi(ApiBase):
     def setup_zone_recovery_bot(self, accountguid: str, botguid: str, botname: str, primarycoin: str, secondarycoin: str,
                                 contractname: str, leverage: float, tradeamount: float, maxtradeamount: float,
                                 factorlong: float, factorshort: float, targetprofit: float, zone: float):
+        """
+
+        :param accountguid: str: 
+        :param botguid: str: 
+        :param botname: str: 
+        :param primarycoin: str: 
+        :param secondarycoin: str: 
+        :param contractname: str: 
+        :param leverage: float: 
+        :param tradeamount: float: 
+        :param maxtradeamount: float: 
+        :param factorlong: float: 
+        :param factorshort: float: 
+        :param targetprofit: float: 
+        :param zone: float: 
+
+        """
 
         response = super()._execute_request("/SetupZoneRecoveryBot",  {"botGuid": botguid,
                                                                        "botName": botname,
@@ -612,6 +963,11 @@ class CustomBotApi(ApiBase):
                                          response["ErrorMessage"], {})
 
     def flash_crash_bot_quck_start(self, botguid: str):
+        """
+
+        :param botguid: str: 
+
+        """
         response = super()._execute_request("/QuickStartFlashCrashBot",  {"botGuid": botguid})
 
         try:
@@ -622,6 +978,11 @@ class CustomBotApi(ApiBase):
                                          response["ErrorMessage"], {})
 
     def flash_crash_bot_quick_start_all(self, botguid: str):
+        """
+
+        :param botguid: str: 
+
+        """
         response = super()._execute_request("/QuickStartAllFlashCrashBots",  {"botGuid": botguid})
 
         try:
@@ -632,6 +993,13 @@ class CustomBotApi(ApiBase):
                                          response["ErrorMessage"], {})
 
     def flash_crash_bot_live_edit(self, botguid: str, isbuyorder: bool, addorder: bool):
+        """
+
+        :param botguid: str: 
+        :param isbuyorder: bool: 
+        :param addorder: bool: 
+
+        """
         response = super()._execute_request("/LiveOrderEditFlashCrashBot",  {"botGuid": botguid,
                                                                              "isBuyOrder": str(isbuyorder).lower(),
                                                                              "addOrder": str(addorder).lower()})
@@ -644,18 +1012,46 @@ class CustomBotApi(ApiBase):
                                          response["ErrorMessage"], {})
 
     def flash_crash_bot_add_buy_order(self, botguid: str):
+        """
+
+        :param botguid: str: 
+
+        """
         return self.flash_crash_bot_live_edit(botguid, True, True)
 
     def flash_crash_bot_remove_buy_order(self, botguid: str):
+        """
+
+        :param botguid: str: 
+
+        """
         return self.flash_crash_bot_live_edit(botguid, True, False)
 
     def flash_crash_bot_add_sell_order(self, botguid: str):
+        """
+
+        :param botguid: str: 
+
+        """
         return self.flash_crash_bot_live_edit(botguid, False, True)
 
     def flash_crash_bot_remove_sell_order(self, botguid: str):
+        """
+
+        :param botguid: str: 
+
+        """
         return self.flash_crash_bot_live_edit(botguid, False, False)
 
     def set_mad_hatter_indicator_parameter(self, botguid: str, type: EnumMadHatterIndicators, fieldNo: int, value: any):
+        """
+
+        :param botguid: str: 
+        :param type: EnumMadHatterIndicators: 
+        :param fieldNo: int: 
+        :param value: any: 
+
+        """
 
         response = super()._execute_request("/MadHatterSetIndicatorParameter",  {"botGuid": botguid,
                                                                                  "type": EnumMadHatterIndicators(type).name.capitalize(),
@@ -670,6 +1066,13 @@ class CustomBotApi(ApiBase):
                                          response["ErrorMessage"], {})
 
     def set_mad_hatter_safety_parameter(self, botguid: str, type: EnumMadHatterSafeties, value: any):
+        """
+
+        :param botguid: str: 
+        :param type: EnumMadHatterSafeties: 
+        :param value: any: 
+
+        """
 
         response = super()._execute_request("/MadHatterSetSafetyParameter",  {"botGuid": botguid,
                                                                               "type": EnumMadHatterSafeties(type).name.capitalize(),
@@ -683,6 +1086,11 @@ class CustomBotApi(ApiBase):
                                          response["ErrorMessage"], {})
 
     def flip_accumulation_bot(self, botguid: str):
+        """
+
+        :param botguid: str: 
+
+        """
         response = super()._execute_request("/FlipAccumulationBot",  {"botGuid": botguid})
 
         try:
@@ -694,6 +1102,19 @@ class CustomBotApi(ApiBase):
 
     def add_order_bot_order(self, botguid: str, dependson: str, dependsonnotexecuted: str, amount: float, price: float,
                             triggerprice: float, templateguid: str,  direction: EnumOrderType, triggertype: EnumOrderBotTriggerType,):
+        """
+
+        :param botguid: str: 
+        :param dependson: str: 
+        :param dependsonnotexecuted: str: 
+        :param amount: float: 
+        :param price: float: 
+        :param triggerprice: float: 
+        :param templateguid: str: 
+        :param direction: EnumOrderType: 
+        :param triggertype: EnumOrderBotTriggerType: 
+
+        """
 
         response = super()._execute_request("/OrderBotAddOrder", {"botGuid": botguid,
                                                                   "dependsOn": dependson,
@@ -714,6 +1135,19 @@ class CustomBotApi(ApiBase):
 
     def edit_order_bot_order(self, botguid: str, dependson: str, dependsonnotexecuted: str, amount: float, price: float,
                             triggerprice: float, templateguid: str,  direction: EnumOrderType, triggertype: EnumOrderBotTriggerType,):
+        """
+
+        :param botguid: str: 
+        :param dependson: str: 
+        :param dependsonnotexecuted: str: 
+        :param amount: float: 
+        :param price: float: 
+        :param triggerprice: float: 
+        :param templateguid: str: 
+        :param direction: EnumOrderType: 
+        :param triggertype: EnumOrderBotTriggerType: 
+
+        """
 
         response = super()._execute_request("/OrderBotEditOrder", {"botGuid": botguid,
                                                                    "dependsOn": dependson,
@@ -733,6 +1167,12 @@ class CustomBotApi(ApiBase):
                                          response["ErrorMessage"], {})
 
     def reset_order_bot_order(self, botguid: str, orderguid: str):
+        """
+
+        :param botguid: str: 
+        :param orderguid: str: 
+
+        """
 
         response = super()._execute_request("/OrderBotResetOrder", {"botGuid": botguid,
                                                                     "orderGuid": orderguid})
@@ -745,6 +1185,12 @@ class CustomBotApi(ApiBase):
                                          response["ErrorMessage"], {})
 
     def remove_order_bot_order(self, botguid: str, orderguid: str):
+        """
+
+        :param botguid: str: 
+        :param orderguid: str: 
+
+        """
 
         response = super()._execute_request("/OrderBotRemoveOrder", {"botGuid": botguid,
                                                                      "orderGuid": orderguid})
@@ -757,6 +1203,11 @@ class CustomBotApi(ApiBase):
                                          response["ErrorMessage"], {})
 
     def remove_all_order_bot_order(self, botguid: str):
+        """
+
+        :param botguid: str: 
+
+        """
 
         response = super()._execute_request("/OrderBotRemoveAllOrders", {"botGuid": botguid})
 
@@ -768,6 +1219,13 @@ class CustomBotApi(ApiBase):
                                          response["ErrorMessage"], {})
 
     def setup_script_bot_parameters(self, botguid: str, fieldno: int, value: any):
+        """
+
+        :param botguid: str: 
+        :param fieldno: int: 
+        :param value: any: 
+
+        """
 
         response = super()._execute_request("/OrderBotResetOrder", {"botGuid": botguid,
                                                                     "fieldNo": fieldno,
@@ -779,3 +1237,4 @@ class CustomBotApi(ApiBase):
         except:
             return HaasomeClientResponse(EnumErrorCode(int(response["ErrorCode"])),
                                          response["ErrorMessage"], {})
+            

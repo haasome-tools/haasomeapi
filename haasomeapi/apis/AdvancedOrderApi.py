@@ -9,7 +9,12 @@ from haasomeapi.dataobjects.advancedorders.AdvancedOrderBase import AdvancedOrde
 
 
 class AdvancedOrderApi(ApiBase):
-    """ """
+    """ The Advanced Order API Class.
+    Gives access to the advanced order endpoints
+
+    :param connectionstring: str: Connection String Formatted Ex. http://127.0.0.1:9000
+    :param privatekey: str: Private Key Set In The Haas Settings
+    """
 
     def __init__(self, connectionstring: str, privatekey: str):
         ApiBase.__init__(self, connectionstring, privatekey)
@@ -97,8 +102,8 @@ class AdvancedOrderApi(ApiBase):
 
         :param accountguid: str: The account guid
         :param name: str: Name of the advanced order
-        :param primarycoin: str: Primary market Ex. If BNB/BTC then set this to BNB
-        :param secondarycoin: str: Secondary market Ex. If BNB/BTC then set this to BTC
+        :param primarycoin: str: Primary currency Ex. If BNB/BTC then set this to BNB
+        :param secondarycoin: str: Secondary currency Ex. If BNB/BTC then set this to BTC
         :param direction: EnumOrderType: Order Direction (Buy / Sell)  
         :param executingtemplateguid: str: Executing Template To Use
         :param triggerprice: float:  Trigger price to execute the stop
@@ -144,8 +149,8 @@ class AdvancedOrderApi(ApiBase):
 
         :param accountguid: str: The account guid
         :param name: str: Name of the advanced order
-        :param primarycoin: str: Primary market Ex. If BNB/BTC then set this to BNB
-        :param secondarycoin: str: Secondary market Ex. If BNB/BTC then set this to BTC
+        :param primarycoin: str: Primary currency Ex. If BNB/BTC then set this to BNB
+        :param secondarycoin: str: Secondary currency Ex. If BNB/BTC then set this to BTC
         :param contractname: str: Name of the contract (Options)
         :param leverage: float:  Leverage percentage
         :param direction: EnumOrderType: Order Direction (Long/Short)
@@ -193,8 +198,8 @@ class AdvancedOrderApi(ApiBase):
 
         :param accountguid: str: The account guid
         :param name: str: Name of the advanced order
-        :param primarycoin: str: Primary market Ex. If BNB/BTC then set this to BNB
-        :param secondarycoin: str: Secondary market Ex. If BNB/BTC then set this to BTC
+        :param primarycoin: str: Primary currency Ex. If BNB/BTC then set this to BNB
+        :param secondarycoin: str: Secondary currency Ex. If BNB/BTC then set this to BTC
         :param direction: EnumOrderType: Order Direction (Buy / Sell)  
         :param executingtemplateguid: str: Executing Template To Use
         :param triggerprice: float:  Trigger price to execute the stop
@@ -242,8 +247,8 @@ class AdvancedOrderApi(ApiBase):
 
         :param accountguid: str: The account guid
         :param name: str: Name of the advanced order
-        :param primarycoin: str: Primary market Ex. If BNB/BTC then set this to BNB
-        :param secondarycoin: str: Secondary market Ex. If BNB/BTC then set this to BTC
+        :param primarycoin: str: Primary currency Ex. If BNB/BTC then set this to BNB
+        :param secondarycoin: str: Secondary currency Ex. If BNB/BTC then set this to BTC
         :param contractname: str: Name of the contract (Options)
         :param leverage: float:  Leverage percentage
         :param direction: EnumOrderType: Order Direction (Long/Short)
@@ -291,8 +296,8 @@ class AdvancedOrderApi(ApiBase):
 
         :param accountguid: str: The account guid
         :param name: str: Name of the advanced order
-        :param primarycoin: str: Primary market Ex. If BNB/BTC then set this to BNB
-        :param secondarycoin: str: Secondary market Ex. If BNB/BTC then set this to BTC
+        :param primarycoin: str: Primary currency Ex. If BNB/BTC then set this to BNB
+        :param secondarycoin: str: Secondary currency Ex. If BNB/BTC then set this to BTC
         :param direction: EnumOrderType: Order Direction (Buy / Sell)  
         :param executingtemplateguid: str: Executing Template To Use
         :param trailingstoppercentage: float: Percentage for trailing top to follow
@@ -336,8 +341,8 @@ class AdvancedOrderApi(ApiBase):
 
         :param accountguid: str: The account guid
         :param name: str: Name of the advanced order
-        :param primarycoin: str: Primary market Ex. If BNB/BTC then set this to BNB
-        :param secondarycoin: str: Secondary market Ex. If BNB/BTC then set this to BTC
+        :param primarycoin: str: Primary currency Ex. If BNB/BTC then set this to BNB
+        :param secondarycoin: str: Secondary currency Ex. If BNB/BTC then set this to BTC
         :param contractname: str: Name of the contract (Options)
         :param leverage: float:  Leverage percentage
         :param direction: EnumOrderType: Order Direction (Long/Short)
@@ -386,8 +391,8 @@ class AdvancedOrderApi(ApiBase):
         :param accountguid: str: The account guid
         :param orderguid: str: The advanced order guid to modify
         :param name: str: Name of the advanced order
-        :param primarycoin: str: Primary market Ex. If BNB/BTC then set this to BNB
-        :param secondarycoin: str: Secondary market Ex. If BNB/BTC then set this to BTC
+        :param primarycoin: str: Primary currency Ex. If BNB/BTC then set this to BNB
+        :param secondarycoin: str: Secondary currency Ex. If BNB/BTC then set this to BTC
         :param direction: EnumOrderType: Order Direction (Buy / Sell)  
         :param executingtemplateguid: str: Executing Template To Use
         :param triggerprice: float:  Trigger price to execute the stop
@@ -436,8 +441,8 @@ class AdvancedOrderApi(ApiBase):
         :param accountguid: str: The account guid
         :param orderguid: str: The advanced order guid to modify
         :param name: str: Name of the advanced order
-        :param primarycoin: str: Primary market Ex. If BNB/BTC then set this to BNB
-        :param secondarycoin: str: Secondary market Ex. If BNB/BTC then set this to BTC
+        :param primarycoin: str: Primary currency Ex. If BNB/BTC then set this to BNB
+        :param secondarycoin: str: Secondary currency Ex. If BNB/BTC then set this to BTC
         :param contractname: str: Name of the contract (Options)
         :param leverage: float:  Leverage percentage
         :param direction: EnumOrderType: Order Direction (Long/Short)
@@ -487,8 +492,8 @@ class AdvancedOrderApi(ApiBase):
         :param accountguid: str: The account guid
         :param orderguid: str: The advanced order guid to modify
         :param name: str: Name of the advanced order
-        :param primarycoin: str: Primary market Ex. If BNB/BTC then set this to BNB
-        :param secondarycoin: str: Secondary market Ex. If BNB/BTC then set this to BTC
+        :param primarycoin: str: Primary currency Ex. If BNB/BTC then set this to BNB
+        :param secondarycoin: str: Secondary currency Ex. If BNB/BTC then set this to BTC
         :param direction: EnumOrderType: Order Direction (Buy / Sell)  
         :param executingtemplateguid: str: Executing Template To Use
         :param triggerprice: float:  Trigger price to execute the stop
@@ -538,8 +543,8 @@ class AdvancedOrderApi(ApiBase):
         :param accountguid: str: The account guid
         :param orderguid: str: The advanced order guid to modify
         :param name: str: Name of the advanced order
-        :param primarycoin: str: Primary market Ex. If BNB/BTC then set this to BNB
-        :param secondarycoin: str: Secondary market Ex. If BNB/BTC then set this to BTC
+        :param primarycoin: str: Primary currency Ex. If BNB/BTC then set this to BNB
+        :param secondarycoin: str: Secondary currency Ex. If BNB/BTC then set this to BTC
         :param contractname: str: Name of the contract (Options)
         :param leverage: float:  Leverage percentage
         :param direction: EnumOrderType: Order Direction (Long/Short)
@@ -589,8 +594,8 @@ class AdvancedOrderApi(ApiBase):
         :param accountguid: str: The account guid
         :param orderguid: str: The advanced order guid to modify
         :param name: str: Name of the advanced order
-        :param primarycoin: str: Primary market Ex. If BNB/BTC then set this to BNB
-        :param secondarycoin: str: Secondary market Ex. If BNB/BTC then set this to BTC
+        :param primarycoin: str: Primary currency Ex. If BNB/BTC then set this to BNB
+        :param secondarycoin: str: Secondary currency Ex. If BNB/BTC then set this to BTC
         :param direction: EnumOrderType: Order Direction (Buy / Sell)  
         :param executingtemplateguid: str: Executing Template To Use
         :param trailingstoppercentage: float: Percentage for trailing top to follow
@@ -636,8 +641,8 @@ class AdvancedOrderApi(ApiBase):
         :param accountguid: str: The account guid
         :param orderguid: str: The advanced order guid to modify
         :param name: str: Name of the advanced order
-        :param primarycoin: str: Primary market Ex. If BNB/BTC then set this to BNB
-        :param secondarycoin: str: Secondary market Ex. If BNB/BTC then set this to BTC
+        :param primarycoin: str: Primary currency Ex. If BNB/BTC then set this to BNB
+        :param secondarycoin: str: Secondary currency Ex. If BNB/BTC then set this to BTC
         :param contractname: str: Name of the contract (Options)
         :param leverage: float:  Leverage percentage
         :param direction: EnumOrderType: Order Direction (Long/Short)

@@ -3,16 +3,23 @@ from haasomeapi.apis.ApiBase import ApiBase
 from haasomeapi.enums.EnumErrorCode import EnumErrorCode
 from haasomeapi.enums.EnumOrderType import EnumOrderType
 from haasomeapi.dataobjects.advancedorders.StopTakeProfitOrder import StopTakeProfitOrder
+from haasomeapi.dataobjects.advancedorders.TrailingStop import TrailingStop
 from haasomeapi.dataobjects.util.HaasomeClientResponse import HaasomeClientResponse
 from haasomeapi.dataobjects.advancedorders.AdvancedOrderBase import AdvancedOrderBase
 
 
 class AdvancedOrderApi(ApiBase):
+    """ """
 
     def __init__(self, connectionstring: str, privatekey: str):
         ApiBase.__init__(self, connectionstring, privatekey)
 
     def get_advanced_orders(self):
+        """ Retrieves the current created advanced orders
+
+        :returns: :class:`~haasomeapi.dataobjects.util.HaasomeClientResponse`
+        :returns: In .result Dict[:class:`~haasomeapi.dataobjects.advancedorders.AdvancedOrderBase`]
+        """
         response = super()._execute_request("/GetAdvancedOrders", {})
 
         advancedorders = {}
@@ -28,6 +35,13 @@ class AdvancedOrderApi(ApiBase):
                                          response["ErrorMessage"], {})
 
     def activate_advanced_order(self, guid: str):
+        """ Activates an advanced order
+
+        :param guid: str: advanced order guid
+
+        :returns: :class:`~haasomeapi.dataobjects.util.HaasomeClientResponse`
+        :returns: In .result :class:`~haasomeapi.dataobjects.advancedorders.AdvancedOrderBase`   
+        """
 
         response = super()._execute_request("/ActivateAdvancedOrder", {"guid": guid})
 
@@ -39,6 +53,13 @@ class AdvancedOrderApi(ApiBase):
                                          response["ErrorMessage"], {})
 
     def deactivate_advanced_order(self, guid: str):
+        """ Deactivates an advanced order
+
+        :param guid: str: advanced order guid
+
+        :returns: :class:`~haasomeapi.dataobjects.util.HaasomeClientResponse`
+        :returns: In .result :class:`~haasomeapi.dataobjects.advancedorders.AdvancedOrderBase`
+        """
 
         response = super()._execute_request("/DeactivateAdvancedOrder", {"guid": guid})
 
@@ -50,6 +71,13 @@ class AdvancedOrderApi(ApiBase):
                                          response["ErrorMessage"], {})
 
     def remove_advanced_order(self, guid: str):
+        """ Removes (deletes) advanced order
+
+        :param guid: str: advanced order guid
+
+        :returns: :class:`~haasomeapi.dataobjects.util.HaasomeClientResponse`
+        :returns: In .result bool if success
+        """
 
         response = super()._execute_request("/RemoveAdvancedOrder", {"guid": guid})
 
@@ -64,6 +92,26 @@ class AdvancedOrderApi(ApiBase):
                        direction: EnumOrderType, executingtemplateguid: str, triggerprice: float, executionprice: float,
                        amount: float, startorderonactivation: bool, startorderprice: float, starttemplateguid: str,
                        activate: bool):
+        """ 
+        Create a stop order for a spot market
+
+        :param accountguid: str: The account guid
+        :param name: str: Name of the advanced order
+        :param primarycoin: str: Primary market Ex. If BNB/BTC then set this to BNB
+        :param secondarycoin: str: Secondary market Ex. If BNB/BTC then set this to BTC
+        :param direction: EnumOrderType: Order Direction (Buy / Sell)  
+        :param executingtemplateguid: str: Executing Template To Use
+        :param triggerprice: float:  Trigger price to execute the stop
+        :param executionprice: float: Price for the order to be placed at
+        :param amount: float: Trade Amount
+        :param startorderonactivation: bool: Start the adavnced order only on activation 
+        :param startorderprice: float: What price to start the order
+        :param starttemplateguid: str: The template guid to use for the order
+        :param activate: bool: Activate the order.
+
+        :returns: :class:`~haasomeapi.dataobjects.util.HaasomeClientResponse`
+        :returns: In .result :class:`~from haasomeapi.dataobjects.advancedorders.StopTakeProfitOrder`
+        """
 
         response = super()._execute_request("/AddStopOrder",
                                              {"name": name,
@@ -92,6 +140,27 @@ class AdvancedOrderApi(ApiBase):
                                 executingtemplateguid: str, triggerprice: float, executionprice: float,
                                 amount: float, startorderonactivation: bool, startorderprice: float,
                                 starttemplateguid: str, activate: bool):
+        """ Create a stop order for a leverage/margin market
+
+        :param accountguid: str: The account guid
+        :param name: str: Name of the advanced order
+        :param primarycoin: str: Primary market Ex. If BNB/BTC then set this to BNB
+        :param secondarycoin: str: Secondary market Ex. If BNB/BTC then set this to BTC
+        :param contractname: str: Name of the contract (Options)
+        :param leverage: float:  Leverage percentage
+        :param direction: EnumOrderType: Order Direction (Long/Short)
+        :param executingtemplateguid: str: Executing Template To Use
+        :param triggerprice: float:  Trigger price to execute the stop
+        :param executionprice: float: Price for the order to be placed at
+        :param amount: float: Trade Amount
+        :param startorderonactivation: bool: Start the adavnced order only on activation 
+        :param startorderprice: float: What price to start the order
+        :param starttemplateguid: str: The template guid to use for the order
+        :param activate: bool: Activate the order.
+
+        :returns: :class:`~haasomeapi.dataobjects.util.HaasomeClientResponse`
+        :returns: In .result :class:`~from haasomeapi.dataobjects.advancedorders.StopTakeProfitOrder`
+        """
 
         response = super()._execute_request("/AddStopOrder",
                                             {"name": name,
@@ -120,6 +189,26 @@ class AdvancedOrderApi(ApiBase):
                               direction: EnumOrderType, executingtemplateguid: str, triggerprice: float, executionprice: float,
                               amount: float, startorderonactivation: bool, startorderprice: float, starttemplateguid: str,
                               activate: bool):
+        """ Createa take profit order for a spot market
+
+        :param accountguid: str: The account guid
+        :param name: str: Name of the advanced order
+        :param primarycoin: str: Primary market Ex. If BNB/BTC then set this to BNB
+        :param secondarycoin: str: Secondary market Ex. If BNB/BTC then set this to BTC
+        :param direction: EnumOrderType: Order Direction (Buy / Sell)  
+        :param executingtemplateguid: str: Executing Template To Use
+        :param triggerprice: float:  Trigger price to execute the stop
+        :param executionprice: float: Price for the order to be placed at
+        :param amount: float: Trade Amount
+        :param startorderonactivation: bool: Start the adavnced order only on activation 
+        :param startorderprice: float: What price to start the order
+        :param starttemplateguid: str: The template guid to use for the order
+        :param activate: bool: Activate the order.
+
+        :returns: :class:`~haasomeapi.dataobjects.util.HaasomeClientResponse`
+        :returns: In .result :class:`~from haasomeapi.dataobjects.advancedorders.StopTakeProfitOrder`
+
+        """
 
         response = super()._execute_request("/AddTakeProfitOrder",
                                              {"name": name,
@@ -149,6 +238,27 @@ class AdvancedOrderApi(ApiBase):
                                        executingtemplateguid: str, triggerprice: float, executionprice: float,
                                        amount: float, startorderonactivation: bool, startorderprice: float,
                                        starttemplateguid: str, activate: bool):
+        """ Create a take profit order for a leverage/margin market
+
+        :param accountguid: str: The account guid
+        :param name: str: Name of the advanced order
+        :param primarycoin: str: Primary market Ex. If BNB/BTC then set this to BNB
+        :param secondarycoin: str: Secondary market Ex. If BNB/BTC then set this to BTC
+        :param contractname: str: Name of the contract (Options)
+        :param leverage: float:  Leverage percentage
+        :param direction: EnumOrderType: Order Direction (Long/Short)
+        :param executingtemplateguid: str: Executing Template To Use
+        :param triggerprice: float:  Trigger price to execute the stop
+        :param executionprice: float: Price for the order to be placed at
+        :param amount: float: Trade Amount
+        :param startorderonactivation: bool: Start the adavnced order only on activation 
+        :param startorderprice: float: What price to start the order
+        :param starttemplateguid: str: The template guid to use for the order
+        :param activate: bool: Activate the order.
+
+        :returns: :class:`~haasomeapi.dataobjects.util.HaasomeClientResponse`
+        :returns: In .result :class:`~from haasomeapi.dataobjects.advancedorders.StopTakeProfitOrder`
+        """
 
         response = super()._execute_request("/AddTakeProfitOrder",
                                             {"name": name,
@@ -177,6 +287,24 @@ class AdvancedOrderApi(ApiBase):
                               direction: EnumOrderType, executingtemplateguid: str, trailingstoppercentage: float,
                               amount: float, startorderonactivation: bool, startorderprice: float, starttemplateguid: str,
                               activate: bool):
+        """ Create a trailing stop order for a spot market
+
+        :param accountguid: str: The account guid
+        :param name: str: Name of the advanced order
+        :param primarycoin: str: Primary market Ex. If BNB/BTC then set this to BNB
+        :param secondarycoin: str: Secondary market Ex. If BNB/BTC then set this to BTC
+        :param direction: EnumOrderType: Order Direction (Buy / Sell)  
+        :param executingtemplateguid: str: Executing Template To Use
+        :param trailingstoppercentage: float: Percentage for trailing top to follow
+        :param amount: float: Trade Amount
+        :param startorderonactivation: bool: Start the adavnced order only on activation 
+        :param startorderprice: float: What price to start the order
+        :param starttemplateguid: str: The template guid to use for the order
+        :param activate: bool: Activate the order.
+
+        :returns: :class:`~haasomeapi.dataobjects.util.HaasomeClientResponse`
+        :returns: In .result :class:`~from haasomeapi.dataobjects.advancedorders.StopTakeProfitOrder`
+        """
 
         response = super()._execute_request("/AddTrailingStopOrder",
                                              {"name": name,
@@ -195,7 +323,7 @@ class AdvancedOrderApi(ApiBase):
 
         try:
             return HaasomeClientResponse(EnumErrorCode(int(response["ErrorCode"])),
-                                         response["ErrorMessage"], super()._from_json(response["Result"], StopTakeProfitOrder))
+                                         response["ErrorMessage"], super()._from_json(response["Result"], TrailingStop))
         except:
             return HaasomeClientResponse(EnumErrorCode(int(response["ErrorCode"])),
                                          response["ErrorMessage"], {})
@@ -204,6 +332,26 @@ class AdvancedOrderApi(ApiBase):
                                    contractname: str, leverage: float, direction: EnumOrderType, executingtemplateguid: str,
                                    trailingstoppercentage: float, amount: float, startorderonactivation: bool,
                                    startorderprice: float, starttemplateguid: str, activate: bool):
+        """ Create trailing stop order for a leverage/margin market
+
+        :param accountguid: str: The account guid
+        :param name: str: Name of the advanced order
+        :param primarycoin: str: Primary market Ex. If BNB/BTC then set this to BNB
+        :param secondarycoin: str: Secondary market Ex. If BNB/BTC then set this to BTC
+        :param contractname: str: Name of the contract (Options)
+        :param leverage: float:  Leverage percentage
+        :param direction: EnumOrderType: Order Direction (Long/Short)
+        :param executingtemplateguid: str: Executing Template To Use
+        :param trailingstoppercentage: float: Percentage for trailing top to follow
+        :param amount: float: Trade Amount
+        :param startorderonactivation: bool: Start the adavnced order only on activation 
+        :param startorderprice: float: What price to start the order
+        :param starttemplateguid: str: The template guid to use for the order
+        :param activate: bool: Activate the order.
+
+        :returns: :class:`~haasomeapi.dataobjects.util.HaasomeClientResponse`
+        :returns: In .result :class:`~from haasomeapi.dataobjects.advancedorders.StopTakeProfitOrder`
+        """
 
         response = super()._execute_request("/AddTrailingStopOrder",
                                              {"name": name,
@@ -223,7 +371,7 @@ class AdvancedOrderApi(ApiBase):
 
         try:
             return HaasomeClientResponse(EnumErrorCode(int(response["ErrorCode"])),
-                                         response["ErrorMessage"], super()._from_json(response["Result"], StopTakeProfitOrder))
+                                         response["ErrorMessage"], super()._from_json(response["Result"], TrailingStop))
         except:
             return HaasomeClientResponse(EnumErrorCode(int(response["ErrorCode"])),
                                          response["ErrorMessage"], {})
@@ -233,6 +381,26 @@ class AdvancedOrderApi(ApiBase):
                          executionprice: float,
                          amount: float, startorderonactivation: bool, startorderprice: float, starttemplateguid: str,
                          activate: bool):
+        """ Modify a stop order for a spot market
+
+        :param accountguid: str: The account guid
+        :param orderguid: str: The advanced order guid to modify
+        :param name: str: Name of the advanced order
+        :param primarycoin: str: Primary market Ex. If BNB/BTC then set this to BNB
+        :param secondarycoin: str: Secondary market Ex. If BNB/BTC then set this to BTC
+        :param direction: EnumOrderType: Order Direction (Buy / Sell)  
+        :param executingtemplateguid: str: Executing Template To Use
+        :param triggerprice: float:  Trigger price to execute the stop
+        :param executionprice: float: Price for the order to be placed at
+        :param amount: float: Trade Amount
+        :param startorderonactivation: bool: Start the adavnced order only on activation 
+        :param startorderprice: float: What price to start the order
+        :param starttemplateguid: str: The template guid to use for the order
+        :param activate: bool: Activate the order.
+
+        :returns: :class:`~haasomeapi.dataobjects.util.HaasomeClientResponse`
+        :returns: In .result :class:`~from haasomeapi.dataobjects.advancedorders.StopTakeProfitOrder`
+        """
 
         response = super()._execute_request("/AddStopOrder",
                                             {"guid": orderguid,
@@ -263,9 +431,30 @@ class AdvancedOrderApi(ApiBase):
                                   executingtemplateguid: str, triggerprice: float, executionprice: float,
                                   amount: float, startorderonactivation: bool, startorderprice: float,
                                   starttemplateguid: str, activate: bool):
+        """ Modify a stop order for a leverage/margin market
 
+        :param accountguid: str: The account guid
+        :param orderguid: str: The advanced order guid to modify
+        :param name: str: Name of the advanced order
+        :param primarycoin: str: Primary market Ex. If BNB/BTC then set this to BNB
+        :param secondarycoin: str: Secondary market Ex. If BNB/BTC then set this to BTC
+        :param contractname: str: Name of the contract (Options)
+        :param leverage: float:  Leverage percentage
+        :param direction: EnumOrderType: Order Direction (Long/Short)
+        :param executingtemplateguid: str: Executing Template To Use
+        :param triggerprice: float:  Trigger price to execute the stop
+        :param executionprice: float: Price for the order to be placed at
+        :param amount: float: Trade Amount
+        :param startorderonactivation: bool: Start the adavnced order only on activation
+        :param startorderprice: float: What price to start the order
+        :param starttemplateguid: str: The template guid to use for the order
+        :param activate: bool: Activate the order.
+
+        :returns: :class:`~haasomeapi.dataobjects.util.HaasomeClientResponse`
+        :returns: In .result :class:`~from haasomeapi.dataobjects.advancedorders.StopTakeProfitOrder`
+        """
         response = super()._execute_request("/AddStopOrder",
-                                            {"guid": orderguid,
+                                             {"guid": orderguid,
                                              "name": name,
                                              "accountGuid": accountguid,
                                              "primaryCoin": primarycoin,
@@ -293,6 +482,27 @@ class AdvancedOrderApi(ApiBase):
                               direction: EnumOrderType, executingtemplateguid: str, triggerprice: float, executionprice: float,
                               amount: float, startorderonactivation: bool, startorderprice: float, starttemplateguid: str,
                               activate: bool):
+        """ Modify take profit order for a spot market
+
+        :param accountguid: str: The account guid
+        :param orderguid: str: The advanced order guid to modify
+        :param name: str: Name of the advanced order
+        :param primarycoin: str: Primary market Ex. If BNB/BTC then set this to BNB
+        :param secondarycoin: str: Secondary market Ex. If BNB/BTC then set this to BTC
+        :param direction: EnumOrderType: Order Direction (Buy / Sell)  
+        :param executingtemplateguid: str: Executing Template To Use
+        :param triggerprice: float:  Trigger price to execute the stop
+        :param executionprice: float: Price for the order to be placed at
+        :param amount: float: Trade Amount
+        :param startorderonactivation: bool: Start the adavnced order only on activation 
+        :param startorderprice: float: What price to start the order
+        :param starttemplateguid: str: The template guid to use for the order
+        :param activate: bool: Activate the order.
+
+        :returns: :class:`~haasomeapi.dataobjects.util.HaasomeClientResponse`
+        :returns: In .result :class:`~from haasomeapi.dataobjects.advancedorders.StopTakeProfitOrder`
+
+        """
 
         response = super()._execute_request("/AddTakeProfitOrder",
                                              {"guid": orderguid,
@@ -323,6 +533,28 @@ class AdvancedOrderApi(ApiBase):
                                          executingtemplateguid: str, triggerprice: float, executionprice: float,
                                          amount: float, startorderonactivation: bool, startorderprice: float,
                                          starttemplateguid: str, activate: bool):
+        """ Modify a take profit order for a leverage/margin market
+
+        :param accountguid: str: The account guid
+        :param orderguid: str: The advanced order guid to modify
+        :param name: str: Name of the advanced order
+        :param primarycoin: str: Primary market Ex. If BNB/BTC then set this to BNB
+        :param secondarycoin: str: Secondary market Ex. If BNB/BTC then set this to BTC
+        :param contractname: str: Name of the contract (Options)
+        :param leverage: float:  Leverage percentage
+        :param direction: EnumOrderType: Order Direction (Long/Short)
+        :param executingtemplateguid: str: Executing Template To Use
+        :param triggerprice: float:  Trigger price to execute the stop
+        :param executionprice: float: Price for the order to be placed at
+        :param amount: float: Trade Amount
+        :param startorderonactivation: bool: Start the adavnced order only on activation 
+        :param startorderprice: float: What price to start the order
+        :param starttemplateguid: str: The template guid to use for the order
+        :param activate: bool: Activate the order.
+
+        :returns: :class:`~haasomeapi.dataobjects.util.HaasomeClientResponse`
+        :returns: In .result :class:`~from haasomeapi.dataobjects.advancedorders.StopTakeProfitOrder`
+        """
 
         response = super()._execute_request("/AddTakeProfitOrder",
                                             {"guid": orderguid,
@@ -352,6 +584,25 @@ class AdvancedOrderApi(ApiBase):
                               direction: EnumOrderType, executingtemplateguid: str, trailingstoppercentage: float,
                               amount: float, startorderonactivation: bool, startorderprice: float, starttemplateguid: str,
                               activate: bool):
+        """ Modify a trailing stop order for a spot market
+
+        :param accountguid: str: The account guid
+        :param orderguid: str: The advanced order guid to modify
+        :param name: str: Name of the advanced order
+        :param primarycoin: str: Primary market Ex. If BNB/BTC then set this to BNB
+        :param secondarycoin: str: Secondary market Ex. If BNB/BTC then set this to BTC
+        :param direction: EnumOrderType: Order Direction (Buy / Sell)  
+        :param executingtemplateguid: str: Executing Template To Use
+        :param trailingstoppercentage: float: Percentage for trailing top to follow
+        :param amount: float: Trade Amount
+        :param startorderonactivation: bool: Start the adavnced order only on activation 
+        :param startorderprice: float: What price to start the order
+        :param starttemplateguid: str: The template guid to use for the order
+        :param activate: bool: Activate the order.
+
+        :returns: :class:`~haasomeapi.dataobjects.util.HaasomeClientResponse`
+        :returns: In .result :class:`~from haasomeapi.dataobjects.advancedorders.StopTakeProfitOrder`
+        """
 
         response = super()._execute_request("/AddTrailingStopOrder",
                                              {"guid": orderguid,
@@ -371,7 +622,7 @@ class AdvancedOrderApi(ApiBase):
 
         try:
             return HaasomeClientResponse(EnumErrorCode(int(response["ErrorCode"])),
-                                         response["ErrorMessage"], super()._from_json(response["Result"], StopTakeProfitOrder))
+                                         response["ErrorMessage"], super()._from_json(response["Result"], TrailingStop))
         except:
             return HaasomeClientResponse(EnumErrorCode(int(response["ErrorCode"])),
                                          response["ErrorMessage"], {})
@@ -380,6 +631,27 @@ class AdvancedOrderApi(ApiBase):
                                    contractname: str, leverage: float, direction: EnumOrderType, executingtemplateguid: str,
                                    trailingstoppercentage: float, amount: float, startorderonactivation: bool,
                                    startorderprice: float, starttemplateguid: str, activate: bool):
+        """ Modify trailing stop order for a leverage/margin market
+
+        :param accountguid: str: The account guid
+        :param orderguid: str: The advanced order guid to modify
+        :param name: str: Name of the advanced order
+        :param primarycoin: str: Primary market Ex. If BNB/BTC then set this to BNB
+        :param secondarycoin: str: Secondary market Ex. If BNB/BTC then set this to BTC
+        :param contractname: str: Name of the contract (Options)
+        :param leverage: float:  Leverage percentage
+        :param direction: EnumOrderType: Order Direction (Long/Short)
+        :param executingtemplateguid: str: Executing Template To Use
+        :param trailingstoppercentage: float: Percentage for trailing top to follow
+        :param amount: float: Trade Amount
+        :param startorderonactivation: bool: Start the adavnced order only on activation 
+        :param startorderprice: float: What price to start the order
+        :param starttemplateguid: str: The template guid to use for the order
+        :param activate: bool: Activate the order.
+
+        :returns: :class:`~haasomeapi.dataobjects.util.HaasomeClientResponse`
+        :returns: In .result :class:`~from haasomeapi.dataobjects.advancedorders.StopTakeProfitOrder`
+        """
 
         response = super()._execute_request("/AddTrailingStopOrder",
                                              {"guid": orderguid,
@@ -400,7 +672,7 @@ class AdvancedOrderApi(ApiBase):
 
         try:
             return HaasomeClientResponse(EnumErrorCode(int(response["ErrorCode"])),
-                                         response["ErrorMessage"], super()._from_json(response["Result"], StopTakeProfitOrder))
+                                         response["ErrorMessage"], super()._from_json(response["Result"], TrailingStop))
         except:
             return HaasomeClientResponse(EnumErrorCode(int(response["ErrorCode"])),
                                          response["ErrorMessage"], {})

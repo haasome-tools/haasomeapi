@@ -9,6 +9,7 @@ from typing import List
 
 
 class ApiBase:
+    """ The Base Class for all api files."""
 
     def __init__(self, connectionstring: str, privatekey: str):
 
@@ -17,6 +18,14 @@ class ApiBase:
 
     @staticmethod
     def generate_signature(parameters: Dict[str, str], privatekey: str):
+        """ Generates a Haas Signature to be appended at the end of the url request
+
+        :param parameters: Dict[str,str]: The parameter list to encode 
+        :param privatekey: str: The haas secret key to use for the signature
+
+        :returns: Tuple(str,str): A tuple with the parameter string and the signature
+
+        """
 
         parameter_string = ""
 
@@ -37,6 +46,14 @@ class ApiBase:
         return parameter_string, signature
 
     def _execute_request(self, endpoint: str, parameters: Dict[str, str]):
+        """ Sends a get request to the specified endpoint with parameters set.
+
+        :param endpoint: str: URL endpoint for action to be placed Ex. /GetOpenOrders
+        :param parameters: Dict[str,str]: Parameter list to send to the endpoint
+
+        :returns: JsonObject: Returns a json object of the response.
+
+        """
 
         url = self.baseUrl + endpoint
 
@@ -60,6 +77,14 @@ class ApiBase:
 
     @staticmethod
     def _from_json(data, cls):
+        """ Converts a json response to a class object. Can only go 2 nested deep
+
+        :param data: Json data object 
+        :parama cls: Class type to convert to
+
+        :returns: any: A instance of the specified class
+
+        """
         annotations: dict = cls.__annotations__ if hasattr(cls, '__annotations__') else None
         if issubclass(cls, List):
             list_type = cls.__args__[0]

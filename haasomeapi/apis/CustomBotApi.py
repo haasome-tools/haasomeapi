@@ -155,7 +155,9 @@ class CustomBotApi(ApiBase):
     def get_all_custom_bots(self):
         """ Returns all custom bots created
 
-        :returns: List[:class:`~haasomeapi.dataobjects.custombots.BaseCustomBot`]
+        :returns: :class:`~haasomeapi.dataobjects.util.HaasomeClientResponse`
+        :returns: In .result List[:class:`~haasomeapi.dataobjects.custombots.BaseCustomBot`]
+
         """
         response = super()._execute_request("/AllCustomBots", {})
 
@@ -178,7 +180,8 @@ class CustomBotApi(ApiBase):
         :param botguid: str: the bot 
         :param bottype: :class:`~haasomeapi.enums.EnumCustomBotType`: Type of bot to return 
 
-        :returns: any: Specified bottype object
+        :returns: :class:`~haasomeapi.dataobjects.util.HaasomeClientResponse`
+        :returns: In .result any: Specified bottype object
 
         """
 
@@ -198,7 +201,8 @@ class CustomBotApi(ApiBase):
         :param botguid: str: Bot guid
         :param withextra: bool: with extra
 
-        :returns: bool: If activation was successful
+        :returns: :class:`~haasomeapi.dataobjects.util.HaasomeClientResponse`
+        :returns: In .result bool: If activation was successful
 
         """
         response = super()._execute_request("/ActivateCustomBot",  {"botGuid": botguid, "extra": str(withextra).lower()})
@@ -215,8 +219,9 @@ class CustomBotApi(ApiBase):
 
         :param botguid: str: Bot guid
         :param withextra: bool: with extra
-
-        :returns: bool: If deactivation was successful
+        
+        :returns: :class:`~haasomeapi.dataobjects.util.HaasomeClientResponse`
+        :returns: Int .result bool: If deactivation was successful
 
         """
         response = super()._execute_request("/DeactivateCustomBot",  {"botGuid": botguid, "extra": str(withextra).lower()})
@@ -239,7 +244,8 @@ class CustomBotApi(ApiBase):
         :param secondarycoin: str: Secondary currency Ex. If BNB/BTC then set this to BTC
         :param contractname: str: Contract name (Optional)
 
-        :returns: any: Specified bot type object
+        :returns: :class:`~haasomeapi.dataobjects.util.HaasomeClientResponse`
+        :returns: In .result any: Specified bot type object
 
         """
 
@@ -265,7 +271,8 @@ class CustomBotApi(ApiBase):
         :param botname: str: Name for the new custom bot
         :parama market: :class:`~haasomeapi.dataobjects.marketdata.Market`: Market object to use
 
-        :returns: any: Specified bot type object
+        :returns: :class:`~haasomeapi.dataobjects.util.HaasomeClientResponse`
+        :returns: In .result any: Specified bot type object
 
         """
 
@@ -288,7 +295,8 @@ class CustomBotApi(ApiBase):
 
         :param botguid: str: Custom bot guid
 
-        :returns: bool: If removal was succesfull
+        :returns: :class:`~haasomeapi.dataobjects.util.HaasomeClientResponse`
+        :returns: In .result bool: If removal was succesfull
 
         """
         response = super()._execute_request("/RemoveCustomBot",  {"botGuid": botguid})
@@ -305,7 +313,8 @@ class CustomBotApi(ApiBase):
 
         :param botguid: str: Custom bot guid
 
-        :returns: :class:`~haasomeapi.dataobjects.custombots.BaseCustomBot`: BaseCustomBot of the bot that was cleared
+        :returns: :class:`~haasomeapi.dataobjects.util.HaasomeClientResponse`
+        :returns: In .result :class:`~haasomeapi.dataobjects.custombots.BaseCustomBot`: BaseCustomBot of the bot that was cleared
 
         """
         response = super()._execute_request("/ClearCustomBot",  {"botGuid": botguid})
@@ -323,7 +332,8 @@ class CustomBotApi(ApiBase):
         :param botguid: str: Custom bot guid
         :param bottype: :class:`~haasomeapi.enums.EnumCustomBotType`: Custom bot type to return
 
-        :returns: any: Specified custom bot object 
+        :returns: :class:`~haasomeapi.dataobjects.util.HaasomeClientResponse`
+        :returns: In .result any: Specified custom bot object 
 
         """
         response = super()._execute_request("/ClearCustomBot",  {"botGuid": botguid})
@@ -341,7 +351,8 @@ class CustomBotApi(ApiBase):
         :param botguid: str: Custom bot guid
         :param minutestotest: int: Amount of minutes to test in the past
         
-        :returns: :class:`~haasomeapi.dataobjects.custombots.BaseCustomBot`: BaseCustomBot of the bot that was backtested
+        :returns: :class:`~haasomeapi.dataobjects.util.HaasomeClientResponse`
+        :returns: In .result :class:`~haasomeapi.dataobjects.custombots.BaseCustomBot`: BaseCustomBot of the bot that was backtested
 
         """
         response = super()._execute_request("/BacktestCustomBot",  {"botGuid": botguid, "minutesToTest": minutestotest})
@@ -360,7 +371,8 @@ class CustomBotApi(ApiBase):
         :param startunix: int: Start time in unix time notation
         :param endunix: int: End time in unix time notation
 
-        :returns: :class:`~haasomeapi.dataobjects.custombots.BaseCustomBot`: BaseCustomBot of the bot that was backtested
+        :returns: :class:`~haasomeapi.dataobjects.util.HaasomeClientResponse`
+        :returns: In .result :class:`~haasomeapi.dataobjects.custombots.BaseCustomBot`: BaseCustomBot of the bot that was backtested
 
         """
         response = super()._execute_request("/BacktestCustomBot",  {"botGuid": botguid, "startUnix": startunix,
@@ -384,7 +396,9 @@ class CustomBotApi(ApiBase):
         :param secondarycoin: str: Secondary currency Ex. If BNB/BTC then set this to BTC
         :param contractname: str: Contract name (Optional)
 
-        :returns: :class:`~haasomeapi.dataobjects.custombots.BaseCustomBot`: BaseCustomBot of the bot that was backtested
+        :returns: :class:`~haasomeapi.dataobjects.util.HaasomeClientResponse`
+        :returns: In .result :class:`~haasomeapi.dataobjects.custombots.BaseCustomBot`: BaseCustomBot of the bot that was backtested
+
         """
 
         response = super()._execute_request("/BacktestCustomBot",  {"botGuid": botguid,
@@ -414,7 +428,8 @@ class CustomBotApi(ApiBase):
         :param contractname: str: Contract name (Optional)
         :param leverage: float: Leverage percentage to use (Optional)
 
-        :returns: any: Specified bot type object
+        :returns: :class:`~haasomeapi.dataobjects.util.HaasomeClientResponse`
+        :returns: In .result any: Specified bot type object
 
         """
 
@@ -440,7 +455,8 @@ class CustomBotApi(ApiBase):
         :param botguid: str: Custom bot guid to clone
         :param botname: str: Name for the new custom bot
 
-        :returns: :class:`~haasomeapi.dataobjects.custombots.BaseCustomBot`: BaseCustomBot of the bot that was backtested
+        :returns: :class:`~haasomeapi.dataobjects.util.HaasomeClientResponse`
+        :returns: In .result :class:`~haasomeapi.dataobjects.custombots.BaseCustomBot`: BaseCustomBot of the bot that was backtested
 
         """
 
@@ -477,7 +493,8 @@ class CustomBotApi(ApiBase):
         :param triggerwhenhigher: bool: Trigger when marker price is higher than trigger price
         :param triggervalue: float: Trigger price
 
-        :returns: :class:`~haasomeapi.dataobjects.custombots.AccumulationBot`: Accumulation bot object
+        :returns: :class:`~haasomeapi.dataobjects.util.HaasomeClientResponse`
+        :returns: In .result :class:`~haasomeapi.dataobjects.custombots.AccumulationBot`: Accumulation bot object
 
         """
 
@@ -517,7 +534,9 @@ class CustomBotApi(ApiBase):
         :param allocateprofits: bool: Perform allocation of profits
         :param index: List[:class:`~haasomeapi.dataobjects.custombots.dataobjects.CryptoIndexBotIndexSaveObject`]: List of :class:`~haasomeapi.dataobjects.custombots.dataobjects.CryptoIndexBotIndexSaveObject` to construct the index.
 
-        :returns: :class:`~haasomeapi.dataobjects.custombots.CryptoIndexBot`: Crypto Index bot object
+        :returns: :class:`~haasomeapi.dataobjects.util.HaasomeClientResponse`
+        :returns: In .result :class:`~haasomeapi.dataobjects.custombots.CryptoIndexBot`: Crypto Index bot object
+
         """
 
         response = super()._execute_request("/SetupCryptoIndexBot",  {"botGuid": botguid,
@@ -559,7 +578,8 @@ class CustomBotApi(ApiBase):
         :param minchangetobuy: float: Min Change To Buy insurance setting
         :param minchangetosell: float: Min Change To Sell Insurance setting
 
-        :returns: :class:`~haasomeapi.dataobjects.custombots.EmailBot`: Email bot object
+        :returns: :class:`~haasomeapi.dataobjects.util.HaasomeClientResponse`
+        :returns: In .result :class:`~haasomeapi.dataobjects.custombots.EmailBot`: Email bot object
 
         """
 
@@ -618,7 +638,8 @@ class CustomBotApi(ApiBase):
         :param followthetrendchanneloffset: int: Follow the trend channel offset
         :param followthetrendtimeout: int:  Follow the trend timeout value
 
-        :returns: :class:`~haasomeapi.dataobjects.custombots.FlashCrashBot`: Flash Crash bot object
+        :returns: :class:`~haasomeapi.dataobjects.util.HaasomeClientResponse`
+        :returns: In .result :class:`~haasomeapi.dataobjects.custombots.FlashCrashBot`: Flash Crash bot object
 
         """
 
@@ -672,7 +693,8 @@ class CustomBotApi(ApiBase):
         :param maxamount: float: Max amount to trade a day
         :param maxtrades: int: Max trades to execute a day
 
-        :returns: :class:`~haasomeapi.dataobjects.custombots.InterExchangeArbitrageBot`: Inter Exchange Arbitrage bot object
+        :returns: :class:`~haasomeapi.dataobjects.util.HaasomeClientResponse`
+        :returns: In .result :class:`~haasomeapi.dataobjects.custombots.InterExchangeArbitrageBot`: Inter Exchange Arbitrage bot object
 
         """
 
@@ -710,7 +732,8 @@ class CustomBotApi(ApiBase):
         :param tradeamount: float: Trade amount to use
         :param fee: float: Fee percentage to be used in calculations
 
-        :returns: :class:`~haasomeapi.dataobjects.custombots.BaseCustomBot`: BaseCustomBot Object
+        :returns: :class:`~haasomeapi.dataobjects.util.HaasomeClientResponse`
+        :returns: In .result :class:`~haasomeapi.dataobjects.custombots.BaseCustomBot`: BaseCustomBot Object
 
         """
 
@@ -747,7 +770,8 @@ class CustomBotApi(ApiBase):
         :param usedsecondorder: bool: Use a second order
         :param secondoffset: float: Second order offset
 
-        :returns: :class:`~haasomeapi.dataobjects.custombots.MarketMakingBot`: Market Making bot object
+        :returns: :class:`~haasomeapi.dataobjects.util.HaasomeClientResponse`
+        :returns: In .result :class:`~haasomeapi.dataobjects.custombots.MarketMakingBot`: Market Making bot object
 
         """
 
@@ -788,7 +812,8 @@ class CustomBotApi(ApiBase):
         :param interval: int: Price Ticker Minute Interval. Ex. 1,2,3,,5,15,30, etc
         :param includeincompleteinterval: bool: Allow a incomplete price ticker
 
-        :returns: :class:`~haasomeapi.dataobjects.custombots.MadHatterBot`: Mad Hatter bot object
+        :returns: :class:`~haasomeapi.dataobjects.util.HaasomeClientResponse`
+        :returns: In .result :class:`~haasomeapi.dataobjects.custombots.MadHatterBot`: Mad Hatter bot object
 
         """
 
@@ -821,7 +846,8 @@ class CustomBotApi(ApiBase):
         :param primarycoin: str: Primary currency Ex. If BNB/BTC then set this to BNB
         :param secondarycoin: str: Secondary currency Ex. If BNB/BTC then set this to BTC
         
-        :returns: :class:`~haasomeapi.dataobjects.custombots.OrderBot`: Order bot object
+        :returns: :class:`~haasomeapi.dataobjects.util.HaasomeClientResponse`
+        :returns: In .result :class:`~haasomeapi.dataobjects.custombots.OrderBot`: Order bot object
 
         """
 
@@ -852,7 +878,9 @@ class CustomBotApi(ApiBase):
         :param position: str: Position bot should start in EX. For BNB/BTC if you have no BNB set to BTC
         :param fee: float: Fee percentage to be used in calculations
 
-        :returns: :class:`~haasomeapi.dataobjects.custombots.BaseCustomBot`: Ping Pong is just a BaseCustomBot - BaseCustomBot object
+        :returns: :class:`~haasomeapi.dataobjects.util.HaasomeClientResponse`
+        :returns: In .result :class:`~haasomeapi.dataobjects.custombots.BaseCustomBot`: Ping Pong is just a BaseCustomBot - BaseCustomBot object
+        
         """
 
         response = super()._execute_request("/SetupPingPongBot",  {"botGuid": botguid,
@@ -882,7 +910,7 @@ class CustomBotApi(ApiBase):
         :param botname: str: Name for the new custom bot
         :param primarycoin: str: Primary currency Ex. If BNB/BTC then set this to BNB
         :param secondarycoin: str: Secondary currency Ex. If BNB/BTC then set this to BTC
-        :param templateguid :str: Order template to use Guid
+        :param templateguid: str: Order template to use Guid
         :param contractbame: str: Contract name (Optional)
         :param leverage: float: Leverage percentage to use (Optional)
         :param tradeamount: float: Trade amount to use
@@ -891,7 +919,9 @@ class CustomBotApi(ApiBase):
         :param targetpercentage: float: 
         :param safetythreshold: float: 
 
-        :returns: :class:`~haasomeapi.dataobjects.custombots.ScalperBot`: Scalper bot object
+        :returns: :class:`~haasomeapi.dataobjects.util.HaasomeClientResponse`
+        :returns: In .result :class:`~haasomeapi.dataobjects.custombots.ScalperBot`: Scalper bot object
+
         """
 
         response = super()._execute_request("/SetupScalpingBot",  {"botGuid": botguid,
@@ -933,7 +963,8 @@ class CustomBotApi(ApiBase):
         :param fee: float: Fee percentage to be used in calculations
         :param scriptid: str: Script Id for bot to use
 
-        :returns: :class:`~haasomeapi.dataobjects.custombots.ScriptBot`: Script Bot Object
+        :returns: :class:`~haasomeapi.dataobjects.util.HaasomeClientResponse`
+        :returns: In .result :class:`~haasomeapi.dataobjects.custombots.ScriptBot`: Script Bot Object
 
         """
 
@@ -976,7 +1007,8 @@ class CustomBotApi(ApiBase):
         :param targetprofit: float: Target profit percentage
         :param zone: float: Zone value
 
-        :return: :class:`~haasomeapi.dataobjects.custombots.ZoneRecoveryBot`: Zone Recovery bot object
+        :returns: :class:`~haasomeapi.dataobjects.util.HaasomeClientResponse`
+        :returns: In .result :class:`~haasomeapi.dataobjects.custombots.ZoneRecoveryBot`: Zone Recovery bot object
 
         """
 
@@ -1006,7 +1038,8 @@ class CustomBotApi(ApiBase):
         
         :param botguid: str: Custom bot guid
 
-        :result: bool: If quick start was successful
+        :returns: :class:`~haasomeapi.dataobjects.util.HaasomeClientResponse`
+        :returns: In .result bool: If quick start was successful
 
         """
         response = super()._execute_request("/QuickStartFlashCrashBot",  {"botGuid": botguid})
@@ -1023,7 +1056,8 @@ class CustomBotApi(ApiBase):
 
         :param botguid: str: Custom bot guid
 
-        :results: bool: If quick start was successful
+        :returns: :class:`~haasomeapi.dataobjects.util.HaasomeClientResponse`
+        :returns: In .result bool: If quick start was successful
 
         """
         response = super()._execute_request("/QuickStartAllFlashCrashBots",  {"botGuid": botguid})
@@ -1042,7 +1076,8 @@ class CustomBotApi(ApiBase):
         :param isbuyorder: bool: Is the order to add a buy order
         :param addorder: bool: Should we be adding the order or removing one
 
-        :returns: :class:`~haasomeapi.dataobjects.custombots.FlashCrashBot`: Flash Crash bot object
+        :returns: :class:`~haasomeapi.dataobjects.util.HaasomeClientResponse`
+        :returns: In .result :class:`~haasomeapi.dataobjects.custombots.FlashCrashBot`: Flash Crash bot object
 
         """
         response = super()._execute_request("/LiveOrderEditFlashCrashBot",  {"botGuid": botguid,
@@ -1061,7 +1096,8 @@ class CustomBotApi(ApiBase):
 
         :param botguid: str: Custom bot guid
 
-        :returns: :class:`~haasomeapi.dataobjects.custombots.FlashCrashBot`: Flash Crash bot object
+        :returns: :class:`~haasomeapi.dataobjects.util.HaasomeClientResponse`
+        :returns: In .result :class:`~haasomeapi.dataobjects.custombots.FlashCrashBot`: Flash Crash bot object
 
         """
         return self.flash_crash_bot_live_edit(botguid, True, True)
@@ -1071,7 +1107,8 @@ class CustomBotApi(ApiBase):
 
         :param botguid: str: Custom bot guid
 
-        :returns: :class:`~haasomeapi.dataobjects.custombots.FlashCrashBot`: Flash Crash bot object
+        :returns: :class:`~haasomeapi.dataobjects.util.HaasomeClientResponse`
+        :returns: In .result :class:`~haasomeapi.dataobjects.custombots.FlashCrashBot`: Flash Crash bot object
 
         """
         return self.flash_crash_bot_live_edit(botguid, True, False)
@@ -1081,7 +1118,8 @@ class CustomBotApi(ApiBase):
 
         :param botguid: str: Custom bot guid
 
-        :returns: :class:`~haasomeapi.dataobjects.custombots.FlashCrashBot`: Flash Crash bot object
+        :returns: :class:`~haasomeapi.dataobjects.util.HaasomeClientResponse`
+        :returns: In .result :class:`~haasomeapi.dataobjects.custombots.FlashCrashBot`: Flash Crash bot object
 
         """
         return self.flash_crash_bot_live_edit(botguid, False, True)
@@ -1091,7 +1129,8 @@ class CustomBotApi(ApiBase):
 
         :param botguid: str: Custom bot guid
 
-        :returns: :class:`~haasomeapi.dataobjects.custombots.FlashCrashBot`: Flash Crash bot object
+        :returns: :class:`~haasomeapi.dataobjects.util.HaasomeClientResponse`
+        :returns: In .result :class:`~haasomeapi.dataobjects.custombots.FlashCrashBot`: Flash Crash bot object
 
         """
         return self.flash_crash_bot_live_edit(botguid, False, False)
@@ -1104,7 +1143,8 @@ class CustomBotApi(ApiBase):
         :param fieldNo: int: Field to modify 
         :param value: any: Value for the field
 
-        :returns: :class:`~haasomeapi.dataobjects.custombots.MadHatterBot`: Mad Hatter bot object
+        :returns: :class:`~haasomeapi.dataobjects.util.HaasomeClientResponse`
+        :returns: In .result :class:`~haasomeapi.dataobjects.custombots.MadHatterBot`: Mad Hatter bot object
 
         """
 
@@ -1127,7 +1167,9 @@ class CustomBotApi(ApiBase):
         :param type: :class:`~haasomeapi.enums.EnumMadHatterSafeties`: Safety Type to modify 
         :param value: any: Safety Value
 
-        :returns: :class:`~haasomeapi.dataobjects.custombots.MadHatterBot`: Mad Hatter bot object
+        :returns: :class:`~haasomeapi.dataobjects.util.HaasomeClientResponse`
+        :returns: In .result :class:`~haasomeapi.dataobjects.custombots.MadHatterBot`: Mad Hatter bot object
+
         """
 
         response = super()._execute_request("/MadHatterSetSafetyParameter",  {"botGuid": botguid,
@@ -1146,7 +1188,8 @@ class CustomBotApi(ApiBase):
 
         :param botguid: str: Custom bot guid
 
-        :returns: bool: If flip was successful
+        :returns: :class:`~haasomeapi.dataobjects.util.HaasomeClientResponse`
+        :returns: In .result bool: If flip was successful
 
         """
         response = super()._execute_request("/FlipAccumulationBot",  {"botGuid": botguid})
@@ -1172,7 +1215,8 @@ class CustomBotApi(ApiBase):
         :param direction: :class:`~haasomeapi.enums.EnumOrderType`: Order direction (Buy/Sell)
         :param triggertype: :class:`~haasomeapi.enums.EnumOrderBotTriggerType`: Trigger type
 
-        :returns: :class:`~haasomeapi.dataobjects.custombots.OrderBot`: Order bot object 
+        :returns: :class:`~haasomeapi.dataobjects.util.HaasomeClientResponse`
+        :returns: In .result :class:`~haasomeapi.dataobjects.custombots.OrderBot`: Order bot object 
 
         """
 
@@ -1208,7 +1252,9 @@ class CustomBotApi(ApiBase):
         :param direction: :class:`~haasomeapi.enums.EnumOrderType`: Order direction (Buy/Sell)
         :param triggertype: :class:`~haasomeapi.enums.EnumOrderBotTriggerType`: Trigger type
 
-        :returns: :class:`~haasomeapi.dataobjects.custombots.OrderBot`: Order bot object 
+        :returns: :class:`~haasomeapi.dataobjects.util.HaasomeClientResponse`
+        :returns: In .result :class:`~haasomeapi.dataobjects.custombots.OrderBot`: Order bot object 
+
         """
 
         response = super()._execute_request("/OrderBotEditOrder", {"botGuid": botguid,
@@ -1235,7 +1281,8 @@ class CustomBotApi(ApiBase):
         :param botguid: str: Custom bot guid
         :param orderguid: str: Order guid
 
-        :returns: :class:`~haasomeapi.dataobjects.custombots.OrderBot`: Order bot object 
+        :returns: :class:`~haasomeapi.dataobjects.util.HaasomeClientResponse`
+        :returns: In .result :class:`~haasomeapi.dataobjects.custombots.OrderBot`: Order bot object 
 
         """
 
@@ -1255,7 +1302,8 @@ class CustomBotApi(ApiBase):
         :param botguid: str: Custom bot guid
         :param orderguid: str: Order guid
 
-        :returns: :class:`~haasomeapi.dataobjects.custombots.OrderBot`: Order bot object 
+        :returns: :class:`~haasomeapi.dataobjects.util.HaasomeClientResponse`
+        :returns: In .result :class:`~haasomeapi.dataobjects.custombots.OrderBot`: Order bot object 
         
         """
 
@@ -1274,7 +1322,8 @@ class CustomBotApi(ApiBase):
 
         :param botguid: str: Custom bot guid
 
-        :returns: :class:`~haasomeapi.dataobjects.custombots.OrderBot`: Order bot object 
+        :returns: :class:`~haasomeapi.dataobjects.util.HaasomeClientResponse`
+        :returns: In .result :class:`~haasomeapi.dataobjects.custombots.OrderBot`: Order bot object 
 
         """
 
@@ -1293,8 +1342,9 @@ class CustomBotApi(ApiBase):
         :param botguid: str: Custom bot guid
         :param fieldno: int: Field Number to modify
         :param value: any: Value for field
-
-        :returns: :class:`~haasomeapi.dataobjects.custombots.ScriptBot`: Script bot object 
+    
+        :returns: :class:`~haasomeapi.dataobjects.util.HaasomeClientResponse`
+        :returns: In .result :class:`~haasomeapi.dataobjects.custombots.ScriptBot`: Script bot object 
 
         """
 

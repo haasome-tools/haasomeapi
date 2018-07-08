@@ -11,11 +11,21 @@ from haasomeapi.dataobjects.util.HaasomeClientResponse import HaasomeClientRespo
 
 
 class MarketDataApi(ApiBase):
+    """ The Advanced Order API Class.
+    Gives access to the market data endpoints
+
+    :param connectionstring: str: Connection String Formatted Ex. http://127.0.0.1:9000
+    :param privatekey: str: Private Key Set In The Haas Settings
+    """
 
     def __init__(self, connectionstring: str, privatekey: str):
         ApiBase.__init__(self, connectionstring, privatekey)
 
     def get_all_price_sources(self):
+        """ Returns all avalible price sources
+
+        
+        """
         response = super()._execute_request("/GetAllPriceSources", {})
 
         try:
@@ -26,6 +36,7 @@ class MarketDataApi(ApiBase):
                                          response["ErrorMessage"], {})
 
     def get_enabled_price_sources(self):
+        """ """
         response = super()._execute_request("/GetEnabledPriceSources", {})
 
         try:
@@ -36,6 +47,7 @@ class MarketDataApi(ApiBase):
                                          response["ErrorMessage"], {})
 
     def get_all_price_markets(self):
+        """ """
         response = super()._execute_request("/GetAllPriceMarkets", {})
 
         markets = []
@@ -51,6 +63,11 @@ class MarketDataApi(ApiBase):
                                          response["ErrorMessage"], {})
 
     def get_price_markets(self, pricesource: EnumPriceSource):
+        """
+
+        :param pricesource: EnumPriceSource: 
+
+        """
         response = super()._execute_request("/GetPriceMarkets", {"priceSourceName": EnumPriceSource(pricesource).name.capitalize()})
 
         markets = []
@@ -66,6 +83,14 @@ class MarketDataApi(ApiBase):
                                          response["ErrorMessage"], {})
 
     def get_price_ticker(self, pricesource: EnumPriceSource, primarycoin: str, secondarycoin: str, contractname: str):
+        """
+
+        :param pricesource: EnumPriceSource: 
+        :param primarycoin: str: 
+        :param secondarycoin: str: 
+        :param contractname: str: 
+
+        """
         response = super()._execute_request("/GetPriceTicker",
                                             {"priceSourceName": EnumPriceSource(pricesource).name.capitalize(),
                                              "primaryCoin": primarycoin,
@@ -80,10 +105,23 @@ class MarketDataApi(ApiBase):
                                          response["ErrorMessage"], {})
 
     def get_price_ticker_from_market(self, market: Market):
+        """
+
+        :param market: Market: 
+
+        """
         return self.get_price_ticker(market.priceSource, market.primaryCurrency, market.secondaryCurrency,
                                      market.contractName)
 
     def get_minute_price_ticker(self, pricesource: EnumPriceSource, primarycoin: str, secondarycoin: str, contractname: str):
+        """
+
+        :param pricesource: EnumPriceSource: 
+        :param primarycoin: str: 
+        :param secondarycoin: str: 
+        :param contractname: str: 
+
+        """
         response = super()._execute_request("/GetMinutePriceTicker",
                                             {"priceSourceName": EnumPriceSource(pricesource).name.capitalize(),
                                              "primaryCoin": primarycoin,
@@ -98,10 +136,23 @@ class MarketDataApi(ApiBase):
                                          response["ErrorMessage"], {})
 
     def get_minute_price_ticker_from_market(self, market: Market):
+        """
+
+        :param market: Market: 
+
+        """
         return self.get_minute_price_ticker(market.priceSource, market.primaryCurrency, market.secondaryCurrency,
                                      market.contractName)
 
     def get_last_trades(self, pricesource: EnumPriceSource, primarycoin: str, secondarycoin: str, contractname: str):
+        """
+
+        :param pricesource: EnumPriceSource: 
+        :param primarycoin: str: 
+        :param secondarycoin: str: 
+        :param contractname: str: 
+
+        """
         response = super()._execute_request("/GetLastTrades",
                                             {"priceSourceName": EnumPriceSource(pricesource).name.capitalize(),
                                              "primaryCoin": primarycoin,
@@ -116,10 +167,23 @@ class MarketDataApi(ApiBase):
                                          response["ErrorMessage"], {})
 
     def get_last_trades_from_market(self, market: Market):
+        """
+
+        :param market: Market: 
+
+        """
         return self.get_last_trades(market.priceSource, market.primaryCurrency, market.secondaryCurrency,
                                      market.contractName)
 
     def get_order_book(self, pricesource: EnumPriceSource, primarycoin: str, secondarycoin: str, contractname: str):
+        """
+
+        :param pricesource: EnumPriceSource: 
+        :param primarycoin: str: 
+        :param secondarycoin: str: 
+        :param contractname: str: 
+
+        """
         response = super()._execute_request("/GetOrderbook",
                                             {"priceSourceName": EnumPriceSource(pricesource).name.capitalize(),
                                              "primaryCoin": primarycoin,
@@ -133,10 +197,25 @@ class MarketDataApi(ApiBase):
                                          response["ErrorMessage"], {})
 
     def get_order_book_from_market(self, market: Market):
+        """
+
+        :param market: Market: 
+
+        """
         return self.get_order_book(market.priceSource, market.primaryCurrency, market.secondaryCurrency,
                                      market.contractName)
 
     def get_history(self, pricesource: EnumPriceSource, primarycoin: str, secondarycoin: str, contractname: str, interval: int, depth: int):
+        """
+
+        :param pricesource: EnumPriceSource: 
+        :param primarycoin: str: 
+        :param secondarycoin: str: 
+        :param contractname: str: 
+        :param interval: int: 
+        :param depth: int: 
+
+        """
         response = super()._execute_request("/GetHistory",
                                             {"priceSourceName": EnumPriceSource(pricesource).name.capitalize(),
                                              "primaryCoin": primarycoin,
@@ -158,5 +237,12 @@ class MarketDataApi(ApiBase):
                                          response["ErrorMessage"], {})
 
     def get_history_from_market(self, market: Market, interval: int, depth: int):
+        """
+
+        :param market: Market: 
+        :param interval: int: 
+        :param depth: int: 
+
+        """
         return self.get_history(market.priceSource, market.primaryCurrency, market.secondaryCurrency,
                                      market.contractName, interval, depth)

@@ -1230,10 +1230,12 @@ class CustomBotApi(ApiBase):
                                          response["ErrorMessage"], {})
 
     def reset_order_bot_order(self, botguid: str, orderguid: str):
-        """
+        """ Reset a order on a order bot
 
-        :param botguid: str: 
-        :param orderguid: str: 
+        :param botguid: str: Custom bot guid
+        :param orderguid: str: Order guid
+
+        :returns: :class:`~haasomeapi.dataobjects.custombots.OrderBot`: Order bot object 
 
         """
 
@@ -1248,11 +1250,13 @@ class CustomBotApi(ApiBase):
                                          response["ErrorMessage"], {})
 
     def remove_order_bot_order(self, botguid: str, orderguid: str):
-        """
+        """ Remove (delete) a order on a order bot
 
-        :param botguid: str: 
-        :param orderguid: str: 
+        :param botguid: str: Custom bot guid
+        :param orderguid: str: Order guid
 
+        :returns: :class:`~haasomeapi.dataobjects.custombots.OrderBot`: Order bot object 
+        
         """
 
         response = super()._execute_request("/OrderBotRemoveOrder", {"botGuid": botguid,
@@ -1266,9 +1270,11 @@ class CustomBotApi(ApiBase):
                                          response["ErrorMessage"], {})
 
     def remove_all_order_bot_order(self, botguid: str):
-        """
+        """ Removes all orders from order bot
 
-        :param botguid: str: 
+        :param botguid: str: Custom bot guid
+
+        :returns: :class:`~haasomeapi.dataobjects.custombots.OrderBot`: Order bot object 
 
         """
 
@@ -1282,11 +1288,13 @@ class CustomBotApi(ApiBase):
                                          response["ErrorMessage"], {})
 
     def setup_script_bot_parameters(self, botguid: str, fieldno: int, value: any):
-        """
+        """ Modify script bot parameters
 
-        :param botguid: str: 
-        :param fieldno: int: 
-        :param value: any: 
+        :param botguid: str: Custom bot guid
+        :param fieldno: int: Field Number to modify
+        :param value: any: Value for field
+
+        :returns: :class:`~haasomeapi.dataobjects.custombots.ScriptBot`: Script bot object 
 
         """
 

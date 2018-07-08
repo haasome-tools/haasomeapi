@@ -7,8 +7,10 @@ Welcome to Haasome Api's documentation!
 =======================================
 
 .. toctree::
+   haasomeapi.apis
    :maxdepth: 2
    :caption: Contents:
+
 
 
 Indices and tables

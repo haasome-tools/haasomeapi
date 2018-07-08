@@ -100,14 +100,6 @@ haasomeapi.enums.EnumInsurance module
     :undoc-members:
     :show-inheritance:
 
-haasomeapi.enums.EnumInsurances module
---------------------------------------
-
-.. automodule:: haasomeapi.enums.EnumInsurances
-    :members:
-    :undoc-members:
-    :show-inheritance:
-
 haasomeapi.enums.EnumLimitOrderPriceType module
 -----------------------------------------------
 

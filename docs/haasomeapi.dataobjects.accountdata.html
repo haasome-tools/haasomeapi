@@ -1,0 +1,266 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>haasomeapi.dataobjects.accountdata package &#8212; HaasomeApi 3.1.14.1 documentation</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="haasomeapi-dataobjects-accountdata-package">
+<h1>haasomeapi.dataobjects.accountdata package<a class="headerlink" href="#haasomeapi-dataobjects-accountdata-package" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-haasomeapi.dataobjects.accountdata.AccountInformation">
+<span id="haasomeapi-dataobjects-accountdata-accountinformation-module"></span><h2>haasomeapi.dataobjects.accountdata.AccountInformation module<a class="headerlink" href="#module-haasomeapi.dataobjects.accountdata.AccountInformation" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="haasomeapi.dataobjects.accountdata.AccountInformation.AccountInformation">
+<em class="property">class </em><code class="descclassname">haasomeapi.dataobjects.accountdata.AccountInformation.</code><code class="descname">AccountInformation</code><a class="headerlink" href="#haasomeapi.dataobjects.accountdata.AccountInformation.AccountInformation" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Data Object containing the account information</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
+<li><strong>guid</strong> – str: Account guid</li>
+<li><strong>name</strong> – str: Account name</li>
+<li><strong>platformType</strong> – <a class="reference internal" href="haasomeapi.enums.html#module-haasomeapi.enums.EnumPlatform" title="haasomeapi.enums.EnumPlatform"><code class="xref py py-class docutils literal notranslate"><span class="pre">EnumPlatform</span></code></a>: Platform</li>
+<li><strong>connectedPriceSource</strong> – <a class="reference internal" href="haasomeapi.enums.html#module-haasomeapi.enums.EnumPriceSource" title="haasomeapi.enums.EnumPriceSource"><code class="xref py py-class docutils literal notranslate"><span class="pre">EnumPriceSource</span></code></a>: Connected Price Source</li>
+<li><strong>isSimulatedAccount</strong> – bool: Is a simulated account</li>
+<li><strong>availableOrderTemplates</strong> – Dict[str, str]: Available order templates</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="module-haasomeapi.dataobjects.accountdata.BaseOrder">
+<span id="haasomeapi-dataobjects-accountdata-baseorder-module"></span><h2>haasomeapi.dataobjects.accountdata.BaseOrder module<a class="headerlink" href="#module-haasomeapi.dataobjects.accountdata.BaseOrder" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="haasomeapi.dataobjects.accountdata.BaseOrder.BaseOrder">
+<em class="property">class </em><code class="descclassname">haasomeapi.dataobjects.accountdata.BaseOrder.</code><code class="descname">BaseOrder</code><a class="headerlink" href="#haasomeapi.dataobjects.accountdata.BaseOrder.BaseOrder" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Data Object containing the Base Order</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
+<li><strong>pair</strong> – <a class="reference internal" href="haasomeapi.dataobjects.marketdata.html#module-haasomeapi.dataobjects.marketdata.Market" title="haasomeapi.dataobjects.marketdata.Market"><code class="xref py py-class docutils literal notranslate"><span class="pre">Market</span></code></a>: Market Information</li>
+<li><strong>orderId</strong> – str: Order Id</li>
+<li><strong>orderStatus</strong> – <a class="reference internal" href="haasomeapi.enums.html#module-haasomeapi.enums.EnumOrderStatus" title="haasomeapi.enums.EnumOrderStatus"><code class="xref py py-class docutils literal notranslate"><span class="pre">EnumOrderStatus</span></code></a>: Order Status</li>
+<li><strong>orderType</strong> – <a class="reference internal" href="haasomeapi.enums.html#module-haasomeapi.enums.EnumOrderType" title="haasomeapi.enums.EnumOrderType"><code class="xref py py-class docutils literal notranslate"><span class="pre">EnumOrderType</span></code></a>: Order Type</li>
+<li><strong>fundMovement</strong> – <a class="reference internal" href="haasomeapi.enums.html#module-haasomeapi.enums.EnumFundMovingPosition" title="haasomeapi.enums.EnumFundMovingPosition"><code class="xref py py-class docutils literal notranslate"><span class="pre">EnumFundMovingPosition</span></code></a>: Leverage Position</li>
+<li><strong>price</strong> – float: Price Of Order</li>
+<li><strong>amount</strong> – float: Amount In Order</li>
+<li><strong>amountFilled</strong> – float: Amount Filled</li>
+<li><strong>addedTime</strong> – <code class="xref py py-class docutils literal notranslate"><span class="pre">datetime</span></code>: Time Added In Datetime</li>
+<li><strong>unixAddedTime</strong> – int: Time Added In Unix</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="module-haasomeapi.dataobjects.accountdata.OrderContainer">
+<span id="haasomeapi-dataobjects-accountdata-ordercontainer-module"></span><h2>haasomeapi.dataobjects.accountdata.OrderContainer module<a class="headerlink" href="#module-haasomeapi.dataobjects.accountdata.OrderContainer" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="haasomeapi.dataobjects.accountdata.OrderContainer.OrderContainer">
+<em class="property">class </em><code class="descclassname">haasomeapi.dataobjects.accountdata.OrderContainer.</code><code class="descname">OrderContainer</code><a class="headerlink" href="#haasomeapi.dataobjects.accountdata.OrderContainer.OrderContainer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Data Object containing the Base Order</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
+<li><strong>exchangeOrderList</strong> – Dict[str, <a class="reference internal" href="#module-haasomeapi.dataobjects.accountdata.BaseOrder" title="haasomeapi.dataobjects.accountdata.BaseOrder"><code class="xref py py-class docutils literal notranslate"><span class="pre">BaseOrder</span></code></a>]: Spot Order List</li>
+<li><strong>marginOrderList</strong> – Dict[str, <a class="reference internal" href="#module-haasomeapi.dataobjects.accountdata.BaseOrder" title="haasomeapi.dataobjects.accountdata.BaseOrder"><code class="xref py py-class docutils literal notranslate"><span class="pre">BaseOrder</span></code></a>]: Margin Order List</li>
+<li><strong>leverageOrderList</strong> – Dict[str, <a class="reference internal" href="#module-haasomeapi.dataobjects.accountdata.BaseOrder" title="haasomeapi.dataobjects.accountdata.BaseOrder"><code class="xref py py-class docutils literal notranslate"><span class="pre">BaseOrder</span></code></a>]: Leverage Order List</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="module-haasomeapi.dataobjects.accountdata.Position">
+<span id="haasomeapi-dataobjects-accountdata-position-module"></span><h2>haasomeapi.dataobjects.accountdata.Position module<a class="headerlink" href="#module-haasomeapi.dataobjects.accountdata.Position" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="haasomeapi.dataobjects.accountdata.Position.Position">
+<em class="property">class </em><code class="descclassname">haasomeapi.dataobjects.accountdata.Position.</code><code class="descname">Position</code><a class="headerlink" href="#haasomeapi.dataobjects.accountdata.Position.Position" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Data Object containing the Base Order</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
+<li><strong>side</strong> – <a class="reference internal" href="haasomeapi.enums.html#module-haasomeapi.enums.EnumFundPosition" title="haasomeapi.enums.EnumFundPosition"><code class="xref py py-class docutils literal notranslate"><span class="pre">EnumFundPosition</span></code></a>: Position Of Trade</li>
+<li><strong>usedMargin</strong> – float: Used Margin</li>
+<li><strong>amount</strong> – float: Amount</li>
+<li><strong>leverage</strong> – float: Leverage</li>
+<li><strong>priceMarket</strong> – <a class="reference internal" href="haasomeapi.dataobjects.marketdata.html#module-haasomeapi.dataobjects.marketdata.Market" title="haasomeapi.dataobjects.marketdata.Market"><code class="xref py py-class docutils literal notranslate"><span class="pre">Market</span></code></a>: Price Market</li>
+<li><strong>investmentPrice</strong> – float: Investment</li>
+<li><strong>profitLossRatio</strong> – float: Profit Loss Ratio</li>
+<li><strong>profitLossNow</strong> – float: Profit Loss Now</li>
+<li><strong>marginCallPrice</strong> – float: Margin Call Price</li>
+<li><strong>amountLabel</strong> – str: Amount Label</li>
+<li><strong>profitLabel</strong> – str: Profit Label</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="module-haasomeapi.dataobjects.accountdata.SoftwareInformation">
+<span id="haasomeapi-dataobjects-accountdata-softwareinformation-module"></span><h2>haasomeapi.dataobjects.accountdata.SoftwareInformation module<a class="headerlink" href="#module-haasomeapi.dataobjects.accountdata.SoftwareInformation" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="haasomeapi.dataobjects.accountdata.SoftwareInformation.SoftwareInformation">
+<em class="property">class </em><code class="descclassname">haasomeapi.dataobjects.accountdata.SoftwareInformation.</code><code class="descname">SoftwareInformation</code><a class="headerlink" href="#haasomeapi.dataobjects.accountdata.SoftwareInformation.SoftwareInformation" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Data Object containing the software information</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
+<li><strong>isBeta</strong> – bool: True if on beta release</li>
+<li><strong>versionNumber</strong> – str: Current software version number.</li>
+<li><strong>licenceType</strong> – <a class="reference internal" href="haasomeapi.enums.html#module-haasomeapi.enums.EnumSoftwareLicence" title="haasomeapi.enums.EnumSoftwareLicence"><code class="xref py py-class docutils literal notranslate"><span class="pre">EnumSoftwareLicence</span></code></a>: License Type</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="module-haasomeapi.dataobjects.accountdata.Wallet">
+<span id="haasomeapi-dataobjects-accountdata-wallet-module"></span><h2>haasomeapi.dataobjects.accountdata.Wallet module<a class="headerlink" href="#module-haasomeapi.dataobjects.accountdata.Wallet" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="haasomeapi.dataobjects.accountdata.Wallet.Wallet">
+<em class="property">class </em><code class="descclassname">haasomeapi.dataobjects.accountdata.Wallet.</code><code class="descname">Wallet</code><a class="headerlink" href="#haasomeapi.dataobjects.accountdata.Wallet.Wallet" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Data Object containing the Wallet</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
+<li><strong>coins</strong> – Dict[str, float]: Coins in wallet</li>
+<li><strong>positions</strong> – Dict[str, <a class="reference internal" href="#module-haasomeapi.dataobjects.accountdata.Position" title="haasomeapi.dataobjects.accountdata.Position"><code class="xref py py-class docutils literal notranslate"><span class="pre">Position</span></code></a>]: Active Positions</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="module-haasomeapi.dataobjects.accountdata">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-haasomeapi.dataobjects.accountdata" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">haasomeapi.dataobjects.accountdata package</a><ul>
+<li><a class="reference internal" href="#submodules">Submodules</a></li>
+<li><a class="reference internal" href="#module-haasomeapi.dataobjects.accountdata.AccountInformation">haasomeapi.dataobjects.accountdata.AccountInformation module</a></li>
+<li><a class="reference internal" href="#module-haasomeapi.dataobjects.accountdata.BaseOrder">haasomeapi.dataobjects.accountdata.BaseOrder module</a></li>
+<li><a class="reference internal" href="#module-haasomeapi.dataobjects.accountdata.OrderContainer">haasomeapi.dataobjects.accountdata.OrderContainer module</a></li>
+<li><a class="reference internal" href="#module-haasomeapi.dataobjects.accountdata.Position">haasomeapi.dataobjects.accountdata.Position module</a></li>
+<li><a class="reference internal" href="#module-haasomeapi.dataobjects.accountdata.SoftwareInformation">haasomeapi.dataobjects.accountdata.SoftwareInformation module</a></li>
+<li><a class="reference internal" href="#module-haasomeapi.dataobjects.accountdata.Wallet">haasomeapi.dataobjects.accountdata.Wallet module</a></li>
+<li><a class="reference internal" href="#module-haasomeapi.dataobjects.accountdata">Module contents</a></li>
+</ul>
+</li>
+</ul>
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/haasomeapi.dataobjects.accountdata.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2018, Raynaldo Rivera.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.7.5</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.11</a>
+      
+      |
+      <a href="_sources/haasomeapi.dataobjects.accountdata.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

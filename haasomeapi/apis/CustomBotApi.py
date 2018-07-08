@@ -177,7 +177,7 @@ class CustomBotApi(ApiBase):
     def get_custom_bot(self,  botguid: str, bottype: EnumCustomBotType):
         """ Returns custom bot matching bot guid
 
-        :param botguid: str: the bot 
+        :param botguid: str: Custom bot guid
         :param bottype: :class:`~haasomeapi.enums.EnumCustomBotType`: Type of bot to return 
 
         :returns: :class:`~haasomeapi.dataobjects.util.HaasomeClientResponse`
@@ -197,7 +197,7 @@ class CustomBotApi(ApiBase):
     def activate_custom_bot(self, botguid: str, withextra: bool):
         """ Activates a custom bot
 
-        :param botguid: str: Bot guid
+        :param botguid: str: Custm bot guid
         :param withextra: bool: with extra
 
         :returns: :class:`~haasomeapi.dataobjects.util.HaasomeClientResponse`
@@ -216,7 +216,7 @@ class CustomBotApi(ApiBase):
     def deactivate_custom_bot(self, botguid: str, withextra: bool):
         """ Deactivates a custom bot
 
-        :param botguid: str: Bot guid
+        :param botguid: str: Custm bot guid
         :param withextra: bool: with extra
         
         :returns: :class:`~haasomeapi.dataobjects.util.HaasomeClientResponse`

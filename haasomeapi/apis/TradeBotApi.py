@@ -583,7 +583,7 @@ class TradeBotApi(ApiBase):
         :param secondarycoin: str: Secondary currency Ex. If BNB/BTC then set this to BTC
         :param contractname: str: Contract name (Optional)
         :param mappedbuysignal: :class:`~haasomeapi.enums.EnumFundPosition`: Mapped buy signal position
-        :param mappedsellsignal::class:`~haasomeapi.enums.EnumFundPosition`: Mapped sell signal position
+        :param mappedsellsignal: :class:`~haasomeapi.enums.EnumFundPosition`: Mapped sell signal position
 
         :returns: :class:`~haasomeapi.dataobjects.util.HaasomeClientResponse`
         :returns: In .result :class:`~haasomeapi.dataobjects.tradebot.TradeBot`: Trade Bot
@@ -647,7 +647,7 @@ class TradeBotApi(ApiBase):
         :param reversesignals: bool: Reverse signals
         :param standalone: bool: Stand alone
         :param mappedbuysignal: :class:`~haasomeapi.enums.EnumFundPosition`: Mapped buy signal position
-        :param mappedsellsignal::class:`~haasomeapi.enums.EnumFundPosition`: Mapped sell signal position
+        :param mappedsellsignal: :class:`~haasomeapi.enums.EnumFundPosition`: Mapped sell signal position
 
         :returns: :class:`~haasomeapi.dataobjects.util.HaasomeClientResponse`
         :returns: In .result :class:`~haasomeapi.dataobjects.tradebot.TradeBot`: Trade Bot

@@ -23,6 +23,7 @@ class BaseOrder:
     :ivar addedTime: :class:`~datetime`: Time Added In Datetime
     :ivar unixAddedTime: int: Time Added In Unix
     """
+    
     pair: Market
     orderId: str
     orderStatus: EnumOrderStatus

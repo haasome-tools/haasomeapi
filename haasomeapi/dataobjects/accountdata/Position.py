@@ -20,6 +20,7 @@ class Position:
     :ivar amountLabel: str: Amount Label
     :ivar profitLabel: str: Profit Label
     """
+    
     side: EnumFundPosition
     usedMargin: float
     amount: float

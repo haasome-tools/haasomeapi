@@ -16,6 +16,7 @@ class AccountInformation:
     :ivar isSimulatedAccount: bool: Is a simulated account
     :ivar availableOrderTemplates: Dict[str, str]: Available order templates
     """
+    
     guid: str
     name: str
     platformType: EnumPlatform

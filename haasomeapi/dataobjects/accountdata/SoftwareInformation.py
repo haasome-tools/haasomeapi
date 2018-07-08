@@ -9,6 +9,7 @@ class SoftwareInformation:
     :ivar versionNumber: str: Current software version number.
     :ivar licenceType: :class:`~haasomeapi.enums.EnumSoftwareLicence`: License Type
     """
+    
     isBeta: bool
     versionNumber: str
     licenceType: EnumSoftwareLicence

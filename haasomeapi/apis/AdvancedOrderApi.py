@@ -25,6 +25,7 @@ class AdvancedOrderApi(ApiBase):
         :returns: :class:`~haasomeapi.dataobjects.util.HaasomeClientResponse`
         :returns: In .result Dict[:class:`~haasomeapi.dataobjects.advancedorders.AdvancedOrderBase`]
         """
+
         response = super()._execute_request("/GetAdvancedOrders", {})
 
         advancedorders = {}
@@ -212,7 +213,6 @@ class AdvancedOrderApi(ApiBase):
 
         :returns: :class:`~haasomeapi.dataobjects.util.HaasomeClientResponse`
         :returns: In .result :class:`~from haasomeapi.dataobjects.advancedorders.StopTakeProfitOrder`
-
         """
 
         response = super()._execute_request("/AddTakeProfitOrder",

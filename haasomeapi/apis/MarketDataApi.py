@@ -11,7 +11,7 @@ from haasomeapi.dataobjects.util.HaasomeClientResponse import HaasomeClientRespo
 
 
 class MarketDataApi(ApiBase):
-    """ The Advanced Order API Class.
+    """ The Market Data API Class.
     Gives access to the market data endpoints
 
     :param connectionstring: str: Connection String Formatted Ex. http://127.0.0.1:9000

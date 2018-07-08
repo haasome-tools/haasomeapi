@@ -5,16 +5,15 @@ from haasomeapi.enums.EnumPriceSource import EnumPriceSource
 
 
 class AccountInformation:
-    """    
-    Data Object containing the account information
+    """ Data Object containing the account information
 
-    :ivar guid: str: Account guid
-    :ivar name: str: Account name
-    :ivar platformType: :class:`~haasomeapi.enums.EnumPlatform`: Platform
-    :ivar connectedPriceSource: :class:`~haasomeapi.enums.EnumPriceSource`: Connected Price Source
+    :ivar guid: str:
+    :ivar name: str: 
+    :ivar platformType: :class:`~haasomeapi.enums.EnumPlatform`:
+    :ivar connectedPriceSource: :class:`~haasomeapi.enums.EnumPriceSource`:
 
-    :ivar isSimulatedAccount: bool: Is a simulated account
-    :ivar availableOrderTemplates: Dict[str, str]: Available order templates
+    :ivar isSimulatedAccount: bool
+    :ivar availableOrderTemplates: Dict[str, str]: 
     """
     
     guid: str

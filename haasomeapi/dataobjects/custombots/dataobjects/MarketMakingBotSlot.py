@@ -2,6 +2,14 @@ from haasomeapi.dataobjects.custombots.dataobjects.MarketMakingBotSlotObject imp
 
 
 class MarketMakingBotSlot:
+    """ Data Object containing a Market Making Bot Slot
+
+    :ivar buyOrder: :class:`~haasomeapi.dataobjects.custombots.dataobjects.MarketMakingBotSlotObject`:
+    :ivar sellOrder: :class:`~haasomeapi.dataobjects.custombots.dataobjects.MarketMakingBotSlotObject`:
+    :ivar offset: float:
+    :ivar active: bool:
+    """
+
     buyOrder: MarketMakingBotSlotObject
     sellOrder: MarketMakingBotSlotObject
 

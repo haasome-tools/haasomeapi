@@ -8,6 +8,19 @@ from haasomeapi.dataobjects.custombots.dataobjects.CryptoIndexBotIndexResult imp
 
 
 class CryptoIndexBot(BaseCustomBot):
+    """ Data Object containing a Crypto Index bot
+
+    :ivar baseCoin: str:
+    :ivar index: List[:class:`~haasomeapi.dataobjects.custombots.dataobjects.CryptoIndexBotIndex`]:
+    :ivar totalExtraBuy: float:
+    :ivar totalExtraSell: float:
+    :ivar individualCoinGrowth: bool:
+    :ivar allocateProfits: bool:
+    :ivar lastOrderTimeStamp: :class:`~datettime`:
+    :ivar mappedIndexes: Dict[str, float]:
+    :ivar indexResults: Dict[str, :class:`~haasomeapi.dataobjects.custombots.dataobjects.CryptoIndexBotIndexResult:]:
+    """
+
     baseCoin: str
     index: List[CryptoIndexBotIndex]
 

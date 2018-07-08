@@ -7,6 +7,16 @@ from haasomeapi.dataobjects.custombots.dataobjects.EnumBotActionMessage import E
 
 
 class EmailBotAction:
+    """ Data Object containing a Email Bot Action
+
+    :ivar guid: str:
+    :ivar providerGuid: str:
+    :ivar messages: List[:class:`~haasomeapi.dataobjects.custombots.dataobjects.EnumBotActionMessage`]:
+    :ivar timeoutInSeconds: int = 65:
+    :ivar spotAction: :class:`~haasomeapi.enums.EnumBotTradeResult`:
+    :ivar leverageAction: :class:`~haasomeapi.enums.EnumFundMovingPosition`:
+    """
+
     guid: str
     providerGuid: str
     messages: List[EmailBotActionMessage]

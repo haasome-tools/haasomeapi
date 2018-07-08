@@ -24,7 +24,6 @@ class ApiBase:
         :param privatekey: str: The haas secret key to use for the signature
 
         :returns: Tuple(str,str): A tuple with the parameter string and the signature
-
         """
 
         parameter_string = ""
@@ -52,7 +51,6 @@ class ApiBase:
         :param parameters: Dict[str,str]: Parameter list to send to the endpoint
 
         :returns: JsonObject: Returns a json object of the response.
-
         """
 
         url = self.baseUrl + endpoint
@@ -83,8 +81,8 @@ class ApiBase:
         :parama cls: Class type to convert to
 
         :returns: any: A instance of the specified class
-
         """
+        
         annotations: dict = cls.__annotations__ if hasattr(cls, '__annotations__') else None
         if issubclass(cls, List):
             list_type = cls.__args__[0]

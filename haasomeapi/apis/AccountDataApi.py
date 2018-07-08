@@ -28,6 +28,7 @@ class AccountDataApi(ApiBase):
         :returns: :class:`~haasomeapi.dataobjects.util.HaasomeClientResponse`
         :returns: In .result :class:`~haasomeapi.dataobjects.accountdata.SoftwareInformation`
         """
+
         response = super()._execute_request("/GetSoftwareDetails", {})
 
         return HaasomeClientResponse(EnumErrorCode(int(response["ErrorCode"])),
@@ -39,6 +40,7 @@ class AccountDataApi(ApiBase):
         :returns: :class:`~haasomeapi.dataobjects.util.HaasomeClientResponse`
         :returns: In .result dict
         """
+
         response = super()._execute_request("/GetEnabledAccounts", {})
 
         return HaasomeClientResponse(EnumErrorCode(int(response["ErrorCode"])),
@@ -50,6 +52,7 @@ class AccountDataApi(ApiBase):
         :returns: :class:`~haasomeapi.dataobjects.util.HaasomeClientResponse`
         :returns: In .result dict
         """
+
         response = super()._execute_request("/GetAllAccountDetails", {})
 
         accounts = {}
@@ -72,6 +75,7 @@ class AccountDataApi(ApiBase):
         :returns: :class:`~haasomeapi.dataobjects.util.HaasomeClientResponse`
         :returns: In .result :class:`~haasomeapi.dataobjects.accountdata.AccountInformation`
         """
+
         response = super()._execute_request("/GetAccountDetails",  {"accountGuid": accountguid})
 
         try:
@@ -89,6 +93,7 @@ class AccountDataApi(ApiBase):
         :returns: :class:`~haasomeapi.dataobjects.util.HaasomeClientResponse`
         :returns: In .result :class:`~haasomeapi.dataobjects.accountdata.Wallet`
         """
+
         response = super()._execute_request("/SimulatedAccountClearWallet",  {"accountGuid": accountguid})
 
         try:
@@ -108,6 +113,7 @@ class AccountDataApi(ApiBase):
         :returns: :class:`~haasomeapi.dataobjects.util.HaasomeClientResponse`
         :returns: In .result :class:`~haasomeapi.dataobjects.accountdata.Wallet`
         """
+
         response = super()._execute_request("/SimulatedAccountAddOrAdjustCoinAmount",  {"accountGuid": accountguid,
                                                                                         "coin": coin,
                                                                                         "amount": float(str(amount).replace(',', '.'))})
@@ -125,6 +131,7 @@ class AccountDataApi(ApiBase):
         :returns: :class:`~haasomeapi.dataobjects.util.HaasomeClientResponse`
         :returns: In .result dict
         """
+
         response = super()._execute_request("/GetOrderTemplates",  {})
 
         try:
@@ -140,6 +147,7 @@ class AccountDataApi(ApiBase):
         :returns: :class:`~haasomeapi.dataobjects.util.HaasomeClientResponse`
         :returns: In .result dict
         """
+
         accounts = self.get_enabled_accounts()
 
         if accounts.errorCode != EnumErrorCode.SUCCESS:
@@ -164,6 +172,7 @@ class AccountDataApi(ApiBase):
         :returns: :class:`~haasomeapi.dataobjects.util.HaasomeClientResponse`
         :returns: In .result :class:`~haasomeapi.dataobjects.accountdata.Wallet`
         """
+
         response = super()._execute_request("/GetWallet", {"accountGuid": accountguid})
 
         try:
@@ -179,6 +188,7 @@ class AccountDataApi(ApiBase):
         :returns: :class:`~haasomeapi.dataobjects.util.HaasomeClientResponse`
         :returns: In .result dict
         """
+
         accounts = self.get_enabled_accounts()
 
         if accounts.errorCode != EnumErrorCode.SUCCESS:
@@ -203,6 +213,7 @@ class AccountDataApi(ApiBase):
         :returns: :class:`~haasomeapi.dataobjects.util.HaasomeClientResponse`
         :returns: In .result :class:`~haasomeapi.dataobjects.accountdata.OrderContainer`
         """
+
         response = super()._execute_request("/GetOpenOrders", {"accountGuid": accountguid})
 
         order_container = super()._from_json(response["Result"], OrderContainer)
@@ -239,6 +250,7 @@ class AccountDataApi(ApiBase):
         :returns: :class:`~haasomeapi.dataobjects.util.HaasomeClientResponse`
         :returns: In .result :class:`~haasomeapi.enums.EnumOrderStatus`
         """
+        
         response = super()._execute_request("/GetTemplateStatus", {"templateGuid": templateguid})
 
         try:

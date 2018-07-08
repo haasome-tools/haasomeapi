@@ -120,6 +120,7 @@ class CustomBotApi(ApiBase):
 
         :returns: str: Json string representation of specified list
         """
+
         index_fixed = []
 
         for i in index:
@@ -134,7 +135,6 @@ class CustomBotApi(ApiBase):
         :param actions: List[EmailBotAction]: 
 
         :returns: str: Json string representation of the specified list
-
         """
 
         actions_fixed = []
@@ -157,8 +157,8 @@ class CustomBotApi(ApiBase):
 
         :returns: :class:`~haasomeapi.dataobjects.util.HaasomeClientResponse`
         :returns: In .result List[:class:`~haasomeapi.dataobjects.custombots.BaseCustomBot`]
-
         """
+
         response = super()._execute_request("/AllCustomBots", {})
 
         bots = []
@@ -182,7 +182,6 @@ class CustomBotApi(ApiBase):
 
         :returns: :class:`~haasomeapi.dataobjects.util.HaasomeClientResponse`
         :returns: In .result any: Specified bottype object
-
         """
 
         response = super()._execute_request("/GetCustomBot", {"botGuid": botguid})
@@ -203,8 +202,8 @@ class CustomBotApi(ApiBase):
 
         :returns: :class:`~haasomeapi.dataobjects.util.HaasomeClientResponse`
         :returns: In .result bool: If activation was successful
-
         """
+
         response = super()._execute_request("/ActivateCustomBot",  {"botGuid": botguid, "extra": str(withextra).lower()})
 
         try:
@@ -222,8 +221,8 @@ class CustomBotApi(ApiBase):
         
         :returns: :class:`~haasomeapi.dataobjects.util.HaasomeClientResponse`
         :returns: Int .result bool: If deactivation was successful
-
         """
+
         response = super()._execute_request("/DeactivateCustomBot",  {"botGuid": botguid, "extra": str(withextra).lower()})
 
         try:
@@ -246,7 +245,6 @@ class CustomBotApi(ApiBase):
 
         :returns: :class:`~haasomeapi.dataobjects.util.HaasomeClientResponse`
         :returns: In .result any: Specified bot type object
-
         """
 
         response = super()._execute_request("/GetCustomBot", {"botType": EnumCustomBotType(bottype).name.capitalize(),
@@ -273,7 +271,6 @@ class CustomBotApi(ApiBase):
 
         :returns: :class:`~haasomeapi.dataobjects.util.HaasomeClientResponse`
         :returns: In .result any: Specified bot type object
-
         """
 
         response = super()._execute_request("/GetCustomBot", {"botType": EnumCustomBotType(bottype).name.capitalize(),
@@ -297,8 +294,8 @@ class CustomBotApi(ApiBase):
 
         :returns: :class:`~haasomeapi.dataobjects.util.HaasomeClientResponse`
         :returns: In .result bool: If removal was succesfull
-
         """
+
         response = super()._execute_request("/RemoveCustomBot",  {"botGuid": botguid})
 
         try:
@@ -315,8 +312,8 @@ class CustomBotApi(ApiBase):
 
         :returns: :class:`~haasomeapi.dataobjects.util.HaasomeClientResponse`
         :returns: In .result :class:`~haasomeapi.dataobjects.custombots.BaseCustomBot`: BaseCustomBot of the bot that was cleared
-
         """
+
         response = super()._execute_request("/ClearCustomBot",  {"botGuid": botguid})
 
         try:
@@ -334,8 +331,8 @@ class CustomBotApi(ApiBase):
 
         :returns: :class:`~haasomeapi.dataobjects.util.HaasomeClientResponse`
         :returns: In .result any: Specified custom bot object 
-
         """
+
         response = super()._execute_request("/ClearCustomBot",  {"botGuid": botguid})
 
         try:
@@ -353,8 +350,8 @@ class CustomBotApi(ApiBase):
         
         :returns: :class:`~haasomeapi.dataobjects.util.HaasomeClientResponse`
         :returns: In .result :class:`~haasomeapi.dataobjects.custombots.BaseCustomBot`: BaseCustomBot of the bot that was backtested
-
         """
+
         response = super()._execute_request("/BacktestCustomBot",  {"botGuid": botguid, "minutesToTest": minutestotest})
 
         try:
@@ -373,8 +370,8 @@ class CustomBotApi(ApiBase):
 
         :returns: :class:`~haasomeapi.dataobjects.util.HaasomeClientResponse`
         :returns: In .result :class:`~haasomeapi.dataobjects.custombots.BaseCustomBot`: BaseCustomBot of the bot that was backtested
-
         """
+
         response = super()._execute_request("/BacktestCustomBot",  {"botGuid": botguid, "startUnix": startunix,
                                                                     "endunix": endunix})
 
@@ -398,7 +395,6 @@ class CustomBotApi(ApiBase):
 
         :returns: :class:`~haasomeapi.dataobjects.util.HaasomeClientResponse`
         :returns: In .result :class:`~haasomeapi.dataobjects.custombots.BaseCustomBot`: BaseCustomBot of the bot that was backtested
-
         """
 
         response = super()._execute_request("/BacktestCustomBot",  {"botGuid": botguid,
@@ -430,7 +426,6 @@ class CustomBotApi(ApiBase):
 
         :returns: :class:`~haasomeapi.dataobjects.util.HaasomeClientResponse`
         :returns: In .result any: Specified bot type object
-
         """
 
         response = super()._execute_request("/CloneCustomBot",  {"botGuid": botguid,
@@ -457,7 +452,6 @@ class CustomBotApi(ApiBase):
 
         :returns: :class:`~haasomeapi.dataobjects.util.HaasomeClientResponse`
         :returns: In .result :class:`~haasomeapi.dataobjects.custombots.BaseCustomBot`: BaseCustomBot of the bot that was backtested
-
         """
 
         response = super()._execute_request("/CloneCustomBotSimple",  {"botGuid": botguid,
@@ -495,7 +489,6 @@ class CustomBotApi(ApiBase):
 
         :returns: :class:`~haasomeapi.dataobjects.util.HaasomeClientResponse`
         :returns: In .result :class:`~haasomeapi.dataobjects.custombots.AccumulationBot`: Accumulation bot object
-
         """
 
         response = super()._execute_request("/SetupAccumulationBot",  {"botGuid": botguid,
@@ -536,7 +529,6 @@ class CustomBotApi(ApiBase):
 
         :returns: :class:`~haasomeapi.dataobjects.util.HaasomeClientResponse`
         :returns: In .result :class:`~haasomeapi.dataobjects.custombots.CryptoIndexBot`: Crypto Index bot object
-
         """
 
         response = super()._execute_request("/SetupCryptoIndexBot",  {"botGuid": botguid,
@@ -580,7 +572,6 @@ class CustomBotApi(ApiBase):
 
         :returns: :class:`~haasomeapi.dataobjects.util.HaasomeClientResponse`
         :returns: In .result :class:`~haasomeapi.dataobjects.custombots.EmailBot`: Email bot object
-
         """
 
         response = super()._execute_request("/SetupEmailBot",  {"botGuid": botguid,
@@ -640,7 +631,6 @@ class CustomBotApi(ApiBase):
 
         :returns: :class:`~haasomeapi.dataobjects.util.HaasomeClientResponse`
         :returns: In .result :class:`~haasomeapi.dataobjects.custombots.FlashCrashBot`: Flash Crash bot object
-
         """
 
         response = super()._execute_request("/SetupFlashCrashBot",  {"botGuid": botguid,
@@ -695,7 +685,6 @@ class CustomBotApi(ApiBase):
 
         :returns: :class:`~haasomeapi.dataobjects.util.HaasomeClientResponse`
         :returns: In .result :class:`~haasomeapi.dataobjects.custombots.InterExchangeArbitrageBot`: Inter Exchange Arbitrage bot object
-
         """
 
         response = super()._execute_request("/SetupInterExchangeArbitrageBot",  {"botGuid": botguid,
@@ -734,7 +723,6 @@ class CustomBotApi(ApiBase):
 
         :returns: :class:`~haasomeapi.dataobjects.util.HaasomeClientResponse`
         :returns: In .result :class:`~haasomeapi.dataobjects.custombots.BaseCustomBot`: BaseCustomBot Object
-
         """
 
         response = super()._execute_request("/SetupIntellibotAlice",  {"botGuid": botguid,
@@ -772,7 +760,6 @@ class CustomBotApi(ApiBase):
 
         :returns: :class:`~haasomeapi.dataobjects.util.HaasomeClientResponse`
         :returns: In .result :class:`~haasomeapi.dataobjects.custombots.MarketMakingBot`: Market Making bot object
-
         """
 
         response = super()._execute_request("/SetupMarketMakingBot",  {"botGuid": botguid,
@@ -814,7 +801,6 @@ class CustomBotApi(ApiBase):
 
         :returns: :class:`~haasomeapi.dataobjects.util.HaasomeClientResponse`
         :returns: In .result :class:`~haasomeapi.dataobjects.custombots.MadHatterBot`: Mad Hatter bot object
-
         """
 
         response = super()._execute_request("/SetupMadHatterBot",  {"botGuid": botguid,
@@ -848,7 +834,6 @@ class CustomBotApi(ApiBase):
         
         :returns: :class:`~haasomeapi.dataobjects.util.HaasomeClientResponse`
         :returns: In .result :class:`~haasomeapi.dataobjects.custombots.OrderBot`: Order bot object
-
         """
 
         response = super()._execute_request("/SetupOrderBot",  {"botGuid": botguid,
@@ -880,7 +865,6 @@ class CustomBotApi(ApiBase):
 
         :returns: :class:`~haasomeapi.dataobjects.util.HaasomeClientResponse`
         :returns: In .result :class:`~haasomeapi.dataobjects.custombots.BaseCustomBot`: Ping Pong is just a BaseCustomBot - BaseCustomBot object
-        
         """
 
         response = super()._execute_request("/SetupPingPongBot",  {"botGuid": botguid,
@@ -921,7 +905,6 @@ class CustomBotApi(ApiBase):
 
         :returns: :class:`~haasomeapi.dataobjects.util.HaasomeClientResponse`
         :returns: In .result :class:`~haasomeapi.dataobjects.custombots.ScalperBot`: Scalper bot object
-
         """
 
         response = super()._execute_request("/SetupScalpingBot",  {"botGuid": botguid,
@@ -965,7 +948,6 @@ class CustomBotApi(ApiBase):
 
         :returns: :class:`~haasomeapi.dataobjects.util.HaasomeClientResponse`
         :returns: In .result :class:`~haasomeapi.dataobjects.custombots.ScriptBot`: Script Bot Object
-
         """
 
         response = super()._execute_request("/SetupScriptBot",  {"botGuid": botguid,
@@ -1009,7 +991,6 @@ class CustomBotApi(ApiBase):
 
         :returns: :class:`~haasomeapi.dataobjects.util.HaasomeClientResponse`
         :returns: In .result :class:`~haasomeapi.dataobjects.custombots.ZoneRecoveryBot`: Zone Recovery bot object
-
         """
 
         response = super()._execute_request("/SetupZoneRecoveryBot",  {"botGuid": botguid,
@@ -1040,8 +1021,8 @@ class CustomBotApi(ApiBase):
 
         :returns: :class:`~haasomeapi.dataobjects.util.HaasomeClientResponse`
         :returns: In .result bool: If quick start was successful
-
         """
+
         response = super()._execute_request("/QuickStartFlashCrashBot",  {"botGuid": botguid})
 
         try:
@@ -1058,8 +1039,8 @@ class CustomBotApi(ApiBase):
 
         :returns: :class:`~haasomeapi.dataobjects.util.HaasomeClientResponse`
         :returns: In .result bool: If quick start was successful
-
         """
+
         response = super()._execute_request("/QuickStartAllFlashCrashBots",  {"botGuid": botguid})
 
         try:
@@ -1078,8 +1059,8 @@ class CustomBotApi(ApiBase):
 
         :returns: :class:`~haasomeapi.dataobjects.util.HaasomeClientResponse`
         :returns: In .result :class:`~haasomeapi.dataobjects.custombots.FlashCrashBot`: Flash Crash bot object
-
         """
+
         response = super()._execute_request("/LiveOrderEditFlashCrashBot",  {"botGuid": botguid,
                                                                              "isBuyOrder": str(isbuyorder).lower(),
                                                                              "addOrder": str(addorder).lower()})
@@ -1098,8 +1079,8 @@ class CustomBotApi(ApiBase):
 
         :returns: :class:`~haasomeapi.dataobjects.util.HaasomeClientResponse`
         :returns: In .result :class:`~haasomeapi.dataobjects.custombots.FlashCrashBot`: Flash Crash bot object
-
         """
+
         return self.flash_crash_bot_live_edit(botguid, True, True)
 
     def flash_crash_bot_remove_buy_order(self, botguid: str):
@@ -1109,8 +1090,8 @@ class CustomBotApi(ApiBase):
 
         :returns: :class:`~haasomeapi.dataobjects.util.HaasomeClientResponse`
         :returns: In .result :class:`~haasomeapi.dataobjects.custombots.FlashCrashBot`: Flash Crash bot object
-
         """
+
         return self.flash_crash_bot_live_edit(botguid, True, False)
 
     def flash_crash_bot_add_sell_order(self, botguid: str):
@@ -1120,8 +1101,8 @@ class CustomBotApi(ApiBase):
 
         :returns: :class:`~haasomeapi.dataobjects.util.HaasomeClientResponse`
         :returns: In .result :class:`~haasomeapi.dataobjects.custombots.FlashCrashBot`: Flash Crash bot object
-
         """
+
         return self.flash_crash_bot_live_edit(botguid, False, True)
 
     def flash_crash_bot_remove_sell_order(self, botguid: str):
@@ -1131,8 +1112,8 @@ class CustomBotApi(ApiBase):
 
         :returns: :class:`~haasomeapi.dataobjects.util.HaasomeClientResponse`
         :returns: In .result :class:`~haasomeapi.dataobjects.custombots.FlashCrashBot`: Flash Crash bot object
-
         """
+
         return self.flash_crash_bot_live_edit(botguid, False, False)
 
     def set_mad_hatter_indicator_parameter(self, botguid: str, type: EnumMadHatterIndicators, fieldNo: int, value: any):
@@ -1145,7 +1126,6 @@ class CustomBotApi(ApiBase):
 
         :returns: :class:`~haasomeapi.dataobjects.util.HaasomeClientResponse`
         :returns: In .result :class:`~haasomeapi.dataobjects.custombots.MadHatterBot`: Mad Hatter bot object
-
         """
 
         response = super()._execute_request("/MadHatterSetIndicatorParameter",  {"botGuid": botguid,
@@ -1169,7 +1149,6 @@ class CustomBotApi(ApiBase):
 
         :returns: :class:`~haasomeapi.dataobjects.util.HaasomeClientResponse`
         :returns: In .result :class:`~haasomeapi.dataobjects.custombots.MadHatterBot`: Mad Hatter bot object
-
         """
 
         response = super()._execute_request("/MadHatterSetSafetyParameter",  {"botGuid": botguid,
@@ -1190,8 +1169,8 @@ class CustomBotApi(ApiBase):
 
         :returns: :class:`~haasomeapi.dataobjects.util.HaasomeClientResponse`
         :returns: In .result bool: If flip was successful
-
         """
+
         response = super()._execute_request("/FlipAccumulationBot",  {"botGuid": botguid})
 
         try:
@@ -1217,7 +1196,6 @@ class CustomBotApi(ApiBase):
 
         :returns: :class:`~haasomeapi.dataobjects.util.HaasomeClientResponse`
         :returns: In .result :class:`~haasomeapi.dataobjects.custombots.OrderBot`: Order bot object 
-
         """
 
         response = super()._execute_request("/OrderBotAddOrder", {"botGuid": botguid,
@@ -1254,7 +1232,6 @@ class CustomBotApi(ApiBase):
 
         :returns: :class:`~haasomeapi.dataobjects.util.HaasomeClientResponse`
         :returns: In .result :class:`~haasomeapi.dataobjects.custombots.OrderBot`: Order bot object 
-
         """
 
         response = super()._execute_request("/OrderBotEditOrder", {"botGuid": botguid,
@@ -1283,7 +1260,6 @@ class CustomBotApi(ApiBase):
 
         :returns: :class:`~haasomeapi.dataobjects.util.HaasomeClientResponse`
         :returns: In .result :class:`~haasomeapi.dataobjects.custombots.OrderBot`: Order bot object 
-
         """
 
         response = super()._execute_request("/OrderBotResetOrder", {"botGuid": botguid,
@@ -1304,7 +1280,6 @@ class CustomBotApi(ApiBase):
 
         :returns: :class:`~haasomeapi.dataobjects.util.HaasomeClientResponse`
         :returns: In .result :class:`~haasomeapi.dataobjects.custombots.OrderBot`: Order bot object 
-        
         """
 
         response = super()._execute_request("/OrderBotRemoveOrder", {"botGuid": botguid,
@@ -1324,7 +1299,6 @@ class CustomBotApi(ApiBase):
 
         :returns: :class:`~haasomeapi.dataobjects.util.HaasomeClientResponse`
         :returns: In .result :class:`~haasomeapi.dataobjects.custombots.OrderBot`: Order bot object 
-
         """
 
         response = super()._execute_request("/OrderBotRemoveAllOrders", {"botGuid": botguid})
@@ -1345,7 +1319,6 @@ class CustomBotApi(ApiBase):
     
         :returns: :class:`~haasomeapi.dataobjects.util.HaasomeClientResponse`
         :returns: In .result :class:`~haasomeapi.dataobjects.custombots.ScriptBot`: Script bot object 
-
         """
 
         response = super()._execute_request("/OrderBotResetOrder", {"botGuid": botguid,

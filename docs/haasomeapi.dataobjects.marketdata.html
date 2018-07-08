@@ -42,6 +42,29 @@
 <dt id="haasomeapi.dataobjects.marketdata.Market.Market">
 <em class="property">class </em><code class="descclassname">haasomeapi.dataobjects.marketdata.Market.</code><code class="descname">Market</code><a class="headerlink" href="#haasomeapi.dataobjects.marketdata.Market.Market" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Data Object containing market info</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
+<li><strong>priceSource</strong> – <a class="reference internal" href="haasomeapi.enums.html#module-haasomeapi.enums.EnumPriceSource" title="haasomeapi.enums.EnumPriceSource"><code class="xref py py-class docutils literal notranslate"><span class="pre">EnumPriceSource</span></code></a>:</li>
+<li><strong>primaryCurrency</strong> – str:</li>
+<li><strong>secondaryCurrency</strong> – str:</li>
+<li><strong>contractName</strong> – str:</li>
+<li><strong>displayName</strong> – str:</li>
+<li><strong>shortName</strong> – str:</li>
+<li><strong>amountDecimals</strong> – int:</li>
+<li><strong>riceDecimals</strong> – int:</li>
+<li><strong>minimumTradeAmount</strong> – float:</li>
+<li><strong>minimumTradeVolume</strong> – float:</li>
+<li><strong>tradeFee</strong> – float:</li>
+<li><strong>settlementDate</strong> – int:</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 </div>
@@ -51,6 +74,22 @@
 <dt id="haasomeapi.dataobjects.marketdata.Orderbook.Orderbook">
 <em class="property">class </em><code class="descclassname">haasomeapi.dataobjects.marketdata.Orderbook.</code><code class="descname">Orderbook</code><a class="headerlink" href="#haasomeapi.dataobjects.marketdata.Orderbook.Orderbook" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Data Object containing the orderbook</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
+<li><strong>timeStamp</strong> – datetime:</li>
+<li><strong>unixLastUpdate</strong> – int:</li>
+<li><strong>priceMarket</strong> – <a class="reference internal" href="#module-haasomeapi.dataobjects.marketdata.Market" title="haasomeapi.dataobjects.marketdata.Market"><code class="xref py py-class docutils literal notranslate"><span class="pre">Market</span></code></a>:</li>
+<li><strong>bid</strong> – List[<a class="reference internal" href="#module-haasomeapi.dataobjects.marketdata.OrderbookRecord" title="haasomeapi.dataobjects.marketdata.OrderbookRecord"><code class="xref py py-class docutils literal notranslate"><span class="pre">OrderbookRecord</span></code></a>]:</li>
+<li><strong>ask</strong> – List[<a class="reference internal" href="#module-haasomeapi.dataobjects.marketdata.OrderbookRecord" title="haasomeapi.dataobjects.marketdata.OrderbookRecord"><code class="xref py py-class docutils literal notranslate"><span class="pre">OrderbookRecord</span></code></a>]:</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 </div>
@@ -60,6 +99,19 @@
 <dt id="haasomeapi.dataobjects.marketdata.OrderbookRecord.OrderbookRecord">
 <em class="property">class </em><code class="descclassname">haasomeapi.dataobjects.marketdata.OrderbookRecord.</code><code class="descname">OrderbookRecord</code><a class="headerlink" href="#haasomeapi.dataobjects.marketdata.OrderbookRecord.OrderbookRecord" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Data Object containing a order book record</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
+<li><strong>price</strong> – float:</li>
+<li><strong>amount</strong> – float:</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 </div>
@@ -69,6 +121,26 @@
 <dt id="haasomeapi.dataobjects.marketdata.PriceTick.PriceTick">
 <em class="property">class </em><code class="descclassname">haasomeapi.dataobjects.marketdata.PriceTick.</code><code class="descname">PriceTick</code><a class="headerlink" href="#haasomeapi.dataobjects.marketdata.PriceTick.PriceTick" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Data Object containing Price Tick information</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
+<li><strong>timeStamp</strong> – datetime:</li>
+<li><strong>unixTimeStamp</strong> – int:</li>
+<li><strong>open</strong> – float:</li>
+<li><strong>highValue</strong> – float:</li>
+<li><strong>lowValue</strong> – float:</li>
+<li><strong>close</strong> – float:</li>
+<li><strong>volume</strong> – float:</li>
+<li><strong>currentBuyValue</strong> – float:</li>
+<li><strong>currentSellValue</strong> – float:</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 </div>
@@ -78,6 +150,22 @@
 <dt id="haasomeapi.dataobjects.marketdata.Trade.Trade">
 <em class="property">class </em><code class="descclassname">haasomeapi.dataobjects.marketdata.Trade.</code><code class="descname">Trade</code><a class="headerlink" href="#haasomeapi.dataobjects.marketdata.Trade.Trade" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Data Object containing trade information</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
+<li><strong>timeStamp</strong> – <code class="xref py py-class docutils literal notranslate"><span class="pre">datetime</span></code>:</li>
+<li><strong>unixTimeStamp</strong> – int:</li>
+<li><strong>tradeType</strong> – <a class="reference internal" href="haasomeapi.enums.html#module-haasomeapi.enums.EnumTradeType" title="haasomeapi.enums.EnumTradeType"><code class="xref py py-class docutils literal notranslate"><span class="pre">EnumTradeType</span></code></a>:</li>
+<li><strong>price</strong> – float:</li>
+<li><strong>amount</strong> – float:</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 </div>
@@ -87,6 +175,20 @@
 <dt id="haasomeapi.dataobjects.marketdata.TradeContainer.TradeContainer">
 <em class="property">class </em><code class="descclassname">haasomeapi.dataobjects.marketdata.TradeContainer.</code><code class="descname">TradeContainer</code><a class="headerlink" href="#haasomeapi.dataobjects.marketdata.TradeContainer.TradeContainer" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Data object containing Trades</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
+<li><strong>timeStamp</strong> – <code class="xref py py-class docutils literal notranslate"><span class="pre">datetime</span></code>:</li>
+<li><strong>unixTimeStamp</strong> – int:</li>
+<li><strong>lastTrades</strong> – List[<cite>~haasomeapi.dataobjects.marketdata.Trade</cite>]:</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 </div>

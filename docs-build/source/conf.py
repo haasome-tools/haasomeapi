@@ -27,7 +27,7 @@ author = 'Raynaldo Rivera'
 # The short X.Y version
 version = ''
 # The full version, including alpha/beta/rc tags
-release = '3.1.14.1'
+release = '3.1.14.3'
 
 
 # -- General configuration ---------------------------------------------------

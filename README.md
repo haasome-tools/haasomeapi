@@ -1,4 +1,4 @@
-# HaasomeApi - Python Wrapper Around The Haasonline Trading Platform Local API
+# HaasomeApi - Python Library For The Haasonline Trading Platform
 
 A Python library to access the Local Api on the Haasonline Trading Platform. Its light weight and extremely easy to use designed to follow the same design paradigm has the rest api and the official c# api wrapper. Making it easy to swap between the two libraries and look up endpoints if need be.
 

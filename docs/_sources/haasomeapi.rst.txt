@@ -6,7 +6,6 @@ Subpackages
 
 .. toctree::
 
-    haasomeapi.apis
     haasomeapi.dataobjects
     haasomeapi.enums
 

@@ -1,0 +1,629 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>haasomeapi.apis.AdvancedOrderApi module &#8212; HaasomeApi 3.1.14.1 documentation</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="haasomeapi.apis.CustomBotApi module" href="haasomeapi.apis.CustomBotApi.html" />
+    <link rel="prev" title="haasomeapi.apis.AccountDataApi module" href="haasomeapi.apis.AccountDataApi.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="haasomeapi-apis-advancedorderapi-module">
+<h1>haasomeapi.apis.AdvancedOrderApi module<a class="headerlink" href="#haasomeapi-apis-advancedorderapi-module" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="module-haasomeapi.apis.AdvancedOrderApi">
+<span id="functions"></span><h2>Functions<a class="headerlink" href="#module-haasomeapi.apis.AdvancedOrderApi" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="haasomeapi.apis.AdvancedOrderApi.AdvancedOrderApi">
+<em class="property">class </em><code class="descclassname">haasomeapi.apis.AdvancedOrderApi.</code><code class="descname">AdvancedOrderApi</code><span class="sig-paren">(</span><em>connectionstring: str</em>, <em>privatekey: str</em><span class="sig-paren">)</span><a class="headerlink" href="#haasomeapi.apis.AdvancedOrderApi.AdvancedOrderApi" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">haasomeapi.apis.ApiBase.ApiBase</span></code></p>
+<p>The Advanced Order API Class.
+Gives access to the advanced order endpoints</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>connectionstring</strong> – str: Connection String Formatted Ex. <a class="reference external" href="http://127.0.0.1:9000">http://127.0.0.1:9000</a></li>
+<li><strong>privatekey</strong> – str: Private Key Set In The Haas Settings</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="haasomeapi.apis.AdvancedOrderApi.AdvancedOrderApi.activate_advanced_order">
+<code class="descname">activate_advanced_order</code><span class="sig-paren">(</span><em>guid: str</em><span class="sig-paren">)</span><a class="headerlink" href="#haasomeapi.apis.AdvancedOrderApi.AdvancedOrderApi.activate_advanced_order" title="Permalink to this definition">¶</a></dt>
+<dd><p>Activates an advanced order</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>guid</strong> – str: advanced order guid</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference internal" href="haasomeapi.dataobjects.util.html#module-haasomeapi.dataobjects.util.HaasomeClientResponse" title="haasomeapi.dataobjects.util.HaasomeClientResponse"><code class="xref py py-class docutils literal notranslate"><span class="pre">HaasomeClientResponse</span></code></a></td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">In .result <a class="reference internal" href="haasomeapi.dataobjects.advancedorders.html#module-haasomeapi.dataobjects.advancedorders.AdvancedOrderBase" title="haasomeapi.dataobjects.advancedorders.AdvancedOrderBase"><code class="xref py py-class docutils literal notranslate"><span class="pre">AdvancedOrderBase</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="haasomeapi.apis.AdvancedOrderApi.AdvancedOrderApi.add_stop_order">
+<code class="descname">add_stop_order</code><span class="sig-paren">(</span><em>accountguid: str</em>, <em>name: str</em>, <em>primarycoin: str</em>, <em>secondarycoin: str</em>, <em>direction: haasomeapi.enums.EnumOrderType.EnumOrderType</em>, <em>executingtemplateguid: str</em>, <em>triggerprice: float</em>, <em>executionprice: float</em>, <em>amount: float</em>, <em>startorderonactivation: bool</em>, <em>startorderprice: float</em>, <em>starttemplateguid: str</em>, <em>activate: bool</em><span class="sig-paren">)</span><a class="headerlink" href="#haasomeapi.apis.AdvancedOrderApi.AdvancedOrderApi.add_stop_order" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a stop order for a spot market</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>accountguid</strong> – str: The account guid</li>
+<li><strong>name</strong> – str: Name of the advanced order</li>
+<li><strong>primarycoin</strong> – str: Primary currency Ex. If BNB/BTC then set this to BNB</li>
+<li><strong>secondarycoin</strong> – str: Secondary currency Ex. If BNB/BTC then set this to BTC</li>
+<li><strong>direction</strong> – EnumOrderType: Order Direction (Buy / Sell)</li>
+<li><strong>executingtemplateguid</strong> – str: Executing Template To Use</li>
+<li><strong>triggerprice</strong> – float:  Trigger price to execute the stop</li>
+<li><strong>executionprice</strong> – float: Price for the order to be placed at</li>
+<li><strong>amount</strong> – float: Trade Amount</li>
+<li><strong>startorderonactivation</strong> – bool: Start the adavnced order only on activation</li>
+<li><strong>startorderprice</strong> – float: What price to start the order</li>
+<li><strong>starttemplateguid</strong> – str: The template guid to use for the order</li>
+<li><strong>activate</strong> – bool: Activate the order.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><a class="reference internal" href="haasomeapi.dataobjects.util.html#module-haasomeapi.dataobjects.util.HaasomeClientResponse" title="haasomeapi.dataobjects.util.HaasomeClientResponse"><code class="xref py py-class docutils literal notranslate"><span class="pre">HaasomeClientResponse</span></code></a></p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">In .result <code class="xref py py-class docutils literal notranslate"><span class="pre">StopTakeProfitOrder</span></code></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="haasomeapi.apis.AdvancedOrderApi.AdvancedOrderApi.add_stop_order_leverage">
+<code class="descname">add_stop_order_leverage</code><span class="sig-paren">(</span><em>accountguid: str</em>, <em>name: str</em>, <em>primarycoin: str</em>, <em>secondarycoin: str</em>, <em>contractname: str</em>, <em>leverage: float</em>, <em>direction: haasomeapi.enums.EnumOrderType.EnumOrderType</em>, <em>executingtemplateguid: str</em>, <em>triggerprice: float</em>, <em>executionprice: float</em>, <em>amount: float</em>, <em>startorderonactivation: bool</em>, <em>startorderprice: float</em>, <em>starttemplateguid: str</em>, <em>activate: bool</em><span class="sig-paren">)</span><a class="headerlink" href="#haasomeapi.apis.AdvancedOrderApi.AdvancedOrderApi.add_stop_order_leverage" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a stop order for a leverage/margin market</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>accountguid</strong> – str: The account guid</li>
+<li><strong>name</strong> – str: Name of the advanced order</li>
+<li><strong>primarycoin</strong> – str: Primary currency Ex. If BNB/BTC then set this to BNB</li>
+<li><strong>secondarycoin</strong> – str: Secondary currency Ex. If BNB/BTC then set this to BTC</li>
+<li><strong>contractname</strong> – str: Name of the contract (Options)</li>
+<li><strong>leverage</strong> – float:  Leverage percentage</li>
+<li><strong>direction</strong> – EnumOrderType: Order Direction (Long/Short)</li>
+<li><strong>executingtemplateguid</strong> – str: Executing Template To Use</li>
+<li><strong>triggerprice</strong> – float:  Trigger price to execute the stop</li>
+<li><strong>executionprice</strong> – float: Price for the order to be placed at</li>
+<li><strong>amount</strong> – float: Trade Amount</li>
+<li><strong>startorderonactivation</strong> – bool: Start the adavnced order only on activation</li>
+<li><strong>startorderprice</strong> – float: What price to start the order</li>
+<li><strong>starttemplateguid</strong> – str: The template guid to use for the order</li>
+<li><strong>activate</strong> – bool: Activate the order.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><a class="reference internal" href="haasomeapi.dataobjects.util.html#module-haasomeapi.dataobjects.util.HaasomeClientResponse" title="haasomeapi.dataobjects.util.HaasomeClientResponse"><code class="xref py py-class docutils literal notranslate"><span class="pre">HaasomeClientResponse</span></code></a></p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">In .result <code class="xref py py-class docutils literal notranslate"><span class="pre">StopTakeProfitOrder</span></code></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="haasomeapi.apis.AdvancedOrderApi.AdvancedOrderApi.add_take_profit_order">
+<code class="descname">add_take_profit_order</code><span class="sig-paren">(</span><em>accountguid: str</em>, <em>name: str</em>, <em>primarycoin: str</em>, <em>secondarycoin: str</em>, <em>direction: haasomeapi.enums.EnumOrderType.EnumOrderType</em>, <em>executingtemplateguid: str</em>, <em>triggerprice: float</em>, <em>executionprice: float</em>, <em>amount: float</em>, <em>startorderonactivation: bool</em>, <em>startorderprice: float</em>, <em>starttemplateguid: str</em>, <em>activate: bool</em><span class="sig-paren">)</span><a class="headerlink" href="#haasomeapi.apis.AdvancedOrderApi.AdvancedOrderApi.add_take_profit_order" title="Permalink to this definition">¶</a></dt>
+<dd><p>Createa take profit order for a spot market</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>accountguid</strong> – str: The account guid</li>
+<li><strong>name</strong> – str: Name of the advanced order</li>
+<li><strong>primarycoin</strong> – str: Primary currency Ex. If BNB/BTC then set this to BNB</li>
+<li><strong>secondarycoin</strong> – str: Secondary currency Ex. If BNB/BTC then set this to BTC</li>
+<li><strong>direction</strong> – EnumOrderType: Order Direction (Buy / Sell)</li>
+<li><strong>executingtemplateguid</strong> – str: Executing Template To Use</li>
+<li><strong>triggerprice</strong> – float:  Trigger price to execute the stop</li>
+<li><strong>executionprice</strong> – float: Price for the order to be placed at</li>
+<li><strong>amount</strong> – float: Trade Amount</li>
+<li><strong>startorderonactivation</strong> – bool: Start the adavnced order only on activation</li>
+<li><strong>startorderprice</strong> – float: What price to start the order</li>
+<li><strong>starttemplateguid</strong> – str: The template guid to use for the order</li>
+<li><strong>activate</strong> – bool: Activate the order.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><a class="reference internal" href="haasomeapi.dataobjects.util.html#module-haasomeapi.dataobjects.util.HaasomeClientResponse" title="haasomeapi.dataobjects.util.HaasomeClientResponse"><code class="xref py py-class docutils literal notranslate"><span class="pre">HaasomeClientResponse</span></code></a></p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">In .result <code class="xref py py-class docutils literal notranslate"><span class="pre">StopTakeProfitOrder</span></code></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="haasomeapi.apis.AdvancedOrderApi.AdvancedOrderApi.add_take_profit_order_leverage">
+<code class="descname">add_take_profit_order_leverage</code><span class="sig-paren">(</span><em>name: str</em>, <em>accountguid: str</em>, <em>primarycoin: str</em>, <em>secondarycoin: str</em>, <em>contractname: str</em>, <em>leverage: float</em>, <em>direction: haasomeapi.enums.EnumOrderType.EnumOrderType</em>, <em>executingtemplateguid: str</em>, <em>triggerprice: float</em>, <em>executionprice: float</em>, <em>amount: float</em>, <em>startorderonactivation: bool</em>, <em>startorderprice: float</em>, <em>starttemplateguid: str</em>, <em>activate: bool</em><span class="sig-paren">)</span><a class="headerlink" href="#haasomeapi.apis.AdvancedOrderApi.AdvancedOrderApi.add_take_profit_order_leverage" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a take profit order for a leverage/margin market</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>accountguid</strong> – str: The account guid</li>
+<li><strong>name</strong> – str: Name of the advanced order</li>
+<li><strong>primarycoin</strong> – str: Primary currency Ex. If BNB/BTC then set this to BNB</li>
+<li><strong>secondarycoin</strong> – str: Secondary currency Ex. If BNB/BTC then set this to BTC</li>
+<li><strong>contractname</strong> – str: Name of the contract (Options)</li>
+<li><strong>leverage</strong> – float:  Leverage percentage</li>
+<li><strong>direction</strong> – EnumOrderType: Order Direction (Long/Short)</li>
+<li><strong>executingtemplateguid</strong> – str: Executing Template To Use</li>
+<li><strong>triggerprice</strong> – float:  Trigger price to execute the stop</li>
+<li><strong>executionprice</strong> – float: Price for the order to be placed at</li>
+<li><strong>amount</strong> – float: Trade Amount</li>
+<li><strong>startorderonactivation</strong> – bool: Start the adavnced order only on activation</li>
+<li><strong>startorderprice</strong> – float: What price to start the order</li>
+<li><strong>starttemplateguid</strong> – str: The template guid to use for the order</li>
+<li><strong>activate</strong> – bool: Activate the order.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><a class="reference internal" href="haasomeapi.dataobjects.util.html#module-haasomeapi.dataobjects.util.HaasomeClientResponse" title="haasomeapi.dataobjects.util.HaasomeClientResponse"><code class="xref py py-class docutils literal notranslate"><span class="pre">HaasomeClientResponse</span></code></a></p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">In .result <code class="xref py py-class docutils literal notranslate"><span class="pre">StopTakeProfitOrder</span></code></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="haasomeapi.apis.AdvancedOrderApi.AdvancedOrderApi.add_trailing_stop_leverage">
+<code class="descname">add_trailing_stop_leverage</code><span class="sig-paren">(</span><em>accountguid: str</em>, <em>name: str</em>, <em>primarycoin: str</em>, <em>secondarycoin: str</em>, <em>contractname: str</em>, <em>leverage: float</em>, <em>direction: haasomeapi.enums.EnumOrderType.EnumOrderType</em>, <em>executingtemplateguid: str</em>, <em>trailingstoppercentage: float</em>, <em>amount: float</em>, <em>startorderonactivation: bool</em>, <em>startorderprice: float</em>, <em>starttemplateguid: str</em>, <em>activate: bool</em><span class="sig-paren">)</span><a class="headerlink" href="#haasomeapi.apis.AdvancedOrderApi.AdvancedOrderApi.add_trailing_stop_leverage" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create trailing stop order for a leverage/margin market</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>accountguid</strong> – str: The account guid</li>
+<li><strong>name</strong> – str: Name of the advanced order</li>
+<li><strong>primarycoin</strong> – str: Primary currency Ex. If BNB/BTC then set this to BNB</li>
+<li><strong>secondarycoin</strong> – str: Secondary currency Ex. If BNB/BTC then set this to BTC</li>
+<li><strong>contractname</strong> – str: Name of the contract (Options)</li>
+<li><strong>leverage</strong> – float:  Leverage percentage</li>
+<li><strong>direction</strong> – EnumOrderType: Order Direction (Long/Short)</li>
+<li><strong>executingtemplateguid</strong> – str: Executing Template To Use</li>
+<li><strong>trailingstoppercentage</strong> – float: Percentage for trailing top to follow</li>
+<li><strong>amount</strong> – float: Trade Amount</li>
+<li><strong>startorderonactivation</strong> – bool: Start the adavnced order only on activation</li>
+<li><strong>startorderprice</strong> – float: What price to start the order</li>
+<li><strong>starttemplateguid</strong> – str: The template guid to use for the order</li>
+<li><strong>activate</strong> – bool: Activate the order.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><a class="reference internal" href="haasomeapi.dataobjects.util.html#module-haasomeapi.dataobjects.util.HaasomeClientResponse" title="haasomeapi.dataobjects.util.HaasomeClientResponse"><code class="xref py py-class docutils literal notranslate"><span class="pre">HaasomeClientResponse</span></code></a></p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">In .result <code class="xref py py-class docutils literal notranslate"><span class="pre">StopTakeProfitOrder</span></code></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="haasomeapi.apis.AdvancedOrderApi.AdvancedOrderApi.add_trailing_stop_order">
+<code class="descname">add_trailing_stop_order</code><span class="sig-paren">(</span><em>accountguid: str</em>, <em>name: str</em>, <em>primarycoin: str</em>, <em>secondarycoin: str</em>, <em>direction: haasomeapi.enums.EnumOrderType.EnumOrderType</em>, <em>executingtemplateguid: str</em>, <em>trailingstoppercentage: float</em>, <em>amount: float</em>, <em>startorderonactivation: bool</em>, <em>startorderprice: float</em>, <em>starttemplateguid: str</em>, <em>activate: bool</em><span class="sig-paren">)</span><a class="headerlink" href="#haasomeapi.apis.AdvancedOrderApi.AdvancedOrderApi.add_trailing_stop_order" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a trailing stop order for a spot market</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>accountguid</strong> – str: The account guid</li>
+<li><strong>name</strong> – str: Name of the advanced order</li>
+<li><strong>primarycoin</strong> – str: Primary currency Ex. If BNB/BTC then set this to BNB</li>
+<li><strong>secondarycoin</strong> – str: Secondary currency Ex. If BNB/BTC then set this to BTC</li>
+<li><strong>direction</strong> – EnumOrderType: Order Direction (Buy / Sell)</li>
+<li><strong>executingtemplateguid</strong> – str: Executing Template To Use</li>
+<li><strong>trailingstoppercentage</strong> – float: Percentage for trailing top to follow</li>
+<li><strong>amount</strong> – float: Trade Amount</li>
+<li><strong>startorderonactivation</strong> – bool: Start the adavnced order only on activation</li>
+<li><strong>startorderprice</strong> – float: What price to start the order</li>
+<li><strong>starttemplateguid</strong> – str: The template guid to use for the order</li>
+<li><strong>activate</strong> – bool: Activate the order.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><a class="reference internal" href="haasomeapi.dataobjects.util.html#module-haasomeapi.dataobjects.util.HaasomeClientResponse" title="haasomeapi.dataobjects.util.HaasomeClientResponse"><code class="xref py py-class docutils literal notranslate"><span class="pre">HaasomeClientResponse</span></code></a></p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">In .result <code class="xref py py-class docutils literal notranslate"><span class="pre">StopTakeProfitOrder</span></code></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="haasomeapi.apis.AdvancedOrderApi.AdvancedOrderApi.deactivate_advanced_order">
+<code class="descname">deactivate_advanced_order</code><span class="sig-paren">(</span><em>guid: str</em><span class="sig-paren">)</span><a class="headerlink" href="#haasomeapi.apis.AdvancedOrderApi.AdvancedOrderApi.deactivate_advanced_order" title="Permalink to this definition">¶</a></dt>
+<dd><p>Deactivates an advanced order</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>guid</strong> – str: advanced order guid</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference internal" href="haasomeapi.dataobjects.util.html#module-haasomeapi.dataobjects.util.HaasomeClientResponse" title="haasomeapi.dataobjects.util.HaasomeClientResponse"><code class="xref py py-class docutils literal notranslate"><span class="pre">HaasomeClientResponse</span></code></a></td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">In .result <a class="reference internal" href="haasomeapi.dataobjects.advancedorders.html#module-haasomeapi.dataobjects.advancedorders.AdvancedOrderBase" title="haasomeapi.dataobjects.advancedorders.AdvancedOrderBase"><code class="xref py py-class docutils literal notranslate"><span class="pre">AdvancedOrderBase</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="haasomeapi.apis.AdvancedOrderApi.AdvancedOrderApi.get_advanced_orders">
+<code class="descname">get_advanced_orders</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#haasomeapi.apis.AdvancedOrderApi.AdvancedOrderApi.get_advanced_orders" title="Permalink to this definition">¶</a></dt>
+<dd><p>Retrieves the current created advanced orders</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference internal" href="haasomeapi.dataobjects.util.html#module-haasomeapi.dataobjects.util.HaasomeClientResponse" title="haasomeapi.dataobjects.util.HaasomeClientResponse"><code class="xref py py-class docutils literal notranslate"><span class="pre">HaasomeClientResponse</span></code></a></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">In .result Dict[<a class="reference internal" href="haasomeapi.dataobjects.advancedorders.html#module-haasomeapi.dataobjects.advancedorders.AdvancedOrderBase" title="haasomeapi.dataobjects.advancedorders.AdvancedOrderBase"><code class="xref py py-class docutils literal notranslate"><span class="pre">AdvancedOrderBase</span></code></a>]</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="haasomeapi.apis.AdvancedOrderApi.AdvancedOrderApi.remove_advanced_order">
+<code class="descname">remove_advanced_order</code><span class="sig-paren">(</span><em>guid: str</em><span class="sig-paren">)</span><a class="headerlink" href="#haasomeapi.apis.AdvancedOrderApi.AdvancedOrderApi.remove_advanced_order" title="Permalink to this definition">¶</a></dt>
+<dd><p>Removes (deletes) advanced order</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>guid</strong> – str: advanced order guid</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference internal" href="haasomeapi.dataobjects.util.html#module-haasomeapi.dataobjects.util.HaasomeClientResponse" title="haasomeapi.dataobjects.util.HaasomeClientResponse"><code class="xref py py-class docutils literal notranslate"><span class="pre">HaasomeClientResponse</span></code></a></td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">In .result bool if success</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="haasomeapi.apis.AdvancedOrderApi.AdvancedOrderApi.setup_stop_order">
+<code class="descname">setup_stop_order</code><span class="sig-paren">(</span><em>accountguid: str</em>, <em>orderguid: str</em>, <em>name: str</em>, <em>primarycoin: str</em>, <em>secondarycoin: str</em>, <em>direction: haasomeapi.enums.EnumOrderType.EnumOrderType</em>, <em>executingtemplateguid: str</em>, <em>triggerprice: float</em>, <em>executionprice: float</em>, <em>amount: float</em>, <em>startorderonactivation: bool</em>, <em>startorderprice: float</em>, <em>starttemplateguid: str</em>, <em>activate: bool</em><span class="sig-paren">)</span><a class="headerlink" href="#haasomeapi.apis.AdvancedOrderApi.AdvancedOrderApi.setup_stop_order" title="Permalink to this definition">¶</a></dt>
+<dd><p>Modify a stop order for a spot market</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>accountguid</strong> – str: The account guid</li>
+<li><strong>orderguid</strong> – str: The advanced order guid to modify</li>
+<li><strong>name</strong> – str: Name of the advanced order</li>
+<li><strong>primarycoin</strong> – str: Primary currency Ex. If BNB/BTC then set this to BNB</li>
+<li><strong>secondarycoin</strong> – str: Secondary currency Ex. If BNB/BTC then set this to BTC</li>
+<li><strong>direction</strong> – EnumOrderType: Order Direction (Buy / Sell)</li>
+<li><strong>executingtemplateguid</strong> – str: Executing Template To Use</li>
+<li><strong>triggerprice</strong> – float:  Trigger price to execute the stop</li>
+<li><strong>executionprice</strong> – float: Price for the order to be placed at</li>
+<li><strong>amount</strong> – float: Trade Amount</li>
+<li><strong>startorderonactivation</strong> – bool: Start the adavnced order only on activation</li>
+<li><strong>startorderprice</strong> – float: What price to start the order</li>
+<li><strong>starttemplateguid</strong> – str: The template guid to use for the order</li>
+<li><strong>activate</strong> – bool: Activate the order.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><a class="reference internal" href="haasomeapi.dataobjects.util.html#module-haasomeapi.dataobjects.util.HaasomeClientResponse" title="haasomeapi.dataobjects.util.HaasomeClientResponse"><code class="xref py py-class docutils literal notranslate"><span class="pre">HaasomeClientResponse</span></code></a></p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">In .result <code class="xref py py-class docutils literal notranslate"><span class="pre">StopTakeProfitOrder</span></code></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="haasomeapi.apis.AdvancedOrderApi.AdvancedOrderApi.setup_stop_order_leverage">
+<code class="descname">setup_stop_order_leverage</code><span class="sig-paren">(</span><em>accountguid: str</em>, <em>orderguid: str</em>, <em>name: str</em>, <em>primarycoin: str</em>, <em>secondarycoin: str</em>, <em>contractname: str</em>, <em>leverage: float</em>, <em>direction: haasomeapi.enums.EnumOrderType.EnumOrderType</em>, <em>executingtemplateguid: str</em>, <em>triggerprice: float</em>, <em>executionprice: float</em>, <em>amount: float</em>, <em>startorderonactivation: bool</em>, <em>startorderprice: float</em>, <em>starttemplateguid: str</em>, <em>activate: bool</em><span class="sig-paren">)</span><a class="headerlink" href="#haasomeapi.apis.AdvancedOrderApi.AdvancedOrderApi.setup_stop_order_leverage" title="Permalink to this definition">¶</a></dt>
+<dd><p>Modify a stop order for a leverage/margin market</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>accountguid</strong> – str: The account guid</li>
+<li><strong>orderguid</strong> – str: The advanced order guid to modify</li>
+<li><strong>name</strong> – str: Name of the advanced order</li>
+<li><strong>primarycoin</strong> – str: Primary currency Ex. If BNB/BTC then set this to BNB</li>
+<li><strong>secondarycoin</strong> – str: Secondary currency Ex. If BNB/BTC then set this to BTC</li>
+<li><strong>contractname</strong> – str: Name of the contract (Options)</li>
+<li><strong>leverage</strong> – float:  Leverage percentage</li>
+<li><strong>direction</strong> – EnumOrderType: Order Direction (Long/Short)</li>
+<li><strong>executingtemplateguid</strong> – str: Executing Template To Use</li>
+<li><strong>triggerprice</strong> – float:  Trigger price to execute the stop</li>
+<li><strong>executionprice</strong> – float: Price for the order to be placed at</li>
+<li><strong>amount</strong> – float: Trade Amount</li>
+<li><strong>startorderonactivation</strong> – bool: Start the adavnced order only on activation</li>
+<li><strong>startorderprice</strong> – float: What price to start the order</li>
+<li><strong>starttemplateguid</strong> – str: The template guid to use for the order</li>
+<li><strong>activate</strong> – bool: Activate the order.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><a class="reference internal" href="haasomeapi.dataobjects.util.html#module-haasomeapi.dataobjects.util.HaasomeClientResponse" title="haasomeapi.dataobjects.util.HaasomeClientResponse"><code class="xref py py-class docutils literal notranslate"><span class="pre">HaasomeClientResponse</span></code></a></p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">In .result <code class="xref py py-class docutils literal notranslate"><span class="pre">StopTakeProfitOrder</span></code></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="haasomeapi.apis.AdvancedOrderApi.AdvancedOrderApi.setup_take_profit_order">
+<code class="descname">setup_take_profit_order</code><span class="sig-paren">(</span><em>accountguid: str</em>, <em>orderguid: str</em>, <em>name: str</em>, <em>primarycoin: str</em>, <em>secondarycoin: str</em>, <em>direction: haasomeapi.enums.EnumOrderType.EnumOrderType</em>, <em>executingtemplateguid: str</em>, <em>triggerprice: float</em>, <em>executionprice: float</em>, <em>amount: float</em>, <em>startorderonactivation: bool</em>, <em>startorderprice: float</em>, <em>starttemplateguid: str</em>, <em>activate: bool</em><span class="sig-paren">)</span><a class="headerlink" href="#haasomeapi.apis.AdvancedOrderApi.AdvancedOrderApi.setup_take_profit_order" title="Permalink to this definition">¶</a></dt>
+<dd><p>Modify take profit order for a spot market</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>accountguid</strong> – str: The account guid</li>
+<li><strong>orderguid</strong> – str: The advanced order guid to modify</li>
+<li><strong>name</strong> – str: Name of the advanced order</li>
+<li><strong>primarycoin</strong> – str: Primary currency Ex. If BNB/BTC then set this to BNB</li>
+<li><strong>secondarycoin</strong> – str: Secondary currency Ex. If BNB/BTC then set this to BTC</li>
+<li><strong>direction</strong> – EnumOrderType: Order Direction (Buy / Sell)</li>
+<li><strong>executingtemplateguid</strong> – str: Executing Template To Use</li>
+<li><strong>triggerprice</strong> – float:  Trigger price to execute the stop</li>
+<li><strong>executionprice</strong> – float: Price for the order to be placed at</li>
+<li><strong>amount</strong> – float: Trade Amount</li>
+<li><strong>startorderonactivation</strong> – bool: Start the adavnced order only on activation</li>
+<li><strong>startorderprice</strong> – float: What price to start the order</li>
+<li><strong>starttemplateguid</strong> – str: The template guid to use for the order</li>
+<li><strong>activate</strong> – bool: Activate the order.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><a class="reference internal" href="haasomeapi.dataobjects.util.html#module-haasomeapi.dataobjects.util.HaasomeClientResponse" title="haasomeapi.dataobjects.util.HaasomeClientResponse"><code class="xref py py-class docutils literal notranslate"><span class="pre">HaasomeClientResponse</span></code></a></p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">In .result <code class="xref py py-class docutils literal notranslate"><span class="pre">StopTakeProfitOrder</span></code></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="haasomeapi.apis.AdvancedOrderApi.AdvancedOrderApi.setup_take_profit_order_leverage">
+<code class="descname">setup_take_profit_order_leverage</code><span class="sig-paren">(</span><em>accountguid: str</em>, <em>orderguid: str</em>, <em>name: str</em>, <em>primarycoin: str</em>, <em>secondarycoin: str</em>, <em>contractname: str</em>, <em>leverage: float</em>, <em>direction: haasomeapi.enums.EnumOrderType.EnumOrderType</em>, <em>executingtemplateguid: str</em>, <em>triggerprice: float</em>, <em>executionprice: float</em>, <em>amount: float</em>, <em>startorderonactivation: bool</em>, <em>startorderprice: float</em>, <em>starttemplateguid: str</em>, <em>activate: bool</em><span class="sig-paren">)</span><a class="headerlink" href="#haasomeapi.apis.AdvancedOrderApi.AdvancedOrderApi.setup_take_profit_order_leverage" title="Permalink to this definition">¶</a></dt>
+<dd><p>Modify a take profit order for a leverage/margin market</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>accountguid</strong> – str: The account guid</li>
+<li><strong>orderguid</strong> – str: The advanced order guid to modify</li>
+<li><strong>name</strong> – str: Name of the advanced order</li>
+<li><strong>primarycoin</strong> – str: Primary currency Ex. If BNB/BTC then set this to BNB</li>
+<li><strong>secondarycoin</strong> – str: Secondary currency Ex. If BNB/BTC then set this to BTC</li>
+<li><strong>contractname</strong> – str: Name of the contract (Options)</li>
+<li><strong>leverage</strong> – float:  Leverage percentage</li>
+<li><strong>direction</strong> – EnumOrderType: Order Direction (Long/Short)</li>
+<li><strong>executingtemplateguid</strong> – str: Executing Template To Use</li>
+<li><strong>triggerprice</strong> – float:  Trigger price to execute the stop</li>
+<li><strong>executionprice</strong> – float: Price for the order to be placed at</li>
+<li><strong>amount</strong> – float: Trade Amount</li>
+<li><strong>startorderonactivation</strong> – bool: Start the adavnced order only on activation</li>
+<li><strong>startorderprice</strong> – float: What price to start the order</li>
+<li><strong>starttemplateguid</strong> – str: The template guid to use for the order</li>
+<li><strong>activate</strong> – bool: Activate the order.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><a class="reference internal" href="haasomeapi.dataobjects.util.html#module-haasomeapi.dataobjects.util.HaasomeClientResponse" title="haasomeapi.dataobjects.util.HaasomeClientResponse"><code class="xref py py-class docutils literal notranslate"><span class="pre">HaasomeClientResponse</span></code></a></p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">In .result <code class="xref py py-class docutils literal notranslate"><span class="pre">StopTakeProfitOrder</span></code></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="haasomeapi.apis.AdvancedOrderApi.AdvancedOrderApi.setup_trailing_stop_leverage">
+<code class="descname">setup_trailing_stop_leverage</code><span class="sig-paren">(</span><em>accountguid: str</em>, <em>orderguid: str</em>, <em>name: str</em>, <em>primarycoin: str</em>, <em>secondarycoin: str</em>, <em>contractname: str</em>, <em>leverage: float</em>, <em>direction: haasomeapi.enums.EnumOrderType.EnumOrderType</em>, <em>executingtemplateguid: str</em>, <em>trailingstoppercentage: float</em>, <em>amount: float</em>, <em>startorderonactivation: bool</em>, <em>startorderprice: float</em>, <em>starttemplateguid: str</em>, <em>activate: bool</em><span class="sig-paren">)</span><a class="headerlink" href="#haasomeapi.apis.AdvancedOrderApi.AdvancedOrderApi.setup_trailing_stop_leverage" title="Permalink to this definition">¶</a></dt>
+<dd><p>Modify trailing stop order for a leverage/margin market</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>accountguid</strong> – str: The account guid</li>
+<li><strong>orderguid</strong> – str: The advanced order guid to modify</li>
+<li><strong>name</strong> – str: Name of the advanced order</li>
+<li><strong>primarycoin</strong> – str: Primary currency Ex. If BNB/BTC then set this to BNB</li>
+<li><strong>secondarycoin</strong> – str: Secondary currency Ex. If BNB/BTC then set this to BTC</li>
+<li><strong>contractname</strong> – str: Name of the contract (Options)</li>
+<li><strong>leverage</strong> – float:  Leverage percentage</li>
+<li><strong>direction</strong> – EnumOrderType: Order Direction (Long/Short)</li>
+<li><strong>executingtemplateguid</strong> – str: Executing Template To Use</li>
+<li><strong>trailingstoppercentage</strong> – float: Percentage for trailing top to follow</li>
+<li><strong>amount</strong> – float: Trade Amount</li>
+<li><strong>startorderonactivation</strong> – bool: Start the adavnced order only on activation</li>
+<li><strong>startorderprice</strong> – float: What price to start the order</li>
+<li><strong>starttemplateguid</strong> – str: The template guid to use for the order</li>
+<li><strong>activate</strong> – bool: Activate the order.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><a class="reference internal" href="haasomeapi.dataobjects.util.html#module-haasomeapi.dataobjects.util.HaasomeClientResponse" title="haasomeapi.dataobjects.util.HaasomeClientResponse"><code class="xref py py-class docutils literal notranslate"><span class="pre">HaasomeClientResponse</span></code></a></p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">In .result <code class="xref py py-class docutils literal notranslate"><span class="pre">StopTakeProfitOrder</span></code></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="haasomeapi.apis.AdvancedOrderApi.AdvancedOrderApi.setup_trailing_stop_order">
+<code class="descname">setup_trailing_stop_order</code><span class="sig-paren">(</span><em>accountguid: str</em>, <em>orderguid: str</em>, <em>name: str</em>, <em>primarycoin: str</em>, <em>secondarycoin: str</em>, <em>direction: haasomeapi.enums.EnumOrderType.EnumOrderType</em>, <em>executingtemplateguid: str</em>, <em>trailingstoppercentage: float</em>, <em>amount: float</em>, <em>startorderonactivation: bool</em>, <em>startorderprice: float</em>, <em>starttemplateguid: str</em>, <em>activate: bool</em><span class="sig-paren">)</span><a class="headerlink" href="#haasomeapi.apis.AdvancedOrderApi.AdvancedOrderApi.setup_trailing_stop_order" title="Permalink to this definition">¶</a></dt>
+<dd><p>Modify a trailing stop order for a spot market</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>accountguid</strong> – str: The account guid</li>
+<li><strong>orderguid</strong> – str: The advanced order guid to modify</li>
+<li><strong>name</strong> – str: Name of the advanced order</li>
+<li><strong>primarycoin</strong> – str: Primary currency Ex. If BNB/BTC then set this to BNB</li>
+<li><strong>secondarycoin</strong> – str: Secondary currency Ex. If BNB/BTC then set this to BTC</li>
+<li><strong>direction</strong> – EnumOrderType: Order Direction (Buy / Sell)</li>
+<li><strong>executingtemplateguid</strong> – str: Executing Template To Use</li>
+<li><strong>trailingstoppercentage</strong> – float: Percentage for trailing top to follow</li>
+<li><strong>amount</strong> – float: Trade Amount</li>
+<li><strong>startorderonactivation</strong> – bool: Start the adavnced order only on activation</li>
+<li><strong>startorderprice</strong> – float: What price to start the order</li>
+<li><strong>starttemplateguid</strong> – str: The template guid to use for the order</li>
+<li><strong>activate</strong> – bool: Activate the order.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><a class="reference internal" href="haasomeapi.dataobjects.util.html#module-haasomeapi.dataobjects.util.HaasomeClientResponse" title="haasomeapi.dataobjects.util.HaasomeClientResponse"><code class="xref py py-class docutils literal notranslate"><span class="pre">HaasomeClientResponse</span></code></a></p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">In .result <code class="xref py py-class docutils literal notranslate"><span class="pre">StopTakeProfitOrder</span></code></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">haasomeapi.apis.AdvancedOrderApi module</a><ul>
+<li><a class="reference internal" href="#module-haasomeapi.apis.AdvancedOrderApi">Functions</a></li>
+</ul>
+</li>
+</ul>
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="haasomeapi.apis.AccountDataApi.html" title="previous chapter">haasomeapi.apis.AccountDataApi module</a></li>
+      <li>Next: <a href="haasomeapi.apis.CustomBotApi.html" title="next chapter">haasomeapi.apis.CustomBotApi module</a></li>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/haasomeapi.apis.AdvancedOrderApi.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2018, Raynaldo Rivera.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.7.5</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.11</a>
+      
+      |
+      <a href="_sources/haasomeapi.apis.AdvancedOrderApi.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

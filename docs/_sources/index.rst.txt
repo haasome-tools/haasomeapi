@@ -7,9 +7,22 @@ Welcome to Haasome Api's documentation!
 =======================================
 
 .. toctree::
-   haasomeapi.apis
-   :maxdepth: 2
-   :caption: Contents:
+   :maxdepth: 1
+   :caption: Guides:
+
+   haasome.guide.quickstart
+
+
+.. toctree::
+   :maxdepth: 1
+   :caption: Api Documentation:
+
+   haasomeapi.apis.AccountDataApi
+   haasomeapi.apis.AdvancedOrderApi
+   haasomeapi.apis.CustomBotApi
+   haasomeapi.apis.MarketDataApi
+   haasomeapi.apis.TradeApi
+   haasomeapi.apis.TradeBotApi
 
 
 

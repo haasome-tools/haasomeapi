@@ -1,0 +1,336 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>haasomeapi.apis.AccountDataApi module &#8212; HaasomeApi 3.1.14.1 documentation</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="haasomeapi.apis.AdvancedOrderApi module" href="haasomeapi.apis.AdvancedOrderApi.html" />
+    <link rel="prev" title="Quick Start Guide" href="haasome.guide.quickstart.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="haasomeapi-apis-accountdataapi-module">
+<h1>haasomeapi.apis.AccountDataApi module<a class="headerlink" href="#haasomeapi-apis-accountdataapi-module" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="module-haasomeapi.apis.AccountDataApi">
+<span id="functions"></span><h2>Functions<a class="headerlink" href="#module-haasomeapi.apis.AccountDataApi" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="haasomeapi.apis.AccountDataApi.AccountDataApi">
+<em class="property">class </em><code class="descclassname">haasomeapi.apis.AccountDataApi.</code><code class="descname">AccountDataApi</code><span class="sig-paren">(</span><em>connectionstring: str</em>, <em>privatekey: str</em><span class="sig-paren">)</span><a class="headerlink" href="#haasomeapi.apis.AccountDataApi.AccountDataApi" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">haasomeapi.apis.ApiBase.ApiBase</span></code></p>
+<p>The Account Data API Class.
+Gives access to the account data api endpoints</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>connectionstring</strong> – str: Connection String Formatted Ex. <a class="reference external" href="http://127.0.0.1:9000">http://127.0.0.1:9000</a></li>
+<li><strong>privatekey</strong> – str: Private Key Set In The Haas Settings</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="haasomeapi.apis.AccountDataApi.AccountDataApi.get_account_details">
+<code class="descname">get_account_details</code><span class="sig-paren">(</span><em>accountguid: str</em><span class="sig-paren">)</span><a class="headerlink" href="#haasomeapi.apis.AccountDataApi.AccountDataApi.get_account_details" title="Permalink to this definition">¶</a></dt>
+<dd><p>Retrives account details from supplied guid</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>accountguid</strong> – str: The account guid</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference internal" href="haasomeapi.dataobjects.util.html#module-haasomeapi.dataobjects.util.HaasomeClientResponse" title="haasomeapi.dataobjects.util.HaasomeClientResponse"><code class="xref py py-class docutils literal notranslate"><span class="pre">HaasomeClientResponse</span></code></a></td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">In .result <a class="reference internal" href="haasomeapi.dataobjects.accountdata.html#module-haasomeapi.dataobjects.accountdata.AccountInformation" title="haasomeapi.dataobjects.accountdata.AccountInformation"><code class="xref py py-class docutils literal notranslate"><span class="pre">AccountInformation</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="haasomeapi.apis.AccountDataApi.AccountDataApi.get_all_account_details">
+<code class="descname">get_all_account_details</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#haasomeapi.apis.AccountDataApi.AccountDataApi.get_all_account_details" title="Permalink to this definition">¶</a></dt>
+<dd><p>Retrives a dictionary of all account names with guid</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference internal" href="haasomeapi.dataobjects.util.html#module-haasomeapi.dataobjects.util.HaasomeClientResponse" title="haasomeapi.dataobjects.util.HaasomeClientResponse"><code class="xref py py-class docutils literal notranslate"><span class="pre">HaasomeClientResponse</span></code></a></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">In .result dict</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="haasomeapi.apis.AccountDataApi.AccountDataApi.get_all_open_orders">
+<code class="descname">get_all_open_orders</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#haasomeapi.apis.AccountDataApi.AccountDataApi.get_all_open_orders" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get all open orders for all accounts</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference internal" href="haasomeapi.dataobjects.util.html#module-haasomeapi.dataobjects.util.HaasomeClientResponse" title="haasomeapi.dataobjects.util.HaasomeClientResponse"><code class="xref py py-class docutils literal notranslate"><span class="pre">HaasomeClientResponse</span></code></a></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">In .result dict</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="haasomeapi.apis.AccountDataApi.AccountDataApi.get_all_wallets">
+<code class="descname">get_all_wallets</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#haasomeapi.apis.AccountDataApi.AccountDataApi.get_all_wallets" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets all wallets</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference internal" href="haasomeapi.dataobjects.util.html#module-haasomeapi.dataobjects.util.HaasomeClientResponse" title="haasomeapi.dataobjects.util.HaasomeClientResponse"><code class="xref py py-class docutils literal notranslate"><span class="pre">HaasomeClientResponse</span></code></a></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">In .result dict</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="haasomeapi.apis.AccountDataApi.AccountDataApi.get_enabled_accounts">
+<code class="descname">get_enabled_accounts</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#haasomeapi.apis.AccountDataApi.AccountDataApi.get_enabled_accounts" title="Permalink to this definition">¶</a></dt>
+<dd><p>Retrives a dictionary of enabled accounts</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference internal" href="haasomeapi.dataobjects.util.html#module-haasomeapi.dataobjects.util.HaasomeClientResponse" title="haasomeapi.dataobjects.util.HaasomeClientResponse"><code class="xref py py-class docutils literal notranslate"><span class="pre">HaasomeClientResponse</span></code></a></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">In .result dict</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="haasomeapi.apis.AccountDataApi.AccountDataApi.get_open_orders">
+<code class="descname">get_open_orders</code><span class="sig-paren">(</span><em>accountguid: str</em><span class="sig-paren">)</span><a class="headerlink" href="#haasomeapi.apis.AccountDataApi.AccountDataApi.get_open_orders" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets all open orders for a specific account</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>accountguid</strong> – str: The account guid</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference internal" href="haasomeapi.dataobjects.util.html#module-haasomeapi.dataobjects.util.HaasomeClientResponse" title="haasomeapi.dataobjects.util.HaasomeClientResponse"><code class="xref py py-class docutils literal notranslate"><span class="pre">HaasomeClientResponse</span></code></a></td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">In .result <a class="reference internal" href="haasomeapi.dataobjects.accountdata.html#module-haasomeapi.dataobjects.accountdata.OrderContainer" title="haasomeapi.dataobjects.accountdata.OrderContainer"><code class="xref py py-class docutils literal notranslate"><span class="pre">OrderContainer</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="haasomeapi.apis.AccountDataApi.AccountDataApi.get_order_templates">
+<code class="descname">get_order_templates</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#haasomeapi.apis.AccountDataApi.AccountDataApi.get_order_templates" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets current order templates</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference internal" href="haasomeapi.dataobjects.util.html#module-haasomeapi.dataobjects.util.HaasomeClientResponse" title="haasomeapi.dataobjects.util.HaasomeClientResponse"><code class="xref py py-class docutils literal notranslate"><span class="pre">HaasomeClientResponse</span></code></a></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">In .result dict</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="haasomeapi.apis.AccountDataApi.AccountDataApi.get_software_details">
+<code class="descname">get_software_details</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#haasomeapi.apis.AccountDataApi.AccountDataApi.get_software_details" title="Permalink to this definition">¶</a></dt>
+<dd><p>Retrives the current software information</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference internal" href="haasomeapi.dataobjects.util.html#module-haasomeapi.dataobjects.util.HaasomeClientResponse" title="haasomeapi.dataobjects.util.HaasomeClientResponse"><code class="xref py py-class docutils literal notranslate"><span class="pre">HaasomeClientResponse</span></code></a></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">In .result <a class="reference internal" href="haasomeapi.dataobjects.accountdata.html#module-haasomeapi.dataobjects.accountdata.SoftwareInformation" title="haasomeapi.dataobjects.accountdata.SoftwareInformation"><code class="xref py py-class docutils literal notranslate"><span class="pre">SoftwareInformation</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="haasomeapi.apis.AccountDataApi.AccountDataApi.get_template_status">
+<code class="descname">get_template_status</code><span class="sig-paren">(</span><em>templateguid: str</em><span class="sig-paren">)</span><a class="headerlink" href="#haasomeapi.apis.AccountDataApi.AccountDataApi.get_template_status" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets status for template</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>templateguid</strong> – str: Template Guid</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference internal" href="haasomeapi.dataobjects.util.html#module-haasomeapi.dataobjects.util.HaasomeClientResponse" title="haasomeapi.dataobjects.util.HaasomeClientResponse"><code class="xref py py-class docutils literal notranslate"><span class="pre">HaasomeClientResponse</span></code></a></td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">In .result <a class="reference internal" href="haasomeapi.enums.html#module-haasomeapi.enums.EnumOrderStatus" title="haasomeapi.enums.EnumOrderStatus"><code class="xref py py-class docutils literal notranslate"><span class="pre">EnumOrderStatus</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="haasomeapi.apis.AccountDataApi.AccountDataApi.get_wallet">
+<code class="descname">get_wallet</code><span class="sig-paren">(</span><em>accountguid: str</em><span class="sig-paren">)</span><a class="headerlink" href="#haasomeapi.apis.AccountDataApi.AccountDataApi.get_wallet" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get wallet for specific account</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>accountguid</strong> – str: The account guid</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference internal" href="haasomeapi.dataobjects.util.html#module-haasomeapi.dataobjects.util.HaasomeClientResponse" title="haasomeapi.dataobjects.util.HaasomeClientResponse"><code class="xref py py-class docutils literal notranslate"><span class="pre">HaasomeClientResponse</span></code></a></td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">In .result <a class="reference internal" href="haasomeapi.dataobjects.accountdata.html#module-haasomeapi.dataobjects.accountdata.Wallet" title="haasomeapi.dataobjects.accountdata.Wallet"><code class="xref py py-class docutils literal notranslate"><span class="pre">Wallet</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="haasomeapi.apis.AccountDataApi.AccountDataApi.simulated_account_add_or_adjust_coin_amount">
+<code class="descname">simulated_account_add_or_adjust_coin_amount</code><span class="sig-paren">(</span><em>accountguid: str</em>, <em>coin: str</em>, <em>amount: float</em><span class="sig-paren">)</span><a class="headerlink" href="#haasomeapi.apis.AccountDataApi.AccountDataApi.simulated_account_add_or_adjust_coin_amount" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add or Edit simulated account coin amount</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>accountguid</strong> – str: The account guid</li>
+<li><strong>coin</strong> – str: Coin to change</li>
+<li><strong>amount</strong> – float: Amount of coins to use</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><a class="reference internal" href="haasomeapi.dataobjects.util.html#module-haasomeapi.dataobjects.util.HaasomeClientResponse" title="haasomeapi.dataobjects.util.HaasomeClientResponse"><code class="xref py py-class docutils literal notranslate"><span class="pre">HaasomeClientResponse</span></code></a></p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">In .result <a class="reference internal" href="haasomeapi.dataobjects.accountdata.html#module-haasomeapi.dataobjects.accountdata.Wallet" title="haasomeapi.dataobjects.accountdata.Wallet"><code class="xref py py-class docutils literal notranslate"><span class="pre">Wallet</span></code></a></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="haasomeapi.apis.AccountDataApi.AccountDataApi.simulated_account_clear_wallet">
+<code class="descname">simulated_account_clear_wallet</code><span class="sig-paren">(</span><em>accountguid: str</em><span class="sig-paren">)</span><a class="headerlink" href="#haasomeapi.apis.AccountDataApi.AccountDataApi.simulated_account_clear_wallet" title="Permalink to this definition">¶</a></dt>
+<dd><p>Clears the simulated account wallet if the account is a sim account.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>accountguid</strong> – str: The account guid</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference internal" href="haasomeapi.dataobjects.util.html#module-haasomeapi.dataobjects.util.HaasomeClientResponse" title="haasomeapi.dataobjects.util.HaasomeClientResponse"><code class="xref py py-class docutils literal notranslate"><span class="pre">HaasomeClientResponse</span></code></a></td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">In .result <a class="reference internal" href="haasomeapi.dataobjects.accountdata.html#module-haasomeapi.dataobjects.accountdata.Wallet" title="haasomeapi.dataobjects.accountdata.Wallet"><code class="xref py py-class docutils literal notranslate"><span class="pre">Wallet</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">haasomeapi.apis.AccountDataApi module</a><ul>
+<li><a class="reference internal" href="#module-haasomeapi.apis.AccountDataApi">Functions</a></li>
+</ul>
+</li>
+</ul>
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="haasome.guide.quickstart.html" title="previous chapter">Quick Start Guide</a></li>
+      <li>Next: <a href="haasomeapi.apis.AdvancedOrderApi.html" title="next chapter">haasomeapi.apis.AdvancedOrderApi module</a></li>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/haasomeapi.apis.AccountDataApi.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2018, Raynaldo Rivera.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.7.5</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.11</a>
+      
+      |
+      <a href="_sources/haasomeapi.apis.AccountDataApi.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

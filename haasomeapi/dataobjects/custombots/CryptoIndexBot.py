@@ -18,7 +18,7 @@ class CryptoIndexBot(BaseCustomBot):
     :ivar allocateProfits: bool:
     :ivar lastOrderTimeStamp: :class:`~datettime`:
     :ivar mappedIndexes: Dict[str, float]:
-    :ivar indexResults: Dict[str, :class:`~haasomeapi.dataobjects.custombots.dataobjects.CryptoIndexBotIndexResult:]:
+    :ivar indexResults: Dict[str, :class:`~haasomeapi.dataobjects.custombots.dataobjects.CryptoIndexBotIndexResult`]:
     """
 
     baseCoin: str

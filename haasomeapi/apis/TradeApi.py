@@ -28,7 +28,7 @@ class TradeApi(ApiBase):
         :param templateguid: str:  (Default value = "") Order template guid to use
         
         :returns: :class:`~haasomeapi.dataobjects.util.HaasomeClientResponse`
-        :returns: In .result str: Order guid
+        :returns: In .result str: Template guid
         """
 
         data = {"accountGuid": accountguid,
@@ -69,7 +69,7 @@ class TradeApi(ApiBase):
         :param templateguid: str:  (Default value = "") Order template guid to use
         
         :returns: :class:`~haasomeapi.dataobjects.util.HaasomeClientResponse`
-        :returns: In .result str: Order guid
+        :returns: In .result str: Template guid
         """
 
         data = {"accountGuid": accountguid,
@@ -112,7 +112,7 @@ class TradeApi(ApiBase):
         :param templateguid: str:  (Default value = "") Order template guid to use
 
         :returns: :class:`~haasomeapi.dataobjects.util.HaasomeClientResponse`
-        :returns: In .result str: Order guid
+        :returns: In .result str: Template guid
         """
 
         data = {"accountGuid": accountguid,
@@ -156,7 +156,7 @@ class TradeApi(ApiBase):
         :param templateguid: str:  (Default value = "") Order template guid to use
 
         :returns: :class:`~haasomeapi.dataobjects.util.HaasomeClientResponse`
-        :returns: In .result str: Order guid
+        :returns: In .result str: Template guid
         """
 
         data = {"accountGuid": accountguid,
@@ -200,7 +200,7 @@ class TradeApi(ApiBase):
         :param templateguid: str:  (Default value = "") Order template guid to use
 
         :returns: :class:`~haasomeapi.dataobjects.util.HaasomeClientResponse`
-        :returns: In .result str: Order guid
+        :returns: In .result str: Template guid
         """
 
         data = {"accountGuid": accountguid,
@@ -244,7 +244,7 @@ class TradeApi(ApiBase):
         :param templateguid: str:  (Default value = "") Order template guid to use
 
         :returns: :class:`~haasomeapi.dataobjects.util.HaasomeClientResponse`
-        :returns: In .result str: Order guid
+        :returns: In .result str: Template guid
         """
 
         data = {"accountGuid": accountguid,

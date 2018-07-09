@@ -7,5 +7,6 @@ class TrailingStop(AdvancedOrderBase):
     :ivar trailingStopPercentage: str: 
     :ivar recordedPrice: float:
     """
+    
     trailingStopPercentage: float
     recordedPrice: float

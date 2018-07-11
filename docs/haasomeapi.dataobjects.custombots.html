@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>haasomeapi.dataobjects.custombots package &#8212; HaasomeApi 3.1.14.1 documentation</title>
+    <title>haasomeapi.dataobjects.custombots package &#8212; HaasomeApi 3.1.14.3 documentation</title>
     <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
@@ -72,6 +72,31 @@
 <dt id="haasomeapi.dataobjects.custombots.AccumulationBot.AccumulationBot">
 <em class="property">class </em><code class="descclassname">haasomeapi.dataobjects.custombots.AccumulationBot.</code><code class="descname">AccumulationBot</code><a class="headerlink" href="#haasomeapi.dataobjects.custombots.AccumulationBot.AccumulationBot" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#haasomeapi.dataobjects.custombots.BaseCustomBot.BaseCustomBot" title="haasomeapi.dataobjects.custombots.BaseCustomBot.BaseCustomBot"><code class="xref py py-class docutils literal notranslate"><span class="pre">haasomeapi.dataobjects.custombots.BaseCustomBot.BaseCustomBot</span></code></a></p>
+<p>Data Object containing a Accumlation Bot</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
+<li><strong>amountDecimals</strong> – int:</li>
+<li><strong>priceDecimals</strong> – int:</li>
+<li><strong>nextOrderTime</strong> – int:</li>
+<li><strong>orderType</strong> – <a class="reference internal" href="haasomeapi.enums.html#module-haasomeapi.enums.EnumOrderType" title="haasomeapi.enums.EnumOrderType"><code class="xref py py-class docutils literal notranslate"><span class="pre">EnumOrderType</span></code></a>:</li>
+<li><strong>accumulatedSoFar</strong> – float:</li>
+<li><strong>stopType</strong> – <a class="reference internal" href="haasomeapi.enums.html#module-haasomeapi.enums.EnumAccumulationBotStopType" title="haasomeapi.enums.EnumAccumulationBotStopType"><code class="xref py py-class docutils literal notranslate"><span class="pre">EnumAccumulationBotStopType</span></code></a>:</li>
+<li><strong>stopTypeValue</strong> – float:</li>
+<li><strong>randomOrderTimeX</strong> – int:</li>
+<li><strong>randomOrderTimeY</strong> – int:</li>
+<li><strong>randomOrderSizeX</strong> – int:</li>
+<li><strong>randomOrderSizeY</strong> – int:</li>
+<li><strong>triggerOnPrice</strong> – bool:</li>
+<li><strong>triggerWhenHigher</strong> – bool:</li>
+<li><strong>triggerValue</strong> – float:</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 </div>
@@ -81,6 +106,52 @@
 <dt id="haasomeapi.dataobjects.custombots.BaseCustomBot.BaseCustomBot">
 <em class="property">class </em><code class="descclassname">haasomeapi.dataobjects.custombots.BaseCustomBot.</code><code class="descname">BaseCustomBot</code><a class="headerlink" href="#haasomeapi.dataobjects.custombots.BaseCustomBot.BaseCustomBot" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Data Object containing the Base Custom Bot</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
+<li><strong>botType</strong> – <a class="reference internal" href="haasomeapi.enums.html#module-haasomeapi.enums.EnumCustomBotType" title="haasomeapi.enums.EnumCustomBotType"><code class="xref py py-class docutils literal notranslate"><span class="pre">EnumCustomBotType</span></code></a>:</li>
+<li><strong>isBackTesting</strong> – bool:</li>
+<li><strong>guid</strong> – str:</li>
+<li><strong>name</strong> – str:</li>
+<li><strong>accountId</strong> – str:</li>
+<li><strong>priceMarket</strong> – <a class="reference internal" href="haasomeapi.dataobjects.marketdata.html#module-haasomeapi.dataobjects.marketdata.Market" title="haasomeapi.dataobjects.marketdata.Market"><code class="xref py py-class docutils literal notranslate"><span class="pre">Market</span></code></a>:</li>
+<li><strong>leverage</strong> – float:</li>
+<li><strong>coinPosition</strong> – <a class="reference internal" href="haasomeapi.enums.html#module-haasomeapi.enums.EnumCoinPosition" title="haasomeapi.enums.EnumCoinPosition"><code class="xref py py-class docutils literal notranslate"><span class="pre">EnumCoinPosition</span></code></a>:</li>
+<li><strong>fundPosition</strong> – <a class="reference internal" href="haasomeapi.enums.html#module-haasomeapi.enums.EnumFundPosition" title="haasomeapi.enums.EnumFundPosition"><code class="xref py py-class docutils literal notranslate"><span class="pre">EnumFundPosition</span></code></a>:</li>
+<li><strong>currentTradeAmount</strong> – float:</li>
+<li><strong>correctedTradeAmount</strong> – float:</li>
+<li><strong>lastBuyPrice</strong> – float:</li>
+<li><strong>lastSellPrice</strong> – float:</li>
+<li><strong>currentFeePercentage</strong> – float:</li>
+<li><strong>settlementDate</strong> – int:</li>
+<li><strong>profitLabel</strong> – str:</li>
+<li><strong>activated</strong> – bool:</li>
+<li><strong>activatedSince</strong> – int:</li>
+<li><strong>deactivatedSince</strong> – int:</li>
+<li><strong>statusPriceSourceOk</strong> – bool:</li>
+<li><strong>statusAccountOk</strong> – bool:</li>
+<li><strong>openOrdersOk</strong> – bool:</li>
+<li><strong>walletOk</strong> – bool:</li>
+<li><strong>openOrderId</strong> – str:</li>
+<li><strong>totalFeeCosts</strong> – float:</li>
+<li><strong>totalProfits</strong> – float:</li>
+<li><strong>roi</strong> – float:</li>
+<li><strong>lastPriceUpdate</strong> – float:</li>
+<li><strong>contractValue</strong> – float:</li>
+<li><strong>lastUpdateTime</strong> – int:</li>
+<li><strong>groupName</strong> – str:</li>
+<li><strong>notes</strong> – str:</li>
+<li><strong>customTemplate</strong> – str:</li>
+<li><strong>botLogBook</strong> – List[str]:</li>
+<li><strong>completedOrders</strong> – List[<a class="reference internal" href="haasomeapi.dataobjects.accountdata.html#module-haasomeapi.dataobjects.accountdata.BaseOrder" title="haasomeapi.dataobjects.accountdata.BaseOrder"><code class="xref py py-class docutils literal notranslate"><span class="pre">BaseOrder</span></code></a>]:</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 </div>
@@ -90,6 +161,26 @@
 <dt id="haasomeapi.dataobjects.custombots.CryptoIndexBot.CryptoIndexBot">
 <em class="property">class </em><code class="descclassname">haasomeapi.dataobjects.custombots.CryptoIndexBot.</code><code class="descname">CryptoIndexBot</code><a class="headerlink" href="#haasomeapi.dataobjects.custombots.CryptoIndexBot.CryptoIndexBot" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#haasomeapi.dataobjects.custombots.BaseCustomBot.BaseCustomBot" title="haasomeapi.dataobjects.custombots.BaseCustomBot.BaseCustomBot"><code class="xref py py-class docutils literal notranslate"><span class="pre">haasomeapi.dataobjects.custombots.BaseCustomBot.BaseCustomBot</span></code></a></p>
+<p>Data Object containing a Crypto Index bot</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
+<li><strong>baseCoin</strong> – str:</li>
+<li><strong>index</strong> – List[<a class="reference internal" href="haasomeapi.dataobjects.custombots.dataobjects.html#module-haasomeapi.dataobjects.custombots.dataobjects.CryptoIndexBotIndex" title="haasomeapi.dataobjects.custombots.dataobjects.CryptoIndexBotIndex"><code class="xref py py-class docutils literal notranslate"><span class="pre">CryptoIndexBotIndex</span></code></a>]:</li>
+<li><strong>totalExtraBuy</strong> – float:</li>
+<li><strong>totalExtraSell</strong> – float:</li>
+<li><strong>individualCoinGrowth</strong> – bool:</li>
+<li><strong>allocateProfits</strong> – bool:</li>
+<li><strong>lastOrderTimeStamp</strong> – <code class="xref py py-class docutils literal notranslate"><span class="pre">datettime</span></code>:</li>
+<li><strong>mappedIndexes</strong> – Dict[str, float]:</li>
+<li><strong>indexResults</strong> – Dict[str, <a class="reference internal" href="haasomeapi.dataobjects.custombots.dataobjects.html#module-haasomeapi.dataobjects.custombots.dataobjects.CryptoIndexBotIndexResult" title="haasomeapi.dataobjects.custombots.dataobjects.CryptoIndexBotIndexResult"><code class="xref py py-class docutils literal notranslate"><span class="pre">CryptoIndexBotIndexResult</span></code></a>]:</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 </div>
@@ -99,6 +190,25 @@
 <dt id="haasomeapi.dataobjects.custombots.EmailBot.EmailBot">
 <em class="property">class </em><code class="descclassname">haasomeapi.dataobjects.custombots.EmailBot.</code><code class="descname">EmailBot</code><a class="headerlink" href="#haasomeapi.dataobjects.custombots.EmailBot.EmailBot" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#haasomeapi.dataobjects.custombots.BaseCustomBot.BaseCustomBot" title="haasomeapi.dataobjects.custombots.BaseCustomBot.BaseCustomBot"><code class="xref py py-class docutils literal notranslate"><span class="pre">haasomeapi.dataobjects.custombots.BaseCustomBot.BaseCustomBot</span></code></a></p>
+<p>Data Object containing a Email Bot</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
+<li><strong>actions</strong> – List[<a class="reference internal" href="haasomeapi.dataobjects.custombots.dataobjects.html#module-haasomeapi.dataobjects.custombots.dataobjects.EmailBotAction" title="haasomeapi.dataobjects.custombots.dataobjects.EmailBotAction"><code class="xref py py-class docutils literal notranslate"><span class="pre">EmailBotAction</span></code></a>]:</li>
+<li><strong>stopLoss</strong> – float:</li>
+<li><strong>stopLossPrice</strong> – float:</li>
+<li><strong>priceChangeToBuy</strong> – float:</li>
+<li><strong>priceChangeToSell</strong> – float:</li>
+<li><strong>priceChangeTarget</strong> – float:</li>
+<li><strong>maximumLossOnPosition</strong> – float:</li>
+<li><strong>minimumProfitOnPosition</strong> – float:</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 </div>
@@ -108,6 +218,44 @@
 <dt id="haasomeapi.dataobjects.custombots.FlashCrashBot.FlashCrashBot">
 <em class="property">class </em><code class="descclassname">haasomeapi.dataobjects.custombots.FlashCrashBot.</code><code class="descname">FlashCrashBot</code><a class="headerlink" href="#haasomeapi.dataobjects.custombots.FlashCrashBot.FlashCrashBot" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#haasomeapi.dataobjects.custombots.BaseCustomBot.BaseCustomBot" title="haasomeapi.dataobjects.custombots.BaseCustomBot.BaseCustomBot"><code class="xref py py-class docutils literal notranslate"><span class="pre">haasomeapi.dataobjects.custombots.BaseCustomBot.BaseCustomBot</span></code></a></p>
+<p>Data Object containing a Flash Crash Bot</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
+<li><strong>slots</strong> – Dict[int, <a class="reference internal" href="haasomeapi.dataobjects.custombots.dataobjects.html#module-haasomeapi.dataobjects.custombots.dataobjects.SlotObject" title="haasomeapi.dataobjects.custombots.dataobjects.SlotObject"><code class="xref py py-class docutils literal notranslate"><span class="pre">SlotObject</span></code></a>]:</li>
+<li><strong>baseKey</strong> – int:</li>
+<li><strong>totalBuyAmount</strong> – float:</li>
+<li><strong>totalSellAmount</strong> – float:</li>
+<li><strong>basePrice</strong> – float:</li>
+<li><strong>isStopping</strong> – bool:</li>
+<li><strong>priceSpreadType</strong> – <a class="reference internal" href="haasomeapi.enums.html#module-haasomeapi.enums.EnumFlashSpreadOptions" title="haasomeapi.enums.EnumFlashSpreadOptions"><code class="xref py py-class docutils literal notranslate"><span class="pre">EnumFlashSpreadOptions</span></code></a>:</li>
+<li><strong>priceSpread</strong> – float:</li>
+<li><strong>percentageBoost</strong> – float:</li>
+<li><strong>amountSpread</strong> – float:</li>
+<li><strong>amountDecimals</strong> – int:</li>
+<li><strong>priceDecimals</strong> – int:</li>
+<li><strong>amountType</strong> – EnumCurrencyType:</li>
+<li><strong>amountSpreadType</strong> – <a class="reference internal" href="haasomeapi.enums.html#module-haasomeapi.enums.EnumFlashSpreadOptions" title="haasomeapi.enums.EnumFlashSpreadOptions"><code class="xref py py-class docutils literal notranslate"><span class="pre">EnumFlashSpreadOptions</span></code></a>:</li>
+<li><strong>refillDelay</strong> – int:</li>
+<li><strong>minPercentage</strong> – float:</li>
+<li><strong>maxPercentage</strong> – float:</li>
+<li><strong>quickRestartPossible</strong> – bool:</li>
+<li><strong>followTheTrend</strong> – bool:</li>
+<li><strong>followTheTrendTimeout</strong> – int:</li>
+<li><strong>followTheTrendChannelRange</strong> – int:</li>
+<li><strong>followTheTrendChannelRange</strong> – int:</li>
+<li><strong>followTheTrendChannelOffset</strong> – int:</li>
+<li><strong>safetyEnabled</strong> – bool:</li>
+<li><strong>safetyTriggerLevel</strong> – float:</li>
+<li><strong>safetyMoveInOut</strong> – bool:</li>
+<li><strong>safetyMoveInOutTarget</strong> – float:</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 </div>
@@ -117,6 +265,31 @@
 <dt id="haasomeapi.dataobjects.custombots.InterExchangeArbitrageBot.InterExchangeArbitrageBot">
 <em class="property">class </em><code class="descclassname">haasomeapi.dataobjects.custombots.InterExchangeArbitrageBot.</code><code class="descname">InterExchangeArbitrageBot</code><a class="headerlink" href="#haasomeapi.dataobjects.custombots.InterExchangeArbitrageBot.InterExchangeArbitrageBot" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#haasomeapi.dataobjects.custombots.BaseCustomBot.BaseCustomBot" title="haasomeapi.dataobjects.custombots.BaseCustomBot.BaseCustomBot"><code class="xref py py-class docutils literal notranslate"><span class="pre">haasomeapi.dataobjects.custombots.BaseCustomBot.BaseCustomBot</span></code></a></p>
+<p>Data Object containing a Inter Exchange Arbitrage Bot</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
+<li><strong>currentFeePercentage2</strong> – float:</li>
+<li><strong>accountId2</strong> – str:</li>
+<li><strong>priceMarket2</strong> – <a class="reference internal" href="haasomeapi.dataobjects.marketdata.html#module-haasomeapi.dataobjects.marketdata.Market" title="haasomeapi.dataobjects.marketdata.Market"><code class="xref py py-class docutils literal notranslate"><span class="pre">Market</span></code></a>:</li>
+<li><strong>triggerLevel</strong> – float:</li>
+<li><strong>mainAccountIsBought</strong> – bool:</li>
+<li><strong>lastTick</strong> – <a class="reference internal" href="haasomeapi.dataobjects.marketdata.html#module-haasomeapi.dataobjects.marketdata.PriceTick" title="haasomeapi.dataobjects.marketdata.PriceTick"><code class="xref py py-class docutils literal notranslate"><span class="pre">PriceTick</span></code></a>:</li>
+<li><strong>lastTick2</strong> – <a class="reference internal" href="haasomeapi.dataobjects.marketdata.html#module-haasomeapi.dataobjects.marketdata.PriceTick" title="haasomeapi.dataobjects.marketdata.PriceTick"><code class="xref py py-class docutils literal notranslate"><span class="pre">PriceTick</span></code></a>:</li>
+<li><strong>priceDecimals1</strong> – int:</li>
+<li><strong>priceDecimals2</strong> – int:</li>
+<li><strong>openOrderIdMain</strong> – str:</li>
+<li><strong>openOrderIdSecondary</strong> – str:</li>
+<li><strong>totalTradesSoFar</strong> – float:</li>
+<li><strong>maxTradeAmount</strong> – float:</li>
+<li><strong>maxTradesPerDay</strong> – int:</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 </div>
@@ -126,6 +299,28 @@
 <dt id="haasomeapi.dataobjects.custombots.MadHatterBot.MadHatterBot">
 <em class="property">class </em><code class="descclassname">haasomeapi.dataobjects.custombots.MadHatterBot.</code><code class="descname">MadHatterBot</code><a class="headerlink" href="#haasomeapi.dataobjects.custombots.MadHatterBot.MadHatterBot" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#haasomeapi.dataobjects.custombots.BaseCustomBot.BaseCustomBot" title="haasomeapi.dataobjects.custombots.BaseCustomBot.BaseCustomBot"><code class="xref py py-class docutils literal notranslate"><span class="pre">haasomeapi.dataobjects.custombots.BaseCustomBot.BaseCustomBot</span></code></a></p>
+<p>Data Object containing a Mad Hatter Bot</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
+<li><strong>interval</strong> – int:</li>
+<li><strong>stopLoss</strong> – float:</li>
+<li><strong>stopLossPrice</strong> – float:</li>
+<li><strong>disableAfterStopLoss</strong> – bool:</li>
+<li><strong>priceChangeToBuy</strong> – float:</li>
+<li><strong>priceChangeToSell</strong> – float:</li>
+<li><strong>priceChangeTarget</strong> – float:</li>
+<li><strong>macd</strong> – <a class="reference internal" href="haasomeapi.dataobjects.custombots.dataobjects.html#module-haasomeapi.dataobjects.custombots.dataobjects.Indicator" title="haasomeapi.dataobjects.custombots.dataobjects.Indicator"><code class="xref py py-class docutils literal notranslate"><span class="pre">Indicator</span></code></a>:</li>
+<li><strong>bbands</strong> – <a class="reference internal" href="haasomeapi.dataobjects.custombots.dataobjects.html#module-haasomeapi.dataobjects.custombots.dataobjects.Indicator" title="haasomeapi.dataobjects.custombots.dataobjects.Indicator"><code class="xref py py-class docutils literal notranslate"><span class="pre">Indicator</span></code></a>:</li>
+<li><strong>rsi</strong> – <a class="reference internal" href="haasomeapi.dataobjects.custombots.dataobjects.html#module-haasomeapi.dataobjects.custombots.dataobjects.Indicator" title="haasomeapi.dataobjects.custombots.dataobjects.Indicator"><code class="xref py py-class docutils literal notranslate"><span class="pre">Indicator</span></code></a>:</li>
+<li><strong>useTwoSIgnals</strong> – bool:</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 </div>
@@ -135,6 +330,26 @@
 <dt id="haasomeapi.dataobjects.custombots.MarketMakingBot.MarketMakingBot">
 <em class="property">class </em><code class="descclassname">haasomeapi.dataobjects.custombots.MarketMakingBot.</code><code class="descname">MarketMakingBot</code><a class="headerlink" href="#haasomeapi.dataobjects.custombots.MarketMakingBot.MarketMakingBot" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#haasomeapi.dataobjects.custombots.BaseCustomBot.BaseCustomBot" title="haasomeapi.dataobjects.custombots.BaseCustomBot.BaseCustomBot"><code class="xref py py-class docutils literal notranslate"><span class="pre">haasomeapi.dataobjects.custombots.BaseCustomBot.BaseCustomBot</span></code></a></p>
+<p>Data Object containin a Market Making Bot</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
+<li><strong>tradeAmount</strong> – float:</li>
+<li><strong>customFee</strong> – float:</li>
+<li><strong>firstOrder</strong> – <a class="reference internal" href="haasomeapi.dataobjects.custombots.dataobjects.html#module-haasomeapi.dataobjects.custombots.dataobjects.MarketMakingBotSlot" title="haasomeapi.dataobjects.custombots.dataobjects.MarketMakingBotSlot"><code class="xref py py-class docutils literal notranslate"><span class="pre">MarketMakingBotSlot</span></code></a>:</li>
+<li><strong>secondOrder</strong> – <a class="reference internal" href="haasomeapi.dataobjects.custombots.dataobjects.html#module-haasomeapi.dataobjects.custombots.dataobjects.MarketMakingBotSlot" title="haasomeapi.dataobjects.custombots.dataobjects.MarketMakingBotSlot"><code class="xref py py-class docutils literal notranslate"><span class="pre">MarketMakingBotSlot</span></code></a>:</li>
+<li><strong>firstOffset</strong> – float:</li>
+<li><strong>secondOffset</strong> – float:</li>
+<li><strong>useSecondOrder</strong> – bool:</li>
+<li><strong>resetTimeout</strong> – int:</li>
+<li><strong>lastTick</strong> – <a class="reference internal" href="haasomeapi.dataobjects.marketdata.html#module-haasomeapi.dataobjects.marketdata.PriceTick" title="haasomeapi.dataobjects.marketdata.PriceTick"><code class="xref py py-class docutils literal notranslate"><span class="pre">PriceTick</span></code></a>:</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 </div>
@@ -144,6 +359,15 @@
 <dt id="haasomeapi.dataobjects.custombots.OrderBot.OrderBot">
 <em class="property">class </em><code class="descclassname">haasomeapi.dataobjects.custombots.OrderBot.</code><code class="descname">OrderBot</code><a class="headerlink" href="#haasomeapi.dataobjects.custombots.OrderBot.OrderBot" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#haasomeapi.dataobjects.custombots.BaseCustomBot.BaseCustomBot" title="haasomeapi.dataobjects.custombots.BaseCustomBot.BaseCustomBot"><code class="xref py py-class docutils literal notranslate"><span class="pre">haasomeapi.dataobjects.custombots.BaseCustomBot.BaseCustomBot</span></code></a></p>
+<p>Data Object containing a Order Bot</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><strong>preOrders</strong> – List[<a class="reference internal" href="haasomeapi.dataobjects.custombots.dataobjects.html#module-haasomeapi.dataobjects.custombots.dataobjects.OrderBotPreOrder" title="haasomeapi.dataobjects.custombots.dataobjects.OrderBotPreOrder"><code class="xref py py-class docutils literal notranslate"><span class="pre">OrderBotPreOrder</span></code></a>]:</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 </div>
@@ -153,6 +377,19 @@
 <dt id="haasomeapi.dataobjects.custombots.ScalperBot.ScalperBot">
 <em class="property">class </em><code class="descclassname">haasomeapi.dataobjects.custombots.ScalperBot.</code><code class="descname">ScalperBot</code><a class="headerlink" href="#haasomeapi.dataobjects.custombots.ScalperBot.ScalperBot" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#haasomeapi.dataobjects.custombots.BaseCustomBot.BaseCustomBot" title="haasomeapi.dataobjects.custombots.BaseCustomBot.BaseCustomBot"><code class="xref py py-class docutils literal notranslate"><span class="pre">haasomeapi.dataobjects.custombots.BaseCustomBot.BaseCustomBot</span></code></a></p>
+<p>Data Object containing a Scalper Bot</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
+<li><strong>minimumTargetChange</strong> – float:</li>
+<li><strong>maxAllowedReverseChange</strong> – float:</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 </div>
@@ -162,6 +399,20 @@
 <dt id="haasomeapi.dataobjects.custombots.ScriptBot.ScriptBot">
 <em class="property">class </em><code class="descclassname">haasomeapi.dataobjects.custombots.ScriptBot.</code><code class="descname">ScriptBot</code><a class="headerlink" href="#haasomeapi.dataobjects.custombots.ScriptBot.ScriptBot" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#haasomeapi.dataobjects.custombots.BaseCustomBot.BaseCustomBot" title="haasomeapi.dataobjects.custombots.BaseCustomBot.BaseCustomBot"><code class="xref py py-class docutils literal notranslate"><span class="pre">haasomeapi.dataobjects.custombots.BaseCustomBot.BaseCustomBot</span></code></a></p>
+<p>Data Object containing a Script Bot</p>
+<p>:ivar openOrders = Dict[str, <a class="reference internal" href="haasomeapi.dataobjects.custombots.dataobjects.html#module-haasomeapi.dataobjects.custombots.dataobjects.ScriptBotOrder" title="haasomeapi.dataobjects.custombots.dataobjects.ScriptBotOrder"><code class="xref py py-class docutils literal notranslate"><span class="pre">ScriptBotOrder</span></code></a>]:
+:ivar finishedOrder = List[str]:
+:ivar cancelledOrders = List[str]:
+:ivar availableScript = Dict[str, str]:
+:ivar scriptId: str:
+:ivar fullScriptName: str:
+:ivar botSettings: List[<a class="reference internal" href="haasomeapi.dataobjects.custombots.dataobjects.html#module-haasomeapi.dataobjects.custombots.dataobjects.IndicatorOption" title="haasomeapi.dataobjects.custombots.dataobjects.IndicatorOption"><code class="xref py py-class docutils literal notranslate"><span class="pre">IndicatorOption</span></code></a>]:
+:ivar scriptStatusOk: bool:
+:ivar localScriptPath: str:
+:ivar lastLongBuyPrice: float:
+:ivar lastShortBuyPrice: float:
+:ivar lastLongSellPrice: float:
+:ivar lastShortSellPrice: float:</p>
 <dl class="attribute">
 <dt id="haasomeapi.dataobjects.custombots.ScriptBot.ScriptBot.availableScript">
 <code class="descname">availableScript</code><em class="property"> = typing.Dict[str, str]</em><a class="headerlink" href="#haasomeapi.dataobjects.custombots.ScriptBot.ScriptBot.availableScript" title="Permalink to this definition">¶</a></dt>
@@ -191,6 +442,34 @@
 <dt id="haasomeapi.dataobjects.custombots.ZoneRecoveryBot.ZoneRecoveryBot">
 <em class="property">class </em><code class="descclassname">haasomeapi.dataobjects.custombots.ZoneRecoveryBot.</code><code class="descname">ZoneRecoveryBot</code><a class="headerlink" href="#haasomeapi.dataobjects.custombots.ZoneRecoveryBot.ZoneRecoveryBot" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#haasomeapi.dataobjects.custombots.BaseCustomBot.BaseCustomBot" title="haasomeapi.dataobjects.custombots.BaseCustomBot.BaseCustomBot"><code class="xref py py-class docutils literal notranslate"><span class="pre">haasomeapi.dataobjects.custombots.BaseCustomBot.BaseCustomBot</span></code></a></p>
+<p>Data Object containing a Zone Recovery Bot</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
+<li><strong>factorShort</strong> – float:</li>
+<li><strong>factorLong</strong> – float:</li>
+<li><strong>zoneFactor</strong> – float:</li>
+<li><strong>targetPercentage</strong> – float:</li>
+<li><strong>tradeAmount</strong> – float:</li>
+<li><strong>maxTradeAmount</strong> – float:</li>
+<li><strong>triggerLevel</strong> – float:</li>
+<li><strong>useMarketOrders</strong> – bool:</li>
+<li><strong>roundAmount</strong> – bool:</li>
+<li><strong>basePrice</strong> – float:</li>
+<li><strong>firstAction</strong> – <a class="reference internal" href="haasomeapi.enums.html#module-haasomeapi.enums.EnumFundPosition" title="haasomeapi.enums.EnumFundPosition"><code class="xref py py-class docutils literal notranslate"><span class="pre">EnumFundPosition</span></code></a>:</li>
+<li><strong>calculatedZones</strong> – List[<a class="reference internal" href="haasomeapi.dataobjects.custombots.dataobjects.html#module-haasomeapi.dataobjects.custombots.dataobjects.ZoneDefinition" title="haasomeapi.dataobjects.custombots.dataobjects.ZoneDefinition"><code class="xref py py-class docutils literal notranslate"><span class="pre">ZoneDefinition</span></code></a>]</li>
+<li><strong>takeLongPrice</strong> – float</li>
+<li><strong>goLongPrice</strong> – float</li>
+<li><strong>goShortPrice</strong> – float</li>
+<li><strong>takeShortPrice</strong> – float</li>
+<li><strong>takenPositions</strong> – List[<a class="reference internal" href="haasomeapi.dataobjects.custombots.dataobjects.html#module-haasomeapi.dataobjects.custombots.dataobjects.OpenRecoveryPositionDefinition" title="haasomeapi.dataobjects.custombots.dataobjects.OpenRecoveryPositionDefinition"><code class="xref py py-class docutils literal notranslate"><span class="pre">OpenRecoveryPositionDefinition</span></code></a>]</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 </div>

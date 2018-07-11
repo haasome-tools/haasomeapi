@@ -2,11 +2,11 @@ from haasomeapi.dataobjects.advancedorders.AdvancedOrderBase import AdvancedOrde
 
 
 class TrailingStop(AdvancedOrderBase):
-    """    
-    Data Object containing the Advanced Order Base
+    """ Data Object containing the Advanced Order Base
 
-    :ivar trailingStopPercentage: str: Trailing stop percentage
-    :ivar recordedPrice: float: Current recorded price
+    :ivar trailingStopPercentage: str: 
+    :ivar recordedPrice: float:
     """
+    
     trailingStopPercentage: float
     recordedPrice: float

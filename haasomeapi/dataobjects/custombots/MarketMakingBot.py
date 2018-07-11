@@ -5,6 +5,19 @@ from haasomeapi.dataobjects.custombots.dataobjects.MarketMakingBotSlot import Ma
 
 
 class MarketMakingBot(BaseCustomBot):
+    """ Data Object containin a Market Making Bot
+
+    :ivar tradeAmount: float:
+    :ivar customFee: float:
+    :ivar firstOrder: :class:`~haasomeapi.dataobjects.custombots.dataobjects.MarketMakingBotSlot`:
+    :ivar secondOrder: :class:`~haasomeapi.dataobjects.custombots.dataobjects.MarketMakingBotSlot`:
+    :ivar firstOffset: float:
+    :ivar secondOffset: float:
+    :ivar useSecondOrder: bool:
+    :ivar resetTimeout: int:
+    :ivar lastTick: :class:`~haasomeapi.dataobjects.marketdata.PriceTick`:
+    """
+
     tradeAmount: float
     customFee: float
 

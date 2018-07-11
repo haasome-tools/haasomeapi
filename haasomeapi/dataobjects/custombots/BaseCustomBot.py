@@ -9,6 +9,45 @@ from haasomeapi.enums.EnumCustomBotType import EnumCustomBotType
 
 
 class BaseCustomBot:
+    """ Data Object containing the Base Custom Bot 
+
+    :ivar botType: :class:`~haasomeapi.enums.EnumCustomBotType`:
+    :ivar isBackTesting: bool:
+    :ivar guid: str:
+    :ivar name: str:
+    :ivar accountId: str:
+    :ivar priceMarket: :class:`~haasomeapi.dataobjects.marketdata.Market`:
+    :ivar leverage: float:
+    :ivar coinPosition: :class:`~haasomeapi.enums.EnumCoinPosition`:
+    :ivar fundPosition: :class:`~haasomeapi.enums.EnumFundPosition`:
+    :ivar currentTradeAmount: float:
+    :ivar correctedTradeAmount: float:
+    :ivar lastBuyPrice: float:
+    :ivar lastSellPrice: float:
+    :ivar currentFeePercentage: float:
+    :ivar settlementDate: int:
+    :ivar profitLabel: str:
+    :ivar activated: bool:
+    :ivar activatedSince: int:
+    :ivar deactivatedSince: int:
+    :ivar statusPriceSourceOk: bool:
+    :ivar statusAccountOk: bool:
+    :ivar openOrdersOk: bool:
+    :ivar walletOk: bool:
+    :ivar openOrderId: str:
+    :ivar totalFeeCosts: float:
+    :ivar totalProfits: float:
+    :ivar roi: float:
+    :ivar lastPriceUpdate: float:
+    :ivar contractValue: float:
+    :ivar lastUpdateTime: int:
+    :ivar groupName: str:
+    :ivar notes: str:
+    :ivar customTemplate: str:
+    :ivar botLogBook: List[str]:
+    :ivar completedOrders: List[:class:`~haasomeapi.dataobjects.accountdata.BaseOrder`]:
+    """
+
     botType: EnumCustomBotType
     isBackTesting: bool
     guid: str

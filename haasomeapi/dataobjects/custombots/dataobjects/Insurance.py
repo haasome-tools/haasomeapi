@@ -5,6 +5,17 @@ from haasomeapi.dataobjects.custombots.dataobjects.IndicatorOption import Indica
 
 
 class Insurance:
+    """ Data Object containing a Insurance
+
+    :ivar guid: str:
+    :ivar insuranceType: :class:`~haasomeapi.enums.EnumInsurance`:
+    :ivar insuranceTypeShortName: str:
+    :ivar insuranceTypeFullName: str:
+    :ivar agreeToTrade: bool:
+    :ivar insuranceName: str:
+    :ivar insuranceInterface: List[:class:`~aasomeapi.dataobjects.custombots.dataobjects.IndicatorOption`]:
+    """
+
     guid: str
     insuranceType: EnumInsurance
 

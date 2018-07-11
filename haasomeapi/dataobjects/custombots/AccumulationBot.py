@@ -5,6 +5,24 @@ from haasomeapi.enums.EnumAccumulationBotStopType import EnumAccumulationBotStop
 
 
 class AccumulationBot(BaseCustomBot):
+    """ Data Object containing a Accumlation Bot
+
+    :ivar amountDecimals: int:
+    :ivar priceDecimals: int:
+    :ivar nextOrderTime: int:
+    :ivar orderType: :class:`~haasomeapi.enums.EnumOrderType`:
+    :ivar accumulatedSoFar: float:
+    :ivar stopType: :class:`~haasomeapi.enums.EnumAccumulationBotStopType`:
+    :ivar stopTypeValue: float:
+    :ivar randomOrderTimeX: int:
+    :ivar randomOrderTimeY: int:
+    :ivar randomOrderSizeX: int:
+    :ivar randomOrderSizeY: int:
+    :ivar triggerOnPrice: bool:
+    :ivar triggerWhenHigher: bool:
+    :ivar triggerValue: float:
+    """
+
     amountDecimals: int
     priceDecimals: int
 

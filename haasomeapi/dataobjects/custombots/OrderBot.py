@@ -5,4 +5,9 @@ from haasomeapi.dataobjects.custombots.dataobjects.OrderBotPreOrder import Order
 
 
 class OrderBot(BaseCustomBot):
+    """ Data Object containing a Order Bot
+
+    :ivar preOrders: List[:class:`~haasomeapi.dataobjects.custombots.dataobjects.OrderBotPreOrder`]:
+    """
+
     preOrders: List[OrderBotPreOrder]

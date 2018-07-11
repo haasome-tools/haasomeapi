@@ -1,0 +1,1263 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>haasomeapi.apis.CustomBotApi module &#8212; HaasomeApi 3.1.14.3 documentation</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="haasomeapi.apis.MarketDataApi module" href="haasomeapi.apis.MarketDataApi.html" />
+    <link rel="prev" title="haasomeapi.apis.AdvancedOrderApi module" href="haasomeapi.apis.AdvancedOrderApi.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="haasomeapi-apis-custombotapi-module">
+<h1>haasomeapi.apis.CustomBotApi module<a class="headerlink" href="#haasomeapi-apis-custombotapi-module" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="module-haasomeapi.apis.CustomBotApi">
+<span id="functions"></span><h2>Functions<a class="headerlink" href="#module-haasomeapi.apis.CustomBotApi" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="haasomeapi.apis.CustomBotApi.CustomBotApi">
+<em class="property">class </em><code class="descclassname">haasomeapi.apis.CustomBotApi.</code><code class="descname">CustomBotApi</code><span class="sig-paren">(</span><em>connectionstring: str</em>, <em>privatekey: str</em><span class="sig-paren">)</span><a class="headerlink" href="#haasomeapi.apis.CustomBotApi.CustomBotApi" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">haasomeapi.apis.ApiBase.ApiBase</span></code></p>
+<p>The Custom Bot API Class.
+Gives access to the Custom Bot api endpoints</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>connectionstring</strong> – str: Connection String Formatted Ex. <a class="reference external" href="http://127.0.0.1:9000">http://127.0.0.1:9000</a></li>
+<li><strong>privatekey</strong> – str: Private Key Set In The Haas Settings</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="haasomeapi.apis.CustomBotApi.CustomBotApi.activate_custom_bot">
+<code class="descname">activate_custom_bot</code><span class="sig-paren">(</span><em>botguid: str</em>, <em>withextra: bool</em><span class="sig-paren">)</span><a class="headerlink" href="#haasomeapi.apis.CustomBotApi.CustomBotApi.activate_custom_bot" title="Permalink to this definition">¶</a></dt>
+<dd><p>Activates a custom bot</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>botguid</strong> – str: Custm bot guid</li>
+<li><strong>withextra</strong> – bool: with extra</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><a class="reference internal" href="haasomeapi.dataobjects.util.html#module-haasomeapi.dataobjects.util.HaasomeClientResponse" title="haasomeapi.dataobjects.util.HaasomeClientResponse"><code class="xref py py-class docutils literal notranslate"><span class="pre">HaasomeClientResponse</span></code></a></p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">In .result bool: If activation was successful</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="haasomeapi.apis.CustomBotApi.CustomBotApi.add_order_bot_order">
+<code class="descname">add_order_bot_order</code><span class="sig-paren">(</span><em>botguid: str</em>, <em>dependson: str</em>, <em>dependsonnotexecuted: str</em>, <em>amount: float</em>, <em>price: float</em>, <em>triggerprice: float</em>, <em>templateguid: str</em>, <em>direction: haasomeapi.enums.EnumOrderType.EnumOrderType</em>, <em>triggertype: haasomeapi.enums.EnumOrderBotTriggerType.EnumOrderBotTriggerType</em><span class="sig-paren">)</span><a class="headerlink" href="#haasomeapi.apis.CustomBotApi.CustomBotApi.add_order_bot_order" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add a order to a order bot</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>botguid</strong> – str: Custom bot guid</li>
+<li><strong>dependson</strong> – str: Order template guid this order depends on</li>
+<li><strong>dependsonnotexecuted</strong> – str: Order guid this depends on to not be executed.</li>
+<li><strong>amount</strong> – float: Trade amount to use</li>
+<li><strong>price</strong> – float: Price for the order</li>
+<li><strong>triggerprice</strong> – float: Trigger price for the order</li>
+<li><strong>templateguid</strong> – str: Order template for order to use guid</li>
+<li><strong>direction</strong> – <a class="reference internal" href="haasomeapi.enums.html#module-haasomeapi.enums.EnumOrderType" title="haasomeapi.enums.EnumOrderType"><code class="xref py py-class docutils literal notranslate"><span class="pre">EnumOrderType</span></code></a>: Order direction (Buy/Sell)</li>
+<li><strong>triggertype</strong> – <a class="reference internal" href="haasomeapi.enums.html#module-haasomeapi.enums.EnumOrderBotTriggerType" title="haasomeapi.enums.EnumOrderBotTriggerType"><code class="xref py py-class docutils literal notranslate"><span class="pre">EnumOrderBotTriggerType</span></code></a>: Trigger type</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><a class="reference internal" href="haasomeapi.dataobjects.util.html#module-haasomeapi.dataobjects.util.HaasomeClientResponse" title="haasomeapi.dataobjects.util.HaasomeClientResponse"><code class="xref py py-class docutils literal notranslate"><span class="pre">HaasomeClientResponse</span></code></a></p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">In .result <a class="reference internal" href="haasomeapi.dataobjects.custombots.html#module-haasomeapi.dataobjects.custombots.OrderBot" title="haasomeapi.dataobjects.custombots.OrderBot"><code class="xref py py-class docutils literal notranslate"><span class="pre">OrderBot</span></code></a>: Order bot object</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="haasomeapi.apis.CustomBotApi.CustomBotApi.backtest_custom_bot">
+<code class="descname">backtest_custom_bot</code><span class="sig-paren">(</span><em>botguid: str</em>, <em>minutestotest: int</em><span class="sig-paren">)</span><a class="headerlink" href="#haasomeapi.apis.CustomBotApi.CustomBotApi.backtest_custom_bot" title="Permalink to this definition">¶</a></dt>
+<dd><p>Backtest a custom bot (Note: This function will will make a request to the exchange so don’t call to often)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>botguid</strong> – str: Custom bot guid</li>
+<li><strong>minutestotest</strong> – int: Amount of minutes to test in the past</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><a class="reference internal" href="haasomeapi.dataobjects.util.html#module-haasomeapi.dataobjects.util.HaasomeClientResponse" title="haasomeapi.dataobjects.util.HaasomeClientResponse"><code class="xref py py-class docutils literal notranslate"><span class="pre">HaasomeClientResponse</span></code></a></p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">In .result <a class="reference internal" href="haasomeapi.dataobjects.custombots.html#module-haasomeapi.dataobjects.custombots.BaseCustomBot" title="haasomeapi.dataobjects.custombots.BaseCustomBot"><code class="xref py py-class docutils literal notranslate"><span class="pre">BaseCustomBot</span></code></a>: BaseCustomBot of the bot that was backtested</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="haasomeapi.apis.CustomBotApi.CustomBotApi.backtest_custom_bot_on_market">
+<code class="descname">backtest_custom_bot_on_market</code><span class="sig-paren">(</span><em>accountguid: str</em>, <em>botguid: str</em>, <em>minutestotest: int</em>, <em>primarycoin: str</em>, <em>secondarycoin: str</em>, <em>contractname: str</em><span class="sig-paren">)</span><a class="headerlink" href="#haasomeapi.apis.CustomBotApi.CustomBotApi.backtest_custom_bot_on_market" title="Permalink to this definition">¶</a></dt>
+<dd><p>Backtest a custom bot on specified market place (Note: This function does not call the exchange can use has often as you want.)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>accountguid</strong> – str: Account guid</li>
+<li><strong>botguid</strong> – str: Custom bot guid</li>
+<li><strong>minutestotest</strong> – int: Amount of minutes to test in the past</li>
+<li><strong>primarycoin</strong> – str: Primary currency Ex. If BNB/BTC then set this to BNB</li>
+<li><strong>secondarycoin</strong> – str: Secondary currency Ex. If BNB/BTC then set this to BTC</li>
+<li><strong>contractname</strong> – str: Contract name (Optional)</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><a class="reference internal" href="haasomeapi.dataobjects.util.html#module-haasomeapi.dataobjects.util.HaasomeClientResponse" title="haasomeapi.dataobjects.util.HaasomeClientResponse"><code class="xref py py-class docutils literal notranslate"><span class="pre">HaasomeClientResponse</span></code></a></p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">In .result <a class="reference internal" href="haasomeapi.dataobjects.custombots.html#module-haasomeapi.dataobjects.custombots.BaseCustomBot" title="haasomeapi.dataobjects.custombots.BaseCustomBot"><code class="xref py py-class docutils literal notranslate"><span class="pre">BaseCustomBot</span></code></a>: BaseCustomBot of the bot that was backtested</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="haasomeapi.apis.CustomBotApi.CustomBotApi.backtest_custom_bot_unix_time">
+<code class="descname">backtest_custom_bot_unix_time</code><span class="sig-paren">(</span><em>botguid: str</em>, <em>startunix: int</em>, <em>endunix: int</em><span class="sig-paren">)</span><a class="headerlink" href="#haasomeapi.apis.CustomBotApi.CustomBotApi.backtest_custom_bot_unix_time" title="Permalink to this definition">¶</a></dt>
+<dd><p>Backtest a custom bot (Note: This function will make a request to the exchange so don’t call to often)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>botguid</strong> – str: Custom bot guid</li>
+<li><strong>startunix</strong> – int: Start time in unix time notation</li>
+<li><strong>endunix</strong> – int: End time in unix time notation</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><a class="reference internal" href="haasomeapi.dataobjects.util.html#module-haasomeapi.dataobjects.util.HaasomeClientResponse" title="haasomeapi.dataobjects.util.HaasomeClientResponse"><code class="xref py py-class docutils literal notranslate"><span class="pre">HaasomeClientResponse</span></code></a></p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">In .result <a class="reference internal" href="haasomeapi.dataobjects.custombots.html#module-haasomeapi.dataobjects.custombots.BaseCustomBot" title="haasomeapi.dataobjects.custombots.BaseCustomBot"><code class="xref py py-class docutils literal notranslate"><span class="pre">BaseCustomBot</span></code></a>: BaseCustomBot of the bot that was backtested</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="haasomeapi.apis.CustomBotApi.CustomBotApi.clear_custom_bot">
+<code class="descname">clear_custom_bot</code><span class="sig-paren">(</span><em>botguid: str</em><span class="sig-paren">)</span><a class="headerlink" href="#haasomeapi.apis.CustomBotApi.CustomBotApi.clear_custom_bot" title="Permalink to this definition">¶</a></dt>
+<dd><p>Clears custom bots history and returns a BaseCustomBot object</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>botguid</strong> – str: Custom bot guid</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference internal" href="haasomeapi.dataobjects.util.html#module-haasomeapi.dataobjects.util.HaasomeClientResponse" title="haasomeapi.dataobjects.util.HaasomeClientResponse"><code class="xref py py-class docutils literal notranslate"><span class="pre">HaasomeClientResponse</span></code></a></td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">In .result <a class="reference internal" href="haasomeapi.dataobjects.custombots.html#module-haasomeapi.dataobjects.custombots.BaseCustomBot" title="haasomeapi.dataobjects.custombots.BaseCustomBot"><code class="xref py py-class docutils literal notranslate"><span class="pre">BaseCustomBot</span></code></a>: BaseCustomBot of the bot that was cleared</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="haasomeapi.apis.CustomBotApi.CustomBotApi.clear_custom_bot_specific">
+<code class="descname">clear_custom_bot_specific</code><span class="sig-paren">(</span><em>botguid: str</em>, <em>bottype: haasomeapi.enums.EnumCustomBotType.EnumCustomBotType</em><span class="sig-paren">)</span><a class="headerlink" href="#haasomeapi.apis.CustomBotApi.CustomBotApi.clear_custom_bot_specific" title="Permalink to this definition">¶</a></dt>
+<dd><p>Clears custom bots history and returns the specific custombot object</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>botguid</strong> – str: Custom bot guid</li>
+<li><strong>bottype</strong> – <a class="reference internal" href="haasomeapi.enums.html#module-haasomeapi.enums.EnumCustomBotType" title="haasomeapi.enums.EnumCustomBotType"><code class="xref py py-class docutils literal notranslate"><span class="pre">EnumCustomBotType</span></code></a>: Custom bot type to return</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><a class="reference internal" href="haasomeapi.dataobjects.util.html#module-haasomeapi.dataobjects.util.HaasomeClientResponse" title="haasomeapi.dataobjects.util.HaasomeClientResponse"><code class="xref py py-class docutils literal notranslate"><span class="pre">HaasomeClientResponse</span></code></a></p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">In .result any: Specified custom bot object</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="haasomeapi.apis.CustomBotApi.CustomBotApi.clone_custom_bot">
+<code class="descname">clone_custom_bot</code><span class="sig-paren">(</span><em>accountguid: str</em>, <em>botguid: str</em>, <em>bottype: haasomeapi.enums.EnumCustomBotType.EnumCustomBotType</em>, <em>botname: str</em>, <em>primarycoin: str</em>, <em>secondarycoin: str</em>, <em>contractname: str</em>, <em>leverage: float</em><span class="sig-paren">)</span><a class="headerlink" href="#haasomeapi.apis.CustomBotApi.CustomBotApi.clone_custom_bot" title="Permalink to this definition">¶</a></dt>
+<dd><p>Clone a custom bot</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>accountguid</strong> – str: Account guid</li>
+<li><strong>botguid</strong> – str: Custom bot guid</li>
+<li><strong>bottype</strong> – <a class="reference internal" href="haasomeapi.enums.html#module-haasomeapi.enums.EnumCustomBotType" title="haasomeapi.enums.EnumCustomBotType"><code class="xref py py-class docutils literal notranslate"><span class="pre">EnumCustomBotType</span></code></a>: The bottype to create</li>
+<li><strong>botname</strong> – str: Name for the new custom bot</li>
+<li><strong>primarycoin</strong> – str: Primary currency Ex. If BNB/BTC then set this to BNB</li>
+<li><strong>secondarycoin</strong> – str: Secondary currency Ex. If BNB/BTC then set this to BTC</li>
+<li><strong>contractname</strong> – str: Contract name (Optional)</li>
+<li><strong>leverage</strong> – float: Leverage percentage to use (Optional)</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><a class="reference internal" href="haasomeapi.dataobjects.util.html#module-haasomeapi.dataobjects.util.HaasomeClientResponse" title="haasomeapi.dataobjects.util.HaasomeClientResponse"><code class="xref py py-class docutils literal notranslate"><span class="pre">HaasomeClientResponse</span></code></a></p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">In .result any: Specified bot type object</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="haasomeapi.apis.CustomBotApi.CustomBotApi.clone_custom_bot_simple">
+<code class="descname">clone_custom_bot_simple</code><span class="sig-paren">(</span><em>accountguid: str</em>, <em>botguid: str</em>, <em>botname: str</em><span class="sig-paren">)</span><a class="headerlink" href="#haasomeapi.apis.CustomBotApi.CustomBotApi.clone_custom_bot_simple" title="Permalink to this definition">¶</a></dt>
+<dd><p>Clone a custom bot simplefied</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>accountguid</strong> – str: Account guid</li>
+<li><strong>botguid</strong> – str: Custom bot guid to clone</li>
+<li><strong>botname</strong> – str: Name for the new custom bot</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><a class="reference internal" href="haasomeapi.dataobjects.util.html#module-haasomeapi.dataobjects.util.HaasomeClientResponse" title="haasomeapi.dataobjects.util.HaasomeClientResponse"><code class="xref py py-class docutils literal notranslate"><span class="pre">HaasomeClientResponse</span></code></a></p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">In .result <a class="reference internal" href="haasomeapi.dataobjects.custombots.html#module-haasomeapi.dataobjects.custombots.BaseCustomBot" title="haasomeapi.dataobjects.custombots.BaseCustomBot"><code class="xref py py-class docutils literal notranslate"><span class="pre">BaseCustomBot</span></code></a>: BaseCustomBot of the bot that was backtested</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="haasomeapi.apis.CustomBotApi.CustomBotApi.deactivate_custom_bot">
+<code class="descname">deactivate_custom_bot</code><span class="sig-paren">(</span><em>botguid: str</em>, <em>withextra: bool</em><span class="sig-paren">)</span><a class="headerlink" href="#haasomeapi.apis.CustomBotApi.CustomBotApi.deactivate_custom_bot" title="Permalink to this definition">¶</a></dt>
+<dd><p>Deactivates a custom bot</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>botguid</strong> – str: Custm bot guid</li>
+<li><strong>withextra</strong> – bool: with extra</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><a class="reference internal" href="haasomeapi.dataobjects.util.html#module-haasomeapi.dataobjects.util.HaasomeClientResponse" title="haasomeapi.dataobjects.util.HaasomeClientResponse"><code class="xref py py-class docutils literal notranslate"><span class="pre">HaasomeClientResponse</span></code></a></p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">Int .result bool: If deactivation was successful</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="haasomeapi.apis.CustomBotApi.CustomBotApi.edit_order_bot_order">
+<code class="descname">edit_order_bot_order</code><span class="sig-paren">(</span><em>botguid: str</em>, <em>orderguid: str</em>, <em>dependson: str</em>, <em>dependsonnotexecuted: str</em>, <em>amount: float</em>, <em>price: float</em>, <em>triggerprice: float</em>, <em>templateguid: str</em>, <em>direction: haasomeapi.enums.EnumOrderType.EnumOrderType</em>, <em>triggertype: haasomeapi.enums.EnumOrderBotTriggerType.EnumOrderBotTriggerType</em><span class="sig-paren">)</span><a class="headerlink" href="#haasomeapi.apis.CustomBotApi.CustomBotApi.edit_order_bot_order" title="Permalink to this definition">¶</a></dt>
+<dd><p>Edit a order on a order bot</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>botguid</strong> – str: Custom bot guid</li>
+<li><strong>orderguid</strong> – str: Guid of order to edit</li>
+<li><strong>dependson</strong> – str: Order template guid this order depends on</li>
+<li><strong>dependsonnotexecuted</strong> – str: Order guid this depends on to not be executed.</li>
+<li><strong>amount</strong> – float: Trade amount to use</li>
+<li><strong>price</strong> – float: Price for the order</li>
+<li><strong>triggerprice</strong> – float: Trigger price for the order</li>
+<li><strong>templateguid</strong> – str: Order template for order to use guid</li>
+<li><strong>direction</strong> – <a class="reference internal" href="haasomeapi.enums.html#module-haasomeapi.enums.EnumOrderType" title="haasomeapi.enums.EnumOrderType"><code class="xref py py-class docutils literal notranslate"><span class="pre">EnumOrderType</span></code></a>: Order direction (Buy/Sell)</li>
+<li><strong>triggertype</strong> – <a class="reference internal" href="haasomeapi.enums.html#module-haasomeapi.enums.EnumOrderBotTriggerType" title="haasomeapi.enums.EnumOrderBotTriggerType"><code class="xref py py-class docutils literal notranslate"><span class="pre">EnumOrderBotTriggerType</span></code></a>: Trigger type</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><a class="reference internal" href="haasomeapi.dataobjects.util.html#module-haasomeapi.dataobjects.util.HaasomeClientResponse" title="haasomeapi.dataobjects.util.HaasomeClientResponse"><code class="xref py py-class docutils literal notranslate"><span class="pre">HaasomeClientResponse</span></code></a></p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">In .result <a class="reference internal" href="haasomeapi.dataobjects.custombots.html#module-haasomeapi.dataobjects.custombots.OrderBot" title="haasomeapi.dataobjects.custombots.OrderBot"><code class="xref py py-class docutils literal notranslate"><span class="pre">OrderBot</span></code></a>: Order bot object</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="haasomeapi.apis.CustomBotApi.CustomBotApi.flash_crash_bot_add_buy_order">
+<code class="descname">flash_crash_bot_add_buy_order</code><span class="sig-paren">(</span><em>botguid: str</em><span class="sig-paren">)</span><a class="headerlink" href="#haasomeapi.apis.CustomBotApi.CustomBotApi.flash_crash_bot_add_buy_order" title="Permalink to this definition">¶</a></dt>
+<dd><p>Quick call to add a buy order to a running flash crash_bot</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>botguid</strong> – str: Custom bot guid</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference internal" href="haasomeapi.dataobjects.util.html#module-haasomeapi.dataobjects.util.HaasomeClientResponse" title="haasomeapi.dataobjects.util.HaasomeClientResponse"><code class="xref py py-class docutils literal notranslate"><span class="pre">HaasomeClientResponse</span></code></a></td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">In .result <a class="reference internal" href="haasomeapi.dataobjects.custombots.html#module-haasomeapi.dataobjects.custombots.FlashCrashBot" title="haasomeapi.dataobjects.custombots.FlashCrashBot"><code class="xref py py-class docutils literal notranslate"><span class="pre">FlashCrashBot</span></code></a>: Flash Crash bot object</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="haasomeapi.apis.CustomBotApi.CustomBotApi.flash_crash_bot_add_sell_order">
+<code class="descname">flash_crash_bot_add_sell_order</code><span class="sig-paren">(</span><em>botguid: str</em><span class="sig-paren">)</span><a class="headerlink" href="#haasomeapi.apis.CustomBotApi.CustomBotApi.flash_crash_bot_add_sell_order" title="Permalink to this definition">¶</a></dt>
+<dd><p>Quick call to add a sell order to a running flash crash_bot</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>botguid</strong> – str: Custom bot guid</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference internal" href="haasomeapi.dataobjects.util.html#module-haasomeapi.dataobjects.util.HaasomeClientResponse" title="haasomeapi.dataobjects.util.HaasomeClientResponse"><code class="xref py py-class docutils literal notranslate"><span class="pre">HaasomeClientResponse</span></code></a></td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">In .result <a class="reference internal" href="haasomeapi.dataobjects.custombots.html#module-haasomeapi.dataobjects.custombots.FlashCrashBot" title="haasomeapi.dataobjects.custombots.FlashCrashBot"><code class="xref py py-class docutils literal notranslate"><span class="pre">FlashCrashBot</span></code></a>: Flash Crash bot object</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="haasomeapi.apis.CustomBotApi.CustomBotApi.flash_crash_bot_live_edit">
+<code class="descname">flash_crash_bot_live_edit</code><span class="sig-paren">(</span><em>botguid: str</em>, <em>isbuyorder: bool</em>, <em>addorder: bool</em><span class="sig-paren">)</span><a class="headerlink" href="#haasomeapi.apis.CustomBotApi.CustomBotApi.flash_crash_bot_live_edit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add a order to a running flash crash</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>botguid</strong> – str: Custom bot guid</li>
+<li><strong>isbuyorder</strong> – bool: Is the order to add a buy order</li>
+<li><strong>addorder</strong> – bool: Should we be adding the order or removing one</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><a class="reference internal" href="haasomeapi.dataobjects.util.html#module-haasomeapi.dataobjects.util.HaasomeClientResponse" title="haasomeapi.dataobjects.util.HaasomeClientResponse"><code class="xref py py-class docutils literal notranslate"><span class="pre">HaasomeClientResponse</span></code></a></p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">In .result <a class="reference internal" href="haasomeapi.dataobjects.custombots.html#module-haasomeapi.dataobjects.custombots.FlashCrashBot" title="haasomeapi.dataobjects.custombots.FlashCrashBot"><code class="xref py py-class docutils literal notranslate"><span class="pre">FlashCrashBot</span></code></a>: Flash Crash bot object</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="haasomeapi.apis.CustomBotApi.CustomBotApi.flash_crash_bot_quck_start">
+<code class="descname">flash_crash_bot_quck_start</code><span class="sig-paren">(</span><em>botguid: str</em><span class="sig-paren">)</span><a class="headerlink" href="#haasomeapi.apis.CustomBotApi.CustomBotApi.flash_crash_bot_quck_start" title="Permalink to this definition">¶</a></dt>
+<dd><p>Flash crash quick start (Do not replace orders)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>botguid</strong> – str: Custom bot guid</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference internal" href="haasomeapi.dataobjects.util.html#module-haasomeapi.dataobjects.util.HaasomeClientResponse" title="haasomeapi.dataobjects.util.HaasomeClientResponse"><code class="xref py py-class docutils literal notranslate"><span class="pre">HaasomeClientResponse</span></code></a></td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">In .result bool: If quick start was successful</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="haasomeapi.apis.CustomBotApi.CustomBotApi.flash_crash_bot_quick_start_all">
+<code class="descname">flash_crash_bot_quick_start_all</code><span class="sig-paren">(</span><em>botguid: str</em><span class="sig-paren">)</span><a class="headerlink" href="#haasomeapi.apis.CustomBotApi.CustomBotApi.flash_crash_bot_quick_start_all" title="Permalink to this definition">¶</a></dt>
+<dd><p>Flash crash quick start (Replace orders missing)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>botguid</strong> – str: Custom bot guid</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference internal" href="haasomeapi.dataobjects.util.html#module-haasomeapi.dataobjects.util.HaasomeClientResponse" title="haasomeapi.dataobjects.util.HaasomeClientResponse"><code class="xref py py-class docutils literal notranslate"><span class="pre">HaasomeClientResponse</span></code></a></td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">In .result bool: If quick start was successful</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="haasomeapi.apis.CustomBotApi.CustomBotApi.flash_crash_bot_remove_buy_order">
+<code class="descname">flash_crash_bot_remove_buy_order</code><span class="sig-paren">(</span><em>botguid: str</em><span class="sig-paren">)</span><a class="headerlink" href="#haasomeapi.apis.CustomBotApi.CustomBotApi.flash_crash_bot_remove_buy_order" title="Permalink to this definition">¶</a></dt>
+<dd><p>Quick call to remove a buy order to a running flash crash_bot</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>botguid</strong> – str: Custom bot guid</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference internal" href="haasomeapi.dataobjects.util.html#module-haasomeapi.dataobjects.util.HaasomeClientResponse" title="haasomeapi.dataobjects.util.HaasomeClientResponse"><code class="xref py py-class docutils literal notranslate"><span class="pre">HaasomeClientResponse</span></code></a></td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">In .result <a class="reference internal" href="haasomeapi.dataobjects.custombots.html#module-haasomeapi.dataobjects.custombots.FlashCrashBot" title="haasomeapi.dataobjects.custombots.FlashCrashBot"><code class="xref py py-class docutils literal notranslate"><span class="pre">FlashCrashBot</span></code></a>: Flash Crash bot object</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="haasomeapi.apis.CustomBotApi.CustomBotApi.flash_crash_bot_remove_sell_order">
+<code class="descname">flash_crash_bot_remove_sell_order</code><span class="sig-paren">(</span><em>botguid: str</em><span class="sig-paren">)</span><a class="headerlink" href="#haasomeapi.apis.CustomBotApi.CustomBotApi.flash_crash_bot_remove_sell_order" title="Permalink to this definition">¶</a></dt>
+<dd><p>Quick call to remove a sell order to a running flash crash_bot</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>botguid</strong> – str: Custom bot guid</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference internal" href="haasomeapi.dataobjects.util.html#module-haasomeapi.dataobjects.util.HaasomeClientResponse" title="haasomeapi.dataobjects.util.HaasomeClientResponse"><code class="xref py py-class docutils literal notranslate"><span class="pre">HaasomeClientResponse</span></code></a></td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">In .result <a class="reference internal" href="haasomeapi.dataobjects.custombots.html#module-haasomeapi.dataobjects.custombots.FlashCrashBot" title="haasomeapi.dataobjects.custombots.FlashCrashBot"><code class="xref py py-class docutils literal notranslate"><span class="pre">FlashCrashBot</span></code></a>: Flash Crash bot object</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="haasomeapi.apis.CustomBotApi.CustomBotApi.flip_accumulation_bot">
+<code class="descname">flip_accumulation_bot</code><span class="sig-paren">(</span><em>botguid: str</em><span class="sig-paren">)</span><a class="headerlink" href="#haasomeapi.apis.CustomBotApi.CustomBotApi.flip_accumulation_bot" title="Permalink to this definition">¶</a></dt>
+<dd><p>Flip Accumulation bot from buy to sold or sold to buy</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>botguid</strong> – str: Custom bot guid</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference internal" href="haasomeapi.dataobjects.util.html#module-haasomeapi.dataobjects.util.HaasomeClientResponse" title="haasomeapi.dataobjects.util.HaasomeClientResponse"><code class="xref py py-class docutils literal notranslate"><span class="pre">HaasomeClientResponse</span></code></a></td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">In .result bool: If flip was successful</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="haasomeapi.apis.CustomBotApi.CustomBotApi.get_all_custom_bots">
+<code class="descname">get_all_custom_bots</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#haasomeapi.apis.CustomBotApi.CustomBotApi.get_all_custom_bots" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns all custom bots created</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference internal" href="haasomeapi.dataobjects.util.html#module-haasomeapi.dataobjects.util.HaasomeClientResponse" title="haasomeapi.dataobjects.util.HaasomeClientResponse"><code class="xref py py-class docutils literal notranslate"><span class="pre">HaasomeClientResponse</span></code></a></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">In .result List[<a class="reference internal" href="haasomeapi.dataobjects.custombots.html#module-haasomeapi.dataobjects.custombots.BaseCustomBot" title="haasomeapi.dataobjects.custombots.BaseCustomBot"><code class="xref py py-class docutils literal notranslate"><span class="pre">BaseCustomBot</span></code></a>]</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="haasomeapi.apis.CustomBotApi.CustomBotApi.get_custom_bot">
+<code class="descname">get_custom_bot</code><span class="sig-paren">(</span><em>botguid: str</em>, <em>bottype: haasomeapi.enums.EnumCustomBotType.EnumCustomBotType</em><span class="sig-paren">)</span><a class="headerlink" href="#haasomeapi.apis.CustomBotApi.CustomBotApi.get_custom_bot" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns custom bot matching bot guid</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>botguid</strong> – str: Custom bot guid</li>
+<li><strong>bottype</strong> – <a class="reference internal" href="haasomeapi.enums.html#module-haasomeapi.enums.EnumCustomBotType" title="haasomeapi.enums.EnumCustomBotType"><code class="xref py py-class docutils literal notranslate"><span class="pre">EnumCustomBotType</span></code></a>: Type of bot to return</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><a class="reference internal" href="haasomeapi.dataobjects.util.html#module-haasomeapi.dataobjects.util.HaasomeClientResponse" title="haasomeapi.dataobjects.util.HaasomeClientResponse"><code class="xref py py-class docutils literal notranslate"><span class="pre">HaasomeClientResponse</span></code></a></p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">In .result any: Specified bottype object</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="haasomeapi.apis.CustomBotApi.CustomBotApi.new_custom_bot">
+<code class="descname">new_custom_bot</code><span class="sig-paren">(</span><em>accountguid: str</em>, <em>bottype: haasomeapi.enums.EnumCustomBotType.EnumCustomBotType</em>, <em>botname: str</em>, <em>primarycoin: str</em>, <em>secondarycoin: str</em>, <em>contractname: str</em><span class="sig-paren">)</span><a class="headerlink" href="#haasomeapi.apis.CustomBotApi.CustomBotApi.new_custom_bot" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a new custom bot</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>accountguid</strong> – str: Account guid</li>
+<li><strong>bottype</strong> – <a class="reference internal" href="haasomeapi.enums.html#module-haasomeapi.enums.EnumCustomBotType" title="haasomeapi.enums.EnumCustomBotType"><code class="xref py py-class docutils literal notranslate"><span class="pre">EnumCustomBotType</span></code></a>: The bottype to create</li>
+<li><strong>botname</strong> – str: Name for the new custom bot</li>
+<li><strong>primarycoin</strong> – str: Primary currency Ex. If BNB/BTC then set this to BNB</li>
+<li><strong>secondarycoin</strong> – str: Secondary currency Ex. If BNB/BTC then set this to BTC</li>
+<li><strong>contractname</strong> – str: Contract name (Optional)</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><a class="reference internal" href="haasomeapi.dataobjects.util.html#module-haasomeapi.dataobjects.util.HaasomeClientResponse" title="haasomeapi.dataobjects.util.HaasomeClientResponse"><code class="xref py py-class docutils literal notranslate"><span class="pre">HaasomeClientResponse</span></code></a></p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">In .result any: Specified bot type object</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="haasomeapi.apis.CustomBotApi.CustomBotApi.new_custom_bot_from_market">
+<code class="descname">new_custom_bot_from_market</code><span class="sig-paren">(</span><em>accountguid: str</em>, <em>bottype: haasomeapi.enums.EnumCustomBotType.EnumCustomBotType</em>, <em>botname: str</em>, <em>market: haasomeapi.dataobjects.marketdata.Market.Market</em><span class="sig-paren">)</span><a class="headerlink" href="#haasomeapi.apis.CustomBotApi.CustomBotApi.new_custom_bot_from_market" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a new custom bot from market object</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>accountguid</strong> – str: Account guid</li>
+<li><strong>bottype</strong> – <a class="reference internal" href="haasomeapi.enums.html#module-haasomeapi.enums.EnumCustomBotType" title="haasomeapi.enums.EnumCustomBotType"><code class="xref py py-class docutils literal notranslate"><span class="pre">EnumCustomBotType</span></code></a>: The bottype to create</li>
+<li><strong>botname</strong> – str: Name for the new custom bot</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Parama market:</th><td class="field-body"><p class="first"><a class="reference internal" href="haasomeapi.dataobjects.marketdata.html#module-haasomeapi.dataobjects.marketdata.Market" title="haasomeapi.dataobjects.marketdata.Market"><code class="xref py py-class docutils literal notranslate"><span class="pre">Market</span></code></a>: Market object to use</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><a class="reference internal" href="haasomeapi.dataobjects.util.html#module-haasomeapi.dataobjects.util.HaasomeClientResponse" title="haasomeapi.dataobjects.util.HaasomeClientResponse"><code class="xref py py-class docutils literal notranslate"><span class="pre">HaasomeClientResponse</span></code></a></p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">In .result any: Specified bot type object</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="haasomeapi.apis.CustomBotApi.CustomBotApi.remove_all_order_bot_order">
+<code class="descname">remove_all_order_bot_order</code><span class="sig-paren">(</span><em>botguid: str</em><span class="sig-paren">)</span><a class="headerlink" href="#haasomeapi.apis.CustomBotApi.CustomBotApi.remove_all_order_bot_order" title="Permalink to this definition">¶</a></dt>
+<dd><p>Removes all orders from order bot</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>botguid</strong> – str: Custom bot guid</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference internal" href="haasomeapi.dataobjects.util.html#module-haasomeapi.dataobjects.util.HaasomeClientResponse" title="haasomeapi.dataobjects.util.HaasomeClientResponse"><code class="xref py py-class docutils literal notranslate"><span class="pre">HaasomeClientResponse</span></code></a></td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">In .result <a class="reference internal" href="haasomeapi.dataobjects.custombots.html#module-haasomeapi.dataobjects.custombots.OrderBot" title="haasomeapi.dataobjects.custombots.OrderBot"><code class="xref py py-class docutils literal notranslate"><span class="pre">OrderBot</span></code></a>: Order bot object</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="haasomeapi.apis.CustomBotApi.CustomBotApi.remove_custom_bot">
+<code class="descname">remove_custom_bot</code><span class="sig-paren">(</span><em>botguid: str</em><span class="sig-paren">)</span><a class="headerlink" href="#haasomeapi.apis.CustomBotApi.CustomBotApi.remove_custom_bot" title="Permalink to this definition">¶</a></dt>
+<dd><p>Removes (deletes) custom bot</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>botguid</strong> – str: Custom bot guid</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference internal" href="haasomeapi.dataobjects.util.html#module-haasomeapi.dataobjects.util.HaasomeClientResponse" title="haasomeapi.dataobjects.util.HaasomeClientResponse"><code class="xref py py-class docutils literal notranslate"><span class="pre">HaasomeClientResponse</span></code></a></td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">In .result bool: If removal was succesfull</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="haasomeapi.apis.CustomBotApi.CustomBotApi.remove_order_bot_order">
+<code class="descname">remove_order_bot_order</code><span class="sig-paren">(</span><em>botguid: str</em>, <em>orderguid: str</em><span class="sig-paren">)</span><a class="headerlink" href="#haasomeapi.apis.CustomBotApi.CustomBotApi.remove_order_bot_order" title="Permalink to this definition">¶</a></dt>
+<dd><p>Remove (delete) a order on a order bot</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>botguid</strong> – str: Custom bot guid</li>
+<li><strong>orderguid</strong> – str: Order guid</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><a class="reference internal" href="haasomeapi.dataobjects.util.html#module-haasomeapi.dataobjects.util.HaasomeClientResponse" title="haasomeapi.dataobjects.util.HaasomeClientResponse"><code class="xref py py-class docutils literal notranslate"><span class="pre">HaasomeClientResponse</span></code></a></p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">In .result <a class="reference internal" href="haasomeapi.dataobjects.custombots.html#module-haasomeapi.dataobjects.custombots.OrderBot" title="haasomeapi.dataobjects.custombots.OrderBot"><code class="xref py py-class docutils literal notranslate"><span class="pre">OrderBot</span></code></a>: Order bot object</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="haasomeapi.apis.CustomBotApi.CustomBotApi.reset_order_bot_order">
+<code class="descname">reset_order_bot_order</code><span class="sig-paren">(</span><em>botguid: str</em>, <em>orderguid: str</em><span class="sig-paren">)</span><a class="headerlink" href="#haasomeapi.apis.CustomBotApi.CustomBotApi.reset_order_bot_order" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reset a order on a order bot</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>botguid</strong> – str: Custom bot guid</li>
+<li><strong>orderguid</strong> – str: Order guid</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><a class="reference internal" href="haasomeapi.dataobjects.util.html#module-haasomeapi.dataobjects.util.HaasomeClientResponse" title="haasomeapi.dataobjects.util.HaasomeClientResponse"><code class="xref py py-class docutils literal notranslate"><span class="pre">HaasomeClientResponse</span></code></a></p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">In .result <a class="reference internal" href="haasomeapi.dataobjects.custombots.html#module-haasomeapi.dataobjects.custombots.OrderBot" title="haasomeapi.dataobjects.custombots.OrderBot"><code class="xref py py-class docutils literal notranslate"><span class="pre">OrderBot</span></code></a>: Order bot object</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="haasomeapi.apis.CustomBotApi.CustomBotApi.set_mad_hatter_indicator_parameter">
+<code class="descname">set_mad_hatter_indicator_parameter</code><span class="sig-paren">(</span><em>botguid: str</em>, <em>type: haasomeapi.enums.EnumMadHatterIndicators.EnumMadHatterIndicators</em>, <em>fieldNo: int</em>, <em>value: any</em><span class="sig-paren">)</span><a class="headerlink" href="#haasomeapi.apis.CustomBotApi.CustomBotApi.set_mad_hatter_indicator_parameter" title="Permalink to this definition">¶</a></dt>
+<dd><p>Modify Mad Hatter Indicator Parameter</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>botguid</strong> – str: Custom bot guid</li>
+<li><strong>type</strong> – <a class="reference internal" href="haasomeapi.enums.html#module-haasomeapi.enums.EnumMadHatterIndicators" title="haasomeapi.enums.EnumMadHatterIndicators"><code class="xref py py-class docutils literal notranslate"><span class="pre">EnumMadHatterIndicators</span></code></a>: Indicator type to modify</li>
+<li><strong>fieldNo</strong> – int: Field to modify</li>
+<li><strong>value</strong> – any: Value for the field</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><a class="reference internal" href="haasomeapi.dataobjects.util.html#module-haasomeapi.dataobjects.util.HaasomeClientResponse" title="haasomeapi.dataobjects.util.HaasomeClientResponse"><code class="xref py py-class docutils literal notranslate"><span class="pre">HaasomeClientResponse</span></code></a></p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">In .result <a class="reference internal" href="haasomeapi.dataobjects.custombots.html#module-haasomeapi.dataobjects.custombots.MadHatterBot" title="haasomeapi.dataobjects.custombots.MadHatterBot"><code class="xref py py-class docutils literal notranslate"><span class="pre">MadHatterBot</span></code></a>: Mad Hatter bot object</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="haasomeapi.apis.CustomBotApi.CustomBotApi.set_mad_hatter_safety_parameter">
+<code class="descname">set_mad_hatter_safety_parameter</code><span class="sig-paren">(</span><em>botguid: str</em>, <em>type: haasomeapi.enums.EnumMadHatterSafeties.EnumMadHatterSafeties</em>, <em>value: any</em><span class="sig-paren">)</span><a class="headerlink" href="#haasomeapi.apis.CustomBotApi.CustomBotApi.set_mad_hatter_safety_parameter" title="Permalink to this definition">¶</a></dt>
+<dd><p>Modify Mad hatter Safety Parameter</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>botguid</strong> – str: Custom Bot guid</li>
+<li><strong>type</strong> – <a class="reference internal" href="haasomeapi.enums.html#module-haasomeapi.enums.EnumMadHatterSafeties" title="haasomeapi.enums.EnumMadHatterSafeties"><code class="xref py py-class docutils literal notranslate"><span class="pre">EnumMadHatterSafeties</span></code></a>: Safety Type to modify</li>
+<li><strong>value</strong> – any: Safety Value</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><a class="reference internal" href="haasomeapi.dataobjects.util.html#module-haasomeapi.dataobjects.util.HaasomeClientResponse" title="haasomeapi.dataobjects.util.HaasomeClientResponse"><code class="xref py py-class docutils literal notranslate"><span class="pre">HaasomeClientResponse</span></code></a></p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">In .result <a class="reference internal" href="haasomeapi.dataobjects.custombots.html#module-haasomeapi.dataobjects.custombots.MadHatterBot" title="haasomeapi.dataobjects.custombots.MadHatterBot"><code class="xref py py-class docutils literal notranslate"><span class="pre">MadHatterBot</span></code></a>: Mad Hatter bot object</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="haasomeapi.apis.CustomBotApi.CustomBotApi.setup_accumulation_bot">
+<code class="descname">setup_accumulation_bot</code><span class="sig-paren">(</span><em>accountguid: str</em>, <em>botguid: str</em>, <em>botname: str</em>, <em>primarycoin: str</em>, <em>secondarycoin: str</em>, <em>stoptype: haasomeapi.enums.EnumAccumulationBotStopType.EnumAccumulationBotStopType</em>, <em>stoptypevalue: float</em>, <em>randomordersizex: float</em>, <em>randomordersizey: float</em>, <em>randomordertimex: int</em>, <em>randomordertimey: int</em>, <em>direction: haasomeapi.enums.EnumOrderType.EnumOrderType</em>, <em>triggeronprice: bool</em>, <em>triggerwhenhigher: bool</em>, <em>triggervalue: float</em><span class="sig-paren">)</span><a class="headerlink" href="#haasomeapi.apis.CustomBotApi.CustomBotApi.setup_accumulation_bot" title="Permalink to this definition">¶</a></dt>
+<dd><p>Modify a Accumulation bot</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>accountguid</strong> – str: Account guid</li>
+<li><strong>botguid</strong> – str: Custom bot guid</li>
+<li><strong>botname</strong> – str: Name for the new custom bot</li>
+<li><strong>primarycoin</strong> – str: Primary currency Ex. If BNB/BTC then set this to BNB</li>
+<li><strong>secondarycoin</strong> – str: Secondary currency Ex. If BNB/BTC then set this to BTC</li>
+<li><strong>stoptype</strong> – <a class="reference internal" href="haasomeapi.enums.html#module-haasomeapi.enums.EnumAccumulationBotStopType" title="haasomeapi.enums.EnumAccumulationBotStopType"><code class="xref py py-class docutils literal notranslate"><span class="pre">EnumAccumulationBotStopType</span></code></a>:  The stop type</li>
+<li><strong>stoptypevalue</strong> – float:  Stop value associated with stop type</li>
+<li><strong>randomordersizex</strong> – float: Random order size start</li>
+<li><strong>randomordersizey</strong> – float: Random order size end</li>
+<li><strong>randomordertimex</strong> – int: Random order time in seconds start</li>
+<li><strong>randomordertimey</strong> – int: Random order time in seconds stop</li>
+<li><strong>direction</strong> – <a class="reference internal" href="haasomeapi.enums.html#module-haasomeapi.enums.EnumOrderType" title="haasomeapi.enums.EnumOrderType"><code class="xref py py-class docutils literal notranslate"><span class="pre">EnumOrderType</span></code></a>: Order direction (buy/sell)</li>
+<li><strong>triggeronprice</strong> – bool: Trigger on a specific price</li>
+<li><strong>triggerwhenhigher</strong> – bool: Trigger when marker price is higher than trigger price</li>
+<li><strong>triggervalue</strong> – float: Trigger price</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><a class="reference internal" href="haasomeapi.dataobjects.util.html#module-haasomeapi.dataobjects.util.HaasomeClientResponse" title="haasomeapi.dataobjects.util.HaasomeClientResponse"><code class="xref py py-class docutils literal notranslate"><span class="pre">HaasomeClientResponse</span></code></a></p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">In .result <a class="reference internal" href="haasomeapi.dataobjects.custombots.html#module-haasomeapi.dataobjects.custombots.AccumulationBot" title="haasomeapi.dataobjects.custombots.AccumulationBot"><code class="xref py py-class docutils literal notranslate"><span class="pre">AccumulationBot</span></code></a>: Accumulation bot object</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="haasomeapi.apis.CustomBotApi.CustomBotApi.setup_crypto_index_bot">
+<code class="descname">setup_crypto_index_bot</code><span class="sig-paren">(</span><em>accountguid: str, botguid: str, botname: str, templateguid: str, basecoin: str, totalIndexValue: float, individualgrowth: bool, allocateprofits: bool, index: List[haasomeapi.dataobjects.custombots.dataobjects.CryptoIndexBotIndexSaveObject.CryptoIndexBotIndexSaveObject]</em><span class="sig-paren">)</span><a class="headerlink" href="#haasomeapi.apis.CustomBotApi.CustomBotApi.setup_crypto_index_bot" title="Permalink to this definition">¶</a></dt>
+<dd><p>Modify a Crypto Index bot</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>accountguid</strong> – str: Account guid</li>
+<li><strong>botguid</strong> – str: Custom bot guid</li>
+<li><strong>botname</strong> – str: Name for the new custom bot</li>
+<li><strong>templateguid</strong> – str: Order template to use GUID</li>
+<li><strong>basecoin</strong> – str: The base currency for the index bot Ex. BTC</li>
+<li><strong>totalIndexValue</strong> – float: Total value the index should be using.</li>
+<li><strong>individualgrowth</strong> – bool: Use the individual growth algorithm</li>
+<li><strong>allocateprofits</strong> – bool: Perform allocation of profits</li>
+<li><strong>index</strong> – List[<a class="reference internal" href="haasomeapi.dataobjects.custombots.dataobjects.html#module-haasomeapi.dataobjects.custombots.dataobjects.CryptoIndexBotIndexSaveObject" title="haasomeapi.dataobjects.custombots.dataobjects.CryptoIndexBotIndexSaveObject"><code class="xref py py-class docutils literal notranslate"><span class="pre">CryptoIndexBotIndexSaveObject</span></code></a>]: List of <a class="reference internal" href="haasomeapi.dataobjects.custombots.dataobjects.html#module-haasomeapi.dataobjects.custombots.dataobjects.CryptoIndexBotIndexSaveObject" title="haasomeapi.dataobjects.custombots.dataobjects.CryptoIndexBotIndexSaveObject"><code class="xref py py-class docutils literal notranslate"><span class="pre">CryptoIndexBotIndexSaveObject</span></code></a> to construct the index.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><a class="reference internal" href="haasomeapi.dataobjects.util.html#module-haasomeapi.dataobjects.util.HaasomeClientResponse" title="haasomeapi.dataobjects.util.HaasomeClientResponse"><code class="xref py py-class docutils literal notranslate"><span class="pre">HaasomeClientResponse</span></code></a></p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">In .result <a class="reference internal" href="haasomeapi.dataobjects.custombots.html#module-haasomeapi.dataobjects.custombots.CryptoIndexBot" title="haasomeapi.dataobjects.custombots.CryptoIndexBot"><code class="xref py py-class docutils literal notranslate"><span class="pre">CryptoIndexBot</span></code></a>: Crypto Index bot object</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="haasomeapi.apis.CustomBotApi.CustomBotApi.setup_email_bot">
+<code class="descname">setup_email_bot</code><span class="sig-paren">(</span><em>accountguid: str, botguid: str, botname: str, primarycoin: str, secondarycoin: str, contractname: str, leverage: float, tradeamount: float, fee: float, templateguid: str, position: str, actions: List[haasomeapi.dataobjects.custombots.dataobjects.EmailBotAction.EmailBotAction], stoploss: float, minchangetobuy: float, minchangetosell: float</em><span class="sig-paren">)</span><a class="headerlink" href="#haasomeapi.apis.CustomBotApi.CustomBotApi.setup_email_bot" title="Permalink to this definition">¶</a></dt>
+<dd><p>Modify a Email bot</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>accountguid</strong> – str: Account guid</li>
+<li><strong>botguid</strong> – str: Custom bot guid</li>
+<li><strong>botname</strong> – str: Name for the new custom bot</li>
+<li><strong>primarycoin</strong> – str: Primary currency Ex. If BNB/BTC then set this to BNB</li>
+<li><strong>secondarycoin</strong> – str: Secondary currency Ex. If BNB/BTC then set this to BTC</li>
+<li><strong>contractname</strong> – str: Contract name (Optional)</li>
+<li><strong>leverage</strong> – float: Leverage percentage to use (Optional)</li>
+<li><strong>tradeamount</strong> – float: Trade amount for the bot to use</li>
+<li><strong>fee</strong> – float: Fee percentage to be used in calculations</li>
+<li><strong>templateguid</strong> – str: Order template to be used GUID</li>
+<li><strong>position</strong> – str: Position bot should start in EX. For BNB/BTC if you have no BNB set to BTC</li>
+<li><strong>actions</strong> – List[<a class="reference internal" href="haasomeapi.dataobjects.custombots.dataobjects.html#module-haasomeapi.dataobjects.custombots.dataobjects.EmailBotAction" title="haasomeapi.dataobjects.custombots.dataobjects.EmailBotAction"><code class="xref py py-class docutils literal notranslate"><span class="pre">EmailBotAction</span></code></a>]: List of <a class="reference internal" href="haasomeapi.dataobjects.custombots.dataobjects.html#module-haasomeapi.dataobjects.custombots.dataobjects.EmailBotAction" title="haasomeapi.dataobjects.custombots.dataobjects.EmailBotAction"><code class="xref py py-class docutils literal notranslate"><span class="pre">EmailBotAction</span></code></a> to build the email bot from</li>
+<li><strong>stoploss</strong> – float: Stop loss percentage</li>
+<li><strong>minchangetobuy</strong> – float: Min Change To Buy insurance setting</li>
+<li><strong>minchangetosell</strong> – float: Min Change To Sell Insurance setting</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><a class="reference internal" href="haasomeapi.dataobjects.util.html#module-haasomeapi.dataobjects.util.HaasomeClientResponse" title="haasomeapi.dataobjects.util.HaasomeClientResponse"><code class="xref py py-class docutils literal notranslate"><span class="pre">HaasomeClientResponse</span></code></a></p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">In .result <a class="reference internal" href="haasomeapi.dataobjects.custombots.html#module-haasomeapi.dataobjects.custombots.EmailBot" title="haasomeapi.dataobjects.custombots.EmailBot"><code class="xref py py-class docutils literal notranslate"><span class="pre">EmailBot</span></code></a>: Email bot object</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="haasomeapi.apis.CustomBotApi.CustomBotApi.setup_flash_crash_bot">
+<code class="descname">setup_flash_crash_bot</code><span class="sig-paren">(</span><em>accountguid: str</em>, <em>botguid: str</em>, <em>botname: str</em>, <em>primarycoin: str</em>, <em>secondarycoin: str</em>, <em>fee: float</em>, <em>baseprice: float</em>, <em>priceSpreadType: haasomeapi.enums.EnumFlashSpreadOptions.EnumFlashSpreadOptions</em>, <em>pricespread: float</em>, <em>percentageboost: float</em>, <em>minpercentage: float</em>, <em>maxpercentage: float</em>, <em>amounttype: haasomeapi.enums.EnumCurrencyType.EnumCurrencyType</em>, <em>amountspread: float</em>, <em>buyamount: float</em>, <em>sellamount: float</em>, <em>refilldelay: int</em>, <em>safetyenabled: bool</em>, <em>safetytriggerlevel: float</em>, <em>safetymoveinout: bool</em>, <em>followthetrend: bool</em>, <em>followthetrendchannelrange: int</em>, <em>followthetrendchanneloffset: int</em>, <em>followthetrendtimeout: int</em><span class="sig-paren">)</span><a class="headerlink" href="#haasomeapi.apis.CustomBotApi.CustomBotApi.setup_flash_crash_bot" title="Permalink to this definition">¶</a></dt>
+<dd><p>Modify a Flash Crash bot</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>accountguid</strong> – str: Account guid</li>
+<li><strong>botguid</strong> – str: Custom bot guid</li>
+<li><strong>botname</strong> – str: Name for the new custom bot</li>
+<li><strong>primarycoin</strong> – str: Primary currency Ex. If BNB/BTC then set this to BNB</li>
+<li><strong>secondarycoin</strong> – str: Secondary currency Ex. If BNB/BTC then set this to BTC</li>
+<li><strong>fee</strong> – float: Fee percentage to be used in calculations</li>
+<li><strong>baseprice</strong> – float: Base price for FCB to start at</li>
+<li><strong>priceSpreadType</strong> – <a class="reference internal" href="haasomeapi.enums.html#module-haasomeapi.enums.EnumFlashSpreadOptions" title="haasomeapi.enums.EnumFlashSpreadOptions"><code class="xref py py-class docutils literal notranslate"><span class="pre">EnumFlashSpreadOptions</span></code></a>: FCB Spread Type</li>
+<li><strong>pricespread</strong> – float: Price spread value</li>
+<li><strong>percentageboost</strong> – float: Percentage boost value to be set with PercentageBoost spread type.</li>
+<li><strong>minpercentage</strong> – float: Min Percentage value to be used with percentage spread type</li>
+<li><strong>maxpercentage</strong> – float: Max Percentage value to be used with percentage spread type</li>
+<li><strong>amounttype</strong> – <a class="reference internal" href="haasomeapi.enums.html#module-haasomeapi.enums.EnumCurrencyType" title="haasomeapi.enums.EnumCurrencyType"><code class="xref py py-class docutils literal notranslate"><span class="pre">EnumCurrencyType</span></code></a>: Currency type</li>
+<li><strong>amountspread</strong> – float: Current amount spread value</li>
+<li><strong>buyamount</strong> – float: Number of buy orders</li>
+<li><strong>sellamount</strong> – float: Number of sell orders</li>
+<li><strong>refilldelay</strong> – int: Refill order delay in minutes</li>
+<li><strong>safetyenabled</strong> – bool: Enable the safety</li>
+<li><strong>safetytriggerlevel</strong> – float: Price value saftey should activate</li>
+<li><strong>safetymoveinout</strong> – bool: Safety move in out value</li>
+<li><strong>followthetrend</strong> – bool: Activate follow the trend</li>
+<li><strong>followthetrendchannelrange</strong> – int: Follow the trend channel range</li>
+<li><strong>followthetrendchanneloffset</strong> – int: Follow the trend channel offset</li>
+<li><strong>followthetrendtimeout</strong> – int:  Follow the trend timeout value</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><a class="reference internal" href="haasomeapi.dataobjects.util.html#module-haasomeapi.dataobjects.util.HaasomeClientResponse" title="haasomeapi.dataobjects.util.HaasomeClientResponse"><code class="xref py py-class docutils literal notranslate"><span class="pre">HaasomeClientResponse</span></code></a></p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">In .result <a class="reference internal" href="haasomeapi.dataobjects.custombots.html#module-haasomeapi.dataobjects.custombots.FlashCrashBot" title="haasomeapi.dataobjects.custombots.FlashCrashBot"><code class="xref py py-class docutils literal notranslate"><span class="pre">FlashCrashBot</span></code></a>: Flash Crash bot object</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="haasomeapi.apis.CustomBotApi.CustomBotApi.setup_intellibot_alice">
+<code class="descname">setup_intellibot_alice</code><span class="sig-paren">(</span><em>accountguid: str</em>, <em>botguid: str</em>, <em>botname: str</em>, <em>primarycoin: str</em>, <em>secondarycoin: str</em>, <em>contractname: str</em>, <em>leverage: float</em>, <em>tradeamount: float</em>, <em>fee: float</em><span class="sig-paren">)</span><a class="headerlink" href="#haasomeapi.apis.CustomBotApi.CustomBotApi.setup_intellibot_alice" title="Permalink to this definition">¶</a></dt>
+<dd><p>Modify Intelli Bot Alice bot</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>accountguid</strong> – str: Account guid</li>
+<li><strong>botguid</strong> – str: Custom bot guid</li>
+<li><strong>botname</strong> – str: Name for the new custom bot</li>
+<li><strong>primarycoin</strong> – str: Primary currency Ex. If BNB/BTC then set this to BNB</li>
+<li><strong>secondarycoin</strong> – str: Secondary currency Ex. If BNB/BTC then set this to BTC</li>
+<li><strong>contractname</strong> – str: Contract name (Optional)</li>
+<li><strong>leverage</strong> – float: Leverage percentage to use (Optional)</li>
+<li><strong>tradeamount</strong> – float: Trade amount to use</li>
+<li><strong>fee</strong> – float: Fee percentage to be used in calculations</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><a class="reference internal" href="haasomeapi.dataobjects.util.html#module-haasomeapi.dataobjects.util.HaasomeClientResponse" title="haasomeapi.dataobjects.util.HaasomeClientResponse"><code class="xref py py-class docutils literal notranslate"><span class="pre">HaasomeClientResponse</span></code></a></p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">In .result <a class="reference internal" href="haasomeapi.dataobjects.custombots.html#module-haasomeapi.dataobjects.custombots.BaseCustomBot" title="haasomeapi.dataobjects.custombots.BaseCustomBot"><code class="xref py py-class docutils literal notranslate"><span class="pre">BaseCustomBot</span></code></a>: BaseCustomBot Object</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="haasomeapi.apis.CustomBotApi.CustomBotApi.setup_inter_exchange_arbitrage_bot">
+<code class="descname">setup_inter_exchange_arbitrage_bot</code><span class="sig-paren">(</span><em>accountguid: str</em>, <em>botguid: str</em>, <em>botname: str</em>, <em>primarycoin: str</em>, <em>secondarycoin: str</em>, <em>accountguid2: str</em>, <em>primarycoin2: str</em>, <em>secondarycoin2: str</em>, <em>tradeamount: float</em>, <em>triggerlevel: float</em>, <em>templateguid: str</em>, <em>maxamount: float</em>, <em>maxtrades: int</em><span class="sig-paren">)</span><a class="headerlink" href="#haasomeapi.apis.CustomBotApi.CustomBotApi.setup_inter_exchange_arbitrage_bot" title="Permalink to this definition">¶</a></dt>
+<dd><p>Modify Inter Exchange Arbitrage bot
+:param accountguid: str: Account guid
+:param botguid: str: Custom bot guid
+:param botname: str: Name for the new custom bot
+:param primarycoin: str: Primary currency Ex. If BNB/BTC then set this to BNB
+:param secondarycoin: str: Secondary currency Ex. If BNB/BTC then set this to BTC
+:param accountguid2: str: Seoncdary Account Guid
+:param primarycoin2: str: Primary currency of the second account Ex. If BNB/BTC then set this to BNB
+:param secondarycoin2: str: Secondary currency of the second account Ex. If BNB/BTC then set this to BTC
+:param tradeamount: float: Trade amount to use
+:param triggerlevel: float: Trigger level for trades in percentage
+:param templateguid: str: Order template to use Guid
+:param maxamount: float: Max amount to trade a day
+:param maxtrades: int: Max trades to execute a day</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference internal" href="haasomeapi.dataobjects.util.html#module-haasomeapi.dataobjects.util.HaasomeClientResponse" title="haasomeapi.dataobjects.util.HaasomeClientResponse"><code class="xref py py-class docutils literal notranslate"><span class="pre">HaasomeClientResponse</span></code></a></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">In .result <a class="reference internal" href="haasomeapi.dataobjects.custombots.html#module-haasomeapi.dataobjects.custombots.InterExchangeArbitrageBot" title="haasomeapi.dataobjects.custombots.InterExchangeArbitrageBot"><code class="xref py py-class docutils literal notranslate"><span class="pre">InterExchangeArbitrageBot</span></code></a>: Inter Exchange Arbitrage bot object</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="haasomeapi.apis.CustomBotApi.CustomBotApi.setup_mad_hatter_bot">
+<code class="descname">setup_mad_hatter_bot</code><span class="sig-paren">(</span><em>accountguid: str</em>, <em>botguid: str</em>, <em>botname: str</em>, <em>primarycoin: str</em>, <em>secondarycoin: str</em>, <em>templateguid: str</em>, <em>position: str</em>, <em>fee: float</em>, <em>tradeamount: float</em>, <em>useconsensus: bool</em>, <em>disableafterstoploss: bool</em>, <em>interval: int</em>, <em>includeincompleteinterval: bool</em><span class="sig-paren">)</span><a class="headerlink" href="#haasomeapi.apis.CustomBotApi.CustomBotApi.setup_mad_hatter_bot" title="Permalink to this definition">¶</a></dt>
+<dd><p>Modify Mad Hatter bot</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>accountguid</strong> – str: Account guid</li>
+<li><strong>botguid</strong> – str: Custom bot guid</li>
+<li><strong>botname</strong> – str: Name for the new custom bot</li>
+<li><strong>primarycoin</strong> – str: Primary currency Ex. If BNB/BTC then set this to BNB</li>
+<li><strong>secondarycoin</strong> – str: Secondary currency Ex. If BNB/BTC then set this to BTC</li>
+<li><strong>templateguid</strong> – str: Order template to use Guid</li>
+<li><strong>position</strong> – str: Position bot should start in EX. For BNB/BTC if you have no BNB set to BTC</li>
+<li><strong>fee</strong> – float: Fee percentage to be used in calculations</li>
+<li><strong>tradeamount</strong> – float: Trade amount to use</li>
+<li><strong>useconsensus</strong> – bool: Enable Consensus Mode</li>
+<li><strong>disableafterstoploss</strong> – bool: Disable bot after stop loss</li>
+<li><strong>interval</strong> – int: Price Ticker Minute Interval. Ex. 1,2,3,,5,15,30, etc</li>
+<li><strong>includeincompleteinterval</strong> – bool: Allow a incomplete price ticker</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><a class="reference internal" href="haasomeapi.dataobjects.util.html#module-haasomeapi.dataobjects.util.HaasomeClientResponse" title="haasomeapi.dataobjects.util.HaasomeClientResponse"><code class="xref py py-class docutils literal notranslate"><span class="pre">HaasomeClientResponse</span></code></a></p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">In .result <a class="reference internal" href="haasomeapi.dataobjects.custombots.html#module-haasomeapi.dataobjects.custombots.MadHatterBot" title="haasomeapi.dataobjects.custombots.MadHatterBot"><code class="xref py py-class docutils literal notranslate"><span class="pre">MadHatterBot</span></code></a>: Mad Hatter bot object</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="haasomeapi.apis.CustomBotApi.CustomBotApi.setup_market_making_bot">
+<code class="descname">setup_market_making_bot</code><span class="sig-paren">(</span><em>accountguid: str</em>, <em>botguid: str</em>, <em>botname: str</em>, <em>primarycoin: str</em>, <em>secondarycoin: str</em>, <em>tradeamount: float</em>, <em>fee: float</em>, <em>offset: float</em>, <em>resettimeout: int</em>, <em>usedsecondorder: bool</em>, <em>secondoffset: float</em><span class="sig-paren">)</span><a class="headerlink" href="#haasomeapi.apis.CustomBotApi.CustomBotApi.setup_market_making_bot" title="Permalink to this definition">¶</a></dt>
+<dd><p>Modify Market Making bot</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>accountguid</strong> – str: Account guid</li>
+<li><strong>botguid</strong> – str: Custom bot guid</li>
+<li><strong>botname</strong> – str: Name for the new custom bot</li>
+<li><strong>primarycoin</strong> – str: Primary currency Ex. If BNB/BTC then set this to BNB</li>
+<li><strong>secondarycoin</strong> – str: Secondary currency Ex. If BNB/BTC then set this to BTC</li>
+<li><strong>tradeamount</strong> – float: Trade amount to use</li>
+<li><strong>fee</strong> – float: Fee percentage to be used in calculations</li>
+<li><strong>offset</strong> – float: First order offset value</li>
+<li><strong>resettimeout</strong> – int: Reset timeout in minutes</li>
+<li><strong>usedsecondorder</strong> – bool: Use a second order</li>
+<li><strong>secondoffset</strong> – float: Second order offset</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><a class="reference internal" href="haasomeapi.dataobjects.util.html#module-haasomeapi.dataobjects.util.HaasomeClientResponse" title="haasomeapi.dataobjects.util.HaasomeClientResponse"><code class="xref py py-class docutils literal notranslate"><span class="pre">HaasomeClientResponse</span></code></a></p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">In .result <a class="reference internal" href="haasomeapi.dataobjects.custombots.html#module-haasomeapi.dataobjects.custombots.MarketMakingBot" title="haasomeapi.dataobjects.custombots.MarketMakingBot"><code class="xref py py-class docutils literal notranslate"><span class="pre">MarketMakingBot</span></code></a>: Market Making bot object</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="haasomeapi.apis.CustomBotApi.CustomBotApi.setup_order_bot">
+<code class="descname">setup_order_bot</code><span class="sig-paren">(</span><em>accountguid: str</em>, <em>botguid: str</em>, <em>botname: str</em>, <em>primarycoin: str</em>, <em>secondarycoin: str</em><span class="sig-paren">)</span><a class="headerlink" href="#haasomeapi.apis.CustomBotApi.CustomBotApi.setup_order_bot" title="Permalink to this definition">¶</a></dt>
+<dd><p>Modify Order bot</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>accountguid</strong> – str: Account guid</li>
+<li><strong>botguid</strong> – str: Custom bot guid</li>
+<li><strong>botname</strong> – str: Name for the new custom bot</li>
+<li><strong>primarycoin</strong> – str: Primary currency Ex. If BNB/BTC then set this to BNB</li>
+<li><strong>secondarycoin</strong> – str: Secondary currency Ex. If BNB/BTC then set this to BTC</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><a class="reference internal" href="haasomeapi.dataobjects.util.html#module-haasomeapi.dataobjects.util.HaasomeClientResponse" title="haasomeapi.dataobjects.util.HaasomeClientResponse"><code class="xref py py-class docutils literal notranslate"><span class="pre">HaasomeClientResponse</span></code></a></p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">In .result <a class="reference internal" href="haasomeapi.dataobjects.custombots.html#module-haasomeapi.dataobjects.custombots.OrderBot" title="haasomeapi.dataobjects.custombots.OrderBot"><code class="xref py py-class docutils literal notranslate"><span class="pre">OrderBot</span></code></a>: Order bot object</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="haasomeapi.apis.CustomBotApi.CustomBotApi.setup_ping_pong_bot">
+<code class="descname">setup_ping_pong_bot</code><span class="sig-paren">(</span><em>accountguid: str</em>, <em>botguid: str</em>, <em>botname: str</em>, <em>primarycoin: str</em>, <em>secondarycoin: str</em>, <em>contractbame: str</em>, <em>leverage: float</em>, <em>tradeamount: float</em>, <em>position: str</em>, <em>fee: float</em><span class="sig-paren">)</span><a class="headerlink" href="#haasomeapi.apis.CustomBotApi.CustomBotApi.setup_ping_pong_bot" title="Permalink to this definition">¶</a></dt>
+<dd><p>Modify Ping Pong bot</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>accountguid</strong> – str: Account guid</li>
+<li><strong>botguid</strong> – str: Custom bot guid</li>
+<li><strong>botname</strong> – str: Name for the new custom bot</li>
+<li><strong>primarycoin</strong> – str: Primary currency Ex. If BNB/BTC then set this to BNB</li>
+<li><strong>secondarycoin</strong> – str: Secondary currency Ex. If BNB/BTC then set this to BTC</li>
+<li><strong>contractname</strong> – str: Contract name (Optional)</li>
+<li><strong>leverage</strong> – float: Leverage percentage to use (Optional)</li>
+<li><strong>tradeamount</strong> – float: Trade amount to use</li>
+<li><strong>position</strong> – str: Position bot should start in EX. For BNB/BTC if you have no BNB set to BTC</li>
+<li><strong>fee</strong> – float: Fee percentage to be used in calculations</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><a class="reference internal" href="haasomeapi.dataobjects.util.html#module-haasomeapi.dataobjects.util.HaasomeClientResponse" title="haasomeapi.dataobjects.util.HaasomeClientResponse"><code class="xref py py-class docutils literal notranslate"><span class="pre">HaasomeClientResponse</span></code></a></p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">In .result <a class="reference internal" href="haasomeapi.dataobjects.custombots.html#module-haasomeapi.dataobjects.custombots.BaseCustomBot" title="haasomeapi.dataobjects.custombots.BaseCustomBot"><code class="xref py py-class docutils literal notranslate"><span class="pre">BaseCustomBot</span></code></a>: Ping Pong is just a BaseCustomBot - BaseCustomBot object</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="haasomeapi.apis.CustomBotApi.CustomBotApi.setup_scalper_bot">
+<code class="descname">setup_scalper_bot</code><span class="sig-paren">(</span><em>accountguid: str</em>, <em>botguid: str</em>, <em>botname: str</em>, <em>primarycoin: str</em>, <em>secondarycoin: str</em>, <em>templateguid: str</em>, <em>contractbame: str</em>, <em>leverage: float</em>, <em>tradeamount: float</em>, <em>position: str</em>, <em>fee: float</em>, <em>targetpercentage: float</em>, <em>safetythreshold: float</em><span class="sig-paren">)</span><a class="headerlink" href="#haasomeapi.apis.CustomBotApi.CustomBotApi.setup_scalper_bot" title="Permalink to this definition">¶</a></dt>
+<dd><p>Modify Scalper bot</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>accountguid</strong> – str: Account guid</li>
+<li><strong>botguid</strong> – str: Custom bot guid</li>
+<li><strong>botname</strong> – str: Name for the new custom bot</li>
+<li><strong>primarycoin</strong> – str: Primary currency Ex. If BNB/BTC then set this to BNB</li>
+<li><strong>secondarycoin</strong> – str: Secondary currency Ex. If BNB/BTC then set this to BTC</li>
+<li><strong>templateguid</strong> – str: Order template to use Guid</li>
+<li><strong>contractbame</strong> – str: Contract name (Optional)</li>
+<li><strong>leverage</strong> – float: Leverage percentage to use (Optional)</li>
+<li><strong>tradeamount</strong> – float: Trade amount to use</li>
+<li><strong>position</strong> – str: Position bot should start in EX. For BNB/BTC if you have no BNB set to BTC</li>
+<li><strong>fee</strong> – float: Fee percentage to be used in calculations</li>
+<li><strong>targetpercentage</strong> – float:</li>
+<li><strong>safetythreshold</strong> – float:</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><a class="reference internal" href="haasomeapi.dataobjects.util.html#module-haasomeapi.dataobjects.util.HaasomeClientResponse" title="haasomeapi.dataobjects.util.HaasomeClientResponse"><code class="xref py py-class docutils literal notranslate"><span class="pre">HaasomeClientResponse</span></code></a></p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">In .result <a class="reference internal" href="haasomeapi.dataobjects.custombots.html#module-haasomeapi.dataobjects.custombots.ScalperBot" title="haasomeapi.dataobjects.custombots.ScalperBot"><code class="xref py py-class docutils literal notranslate"><span class="pre">ScalperBot</span></code></a>: Scalper bot object</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="haasomeapi.apis.CustomBotApi.CustomBotApi.setup_script_bot">
+<code class="descname">setup_script_bot</code><span class="sig-paren">(</span><em>accountguid: str</em>, <em>botguid: str</em>, <em>botname: str</em>, <em>primarycoin: str</em>, <em>secondarycoin: str</em>, <em>templateguid: str</em>, <em>contractbame: str</em>, <em>leverage: float</em>, <em>tradeamount: float</em>, <em>position: str</em>, <em>fee: float</em>, <em>scriptid: str</em><span class="sig-paren">)</span><a class="headerlink" href="#haasomeapi.apis.CustomBotApi.CustomBotApi.setup_script_bot" title="Permalink to this definition">¶</a></dt>
+<dd><p>Modify Script bot</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>accountguid</strong> – str: Account guid</li>
+<li><strong>botguid</strong> – str: Custom bot guid</li>
+<li><strong>botname</strong> – str: Name for the new custom bot</li>
+<li><strong>primarycoin</strong> – str: Primary currency Ex. If BNB/BTC then set this to BNB</li>
+<li><strong>secondarycoin</strong> – str: Secondary currency Ex. If BNB/BTC then set this to BTC</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p>:param templateguid :str: Order template to use Guid
+:param contractbame: str: Contract name (Optional)
+:param leverage: float: Leverage percentage to use (Optional)
+:param tradeamount: float: Trade amount to use
+:param position: str: Position bot should start in EX. For BNB/BTC if you have no BNB set to BTC
+:param fee: float: Fee percentage to be used in calculations
+:param scriptid: str: Script Id for bot to use</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference internal" href="haasomeapi.dataobjects.util.html#module-haasomeapi.dataobjects.util.HaasomeClientResponse" title="haasomeapi.dataobjects.util.HaasomeClientResponse"><code class="xref py py-class docutils literal notranslate"><span class="pre">HaasomeClientResponse</span></code></a></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">In .result <a class="reference internal" href="haasomeapi.dataobjects.custombots.html#module-haasomeapi.dataobjects.custombots.ScriptBot" title="haasomeapi.dataobjects.custombots.ScriptBot"><code class="xref py py-class docutils literal notranslate"><span class="pre">ScriptBot</span></code></a>: Script Bot Object</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="haasomeapi.apis.CustomBotApi.CustomBotApi.setup_script_bot_parameters">
+<code class="descname">setup_script_bot_parameters</code><span class="sig-paren">(</span><em>botguid: str</em>, <em>fieldno: int</em>, <em>value: any</em><span class="sig-paren">)</span><a class="headerlink" href="#haasomeapi.apis.CustomBotApi.CustomBotApi.setup_script_bot_parameters" title="Permalink to this definition">¶</a></dt>
+<dd><p>Modify script bot parameters</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>botguid</strong> – str: Custom bot guid</li>
+<li><strong>fieldno</strong> – int: Field Number to modify</li>
+<li><strong>value</strong> – any: Value for field</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><a class="reference internal" href="haasomeapi.dataobjects.util.html#module-haasomeapi.dataobjects.util.HaasomeClientResponse" title="haasomeapi.dataobjects.util.HaasomeClientResponse"><code class="xref py py-class docutils literal notranslate"><span class="pre">HaasomeClientResponse</span></code></a></p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">In .result <a class="reference internal" href="haasomeapi.dataobjects.custombots.html#module-haasomeapi.dataobjects.custombots.ScriptBot" title="haasomeapi.dataobjects.custombots.ScriptBot"><code class="xref py py-class docutils literal notranslate"><span class="pre">ScriptBot</span></code></a>: Script bot object</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="haasomeapi.apis.CustomBotApi.CustomBotApi.setup_zone_recovery_bot">
+<code class="descname">setup_zone_recovery_bot</code><span class="sig-paren">(</span><em>accountguid: str</em>, <em>botguid: str</em>, <em>botname: str</em>, <em>primarycoin: str</em>, <em>secondarycoin: str</em>, <em>contractname: str</em>, <em>leverage: float</em>, <em>tradeamount: float</em>, <em>maxtradeamount: float</em>, <em>factorlong: float</em>, <em>factorshort: float</em>, <em>targetprofit: float</em>, <em>zone: float</em><span class="sig-paren">)</span><a class="headerlink" href="#haasomeapi.apis.CustomBotApi.CustomBotApi.setup_zone_recovery_bot" title="Permalink to this definition">¶</a></dt>
+<dd><p>Modify zone_recovery_bot</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>accountguid</strong> – str: Account guid</li>
+<li><strong>botguid</strong> – str: Custom bot guid</li>
+<li><strong>botname</strong> – str: Name for the new custom bot</li>
+<li><strong>primarycoin</strong> – str: Primary currency Ex. If BNB/BTC then set this to BNB</li>
+<li><strong>secondarycoin</strong> – str: Secondary currency Ex. If BNB/BTC then set this to BTC</li>
+<li><strong>contractname</strong> – str: Contract name (Optional)</li>
+<li><strong>leverage</strong> – float: Leverage percentage to use (Optional)</li>
+<li><strong>tradeamount</strong> – float: Trade amount to use</li>
+<li><strong>maxtradeamount</strong> – float: Max Trade amount</li>
+<li><strong>factorlong</strong> – float: Factor long value</li>
+<li><strong>factorshort</strong> – float: Factor short value</li>
+<li><strong>targetprofit</strong> – float: Target profit percentage</li>
+<li><strong>zone</strong> – float: Zone value</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><a class="reference internal" href="haasomeapi.dataobjects.util.html#module-haasomeapi.dataobjects.util.HaasomeClientResponse" title="haasomeapi.dataobjects.util.HaasomeClientResponse"><code class="xref py py-class docutils literal notranslate"><span class="pre">HaasomeClientResponse</span></code></a></p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">In .result <a class="reference internal" href="haasomeapi.dataobjects.custombots.html#module-haasomeapi.dataobjects.custombots.ZoneRecoveryBot" title="haasomeapi.dataobjects.custombots.ZoneRecoveryBot"><code class="xref py py-class docutils literal notranslate"><span class="pre">ZoneRecoveryBot</span></code></a>: Zone Recovery bot object</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">haasomeapi.apis.CustomBotApi module</a><ul>
+<li><a class="reference internal" href="#module-haasomeapi.apis.CustomBotApi">Functions</a></li>
+</ul>
+</li>
+</ul>
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="haasomeapi.apis.AdvancedOrderApi.html" title="previous chapter">haasomeapi.apis.AdvancedOrderApi module</a></li>
+      <li>Next: <a href="haasomeapi.apis.MarketDataApi.html" title="next chapter">haasomeapi.apis.MarketDataApi module</a></li>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/haasomeapi.apis.CustomBotApi.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2018, Raynaldo Rivera.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.7.5</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.11</a>
+      
+      |
+      <a href="_sources/haasomeapi.apis.CustomBotApi.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

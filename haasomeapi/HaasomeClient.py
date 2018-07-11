@@ -44,6 +44,6 @@ class HaasomeClient:
 
         :return :class:`~haasomeapi.enums.EnumErrorCode`
         """
-        result = self.marketDataApi.getEnabledPriceSources()
+        result = self.marketDataApi.get_enabled_price_sources()
         return result.ErrorCode == EnumErrorCode.SUCCESS
 

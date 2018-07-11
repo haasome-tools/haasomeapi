@@ -44,6 +44,7 @@ class HaasomeClient:
 
         :return :class:`~haasomeapi.enums.EnumErrorCode`
         """
-        result = self.marketDataApi.get_all_wallets()
+        result = self.accountDataApi.get_all_wallets()
+        result.result = {}
         return result
 

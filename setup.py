@@ -2,7 +2,7 @@ from setuptools import setup
 from setuptools import find_packages
 
 setup(name='haasomeapi',
-      version='3.1.14.3',
+      version='3.1.14.4',
       description='Python module to interact with the Haasonline Local API',
       url='http://github.com/haasome-tools/haasomeapi',
       author='Haasome Tools',

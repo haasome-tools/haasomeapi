@@ -1,4 +1,5 @@
 import hmac
+import json
 import hashlib
 import inspect
 import requests
@@ -74,7 +75,10 @@ class ApiBase:
         try:
             return requests.get(url).json()
         except:
-            return json.dumps('{"ErrorCode":9002, "ErrorMessage": "Failed To Connect To Haasonline Trade Server", "Result":{}}')
+            context = {"ErrorCode": 9002,
+                       "ErrorMessage": "Failed To Connect To The Haasonline Trade Server",
+                       "Result": {}}
+            return json.loads(json.dumps(context))
 
     @staticmethod
     def _from_json(data, cls):

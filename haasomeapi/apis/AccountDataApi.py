@@ -31,8 +31,12 @@ class AccountDataApi(ApiBase):
 
         response = super()._execute_request("/GetSoftwareDetails", {})
 
-        return HaasomeClientResponse(EnumErrorCode(int(response["ErrorCode"])),
-                                     response["ErrorMessage"], super()._from_json(response["Result"], SoftwareInformation))
+        try:
+            return HaasomeClientResponse(EnumErrorCode(int(response["ErrorCode"])),
+                                         response["ErrorMessage"], super()._from_json(response["Result"], SoftwareInformation))
+        except:
+            return HaasomeClientResponse(EnumErrorCode(int(response["ErrorCode"])),
+                                         response["ErrorMessage"], {})
 
     def get_enabled_accounts(self):
         """Retrives a dictionary of enabled accounts
@@ -43,8 +47,12 @@ class AccountDataApi(ApiBase):
 
         response = super()._execute_request("/GetEnabledAccounts", {})
 
-        return HaasomeClientResponse(EnumErrorCode(int(response["ErrorCode"])),
-                                     response["ErrorMessage"], response["Result"])
+        try:
+            return HaasomeClientResponse(EnumErrorCode(int(response["ErrorCode"])),
+                                         response["ErrorMessage"], response["Result"])
+        except:
+            return HaasomeClientResponse(EnumErrorCode(int(response["ErrorCode"])),
+                                         response["ErrorMessage"], {})
 
     def get_all_account_details(self):
         """Retrives a dictionary of all account names with guid

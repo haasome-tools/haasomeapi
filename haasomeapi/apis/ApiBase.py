@@ -71,7 +71,10 @@ class ApiBase:
         #return requests.get(url).json()
         #test = requests.get(url).json()
         #print(test)
-        return requests.get(url).json()
+        try:
+            return requests.get(url).json()
+        except:
+            return json.dumps('{"ErrorCode":9002, "ErrorMessage": "Failed To Connect To Haasonline Trade Server", "Result":{}}')
 
     @staticmethod
     def _from_json(data, cls):

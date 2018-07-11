@@ -19,3 +19,4 @@ class EnumErrorCode(Enum):
     #Specific Error Codes To Python Api
     FAILURE = 9000
     BOT_DOSENOT_EXIT = 9001
+    CONNECTION_FAILED = 9002

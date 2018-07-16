@@ -439,12 +439,12 @@ class CustomBotApi(ApiBase):
         :returns: In .result :class:`~haasomeapi.dataobjects.custombots.BaseCustomBot`: BaseCustomBot of the bot that was backtested
         """
 
-        response = super()._execute_request("/BacktestCustomBot",  {"botGuid": botguid,
-                                                                    "minutesToTest": minutestotest,
-                                                                    "accountGuid": accountguid,
-                                                                    "primaryCoin": primarycoin,
-                                                                    "secondaryCoin": secondarycoin,
-                                                                    "contractName": contractname})
+        response = super()._execute_request("/BacktestCustomBotOnMarket",  {"botGuid": botguid,
+                                                                            "minutesToTest": minutestotest,
+                                                                            "accountGuid": accountguid,
+                                                                            "primaryCoin": primarycoin,
+                                                                            "secondaryCoin": secondarycoin,
+                                                                            "contractName": contractname})
 
         try:
             return HaasomeClientResponse(EnumErrorCode(int(response["ErrorCode"])),

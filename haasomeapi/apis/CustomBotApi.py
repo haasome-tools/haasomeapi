@@ -247,7 +247,7 @@ class CustomBotApi(ApiBase):
         :returns: In .result any: Specified bot type object
         """
 
-        response = super()._execute_request("/GetCustomBot", {"botType": EnumCustomBotType(bottype).name.capitalize(),
+        response = super()._execute_request("/NewCustomBot", {"botType": EnumCustomBotType(bottype).name.capitalize(),
                                                               "botName": botname,
                                                               "accountGuid": accountguid,
                                                               "primaryCoin": primarycoin,
@@ -273,7 +273,7 @@ class CustomBotApi(ApiBase):
         :returns: In .result any: Specified bot type object
         """
 
-        response = super()._execute_request("/GetCustomBot", {"botType": EnumCustomBotType(bottype).name.capitalize(),
+        response = super()._execute_request("/NewCustomBot", {"botType": EnumCustomBotType(bottype).name.capitalize(),
                                                               "botName": botname,
                                                               "accountGuid": accountguid,
                                                               "primaryCoin": market.primaryCurrency,

@@ -151,6 +151,48 @@ class CustomBotApi(ApiBase):
         return json.dumps(actions_fixed, sort_keys=True)
 
 
+    def _safe_custom_bot_type_enum_name_convert(self, bottype: EnumCustomBotType):
+        """ Internal fucntion to converts a haasomeapi enum name to the correct haasonline enum name
+
+        :param bottype: :class:`~haasomeapi.enums.EnumCustomBotType`: Enum Bot Type To Convert
+
+        :returns: str: Correct Name for enum
+        """
+        
+        botname = ""
+
+        if bottype == EnumCustomBotType.MARKET_MAKING_BOT:
+            botname = "MarketMakingBot"
+        if bottype == EnumCustomBotType.PING_PONG_BOT:
+            botname = "PingPongBot"
+        if bottype == EnumCustomBotType.SCALPER_BOT:
+            botname = "ScalperBot"
+        if bottype == EnumCustomBotType.ORDER_BOT:
+            botname = "OrderBot"
+        if bottype == EnumCustomBotType.FLASH_CRASH_BOT:
+            botname = "FlashCrashBot"
+        if bottype == EnumCustomBotType.INTER_EXCHANGE_ARBITRAGE_BOT:
+            botname = "InterExchangeArbitrage"
+        if bottype == EnumCustomBotType.INTELLIBOT_ALICE_BOT:
+            botname = "IntellibotAlice"
+        if bottype == EnumCustomBotType.ZONE_RECOVERY_BOT:
+            botname = "ZoneRecoveryBot"
+        if bottype == EnumCustomBotType.ACCUMULATION_BOT:
+            botname = "AccumulationBot"
+        if bottype == EnumCustomBotType.TREND_LINES_BOT:
+            botname = "TrendLinesBot"
+        if bottype == EnumCustomBotType.MAD_HATTER_BOT:
+            botname = "MadHatterBot"
+        if bottype == EnumCustomBotType.SCRIPT_BOT:
+            botname ="ScriptBot"
+        if bottype == EnumCustomBotType.CRYPTO_INDEX_BOT:
+            botname = "CryptoIndexBot"
+        if bottype == EnumCustomBotType.HAAS_SCRIPT_BOT:
+            botname = "HaasScriptBot"
+        if bottype == EnumCustomBotType.EMAIL_BOT:
+            botname = "EmailBot"
+
+        return botname
 
     def get_all_custom_bots(self):
         """ Returns all custom bots created
@@ -247,7 +289,7 @@ class CustomBotApi(ApiBase):
         :returns: In .result any: Specified bot type object
         """
 
-        response = super()._execute_request("/NewCustomBot", {"botType": EnumCustomBotType(bottype).name.capitalize(),
+        response = super()._execute_request("/NewCustomBot", {"botType": self._safe_custom_bot_type_enum_name_convert(EnumCustomBotType(bottype)),
                                                               "botName": botname,
                                                               "accountGuid": accountguid,
                                                               "primaryCoin": primarycoin,
@@ -273,7 +315,7 @@ class CustomBotApi(ApiBase):
         :returns: In .result any: Specified bot type object
         """
 
-        response = super()._execute_request("/NewCustomBot", {"botType": EnumCustomBotType(bottype).name.capitalize(),
+        response = super()._execute_request("/NewCustomBot", {"botType": self._safe_custom_bot_type_enum_name_convert(EnumCustomBotType(bottype)),
                                                               "botName": botname,
                                                               "accountGuid": accountguid,
                                                               "primaryCoin": market.primaryCurrency,

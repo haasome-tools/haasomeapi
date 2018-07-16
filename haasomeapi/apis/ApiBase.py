@@ -110,6 +110,8 @@ class ApiBase:
 
                 if name == "GUID":
                     name = "guid"
+                elif name == "ROI":
+                    name = "roi"
                 else:
                     func = lambda s: s[:1].lower() + s[1:] if s else ''
                     name = func(name)

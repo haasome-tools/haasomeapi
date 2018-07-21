@@ -269,10 +269,10 @@ class MarketDataApi(ApiBase):
 
         priceticks = []
 
-        for pricetick in response["Result"]:
-            priceticks.append(super()._from_json(pricetick, PriceTick))
-
         try:
+            for pricetick in response["Result"]:
+                priceticks.append(super()._from_json(pricetick, PriceTick))
+
             return HaasomeClientResponse(EnumErrorCode(int(response["ErrorCode"])),
                                          response["ErrorMessage"], priceticks)
         except:

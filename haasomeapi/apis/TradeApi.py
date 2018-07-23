@@ -46,9 +46,6 @@ class TradeApi(ApiBase):
         if templateguid:
             data["templateGuid"] = templateguid
 
-        print(data)
-        print(templateguid)
-
         response = super()._execute_request("/PlaceSpotBuyOrder", data)
 
         try:

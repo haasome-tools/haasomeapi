@@ -40,11 +40,14 @@ class TradeApi(ApiBase):
         if timeout > 0:
             data["timeout"] = str(timeout)
 
-        if not userguid:
+        if userguid:
             data["userGuid"] = userguid
 
-        if not templateguid:
+        if templateguid:
             data["templateGuid"] = templateguid
+
+        print(data)
+        print(templateguid)
 
         response = super()._execute_request("/PlaceSpotBuyOrder", data)
 
@@ -81,10 +84,10 @@ class TradeApi(ApiBase):
         if timeout > 0:
             data["timeout"] = str(timeout)
 
-        if not userguid:
+        if userguid:
             data["userGuid"] = userguid
 
-        if not templateguid:
+        if templateguid:
             data["templateGuid"] = templateguid
 
         response = super()._execute_request("/PlaceSpotSellOrder", data)
@@ -125,10 +128,10 @@ class TradeApi(ApiBase):
         if timeout > 0:
             data["timeout"] = str(timeout)
 
-        if not userguid:
+        if userguid:
             data["userGuid"] = userguid
 
-        if not templateguid:
+        if templateguid:
             data["templateGuid"] = templateguid
 
         response = super()._execute_request("/PlaceLeverageEnterLongOrder", data)
@@ -169,10 +172,10 @@ class TradeApi(ApiBase):
         if timeout > 0:
             data["timeout"] = str(timeout)
 
-        if not userguid:
+        if userguid:
             data["userGuid"] = userguid
 
-        if not templateguid:
+        if templateguid:
             data["templateGuid"] = templateguid
 
         response = super()._execute_request("/PlaceLeverageExitLongOrder", data)
@@ -213,10 +216,10 @@ class TradeApi(ApiBase):
         if timeout > 0:
             data["timeout"] = str(timeout)
 
-        if not userguid:
+        if userguid:
             data["userGuid"] = userguid
 
-        if not templateguid:
+        if templateguid:
             data["templateGuid"] = templateguid
 
         response = super()._execute_request("/PlaceLeverageEnterShortOrder", data)
@@ -257,10 +260,10 @@ class TradeApi(ApiBase):
         if timeout > 0:
             data["timeout"] = str(timeout)
 
-        if not userguid:
+        if userguid:
             data["userGuid"] = userguid
 
-        if not templateguid:
+        if templateguid:
             data["templateGuid"] = templateguid
 
         response = super()._execute_request("/PlaceLeverageExitShortOrder", data)

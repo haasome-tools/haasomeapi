@@ -1,3 +1,5 @@
+from dateutil import parser
+
 from haasomeapi.apis.ApiBase import ApiBase
 
 from haasomeapi.enums.EnumErrorCode import EnumErrorCode
@@ -271,7 +273,9 @@ class MarketDataApi(ApiBase):
 
         try:
             for pricetick in response["Result"]:
-                priceticks.append(super()._from_json(pricetick, PriceTick))
+                priceTickModel = super()._from_json(pricetick, PriceTick)
+                priceTickModel.timeStamp = parser.parse(priceTickModel.timeStamp)
+                priceticks.append(priceTickModel)
 
             return HaasomeClientResponse(EnumErrorCode(int(response["ErrorCode"])),
                                          response["ErrorMessage"], priceticks)

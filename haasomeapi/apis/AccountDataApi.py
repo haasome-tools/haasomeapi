@@ -58,7 +58,7 @@ class AccountDataApi(ApiBase):
         """Retrives a dictionary of all account names with guid
 
         :returns: :class:`~haasomeapi.dataobjects.util.HaasomeClientResponse`
-        :returns:  In .result Dict[str,:class:`~haasomeapi.dataobjects.accountdata.AccountInformation`]
+        :returns:  In .result Dict[:class:`~haasomeapi.dataobjects.accountdata.AccountInformation`]
         """
 
         response = super()._execute_request("/GetAllAccountDetails", {})

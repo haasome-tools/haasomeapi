@@ -89,36 +89,42 @@ class ApiBase:
 
         :returns: any: A instance of the specified class
         """
-        
-        annotations: dict = cls.__annotations__ if hasattr(cls, '__annotations__') else None
-        if issubclass(cls, List):
-            list_type = cls.__args__[0]
-            instance: list = list()
-            for value in data:
-                instance.append(ApiBase._from_json(value, list_type))
-            return instance
-        elif issubclass(cls, Dict):
-                key_type = cls.__args__[0]
-                val_type = cls.__args__[1]
-                instance: dict = dict()
-                for key, value in data.items():
-                    instance.update(ApiBase._from_json(key, key_type), ApiBase._from_json(value, val_type))
+
+        if type(data) is dict:
+            annotations: dict = cls.__annotations__ if hasattr(cls, '__annotations__') else None
+            if issubclass(cls, List):
+                list_type = cls.__args__[0]
+                instance: list = list()
+                for value in data:
+                    instance.append(ApiBase._from_json(value, list_type))
                 return instance
-        else:
-            instance: cls = cls()
-            for name, value in data.items():
+            elif issubclass(cls, Dict):
+                    key_type = cls.__args__[0]
+                    val_type = cls.__args__[1]
+                    instance: dict = dict()
+                    for key, value in data.items():
+                        instance.update({ApiBase._from_json(key, key_type): ApiBase._from_json(value, val_type)})
+                    return instance
+            else:
+                instance: cls = cls()
 
-                if name == "GUID":
-                    name = "guid"
-                elif name == "ROI":
-                    name = "roi"
-                else:
-                    func = lambda s: s[:1].lower() + s[1:] if s else ''
-                    name = func(name)
-                    field_type = annotations.get(name)
+                for name, value in data.items():
 
-                if inspect.isclass(field_type) and isinstance(value, (dict, tuple, list, set, frozenset)):
-                    setattr(instance, name, ApiBase._from_json(value, field_type))
-                else:
-                    setattr(instance, name, value)
-            return instance
+                    if name == "GUID":
+                        name = "guid"
+                    elif name == "ROI":
+                        name = "roi"
+                    else:
+                        func = lambda s: s[:1].lower() + s[1:] if s else ''
+                        name = func(name)
+                        field_type = annotations.get(name)
+
+                    if inspect.isclass(field_type) and isinstance(value, (dict, tuple, list, set, frozenset)):
+                        setattr(instance, name, ApiBase._from_json(value, field_type))
+                    else:
+                        setattr(instance, name, value)
+                return instance
+        return data
+
+
+

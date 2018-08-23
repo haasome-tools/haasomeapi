@@ -60,6 +60,8 @@ class CustomBotApi(ApiBase):
 
         botinitial.completedOrders = orders
 
+        botinitial.priceMarket = super()._from_json(botinitial.priceMarket, Market)
+
         return botinitial
 
     def _convert_json_bot_to_custom_bot_specific(self, bottype: EnumCustomBotType, jsonstr: str):
@@ -110,6 +112,8 @@ class CustomBotApi(ApiBase):
             orders.append(super()._from_json(corder, BaseOrder))
 
         botinitial.completedOrders = orders
+
+        botinitial.priceMarket = super()._from_json(botinitial.priceMarket, Market)
 
         return botinitial
 
@@ -193,6 +197,19 @@ class CustomBotApi(ApiBase):
             botname = "EmailBot"
 
         return botname
+
+    def _safe_mad_hatter_safety_enum_name_convert(self, enumMHSafety: EnumMadHatterSafeties):
+
+        enumstr = ""
+
+        if enumMHSafety == EnumMadHatterSafeties.PRICE_CHANGE_TO_BUY:
+            enumstr = "PriceChangeToBuy"
+        if enumMHSafety == EnumMadHatterSafeties.PRICE_CHANGE_TO_SELL:
+            enumstr = "PriceChangeToSell"
+        if enumMHSafety == EnumMadHatterSafeties.STOP_LOSS:
+            enumstr = "StopLoss"
+
+        return enumstr
 
     def get_all_custom_bots(self):
         """ Returns all custom bots created
@@ -1194,7 +1211,7 @@ class CustomBotApi(ApiBase):
         """
 
         response = super()._execute_request("/MadHatterSetSafetyParameter",  {"botGuid": botguid,
-                                                                              "type": EnumMadHatterSafeties(type).name.capitalize(),
+                                                                              "type": self._safe_mad_hatter_safety_enum_name_convert(type),
                                                                               "value": value})
 
         try:

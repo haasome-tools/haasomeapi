@@ -67,7 +67,7 @@ class TradeBotApi(ApiBase):
             for insuranceoption in insurance.insuranceInterface:
                 insuranceoptions.append(super()._from_json(insuranceoption, IndicatorOption))
             insurance.insuranceInterface = insuranceoptions
-            insurances[k] = safety
+            insurances[k] = insurance
 
         botinitial.indicators = indicators
         botinitial.safeties = safeties
@@ -106,7 +106,7 @@ class TradeBotApi(ApiBase):
         :returns: In .result :class:`~haasomeapi.dataobjects.tradebot.TradeBot`: Trade Bot
         """
 
-        response = self.get_all_bots()
+        response = self.get_all_trade_bots()
 
         if response.errorCode != EnumErrorCode.SUCCESS:
             return HaasomeClientResponse(response.errorCode, response.errorMessage, {})
@@ -162,7 +162,7 @@ class TradeBotApi(ApiBase):
         :param primarycoin: str: Primary currency Ex. If BNB/BTC then set this to BNB
         :param secondarycoin: str: Secondary currency Ex. If BNB/BTC then set this to BTC
         :param contractname: str: Contract name (Optional)
-        :param leverage: float: Leverage percentage to use (Optional) 
+        :param leverage: float: Leverage percentage to use (Optional)
         :param groupid: str: Group id for bot (Optional)
 
         :returns: :class:`~haasomeapi.dataobjects.util.HaasomeClientResponse`
@@ -245,7 +245,7 @@ class TradeBotApi(ApiBase):
 
         :param botguid: str: Custom bot guid
         :param minutestotest: int: Amount of minutes to test in the past
-        
+
         :returns: :class:`~haasomeapi.dataobjects.util.HaasomeClientResponse`
         :returns: In .result :class:`~haasomeapi.dataobjects.tradebot.TradeBot`: Tradebot object
         """
@@ -339,7 +339,7 @@ class TradeBotApi(ApiBase):
         :param ordertimeout: int: Order timeout in minutes
         :param templatetimeout: int: Template timeout in minutes
         :param maxtradeamount: bool: Use max trade amount
-        :param limitordertype: :class:`~EnumLimitOrderPriceType`: Limit order type 
+        :param limitordertype: :class:`~EnumLimitOrderPriceType`: Limit order type
         :param usehiddenorders: bool: Use hidden orders
         :param fee: float: Fee percentage to be used in calculations
 
@@ -387,7 +387,7 @@ class TradeBotApi(ApiBase):
         :param ordertimeout: int: Order timeout in minutes
         :param templatetimeout: int: Template timeout in minutes
         :param maxtradeamount: bool: Use max trade amount
-        :param limitordertype: :class:`~EnumLimitOrderPriceType`: Limit order type 
+        :param limitordertype: :class:`~EnumLimitOrderPriceType`: Limit order type
         :param usehiddenorders: bool: Use hidden orders
         :param fee: float: Fee percentage to be used in calculations
 
@@ -543,12 +543,12 @@ class TradeBotApi(ApiBase):
 
         :param botguid: str: Trade bot guid to modify
         :param elementguid: str: Element guid to modify
-        :param pricesource: :class:`~haasomeapi.enums.EnumPriceSource`: Price Source (Exchange) for indicator to use 
+        :param pricesource: :class:`~haasomeapi.enums.EnumPriceSource`: Price Source (Exchange) for indicator to use
         :param primarycoin: str: Primary currency Ex. If BNB/BTC then set this to BNB
         :param secondarycoin: str: Secondary currency Ex. If BNB/BTC then set this to BTC
         :param contractname: str: Contract name (Optional)
         :param interval: int: Interval in minutes
-        :param pricesource: :class:`~haasomeapi.enums.EnumPriceChartType`: Price Chart for indicator to use 
+        :param pricesource: :class:`~haasomeapi.enums.EnumPriceChartType`: Price Chart for indicator to use
         :param delay: int: Delay in minutes
 
         :returns: :class:`~haasomeapi.dataobjects.util.HaasomeClientResponse`
@@ -578,7 +578,7 @@ class TradeBotApi(ApiBase):
 
         :param botguid: str: Trade bot guid to modify
         :param elementguid: str: Element guid to modify
-        :param pricesource: :class:`~haasomeapi.enums.EnumPriceSource`: Price Source (Exchange) for indicator to use 
+        :param pricesource: :class:`~haasomeapi.enums.EnumPriceSource`: Price Source (Exchange) for indicator to use
         :param primarycoin: str: Primary currency Ex. If BNB/BTC then set this to BNB
         :param secondarycoin: str: Secondary currency Ex. If BNB/BTC then set this to BTC
         :param contractname: str: Contract name (Optional)

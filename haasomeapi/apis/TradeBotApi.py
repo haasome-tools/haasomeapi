@@ -67,7 +67,7 @@ class TradeBotApi(ApiBase):
             for insuranceoption in insurance.insuranceInterface:
                 insuranceoptions.append(super()._from_json(insuranceoption, IndicatorOption))
             insurance.insuranceInterface = insuranceoptions
-            insurances[k] = safety
+            insurances[k] = insurance
 
         botinitial.indicators = indicators
         botinitial.safeties = safeties

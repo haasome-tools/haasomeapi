@@ -97,7 +97,7 @@ class TradeApi(ApiBase):
                                          response["ErrorMessage"], {})
 
     def place_enter_long_order(self, accountguid: str, primarycoin: str, secondarycoin: str, price: float,
-                               amount: float, leverage: float, timeout: int = 0, userguid: str = "",
+                               amount: float, leverage: float, timeout: int = 0, contractname: str = "", userguid: str = "",
                                templateguid: str = ""):
         """ Place a long order for Leverage/Margin
 
@@ -108,6 +108,7 @@ class TradeApi(ApiBase):
         :param amount: float: Trade Amount
         :param leverage: float: Leverage percentage amount
         :param timeout: int:  (Default value = 0) Order Timeout in minutes
+        :param contractname: str: (Default value = "") Contract name to use
         :param userguid: str:  (Default value = "") User guid for order
         :param templateguid: str:  (Default value = "") Order template guid to use
 
@@ -124,6 +125,9 @@ class TradeApi(ApiBase):
 
         if timeout > 0:
             data["timeout"] = str(timeout)
+
+        if contractname:
+            data["contractName"] = contractname
 
         if userguid:
             data["userGuid"] = userguid
@@ -141,7 +145,7 @@ class TradeApi(ApiBase):
                                          response["ErrorMessage"], {})
 
     def place_exit_long_order(self, accountguid: str, primarycoin: str, secondarycoin: str, price: float,
-                               amount: float, leverage: float, timeout: int = 0, userguid: str = "",
+                               amount: float, leverage: float, timeout: int = 0, contractname: str = "", userguid: str = "",
                                templateguid: str = ""):
         """ Place a exit long order for Leverage/Margin
 
@@ -152,6 +156,7 @@ class TradeApi(ApiBase):
         :param amount: float: Trade Amount
         :param leverage: float: Leverage percentage amount
         :param timeout: int:  (Default value = 0) Order Timeout in minutes
+        :param contractname: str: (Default value = "") Contract name to use
         :param userguid: str:  (Default value = "") User guid for order
         :param templateguid: str:  (Default value = "") Order template guid to use
 
@@ -168,6 +173,9 @@ class TradeApi(ApiBase):
 
         if timeout > 0:
             data["timeout"] = str(timeout)
+
+        if contractname:
+            data["contractName"] = contractname
 
         if userguid:
             data["userGuid"] = userguid
@@ -185,7 +193,7 @@ class TradeApi(ApiBase):
                                          response["ErrorMessage"], {})
 
     def place_enter_short_order(self, accountguid: str, primarycoin: str, secondarycoin: str, price: float,
-                               amount: float, leverage: float, timeout: int = 0, userguid: str = "",
+                               amount: float, leverage: float, timeout: int = 0, contractname: str = "", userguid: str = "",
                                templateguid: str = ""):
         """ Place a short order for Leverage/Margin
 
@@ -196,6 +204,7 @@ class TradeApi(ApiBase):
         :param amount: float: Trade Amount
         :param leverage: float: Leverage percentage amount
         :param timeout: int:  (Default value = 0) Order Timeout in minutes
+        :param contractname: str: (Default value = "") Contract name to use
         :param userguid: str:  (Default value = "") User guid for order
         :param templateguid: str:  (Default value = "") Order template guid to use
 
@@ -212,6 +221,9 @@ class TradeApi(ApiBase):
 
         if timeout > 0:
             data["timeout"] = str(timeout)
+
+        if contractname:
+            data["contractName"] = contractname
 
         if userguid:
             data["userGuid"] = userguid
@@ -229,7 +241,7 @@ class TradeApi(ApiBase):
                                          response["ErrorMessage"], {})
 
     def place_exit_short_order(self, accountguid: str, primarycoin: str, secondarycoin: str, price: float,
-                               amount: float, leverage: float, timeout: int = 0, userguid: str = "",
+                               amount: float, leverage: float, timeout: int = 0, contractname: str = "", userguid: str = "",
                                templateguid: str = ""):
         """ Place a exit short order for Leverage/Margin
 
@@ -240,6 +252,7 @@ class TradeApi(ApiBase):
         :param amount: float: Trade Amount
         :param leverage: float: Leverage percentage amount
         :param timeout: int:  (Default value = 0) Order Timeout in minutes
+        :param contractname: str: (Default value = "") Contract name to use
         :param userguid: str:  (Default value = "") User guid for order
         :param templateguid: str:  (Default value = "") Order template guid to use
 
@@ -256,6 +269,9 @@ class TradeApi(ApiBase):
 
         if timeout > 0:
             data["timeout"] = str(timeout)
+
+        if contractname:
+            data["contractName"] = contractname
 
         if userguid:
             data["userGuid"] = userguid

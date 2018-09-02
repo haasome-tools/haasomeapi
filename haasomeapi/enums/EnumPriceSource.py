@@ -21,3 +21,4 @@ class EnumPriceSource(Enum):
 	OKEX = 23
 	HUOBI = 26
 	KUCOIN = 27
+	DERIBIT = 28

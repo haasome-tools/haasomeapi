@@ -11,6 +11,7 @@ from haasomeapi.enums.EnumFundPosition import EnumFundPosition
 from haasomeapi.enums.EnumCoinPosition import EnumCoinPosition
 from haasomeapi.enums.EnumPriceChartType import EnumPriceChartType
 from haasomeapi.enums.EnumLimitOrderPriceType import EnumLimitOrderPriceType
+from haasomeapi.enums.EnumSafetyPositionSignal import EnumSafetyPositionSignal
 
 from haasomeapi.dataobjects.custombots.dataobjects.Safety import Safety
 from haasomeapi.dataobjects.custombots.dataobjects.Indicator import Indicator
@@ -573,7 +574,8 @@ class TradeBotApi(ApiBase):
                                          response["ErrorMessage"], {})
 
     def setup_safety(self, botguid: str, elementguid: str, pricesource: EnumPriceSource, primarycoin: str,
-                     secondarycoin: str, contractname: str, mappedbuysignal: EnumFundPosition , mappedsellsignal: EnumFundPosition ):
+                     secondarycoin: str, contractname: str, mappedbuysignal: EnumFundPosition , mappedsellsignal: EnumFundPosition, 
+                     validpositionsignal: EnumSafetyPositionSignal):
         """ Modify trade bot safety
 
         :param botguid: str: Trade bot guid to modify
@@ -584,6 +586,7 @@ class TradeBotApi(ApiBase):
         :param contractname: str: Contract name (Optional)
         :param mappedbuysignal: :class:`~haasomeapi.enums.EnumFundPosition`: Mapped buy signal position
         :param mappedsellsignal: :class:`~haasomeapi.enums.EnumFundPosition`: Mapped sell signal position
+        :param validpositionsignal: :class:`~haasomeapi.enums.EnumSafetyPositionSignal`: Mapped Position Signal
 
         :returns: :class:`~haasomeapi.dataobjects.util.HaasomeClientResponse`
         :returns: In .result :class:`~haasomeapi.dataobjects.tradebot.TradeBot`: Trade Bot
@@ -596,7 +599,9 @@ class TradeBotApi(ApiBase):
                                                                       "secondaryCoin": secondarycoin,
                                                                       "contractName": contractname,
                                                                       "mappedBuySignal": EnumFundPosition(mappedbuysignal).name.capitalize(),
-                                                                      "mappedSellSignal": EnumFundPosition(mappedsellsignal).name.capitalize()})
+                                                                      "mappedSellSignal": EnumFundPosition(mappedsellsignal).name.capitalize(),
+                                                                      "validPositionSignal": EnumSafetyPositionSignal(validpositionsignal).value
+                                                                      })
 
         try:
             return HaasomeClientResponse(EnumErrorCode(int(response["ErrorCode"])),

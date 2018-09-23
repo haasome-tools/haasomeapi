@@ -1,6 +1,8 @@
 from haasomeapi.dataobjects.custombots.BaseCustomBot import BaseCustomBot
 from haasomeapi.dataobjects.custombots.dataobjects.Indicator import Indicator
 
+from haasomeapi.enums.EnumFundPosition import EnumFundPosition
+from haasomeapi.enums.EnumBotTradeAmount import EnumBotTradeAmount
 
 class MadHatterBot(BaseCustomBot):
     """ Data Object containing a Mad Hatter Bot
@@ -15,6 +17,8 @@ class MadHatterBot(BaseCustomBot):
     :ivar macd: :class:`~haasomeapi.dataobjects.custombots.dataobjects.Indicator`:
     :ivar bbands: :class:`~haasomeapi.dataobjects.custombots.dataobjects.Indicator`:
     :ivar rsi: :class:`~haasomeapi.dataobjects.custombots.dataobjects.Indicator`:
+    :ivar mappedBuySignal: :class:`~haasomeapi.enums.EnumFundPosition`:
+    :ivar mappedSellSignal: :class:`~haasomeapi.enums.EnumFundPosition`:
     :ivar useTwoSIgnals: bool:
     """
 
@@ -33,3 +37,6 @@ class MadHatterBot(BaseCustomBot):
     rsi: Indicator
 
     useTwoSIgnals: bool
+
+    mappedBuySignal: EnumFundPosition
+    mappedSellSignal: EnumFundPosition

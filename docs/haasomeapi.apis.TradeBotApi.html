@@ -722,7 +722,7 @@ Gives access to the trade bot api endpoints</p>
 
 <dl class="method">
 <dt id="haasomeapi.apis.TradeBotApi.TradeBotApi.setup_safety">
-<code class="descname">setup_safety</code><span class="sig-paren">(</span><em>botguid: str</em>, <em>elementguid: str</em>, <em>pricesource: haasomeapi.enums.EnumPriceSource.EnumPriceSource</em>, <em>primarycoin: str</em>, <em>secondarycoin: str</em>, <em>contractname: str</em>, <em>mappedbuysignal: haasomeapi.enums.EnumFundPosition.EnumFundPosition</em>, <em>mappedsellsignal: haasomeapi.enums.EnumFundPosition.EnumFundPosition</em><span class="sig-paren">)</span><a class="headerlink" href="#haasomeapi.apis.TradeBotApi.TradeBotApi.setup_safety" title="Permalink to this definition">¶</a></dt>
+<code class="descname">setup_safety</code><span class="sig-paren">(</span><em>botguid: str</em>, <em>elementguid: str</em>, <em>pricesource: haasomeapi.enums.EnumPriceSource.EnumPriceSource</em>, <em>primarycoin: str</em>, <em>secondarycoin: str</em>, <em>contractname: str</em>, <em>mappedbuysignal: haasomeapi.enums.EnumFundPosition.EnumFundPosition</em>, <em>mappedsellsignal: haasomeapi.enums.EnumFundPosition.EnumFundPosition</em>, <em>validpositionsignal: haasomeapi.enums.EnumSafetyPositionSignal.EnumSafetyPositionSignal</em><span class="sig-paren">)</span><a class="headerlink" href="#haasomeapi.apis.TradeBotApi.TradeBotApi.setup_safety" title="Permalink to this definition">¶</a></dt>
 <dd><p>Modify trade bot safety</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -737,6 +737,7 @@ Gives access to the trade bot api endpoints</p>
 <li><strong>contractname</strong> – str: Contract name (Optional)</li>
 <li><strong>mappedbuysignal</strong> – <a class="reference internal" href="haasomeapi.enums.html#module-haasomeapi.enums.EnumFundPosition" title="haasomeapi.enums.EnumFundPosition"><code class="xref py py-class docutils literal notranslate"><span class="pre">EnumFundPosition</span></code></a>: Mapped buy signal position</li>
 <li><strong>mappedsellsignal</strong> – <a class="reference internal" href="haasomeapi.enums.html#module-haasomeapi.enums.EnumFundPosition" title="haasomeapi.enums.EnumFundPosition"><code class="xref py py-class docutils literal notranslate"><span class="pre">EnumFundPosition</span></code></a>: Mapped sell signal position</li>
+<li><strong>validpositionsignal</strong> – <code class="xref py py-class docutils literal notranslate"><span class="pre">EnumSafetyPositionSignal</span></code>: Mapped Position Signal</li>
 </ul>
 </td>
 </tr>

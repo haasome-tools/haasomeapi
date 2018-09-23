@@ -80,6 +80,46 @@ Gives access to the Custom Bot api endpoints</p>
 </dd></dl>
 
 <dl class="method">
+<dt id="haasomeapi.apis.CustomBotApi.CustomBotApi.add_advanced_index_bot_index">
+<code class="descname">add_advanced_index_bot_index</code><span class="sig-paren">(</span><em>botguid: str</em>, <em>index: haasomeapi.dataobjects.custombots.dataobjects.AdvancedIndexBotIndexSaveObject.AdvancedIndexBotIndexSaveObject</em>, <em>realocatebalance: bool</em>, <em>raisebalance: bool</em><span class="sig-paren">)</span><a class="headerlink" href="#haasomeapi.apis.CustomBotApi.CustomBotApi.add_advanced_index_bot_index" title="Permalink to this definition">¶</a></dt>
+<dd><p>Addes a index to preexiting advanced index bot
+:param botguid: str: Custom bot guid
+:param index: <code class="xref py py-class docutils literal notranslate"><span class="pre">AdvancedIndexBotIndexSaveObject</span></code> Index to add
+:param reallocatebalance: bool: reallocate current index balance
+:param raisebalance: bool: increase current index balance</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference internal" href="haasomeapi.dataobjects.util.html#module-haasomeapi.dataobjects.util.HaasomeClientResponse" title="haasomeapi.dataobjects.util.HaasomeClientResponse"><code class="xref py py-class docutils literal notranslate"><span class="pre">HaasomeClientResponse</span></code></a></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">In .result <code class="xref py py-class docutils literal notranslate"><span class="pre">AdvancedIndexBot</span></code>: Crypto Index bot object</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="haasomeapi.apis.CustomBotApi.CustomBotApi.add_crypto_index_bot_index">
+<code class="descname">add_crypto_index_bot_index</code><span class="sig-paren">(</span><em>botguid: str</em>, <em>index: haasomeapi.dataobjects.custombots.dataobjects.CryptoIndexBotIndexSaveObject.CryptoIndexBotIndexSaveObject</em>, <em>realocatebalance: bool</em>, <em>raisebalance: bool</em><span class="sig-paren">)</span><a class="headerlink" href="#haasomeapi.apis.CustomBotApi.CustomBotApi.add_crypto_index_bot_index" title="Permalink to this definition">¶</a></dt>
+<dd><p>Addes a index to preexiting crypto index bot
+:param botguid: str: Custom bot guid
+:param index: <a class="reference internal" href="haasomeapi.dataobjects.custombots.dataobjects.html#module-haasomeapi.dataobjects.custombots.dataobjects.CryptoIndexBotIndexSaveObject" title="haasomeapi.dataobjects.custombots.dataobjects.CryptoIndexBotIndexSaveObject"><code class="xref py py-class docutils literal notranslate"><span class="pre">CryptoIndexBotIndexSaveObject</span></code></a> Index to add
+:param reallocatebalance: bool: reallocate current index balance
+:param raisebalance: bool: increase current index balance</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference internal" href="haasomeapi.dataobjects.util.html#module-haasomeapi.dataobjects.util.HaasomeClientResponse" title="haasomeapi.dataobjects.util.HaasomeClientResponse"><code class="xref py py-class docutils literal notranslate"><span class="pre">HaasomeClientResponse</span></code></a></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">In .result <a class="reference internal" href="haasomeapi.dataobjects.custombots.html#module-haasomeapi.dataobjects.custombots.CryptoIndexBot" title="haasomeapi.dataobjects.custombots.CryptoIndexBot"><code class="xref py py-class docutils literal notranslate"><span class="pre">CryptoIndexBot</span></code></a>: Crypto Index bot object</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
 <dt id="haasomeapi.apis.CustomBotApi.CustomBotApi.add_order_bot_order">
 <code class="descname">add_order_bot_order</code><span class="sig-paren">(</span><em>botguid: str</em>, <em>dependson: str</em>, <em>dependsonnotexecuted: str</em>, <em>amount: float</em>, <em>price: float</em>, <em>triggerprice: float</em>, <em>templateguid: str</em>, <em>direction: haasomeapi.enums.EnumOrderType.EnumOrderType</em>, <em>triggertype: haasomeapi.enums.EnumOrderBotTriggerType.EnumOrderBotTriggerType</em><span class="sig-paren">)</span><a class="headerlink" href="#haasomeapi.apis.CustomBotApi.CustomBotApi.add_order_bot_order" title="Permalink to this definition">¶</a></dt>
 <dd><p>Add a order to a order bot</p>
@@ -532,6 +572,24 @@ Gives access to the Custom Bot api endpoints</p>
 </dd></dl>
 
 <dl class="method">
+<dt id="haasomeapi.apis.CustomBotApi.CustomBotApi.include_advanced_index_bot_index">
+<code class="descname">include_advanced_index_bot_index</code><span class="sig-paren">(</span><em>botguid: str</em>, <em>coin: str</em><span class="sig-paren">)</span><a class="headerlink" href="#haasomeapi.apis.CustomBotApi.CustomBotApi.include_advanced_index_bot_index" title="Permalink to this definition">¶</a></dt>
+<dd><p>Includes a excluded index from the advanced index bot
+:param botguid: str: Custom bot guid
+:param coin: std: Coin to include from index</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference internal" href="haasomeapi.dataobjects.util.html#module-haasomeapi.dataobjects.util.HaasomeClientResponse" title="haasomeapi.dataobjects.util.HaasomeClientResponse"><code class="xref py py-class docutils literal notranslate"><span class="pre">HaasomeClientResponse</span></code></a></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">In .result <code class="xref py py-class docutils literal notranslate"><span class="pre">AdvancedIndexBot</span></code>: Crypto Index bot object</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
 <dt id="haasomeapi.apis.CustomBotApi.CustomBotApi.new_custom_bot">
 <code class="descname">new_custom_bot</code><span class="sig-paren">(</span><em>accountguid: str</em>, <em>bottype: haasomeapi.enums.EnumCustomBotType.EnumCustomBotType</em>, <em>botname: str</em>, <em>primarycoin: str</em>, <em>secondarycoin: str</em>, <em>contractname: str</em><span class="sig-paren">)</span><a class="headerlink" href="#haasomeapi.apis.CustomBotApi.CustomBotApi.new_custom_bot" title="Permalink to this definition">¶</a></dt>
 <dd><p>Create a new custom bot</p>
@@ -588,6 +646,42 @@ Gives access to the Custom Bot api endpoints</p>
 </dd></dl>
 
 <dl class="method">
+<dt id="haasomeapi.apis.CustomBotApi.CustomBotApi.rebalance_advanced_index_bot_index">
+<code class="descname">rebalance_advanced_index_bot_index</code><span class="sig-paren">(</span><em>botguid: str</em><span class="sig-paren">)</span><a class="headerlink" href="#haasomeapi.apis.CustomBotApi.CustomBotApi.rebalance_advanced_index_bot_index" title="Permalink to this definition">¶</a></dt>
+<dd><p>Rebalance a advanced index bot
+:param botguid: str: Custom bot guid</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference internal" href="haasomeapi.dataobjects.util.html#module-haasomeapi.dataobjects.util.HaasomeClientResponse" title="haasomeapi.dataobjects.util.HaasomeClientResponse"><code class="xref py py-class docutils literal notranslate"><span class="pre">HaasomeClientResponse</span></code></a></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">In .result <code class="xref py py-class docutils literal notranslate"><span class="pre">AdvancedIndexBot</span></code>: Crypto Index bot object</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="haasomeapi.apis.CustomBotApi.CustomBotApi.remove_advanced_index_bot_index">
+<code class="descname">remove_advanced_index_bot_index</code><span class="sig-paren">(</span><em>botguid: str</em>, <em>coin: str</em>, <em>lowerbalance: bool</em><span class="sig-paren">)</span><a class="headerlink" href="#haasomeapi.apis.CustomBotApi.CustomBotApi.remove_advanced_index_bot_index" title="Permalink to this definition">¶</a></dt>
+<dd><p>Removes a index from preexiting advanced index bot
+:param botguid: str: Custom bot guid
+:param coin: std: Coin to remove from index
+:param lowerbalance: bool: Reduce the index balance</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference internal" href="haasomeapi.dataobjects.util.html#module-haasomeapi.dataobjects.util.HaasomeClientResponse" title="haasomeapi.dataobjects.util.HaasomeClientResponse"><code class="xref py py-class docutils literal notranslate"><span class="pre">HaasomeClientResponse</span></code></a></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">In .result <code class="xref py py-class docutils literal notranslate"><span class="pre">AdvancedIndexBot</span></code>: Crypto Index bot object</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
 <dt id="haasomeapi.apis.CustomBotApi.CustomBotApi.remove_all_order_bot_order">
 <code class="descname">remove_all_order_bot_order</code><span class="sig-paren">(</span><em>botguid: str</em><span class="sig-paren">)</span><a class="headerlink" href="#haasomeapi.apis.CustomBotApi.CustomBotApi.remove_all_order_bot_order" title="Permalink to this definition">¶</a></dt>
 <dd><p>Removes all orders from order bot</p>
@@ -600,6 +694,25 @@ Gives access to the Custom Bot api endpoints</p>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference internal" href="haasomeapi.dataobjects.util.html#module-haasomeapi.dataobjects.util.HaasomeClientResponse" title="haasomeapi.dataobjects.util.HaasomeClientResponse"><code class="xref py py-class docutils literal notranslate"><span class="pre">HaasomeClientResponse</span></code></a></td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">In .result <a class="reference internal" href="haasomeapi.dataobjects.custombots.html#module-haasomeapi.dataobjects.custombots.OrderBot" title="haasomeapi.dataobjects.custombots.OrderBot"><code class="xref py py-class docutils literal notranslate"><span class="pre">OrderBot</span></code></a>: Order bot object</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="haasomeapi.apis.CustomBotApi.CustomBotApi.remove_crypto_index_bot_index">
+<code class="descname">remove_crypto_index_bot_index</code><span class="sig-paren">(</span><em>botguid: str</em>, <em>coin: str</em>, <em>lowerbalance: bool</em><span class="sig-paren">)</span><a class="headerlink" href="#haasomeapi.apis.CustomBotApi.CustomBotApi.remove_crypto_index_bot_index" title="Permalink to this definition">¶</a></dt>
+<dd><p>Removes a index from preexiting crypto index bot
+:param botguid: str: Custom bot guid
+:param coin: std: Coin to remove from index
+:param lowerbalance: bool: Reduce the index balance</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference internal" href="haasomeapi.dataobjects.util.html#module-haasomeapi.dataobjects.util.HaasomeClientResponse" title="haasomeapi.dataobjects.util.HaasomeClientResponse"><code class="xref py py-class docutils literal notranslate"><span class="pre">HaasomeClientResponse</span></code></a></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">In .result <a class="reference internal" href="haasomeapi.dataobjects.custombots.html#module-haasomeapi.dataobjects.custombots.CryptoIndexBot" title="haasomeapi.dataobjects.custombots.CryptoIndexBot"><code class="xref py py-class docutils literal notranslate"><span class="pre">CryptoIndexBot</span></code></a>: Crypto Index bot object</td>
 </tr>
 </tbody>
 </table>
@@ -760,6 +873,38 @@ Gives access to the Custom Bot api endpoints</p>
 </dd></dl>
 
 <dl class="method">
+<dt id="haasomeapi.apis.CustomBotApi.CustomBotApi.setup_advanced_index_bot">
+<code class="descname">setup_advanced_index_bot</code><span class="sig-paren">(</span><em>accountguid: str, botguid: str, botname: str, templateguid: str, basecoin: str, totalIndexValue: float, rebalanceInterval: int, rebalanceType: haasomeapi.enums.EnumAdvancedIndexBotRebalanceType.EnumAdvancedIndexBotRebalanceType, allocateProfits: bool, preserveBaseIndexPrecentage: bool, index: List[haasomeapi.dataobjects.custombots.dataobjects.AdvancedIndexBotIndexSaveObject.AdvancedIndexBotIndexSaveObject]</em><span class="sig-paren">)</span><a class="headerlink" href="#haasomeapi.apis.CustomBotApi.CustomBotApi.setup_advanced_index_bot" title="Permalink to this definition">¶</a></dt>
+<dd><p>Modify a Crypto Index bot</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>accountguid</strong> – str: Account guid</li>
+<li><strong>botguid</strong> – str: Custom bot guid</li>
+<li><strong>botname</strong> – str: Name for the new custom bot</li>
+<li><strong>templateguid</strong> – str: Order template to use GUID</li>
+<li><strong>basecoin</strong> – str: The base currency for the index bot Ex. BTC</li>
+<li><strong>totalIndexValue</strong> – float: Total value the index should be using.</li>
+<li><strong>rebalanceInterval</strong> – int: How often to rebalance</li>
+<li><strong>allocateprofits</strong> – bool: Perform allocation of profits</li>
+<li><strong>preserveBaseIndexPercentage</strong> – bool: Ensure index perecentage never dips below start percentage</li>
+<li><strong>index</strong> – List[<code class="xref py py-class docutils literal notranslate"><span class="pre">AdvancedIndexBotIndexSaveObject</span></code>]: List of <code class="xref py py-class docutils literal notranslate"><span class="pre">AdvancedIndexBotIndexSaveObject</span></code> to construct the index.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><a class="reference internal" href="haasomeapi.dataobjects.util.html#module-haasomeapi.dataobjects.util.HaasomeClientResponse" title="haasomeapi.dataobjects.util.HaasomeClientResponse"><code class="xref py py-class docutils literal notranslate"><span class="pre">HaasomeClientResponse</span></code></a></p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">In .result <code class="xref py py-class docutils literal notranslate"><span class="pre">AdvancedIndexBot</span></code>: Crypto Index bot object</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
 <dt id="haasomeapi.apis.CustomBotApi.CustomBotApi.setup_crypto_index_bot">
 <code class="descname">setup_crypto_index_bot</code><span class="sig-paren">(</span><em>accountguid: str, botguid: str, botname: str, templateguid: str, basecoin: str, totalIndexValue: float, individualgrowth: bool, allocateprofits: bool, index: List[haasomeapi.dataobjects.custombots.dataobjects.CryptoIndexBotIndexSaveObject.CryptoIndexBotIndexSaveObject]</em><span class="sig-paren">)</span><a class="headerlink" href="#haasomeapi.apis.CustomBotApi.CustomBotApi.setup_crypto_index_bot" title="Permalink to this definition">¶</a></dt>
 <dd><p>Modify a Crypto Index bot</p>
@@ -792,7 +937,7 @@ Gives access to the Custom Bot api endpoints</p>
 
 <dl class="method">
 <dt id="haasomeapi.apis.CustomBotApi.CustomBotApi.setup_email_bot">
-<code class="descname">setup_email_bot</code><span class="sig-paren">(</span><em>accountguid: str, botguid: str, botname: str, primarycoin: str, secondarycoin: str, contractname: str, leverage: float, tradeamount: float, fee: float, templateguid: str, position: str, actions: List[haasomeapi.dataobjects.custombots.dataobjects.EmailBotAction.EmailBotAction], stoploss: float, minchangetobuy: float, minchangetosell: float</em><span class="sig-paren">)</span><a class="headerlink" href="#haasomeapi.apis.CustomBotApi.CustomBotApi.setup_email_bot" title="Permalink to this definition">¶</a></dt>
+<code class="descname">setup_email_bot</code><span class="sig-paren">(</span><em>accountguid: str, botguid: str, botname: str, primarycoin: str, secondarycoin: str, contractname: str, leverage: float, amountType: haasomeapi.enums.EnumBotTradeAmount.EnumBotTradeAmount, tradeamount: float, fee: float, templateguid: str, position: str, actions: List[haasomeapi.dataobjects.custombots.dataobjects.EmailBotAction.EmailBotAction], stoploss: float, minchangetobuy: float, minchangetosell: float</em><span class="sig-paren">)</span><a class="headerlink" href="#haasomeapi.apis.CustomBotApi.CustomBotApi.setup_email_bot" title="Permalink to this definition">¶</a></dt>
 <dd><p>Modify a Email bot</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -806,6 +951,7 @@ Gives access to the Custom Bot api endpoints</p>
 <li><strong>secondarycoin</strong> – str: Secondary currency Ex. If BNB/BTC then set this to BTC</li>
 <li><strong>contractname</strong> – str: Contract name (Optional)</li>
 <li><strong>leverage</strong> – float: Leverage percentage to use (Optional)</li>
+<li><strong>amountType</strong> – <code class="xref py py-class docutils literal notranslate"><span class="pre">EnumBotTradeAmount</span></code> Trade amount type</li>
 <li><strong>tradeamount</strong> – float: Trade amount for the bot to use</li>
 <li><strong>fee</strong> – float: Fee percentage to be used in calculations</li>
 <li><strong>templateguid</strong> – str: Order template to be used GUID</li>
@@ -875,7 +1021,7 @@ Gives access to the Custom Bot api endpoints</p>
 
 <dl class="method">
 <dt id="haasomeapi.apis.CustomBotApi.CustomBotApi.setup_intellibot_alice">
-<code class="descname">setup_intellibot_alice</code><span class="sig-paren">(</span><em>accountguid: str</em>, <em>botguid: str</em>, <em>botname: str</em>, <em>primarycoin: str</em>, <em>secondarycoin: str</em>, <em>contractname: str</em>, <em>leverage: float</em>, <em>tradeamount: float</em>, <em>fee: float</em><span class="sig-paren">)</span><a class="headerlink" href="#haasomeapi.apis.CustomBotApi.CustomBotApi.setup_intellibot_alice" title="Permalink to this definition">¶</a></dt>
+<code class="descname">setup_intellibot_alice</code><span class="sig-paren">(</span><em>accountguid: str</em>, <em>botguid: str</em>, <em>botname: str</em>, <em>primarycoin: str</em>, <em>secondarycoin: str</em>, <em>contractname: str</em>, <em>leverage: float</em>, <em>amountType: haasomeapi.enums.EnumBotTradeAmount.EnumBotTradeAmount</em>, <em>tradeamount: float</em>, <em>fee: float</em><span class="sig-paren">)</span><a class="headerlink" href="#haasomeapi.apis.CustomBotApi.CustomBotApi.setup_intellibot_alice" title="Permalink to this definition">¶</a></dt>
 <dd><p>Modify Intelli Bot Alice bot</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -889,6 +1035,7 @@ Gives access to the Custom Bot api endpoints</p>
 <li><strong>secondarycoin</strong> – str: Secondary currency Ex. If BNB/BTC then set this to BTC</li>
 <li><strong>contractname</strong> – str: Contract name (Optional)</li>
 <li><strong>leverage</strong> – float: Leverage percentage to use (Optional)</li>
+<li><strong>amountType</strong> – <code class="xref py py-class docutils literal notranslate"><span class="pre">EnumBotTradeAmount</span></code> Trade amount type</li>
 <li><strong>tradeamount</strong> – float: Trade amount to use</li>
 <li><strong>fee</strong> – float: Fee percentage to be used in calculations</li>
 </ul>
@@ -935,7 +1082,7 @@ Gives access to the Custom Bot api endpoints</p>
 
 <dl class="method">
 <dt id="haasomeapi.apis.CustomBotApi.CustomBotApi.setup_mad_hatter_bot">
-<code class="descname">setup_mad_hatter_bot</code><span class="sig-paren">(</span><em>accountguid: str</em>, <em>botguid: str</em>, <em>botname: str</em>, <em>primarycoin: str</em>, <em>secondarycoin: str</em>, <em>templateguid: str</em>, <em>position: str</em>, <em>fee: float</em>, <em>tradeamount: float</em>, <em>useconsensus: bool</em>, <em>disableafterstoploss: bool</em>, <em>interval: int</em>, <em>includeincompleteinterval: bool</em><span class="sig-paren">)</span><a class="headerlink" href="#haasomeapi.apis.CustomBotApi.CustomBotApi.setup_mad_hatter_bot" title="Permalink to this definition">¶</a></dt>
+<code class="descname">setup_mad_hatter_bot</code><span class="sig-paren">(</span><em>accountguid: str</em>, <em>botguid: str</em>, <em>botname: str</em>, <em>primarycoin: str</em>, <em>secondarycoin: str</em>, <em>templateguid: str</em>, <em>position: str</em>, <em>fee: float</em>, <em>amountType: haasomeapi.enums.EnumBotTradeAmount.EnumBotTradeAmount</em>, <em>tradeamount: float</em>, <em>useconsensus: bool</em>, <em>disableafterstoploss: bool</em>, <em>interval: int</em>, <em>includeincompleteinterval: bool</em><span class="sig-paren">)</span><a class="headerlink" href="#haasomeapi.apis.CustomBotApi.CustomBotApi.setup_mad_hatter_bot" title="Permalink to this definition">¶</a></dt>
 <dd><p>Modify Mad Hatter bot</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -950,6 +1097,7 @@ Gives access to the Custom Bot api endpoints</p>
 <li><strong>templateguid</strong> – str: Order template to use Guid</li>
 <li><strong>position</strong> – str: Position bot should start in EX. For BNB/BTC if you have no BNB set to BTC</li>
 <li><strong>fee</strong> – float: Fee percentage to be used in calculations</li>
+<li><strong>amountType</strong> – <code class="xref py py-class docutils literal notranslate"><span class="pre">EnumBotTradeAmount</span></code> Trade amount type</li>
 <li><strong>tradeamount</strong> – float: Trade amount to use</li>
 <li><strong>useconsensus</strong> – bool: Enable Consensus Mode</li>
 <li><strong>disableafterstoploss</strong> – bool: Disable bot after stop loss</li>
@@ -1030,7 +1178,7 @@ Gives access to the Custom Bot api endpoints</p>
 
 <dl class="method">
 <dt id="haasomeapi.apis.CustomBotApi.CustomBotApi.setup_ping_pong_bot">
-<code class="descname">setup_ping_pong_bot</code><span class="sig-paren">(</span><em>accountguid: str</em>, <em>botguid: str</em>, <em>botname: str</em>, <em>primarycoin: str</em>, <em>secondarycoin: str</em>, <em>contractbame: str</em>, <em>leverage: float</em>, <em>tradeamount: float</em>, <em>position: str</em>, <em>fee: float</em><span class="sig-paren">)</span><a class="headerlink" href="#haasomeapi.apis.CustomBotApi.CustomBotApi.setup_ping_pong_bot" title="Permalink to this definition">¶</a></dt>
+<code class="descname">setup_ping_pong_bot</code><span class="sig-paren">(</span><em>accountguid: str</em>, <em>botguid: str</em>, <em>botname: str</em>, <em>primarycoin: str</em>, <em>secondarycoin: str</em>, <em>contractbame: str</em>, <em>leverage: float</em>, <em>amountType: haasomeapi.enums.EnumBotTradeAmount.EnumBotTradeAmount</em>, <em>tradeamount: float</em>, <em>position: str</em>, <em>fee: float</em><span class="sig-paren">)</span><a class="headerlink" href="#haasomeapi.apis.CustomBotApi.CustomBotApi.setup_ping_pong_bot" title="Permalink to this definition">¶</a></dt>
 <dd><p>Modify Ping Pong bot</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -1044,6 +1192,7 @@ Gives access to the Custom Bot api endpoints</p>
 <li><strong>secondarycoin</strong> – str: Secondary currency Ex. If BNB/BTC then set this to BTC</li>
 <li><strong>contractname</strong> – str: Contract name (Optional)</li>
 <li><strong>leverage</strong> – float: Leverage percentage to use (Optional)</li>
+<li><strong>amountType</strong> – <code class="xref py py-class docutils literal notranslate"><span class="pre">EnumBotTradeAmount</span></code> Trade amount type</li>
 <li><strong>tradeamount</strong> – float: Trade amount to use</li>
 <li><strong>position</strong> – str: Position bot should start in EX. For BNB/BTC if you have no BNB set to BTC</li>
 <li><strong>fee</strong> – float: Fee percentage to be used in calculations</li>
@@ -1062,7 +1211,7 @@ Gives access to the Custom Bot api endpoints</p>
 
 <dl class="method">
 <dt id="haasomeapi.apis.CustomBotApi.CustomBotApi.setup_scalper_bot">
-<code class="descname">setup_scalper_bot</code><span class="sig-paren">(</span><em>accountguid: str</em>, <em>botguid: str</em>, <em>botname: str</em>, <em>primarycoin: str</em>, <em>secondarycoin: str</em>, <em>templateguid: str</em>, <em>contractbame: str</em>, <em>leverage: float</em>, <em>tradeamount: float</em>, <em>position: str</em>, <em>fee: float</em>, <em>targetpercentage: float</em>, <em>safetythreshold: float</em><span class="sig-paren">)</span><a class="headerlink" href="#haasomeapi.apis.CustomBotApi.CustomBotApi.setup_scalper_bot" title="Permalink to this definition">¶</a></dt>
+<code class="descname">setup_scalper_bot</code><span class="sig-paren">(</span><em>accountguid: str</em>, <em>botguid: str</em>, <em>botname: str</em>, <em>primarycoin: str</em>, <em>secondarycoin: str</em>, <em>templateguid: str</em>, <em>contractname: str</em>, <em>leverage: float</em>, <em>amountType: haasomeapi.enums.EnumBotTradeAmount.EnumBotTradeAmount</em>, <em>tradeamount: float</em>, <em>position: str</em>, <em>fee: float</em>, <em>targetpercentage: float</em>, <em>safetythreshold: float</em><span class="sig-paren">)</span><a class="headerlink" href="#haasomeapi.apis.CustomBotApi.CustomBotApi.setup_scalper_bot" title="Permalink to this definition">¶</a></dt>
 <dd><p>Modify Scalper bot</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -1075,8 +1224,9 @@ Gives access to the Custom Bot api endpoints</p>
 <li><strong>primarycoin</strong> – str: Primary currency Ex. If BNB/BTC then set this to BNB</li>
 <li><strong>secondarycoin</strong> – str: Secondary currency Ex. If BNB/BTC then set this to BTC</li>
 <li><strong>templateguid</strong> – str: Order template to use Guid</li>
-<li><strong>contractbame</strong> – str: Contract name (Optional)</li>
+<li><strong>contractname</strong> – str: Contract name (Optional)</li>
 <li><strong>leverage</strong> – float: Leverage percentage to use (Optional)</li>
+<li><strong>amountType</strong> – <code class="xref py py-class docutils literal notranslate"><span class="pre">EnumBotTradeAmount</span></code> Trade amount type</li>
 <li><strong>tradeamount</strong> – float: Trade amount to use</li>
 <li><strong>position</strong> – str: Position bot should start in EX. For BNB/BTC if you have no BNB set to BTC</li>
 <li><strong>fee</strong> – float: Fee percentage to be used in calculations</li>

@@ -6,6 +6,7 @@ from haasomeapi.dataobjects.accountdata.BaseOrder import BaseOrder
 from haasomeapi.enums.EnumCoinPosition import EnumCoinPosition
 from haasomeapi.enums.EnumFundPosition import EnumFundPosition
 from haasomeapi.enums.EnumCustomBotType import EnumCustomBotType
+from haasomeapi.enums.EnumBotTradeAmount import EnumBotTradeAmount
 
 
 class BaseCustomBot:
@@ -22,6 +23,7 @@ class BaseCustomBot:
     :ivar fundPosition: :class:`~haasomeapi.enums.EnumFundPosition`:
     :ivar currentTradeAmount: float:
     :ivar correctedTradeAmount: float:
+    :ivar amountType: :class:`~haasomeapi.enums.EnumBotTradeAmount`:
     :ivar lastBuyPrice: float:
     :ivar lastSellPrice: float:
     :ivar currentFeePercentage: float:
@@ -61,6 +63,7 @@ class BaseCustomBot:
 
     currentTradeAmount: float
     correctedTradeAmount: float
+    amountType: EnumBotTradeAmount
 
     lastBuyPrice: float
     lastSellPrice: float

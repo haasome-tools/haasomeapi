@@ -76,6 +76,8 @@ We are going to assume you setup the local api ip to 127.0.0.1 and the port to 9
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="go">&gt;&gt;&gt;</span>
 <span class="go">from haasomeapi.HaasomeClient import HaasomeClient</span>
 <span class="go">from haasomeapi.enums.EnumOrderType import EnumOrderType</span>
+<span class="go">from haasomeapi.enums.EnumCustomBotType import EnumCustomBotType</span>
+<span class="go">from haasomeapi.enums.EnumBotTradeAmount import EnumBotTradeAmount</span>
 <span class="go">haasomeClient = HaasomeClient(&quot;http://127.0.0.1:9000&quot;, &quot;secretkeyhere&quot;)</span>
 </pre></div>
 </div>
@@ -160,9 +162,9 @@ We are going to assume you setup the local api ip to 127.0.0.1 and the port to 9
 </div>
 <div class="section" id="configure-the-new-scalper-bot">
 <h2>Configure The New Scalper Bot<a class="headerlink" href="#configure-the-new-scalper-bot" title="Permalink to this headline">¶</a></h2>
-<p>Now that we have a new scalper bot created we will want to configure it this can be done using the setup_scalper_bot function in the customBotApi. The format for the function is (ACCOUNT_GUID, BOT_GUID, BOT_NAME, PRIMARY_CURRENCY, SECONDARY_CURRENCY, TEMPLATE_GUID, CONTRACT_NAME, LEVERAGE, TRADE_AMOUNT, POSITION, FEE, TARGET_PERCENTAGE, SAFETY_THRESHOLD)</p>
+<p>Now that we have a new scalper bot created we will want to configure it this can be done using the setup_scalper_bot function in the customBotApi. The format for the function is (ACCOUNT_GUID, BOT_GUID, BOT_NAME, PRIMARY_CURRENCY, SECONDARY_CURRENCY, TEMPLATE_GUID, CONTRACT_NAME, LEVERAGE, AMOUNT_TYPE, TRADE_AMOUNT, POSITION, FEE, TARGET_PERCENTAGE, SAFETY_THRESHOLD)</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="go">&gt;&gt;&gt;</span>
-<span class="go">newScalperEdited = haasomeClient.customBotApi.setup_scalper_bot(accountGuid, newScalper.result.guid, newScalper.result.name, newScalper.result.primaryCurrency, newScalper.result.secondaryCurrency, &quot;LOCKEDLIMITORDERGUID&quot;, &quot;&quot;, 0.0, 100, &quot;BTC&quot;, 0.1, 1.0, 1.0)</span>
+<span class="go">newScalperEdited = haasomeClient.customBotApi.setup_scalper_bot(accountGuid, newScalper.result.guid, newScalper.result.name, newScalper.result.primaryCurrency, newScalper.result.secondaryCurrency, &quot;LOCKEDLIMITORDERGUID&quot;, &quot;&quot;, 0.0, EnumBotTradeAmount.STATIC, 100, &quot;BTC&quot;, 0.1, 1.0, 1.0)</span>
 </pre></div>
 </div>
 </div>

@@ -45,6 +45,8 @@ Inside the file lets add the following lines ignoring the three ">"
 >>>
 from haasomeapi.HaasomeClient import HaasomeClient
 from haasomeapi.enums.EnumOrderType import EnumOrderType
+from haasomeapi.enums.EnumCustomBotType import EnumCustomBotType
+from haasomeapi.enums.EnumBotTradeAmount import EnumBotTradeAmount
 haasomeClient = HaasomeClient("http://127.0.0.1:9000", "secretkeyhere")
 
 What we are doing here is importing our api library and then creating a initial connection to the local api. We can verify the connection and credentials are entered correctly by writing the following code under the three we have previously added. This will verify that the secret key we have supplied is correct. If a exception is thrown then we know the ip and port are not set correctly.
@@ -123,10 +125,10 @@ newScalper = haasomeClient.customBotApi.new_custom_bot(accountGuid, EnumCustomBo
 
 Configure The New Scalper Bot
 -----------------------------
-Now that we have a new scalper bot created we will want to configure it this can be done using the setup_scalper_bot function in the customBotApi. The format for the function is (ACCOUNT_GUID, BOT_GUID, BOT_NAME, PRIMARY_CURRENCY, SECONDARY_CURRENCY, TEMPLATE_GUID, CONTRACT_NAME, LEVERAGE, TRADE_AMOUNT, POSITION, FEE, TARGET_PERCENTAGE, SAFETY_THRESHOLD)
+Now that we have a new scalper bot created we will want to configure it this can be done using the setup_scalper_bot function in the customBotApi. The format for the function is (ACCOUNT_GUID, BOT_GUID, BOT_NAME, PRIMARY_CURRENCY, SECONDARY_CURRENCY, TEMPLATE_GUID, CONTRACT_NAME, LEVERAGE, AMOUNT_TYPE, TRADE_AMOUNT, POSITION, FEE, TARGET_PERCENTAGE, SAFETY_THRESHOLD)
 
 >>>
-newScalperEdited = haasomeClient.customBotApi.setup_scalper_bot(accountGuid, newScalper.result.guid, newScalper.result.name, newScalper.result.primaryCurrency, newScalper.result.secondaryCurrency, "LOCKEDLIMITORDERGUID", "", 0.0, 100, "BTC", 0.1, 1.0, 1.0)
+newScalperEdited = haasomeClient.customBotApi.setup_scalper_bot(accountGuid, newScalper.result.guid, newScalper.result.name, newScalper.result.primaryCurrency, newScalper.result.secondaryCurrency, "LOCKEDLIMITORDERGUID", "", 0.0, EnumBotTradeAmount.STATIC, 100, "BTC", 0.1, 1.0, 1.0)
 
 Activate The Scalper Bot
 ------------------------

@@ -17,4 +17,5 @@ class EnumCustomBotType(Enum):
     CRYPTO_INDEX_BOT = 17
     HAAS_SCRIPT_BOT = 18
     EMAIL_BOT = 19
+    ADVANCED_INDEX_BOT = 20
     BASE_CUSTOM_BOT = 1000

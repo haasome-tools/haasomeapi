@@ -9,11 +9,13 @@ from haasomeapi.dataobjects.accountdata.BaseOrder import BaseOrder
 from haasomeapi.enums.EnumOrderType import EnumOrderType
 from haasomeapi.enums.EnumCurrencyType import EnumCurrencyType
 from haasomeapi.enums.EnumCustomBotType import EnumCustomBotType
+from haasomeapi.enums.EnumBotTradeAmount import EnumBotTradeAmount
 from haasomeapi.enums.EnumMadHatterSafeties import EnumMadHatterSafeties
 from haasomeapi.enums.EnumFlashSpreadOptions import EnumFlashSpreadOptions
 from haasomeapi.enums.EnumMadHatterIndicators import EnumMadHatterIndicators
 from haasomeapi.enums.EnumOrderBotTriggerType import EnumOrderBotTriggerType
 from haasomeapi.enums.EnumAccumulationBotStopType import EnumAccumulationBotStopType
+from haasomeapi.enums.EnumAdvancedIndexBotRebalanceType import EnumAdvancedIndexBotRebalanceType
 
 from haasomeapi.dataobjects.custombots.EmailBot import EmailBot
 from haasomeapi.dataobjects.custombots.OrderBot import OrderBot
@@ -31,6 +33,7 @@ from haasomeapi.dataobjects.custombots.InterExchangeArbitrageBot import InterExc
 from haasomeapi.dataobjects.util.HaasomeClientResponse import HaasomeClientResponse
 from haasomeapi.dataobjects.custombots.dataobjects.EmailBotAction import EmailBotAction
 from haasomeapi.dataobjects.custombots.dataobjects.CryptoIndexBotIndexSaveObject import CryptoIndexBotIndexSaveObject
+from haasomeapi.dataobjects.custombots.dataobjects.AdvancedIndexBotIndexSaveObject import AdvancedIndexBotIndexSaveObject
 
 
 class CustomBotApi(ApiBase):
@@ -117,6 +120,31 @@ class CustomBotApi(ApiBase):
 
         return botinitial
 
+    def _convert_index_to_json(self, index: CryptoIndexBotIndexSaveObject):
+
+        index = {
+            "coin": index.coin, 
+            "amount": index.amount,
+            "buyThreshold": index.buyThreshold,
+            "sellThreshold": index.sellThreshold, 
+            "stopLoss": index.stopLoss
+        }
+
+        return json.dumps(index,sort_key=True)
+
+    def _convert_advanced_index_to_json(self, index: AdvancedIndexBotIndexSaveObject):
+        
+        index = {
+            "coin": index.coin, 
+            "allocatedPercentage": index.allocatedPercentage, 
+            "buyThreshold": index.buyThreshold,
+            "sellThreshold": index.sellThreshold, 
+            "stopLoss": index.stopLoss, 
+            "trailingStop": index.trailingStop
+        }
+
+        return json.dumps(index,sort_key=True)
+
     def _convert_index_list_to_json(self, index: List[CryptoIndexBotIndexSaveObject]):
         """ Internal fucntion to converts a CryptoIndexBotIndexSaveObject list to a json string
 
@@ -130,6 +158,22 @@ class CustomBotApi(ApiBase):
         for i in index:
             index_fixed.append({"coin": i.coin, "amount": i.amount, "buyThreshold": i.buyThreshold,
                                 "sellThreshold": i.sellThreshold, "stopLoss": i.stopLoss})
+
+        return json.dumps(index_fixed, sort_keys=True)
+
+    def _convert_advanced_index_list_to_json(self, index: List[AdvancedIndexBotIndexSaveObject]):
+        """ Internal fucntion to converts a CryptoIndexBotIndexSaveObject list to a json string
+
+        :param index: List[CryptoIndexBotIndexSaveObject]: 
+
+        :returns: str: Json string representation of specified list
+        """
+
+        index_fixed = []
+
+        for i in index:
+            index_fixed.append({"coin": i.coin, "allocatedPercentage": i.allocatedPercentage, "buyThreshold": i.buyThreshold,
+                    "sellThreshold": i.sellThreshold, "stopLoss": i.stopLoss, "trailingStop": i.trailingStop})
 
         return json.dumps(index_fixed, sort_keys=True)
 
@@ -606,8 +650,46 @@ class CustomBotApi(ApiBase):
             return HaasomeClientResponse(EnumErrorCode(int(response["ErrorCode"])),
                                          response["ErrorMessage"], {})
 
+    def setup_advanced_index_bot(self, accountguid: str, botguid: str, botname: str, templateguid: str, basecoin: str,
+                               totalIndexValue: float, rebalanceInterval: int, rebalanceType: EnumAdvancedIndexBotRebalanceType, 
+                               allocateProfits: bool, preserveBaseIndexPrecentage:bool, index: List[AdvancedIndexBotIndexSaveObject] ):
+        """ Modify a Crypto Index bot
+
+        :param accountguid: str: Account guid
+        :param botguid: str: Custom bot guid
+        :param botname: str: Name for the new custom bot 
+        :param templateguid: str: Order template to use GUID
+        :param basecoin: str: The base currency for the index bot Ex. BTC
+        :param totalIndexValue: float: Total value the index should be using.
+        :param rebalanceInterval: int: How often to rebalance
+        :param allocateprofits: bool: Perform allocation of profits
+        :param preserveBaseIndexPercentage: bool: Ensure index perecentage never dips below start percentage
+        :param index: List[:class:`~haasomeapi.dataobjects.custombots.dataobjects.AdvancedIndexBotIndexSaveObject`]: List of :class:`~haasomeapi.dataobjects.custombots.dataobjects.AdvancedIndexBotIndexSaveObject` to construct the index.
+
+        :returns: :class:`~haasomeapi.dataobjects.util.HaasomeClientResponse`
+        :returns: In .result :class:`~haasomeapi.dataobjects.custombots.AdvancedIndexBot`: Crypto Index bot object
+        """
+
+        response = super()._execute_request("/SetupAdvancedIndexBot",  {"botGuid": botguid,
+                                                                      "botName": botname,
+                                                                      "accountGuid": accountguid,
+                                                                      "templateGuid": templateguid,
+                                                                      "baseCoin": basecoin,
+                                                                      "totalIndexValue": float(str(totalIndexValue).replace(',', '.')),
+                                                                      "rebalanceInterval": rebalanceInterval,
+                                                                      "rebalanceType": EnumAdvancedIndexBotRebalanceType(rebalanceType).value,
+                                                                      "allocateProfits": str(allocateProfits).lower(),
+                                                                      "preserveBaseIndexPercentage": str(preserveBaseIndexPercentage).lower(),
+                                                                      "index": self._convert_index_list_to_json(index)})
+        try:
+            return HaasomeClientResponse(EnumErrorCode(int(response["ErrorCode"])),
+                                         response["ErrorMessage"], self._convert_json_bot_to_custom_bot_specific(EnumCustomBotType.ADVANCED_INDEX_BOT, response["Result"]))
+        except:
+            return HaasomeClientResponse(EnumErrorCode(int(response["ErrorCode"])),
+                                         response["ErrorMessage"], {})
+
     def setup_email_bot(self, accountguid: str, botguid: str, botname: str, primarycoin: str, secondarycoin: str,
-                        contractname: str, leverage: float, tradeamount: float, fee: float, templateguid: str,
+                        contractname: str, leverage: float, amountType: EnumBotTradeAmount, tradeamount: float, fee: float, templateguid: str,
                         position: str, actions: List[EmailBotAction], stoploss: float, minchangetobuy: float,
                         minchangetosell: float):
         """ Modify a Email bot
@@ -619,6 +701,7 @@ class CustomBotApi(ApiBase):
         :param secondarycoin: str: Secondary currency Ex. If BNB/BTC then set this to BTC
         :param contractname: str: Contract name (Optional)
         :param leverage: float: Leverage percentage to use (Optional)
+        :param amountType: :class:`~haasomeapi.enums.EnumBotTradeAmount` Trade amount type
 
         :param tradeamount: float: Trade amount for the bot to use
         :param fee: float: Fee percentage to be used in calculations
@@ -640,6 +723,7 @@ class CustomBotApi(ApiBase):
                                                                 "secondaryCoin": secondarycoin,
                                                                 "contractName": contractname,
                                                                 "leverage": float(str(leverage).replace(',', '.')),
+                                                                "tradeAmountType": str(EnumBotTradeAmount(amountType).value),
                                                                 "tradeAmount": float(str(tradeamount).replace(',', '.')),
                                                                 "fee": float(str(fee).replace(',', '.')),
                                                                 "templateGuid": templateguid,
@@ -767,7 +851,7 @@ class CustomBotApi(ApiBase):
                                          response["ErrorMessage"], {})
 
     def setup_intellibot_alice(self, accountguid: str, botguid: str, botname: str, primarycoin: str, secondarycoin: str,
-                               contractname: str, leverage: float, tradeamount: float, fee: float):
+                               contractname: str, leverage: float, amountType: EnumBotTradeAmount, tradeamount: float, fee: float):
         """ Modify Intelli Bot Alice bot
 
         :param accountguid: str: Account guid
@@ -777,6 +861,7 @@ class CustomBotApi(ApiBase):
         :param secondarycoin: str: Secondary currency Ex. If BNB/BTC then set this to BTC
         :param contractname: str: Contract name (Optional)
         :param leverage: float: Leverage percentage to use (Optional)
+        :param amountType: :class:`~haasomeapi.enums.EnumBotTradeAmount` Trade amount type
         :param tradeamount: float: Trade amount to use
         :param fee: float: Fee percentage to be used in calculations
 
@@ -791,6 +876,7 @@ class CustomBotApi(ApiBase):
                                                                        "secondaryCoin": secondarycoin,
                                                                        "contractName": contractname,
                                                                        "leverage": float(str(leverage).replace(',', '.')),
+                                                                       "tradeAmountType": str(EnumBotTradeAmount(amountType).value),
                                                                        "tradeAmount": float(str(tradeamount).replace(',', '.')),
                                                                        "fee": float(str(fee).replace(',', '.'))})
         try:
@@ -840,8 +926,8 @@ class CustomBotApi(ApiBase):
                                          response["ErrorMessage"], {})
 
     def setup_mad_hatter_bot(self, accountguid: str, botguid: str, botname: str, primarycoin: str, secondarycoin: str,
-                             templateguid: str, position: str, fee: float, tradeamount: float, useconsensus: bool,
-                             disableafterstoploss: bool, interval: int, includeincompleteinterval: bool):
+                             templateguid: str, position: str, fee: float, amountType: EnumBotTradeAmount, 
+                             tradeamount: float, useconsensus: bool, disableafterstoploss: bool, interval: int, includeincompleteinterval: bool):
         """ Modify Mad Hatter bot
 
         :param accountguid: str: Account guid
@@ -852,6 +938,7 @@ class CustomBotApi(ApiBase):
         :param templateguid: str: Order template to use Guid
         :param position: str: Position bot should start in EX. For BNB/BTC if you have no BNB set to BTC
         :param fee: float: Fee percentage to be used in calculations
+        :param amountType: :class:`~haasomeapi.enums.EnumBotTradeAmount` Trade amount type
         :param tradeamount: float: Trade amount to use
         :param useconsensus: bool: Enable Consensus Mode
         :param disableafterstoploss: bool: Disable bot after stop loss
@@ -867,6 +954,7 @@ class CustomBotApi(ApiBase):
                                                                     "accountGuid": accountguid,
                                                                     "primaryCoin": primarycoin,
                                                                     "secondaryCoin": secondarycoin,
+                                                                    "tradeAmountType": str(EnumBotTradeAmount(amountType).value),
                                                                     "tradeAmount": float(str(tradeamount).replace(',', '.')),
                                                                     "fee": float(str(fee).replace(',', '.')),
                                                                     "templateGuid": templateguid,
@@ -908,7 +996,7 @@ class CustomBotApi(ApiBase):
                                          response["ErrorMessage"], {})
 
     def setup_ping_pong_bot(self, accountguid: str, botguid: str, botname: str, primarycoin: str, secondarycoin: str,
-                            contractbame: str, leverage: float, tradeamount: float, position: str, fee: float):
+                            contractbame: str, leverage: float, amountType: EnumBotTradeAmount, tradeamount: float, position: str, fee: float):
         """ Modify Ping Pong bot
 
         :param accountguid: str: Account guid
@@ -918,6 +1006,7 @@ class CustomBotApi(ApiBase):
         :param secondarycoin: str: Secondary currency Ex. If BNB/BTC then set this to BTC
         :param contractname: str: Contract name (Optional)
         :param leverage: float: Leverage percentage to use (Optional)
+        :param amountType: :class:`~haasomeapi.enums.EnumBotTradeAmount` Trade amount type
         :param tradeamount: float: Trade amount to use
         :param position: str: Position bot should start in EX. For BNB/BTC if you have no BNB set to BTC
         :param fee: float: Fee percentage to be used in calculations
@@ -933,6 +1022,7 @@ class CustomBotApi(ApiBase):
                                                                     "secondaryCoin": secondarycoin,
                                                                     "contractName": contractbame,
                                                                     "leverage": float(str(leverage).replace(',', '.')),
+                                                                    "tradeAmountType": str(EnumBotTradeAmount(amountType).value),
                                                                     "tradeAmount": float(str(tradeamount).replace(',', '.')),
                                                                     "fee": float(str(fee).replace(',', '.')),
                                                                     "position": position})
@@ -944,8 +1034,8 @@ class CustomBotApi(ApiBase):
                                          response["ErrorMessage"], {})
 
     def setup_scalper_bot(self, accountguid: str, botguid: str, botname: str, primarycoin: str, secondarycoin: str,
-                          templateguid :str, contractbame: str, leverage: float, tradeamount: float, position: str, 
-                          fee: float , targetpercentage: float, safetythreshold: float):
+                          templateguid :str, contractname: str, leverage: float, amountType: EnumBotTradeAmount,
+                          tradeamount: float, position: str, fee: float , targetpercentage: float, safetythreshold: float):
         """ Modify Scalper bot
 
         :param accountguid: str: Account guid
@@ -954,8 +1044,9 @@ class CustomBotApi(ApiBase):
         :param primarycoin: str: Primary currency Ex. If BNB/BTC then set this to BNB
         :param secondarycoin: str: Secondary currency Ex. If BNB/BTC then set this to BTC
         :param templateguid: str: Order template to use Guid
-        :param contractbame: str: Contract name (Optional)
+        :param contractname: str: Contract name (Optional)
         :param leverage: float: Leverage percentage to use (Optional)
+        :param amountType: :class:`~haasomeapi.enums.EnumBotTradeAmount` Trade amount type
         :param tradeamount: float: Trade amount to use
         :param position: str: Position bot should start in EX. For BNB/BTC if you have no BNB set to BTC
         :param fee: float: Fee percentage to be used in calculations
@@ -972,8 +1063,9 @@ class CustomBotApi(ApiBase):
                                                                    "primaryCoin": primarycoin,
                                                                    "secondaryCoin": secondarycoin,
                                                                    "templateGuid": templateguid,
-                                                                   "contractName": contractbame,
+                                                                   "contractName": contractname,
                                                                    "leverage": float(str(leverage).replace(',', '.')),
+                                                                   "tradeAmountType": str(EnumBotTradeAmount(amountType).value),
                                                                    "tradeAmount": float(str(tradeamount).replace(',', '.')),
                                                                    "targetPercentage": float(str(targetpercentage).replace(',', '.')),
                                                                    "safetyThreshold": float(str(safetythreshold).replace(',', '.')),
@@ -1387,6 +1479,130 @@ class CustomBotApi(ApiBase):
         try:
             return HaasomeClientResponse(EnumErrorCode(int(response["ErrorCode"])), response["ErrorMessage"],
                                          self._convert_json_bot_to_custom_bot_specific(EnumCustomBotType.SCRIPT_BOT, response["Result"]))
+        except:
+            return HaasomeClientResponse(EnumErrorCode(int(response["ErrorCode"])),
+                                         response["ErrorMessage"], {})
+
+    def add_crypto_index_bot_index(self, botguid: str, index: CryptoIndexBotIndexSaveObject, realocatebalance: bool, raisebalance: bool):
+        """ Addes a index to preexiting crypto index bot
+        :param botguid: str: Custom bot guid
+        :param index: :class:`~haasomeapi.dataobjects.custombots.dataobjects.CryptoIndexBotIndexSaveObject` Index to add
+        :param reallocatebalance: bool: reallocate current index balance
+        :param raisebalance: bool: increase current index balance
+    
+        :returns: :class:`~haasomeapi.dataobjects.util.HaasomeClientResponse`
+        :returns: In .result :class:`~haasomeapi.dataobjects.custombots.CryptoIndexBot`: Crypto Index bot object 
+        """
+
+        response = super()._execute_request("/CryptoIndexBotAddIndex",{"botGuid": botguid,
+                                                                      "index": self._convert_index_to_json(index),
+                                                                      "raiseBalance": str(raisebalance).lower(),
+                                                                      "realocateBalance": str(realocatebalance).lower(),
+                                                                      })
+        try:
+            return HaasomeClientResponse(EnumErrorCode(int(response["ErrorCode"])),
+                                         response["ErrorMessage"], self._convert_json_bot_to_custom_bot_specific(EnumCustomBotType.CRYPTO_INDEX_BOT, response["Result"]))
+        except:
+            return HaasomeClientResponse(EnumErrorCode(int(response["ErrorCode"])),
+                                         response["ErrorMessage"], {})
+
+    def remove_crypto_index_bot_index(self, botguid: str, coin: str, lowerbalance: bool):
+        """ Removes a index from preexiting crypto index bot
+        :param botguid: str: Custom bot guid
+        :param coin: std: Coin to remove from index
+        :param lowerbalance: bool: Reduce the index balance
+    
+        :returns: :class:`~haasomeapi.dataobjects.util.HaasomeClientResponse`
+        :returns: In .result :class:`~haasomeapi.dataobjects.custombots.CryptoIndexBot`: Crypto Index bot object 
+        """
+
+        response = super()._execute_request("/CryptoIndexBotRemoveIndex",{"botGuid": botguid,
+                                                                          "coin": coin,
+                                                                          "lowerBalance": str(lowerbalance).lower(),
+                                                                          })
+        try:
+            return HaasomeClientResponse(EnumErrorCode(int(response["ErrorCode"])),
+                                         response["ErrorMessage"], self._convert_json_bot_to_custom_bot_specific(EnumCustomBotType.CRYPTO_INDEX_BOT, response["Result"]))
+        except:
+            return HaasomeClientResponse(EnumErrorCode(int(response["ErrorCode"])),
+                                         response["ErrorMessage"], {})
+
+    def add_advanced_index_bot_index(self, botguid: str, index: AdvancedIndexBotIndexSaveObject, realocatebalance: bool, raisebalance: bool):
+        """ Addes a index to preexiting advanced index bot
+        :param botguid: str: Custom bot guid
+        :param index: :class:`~haasomeapi.dataobjects.custombots.dataobjects.AdvancedIndexBotIndexSaveObject` Index to add
+        :param reallocatebalance: bool: reallocate current index balance
+        :param raisebalance: bool: increase current index balance
+    
+        :returns: :class:`~haasomeapi.dataobjects.util.HaasomeClientResponse`
+        :returns: In .result :class:`~haasomeapi.dataobjects.custombots.AdvancedIndexBot`: Crypto Index bot object 
+        """
+
+        response = super()._execute_request("/AdvancedIndexBotAddIndex",{"botGuid": botguid,
+                                                                      "index": self._convert_advanced_index_to_json(index),
+                                                                      "raiseBalance": str(raisebalance).lower(),
+                                                                      "realocateBalance": str(realocatebalance).lower(),
+                                                                      })
+        try:
+            return HaasomeClientResponse(EnumErrorCode(int(response["ErrorCode"])),
+                                         response["ErrorMessage"], self._convert_json_bot_to_custom_bot_specific(EnumCustomBotType.ADVANCED_INDEX_BOT, response["Result"]))
+        except:
+            return HaasomeClientResponse(EnumErrorCode(int(response["ErrorCode"])),
+                                         response["ErrorMessage"], {})
+
+
+    def remove_advanced_index_bot_index(self, botguid: str, coin: str, lowerbalance: bool):
+        """ Removes a index from preexiting advanced index bot
+        :param botguid: str: Custom bot guid
+        :param coin: std: Coin to remove from index
+        :param lowerbalance: bool: Reduce the index balance
+    
+        :returns: :class:`~haasomeapi.dataobjects.util.HaasomeClientResponse`
+        :returns: In .result :class:`~haasomeapi.dataobjects.custombots.AdvancedIndexBot`: Crypto Index bot object 
+        """
+
+        response = super()._execute_request("/AdvancedIndexBotRemoveIndex",{"botGuid": botguid,
+                                                                            "coin": coin,
+                                                                            "lowerBalance": str(lowerbalance).lower(),
+                                                                            })
+        try:
+            return HaasomeClientResponse(EnumErrorCode(int(response["ErrorCode"])),
+                                         response["ErrorMessage"], self._convert_json_bot_to_custom_bot_specific(EnumCustomBotType.ADVANCED_INDEX_BOT, response["Result"]))
+        except:
+            return HaasomeClientResponse(EnumErrorCode(int(response["ErrorCode"])),
+                                         response["ErrorMessage"], {})
+
+    def include_advanced_index_bot_index(self, botguid: str, coin: str):
+        """ Includes a excluded index from the advanced index bot
+        :param botguid: str: Custom bot guid
+        :param coin: std: Coin to include from index
+    
+        :returns: :class:`~haasomeapi.dataobjects.util.HaasomeClientResponse`
+        :returns: In .result :class:`~haasomeapi.dataobjects.custombots.AdvancedIndexBot`: Crypto Index bot object 
+        """
+
+        response = super()._execute_request("/AdvancedIndexBotIncludeIndex",{"botGuid": botguid,
+                                                                             "coin": coin,
+                                                                             })
+        try:
+            return HaasomeClientResponse(EnumErrorCode(int(response["ErrorCode"])),
+                                         response["ErrorMessage"], self._convert_json_bot_to_custom_bot_specific(EnumCustomBotType.ADVANCED_INDEX_BOT, response["Result"]))
+        except:
+            return HaasomeClientResponse(EnumErrorCode(int(response["ErrorCode"])),
+                                         response["ErrorMessage"], {})
+
+    def rebalance_advanced_index_bot_index(self, botguid: str):
+        """ Rebalance a advanced index bot
+        :param botguid: str: Custom bot guid
+    
+        :returns: :class:`~haasomeapi.dataobjects.util.HaasomeClientResponse`
+        :returns: In .result :class:`~haasomeapi.dataobjects.custombots.AdvancedIndexBot`: Crypto Index bot object 
+        """
+
+        response = super()._execute_request("/AdvancedIndexBotRebalanceBot",{"botGuid": botguid})
+        try:
+            return HaasomeClientResponse(EnumErrorCode(int(response["ErrorCode"])),
+                                         response["ErrorMessage"], self._convert_json_bot_to_custom_bot_specific(EnumCustomBotType.ADVANCED_INDEX_BOT, response["Result"]))
         except:
             return HaasomeClientResponse(EnumErrorCode(int(response["ErrorCode"])),
                                          response["ErrorMessage"], {})

@@ -2,6 +2,8 @@
 
 WARNING: This Library is still in active development and far from a stable production state. Changes and updates will be frequent and the pip package will be updated constantly. Please report any problems has issues and they will be fixed immediatly.
 
+WARNING: Has of the version 2.3.1.0 release the api has changed with haasonline software. If you are using a version prior to 2.3.1.0 you will also need to use a older version of the api. If you attempt to use version 2.3.1.0 of the haasomeapi on a haas version older than 2.3.1 it will not work correctly.
+
 A Python library to access the Local Api on the Haasonline Trading Platform. Its light weight and extremely easy to use designed to follow the same design paradigm has the rest api and the official c# api wrapper. Making it easy to swap between the two libraries and look up endpoints if need be.
 
 * Api Documentation: [Link](https://haasome-tools.github.io/haasomeapi/)

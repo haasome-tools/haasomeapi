@@ -7,6 +7,7 @@ from haasomeapi.dataobjects.marketdata.Market import Market
 from haasomeapi.dataobjects.accountdata.BaseOrder import BaseOrder
 
 from haasomeapi.enums.EnumOrderType import EnumOrderType
+from haasomeapi.enums.EnumFundPosition import EnumFundPosition
 from haasomeapi.enums.EnumCurrencyType import EnumCurrencyType
 from haasomeapi.enums.EnumCustomBotType import EnumCustomBotType
 from haasomeapi.enums.EnumBotTradeAmount import EnumBotTradeAmount
@@ -927,7 +928,8 @@ class CustomBotApi(ApiBase):
 
     def setup_mad_hatter_bot(self, accountguid: str, botguid: str, botname: str, primarycoin: str, secondarycoin: str,
                              templateguid: str, position: str, fee: float, amountType: EnumBotTradeAmount, 
-                             tradeamount: float, useconsensus: bool, disableafterstoploss: bool, interval: int, includeincompleteinterval: bool):
+                             tradeamount: float, useconsensus: bool, disableafterstoploss: bool, interval: int, includeincompleteinterval: bool,
+                             mappedbuysignal: EnumBotTradeAmount, mappedsellsignal: EnumBotTradeAmount):
         """ Modify Mad Hatter bot
 
         :param accountguid: str: Account guid
@@ -962,7 +964,10 @@ class CustomBotApi(ApiBase):
                                                                     "useTwoSignals": str(useconsensus).lower(),
                                                                     "disableAfterStopLoss": str(disableafterstoploss).lower(),
                                                                     "interval": interval,
-                                                                    "includeIncompleteInterval": str(includeincompleteinterval).lower()})
+                                                                    "includeIncompleteInterval": str(includeincompleteinterval).lower(),
+                                                                    "mappedBuySignal": str(EnumFundPosition(mappedbuysignal).value),
+                                                                    "mappedSellSignal": str(EnumFundPosition(mappedsellsignal).value)
+                                                                   })
         try:
             return HaasomeClientResponse(EnumErrorCode(int(response["ErrorCode"])),
                                          response["ErrorMessage"], self._convert_json_bot_to_custom_bot_specific(EnumCustomBotType.MAD_HATTER_BOT, response["Result"]))

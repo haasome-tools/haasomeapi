@@ -204,6 +204,13 @@ haasomeapi.enums.EnumTradeType module
     :undoc-members:
     :show-inheritance:
 
+haasomeapi.enums.EnumFundPosition module
+----------------------------------------
+
+.. automodule:: haasomeapi.enums.EnumFundPosition
+    :members:
+    :undoc-members:
+    :show-inheritance:
 
 Module contents
 ---------------

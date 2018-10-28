@@ -44,6 +44,7 @@ Inside the file lets add the following lines ignoring the three ">"
 
 >>>
 from haasomeapi.HaasomeClient import HaasomeClient
+from haasomeapi.enums.EnumErrorCode import EnumErrorCode
 from haasomeapi.enums.EnumOrderType import EnumOrderType
 from haasomeapi.enums.EnumCustomBotType import EnumCustomBotType
 from haasomeapi.enums.EnumBotTradeAmount import EnumBotTradeAmount
@@ -54,7 +55,7 @@ What we are doing here is importing our api library and then creating a initial 
 >>>
 try:
     testCredsResult = haasomeClient.test_credentials()
-    if testCredsResult.result == EnumErrorCode.SUCCESS:
+    if testCredsResult.errorCode == EnumErrorCode.SUCCESS:
         print("Connection Succesfull and Secret Is Correct")
     else:
         print("Connection Failed but Ip and Port are correct")

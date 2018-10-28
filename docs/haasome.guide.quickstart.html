@@ -13,6 +13,7 @@
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="haasomeapi.apis.AccountDataApi module" href="haasomeapi.apis.AccountDataApi.html" />
@@ -75,6 +76,7 @@ We are going to assume you setup the local api ip to 127.0.0.1 and the port to 9
 <p>Inside the file lets add the following lines ignoring the three “&gt;”</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="go">&gt;&gt;&gt;</span>
 <span class="go">from haasomeapi.HaasomeClient import HaasomeClient</span>
+<span class="go">from haasomeapi.enums.EnumErrorCode import EnumErrorCode</span>
 <span class="go">from haasomeapi.enums.EnumOrderType import EnumOrderType</span>
 <span class="go">from haasomeapi.enums.EnumCustomBotType import EnumCustomBotType</span>
 <span class="go">from haasomeapi.enums.EnumBotTradeAmount import EnumBotTradeAmount</span>
@@ -85,7 +87,7 @@ We are going to assume you setup the local api ip to 127.0.0.1 and the port to 9
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="go">&gt;&gt;&gt;</span>
 <span class="go">try:</span>
 <span class="go">    testCredsResult = haasomeClient.test_credentials()</span>
-<span class="go">    if testCredsResult.result == EnumErrorCode.SUCCESS:</span>
+<span class="go">    if testCredsResult.errorCode == EnumErrorCode.SUCCESS:</span>
 <span class="go">        print(&quot;Connection Succesfull and Secret Is Correct&quot;)</span>
 <span class="go">    else:</span>
 <span class="go">        print(&quot;Connection Failed but Ip and Port are correct&quot;)</span>
@@ -250,6 +252,14 @@ We are going to assume you setup the local api ip to 127.0.0.1 and the port to 9
     </div>
 </div>
 <script type="text/javascript">$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
         </div>
       </div>
       <div class="clearer"></div>
@@ -258,8 +268,8 @@ We are going to assume you setup the local api ip to 127.0.0.1 and the port to 9
       &copy;2018, Raynaldo Rivera.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.7.8</a>
-      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.11</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.8.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
       
       |
       <a href="_sources/haasome.guide.quickstart.rst.txt"

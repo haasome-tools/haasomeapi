@@ -34,8 +34,8 @@ class TradeApi(ApiBase):
         data = {"accountGuid": accountguid,
                 "primaryCoin": primarycoin,
                 "secondaryCoin": secondarycoin,
-                "price": float(str(price).replace(',', '.')),
-                "amount": float(str(amount).replace(',', '.'))}
+                "price": '{0:.08f}'.format(float(str(price).replace(',', '.'))),
+                "amount": '{0:.08f}'.format(float(str(amount).replace(',', '.')))}
 
         if timeout > 0:
             data["timeout"] = str(timeout)
@@ -75,8 +75,8 @@ class TradeApi(ApiBase):
         data = {"accountGuid": accountguid,
                 "primaryCoin": primarycoin,
                 "secondaryCoin": secondarycoin,
-                "price": float(str(price).replace(',', '.')),
-                "amount": float(str(amount).replace(',', '.'))}
+                "price": '{0:.08f}'.format(float(str(price).replace(',', '.'))),
+                "amount": '{0:.08f}'.format(float(str(amount).replace(',', '.')))}
 
         if timeout > 0:
             data["timeout"] = str(timeout)
@@ -119,8 +119,8 @@ class TradeApi(ApiBase):
         data = {"accountGuid": accountguid,
                 "primaryCoin": primarycoin,
                 "secondaryCoin": secondarycoin,
-                "price": float(str(price).replace(',', '.')),
-                "amount": float(str(amount).replace(',', '.')),
+                "price": '{0:.08f}'.format(float(str(price).replace(',', '.'))),
+                "amount": '{0:.08f}'.format(float(str(amount).replace(',', '.')))}
                 "leverage": float(str(leverage).replace(',', '.'))}
 
         if timeout > 0:
@@ -167,8 +167,8 @@ class TradeApi(ApiBase):
         data = {"accountGuid": accountguid,
                 "primaryCoin": primarycoin,
                 "secondaryCoin": secondarycoin,
-                "price": float(str(price).replace(',', '.')),
-                "amount": float(str(amount).replace(',', '.')),
+                "price": '{0:.08f}'.format(float(str(price).replace(',', '.'))),
+                "amount": '{0:.08f}'.format(float(str(amount).replace(',', '.')))}
                 "leverage": float(str(leverage).replace(',', '.'))}
 
         if timeout > 0:
@@ -215,8 +215,8 @@ class TradeApi(ApiBase):
         data = {"accountGuid": accountguid,
                 "primaryCoin": primarycoin,
                 "secondaryCoin": secondarycoin,
-                "price": float(str(price).replace(',', '.')),
-                "amount": float(str(amount).replace(',', '.')),
+                "price": '{0:.08f}'.format(float(str(price).replace(',', '.'))),
+                "amount": '{0:.08f}'.format(float(str(amount).replace(',', '.')))}
                 "leverage": float(str(leverage).replace(',', '.'))}
 
         if timeout > 0:
@@ -263,8 +263,8 @@ class TradeApi(ApiBase):
         data = {"accountGuid": accountguid,
                 "primaryCoin": primarycoin,
                 "secondaryCoin": secondarycoin,
-                "price": float(str(price).replace(',', '.')),
-                "amount": float(str(amount).replace(',', '.')),
+                "price": '{0:.08f}'.format(float(str(price).replace(',', '.'))),
+                "amount": '{0:.08f}'.format(float(str(amount).replace(',', '.')))}
                 "leverage": float(str(leverage).replace(',', '.'))}
 
         if timeout > 0:

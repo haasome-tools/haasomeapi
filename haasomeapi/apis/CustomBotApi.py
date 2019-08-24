@@ -1602,7 +1602,8 @@ class CustomBotApi(ApiBase):
     def rebalance_advanced_index_bot_index(self, botguid: str):
         """ Rebalance a advanced index bot
         :param botguid: str: Custom bot guid
-    
+     
+     
         :returns: :class:`~haasomeapi.dataobjects.util.HaasomeClientResponse`
         :returns: In .result :class:`~haasomeapi.dataobjects.custombots.AdvancedIndexBot`: Crypto Index bot object 
         """

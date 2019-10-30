@@ -54,6 +54,9 @@ class TradeBotApi(ApiBase):
             indicator.indicatorInterface = indicatoroptions
             indicators[k] = indicator
 
+
+
+
         for k, v in botinitial.safeties.items():
             safetyoptions = []
             safety = super()._from_json(v, Safety)
@@ -287,7 +290,7 @@ class TradeBotApi(ApiBase):
                                          response["ErrorMessage"], {})
 
     def setup_trade_bot(self, accountguid: str, botguid: str, botname: str, primarycoin: str, secondarycoin: str,
-                        contractname: str, leverage: float, groupid: str, useconsensus: bool, copymarketstoelements: bool):
+                        contractname: str, leverage: float, groupid: str, useconsensus: bool, buyweight, sellweight,longweight,shortweight, exitweight,copymarketstoelements: bool):
         """ Modify a trade bot
 
         :param accountguid: str: Account guid
@@ -305,7 +308,7 @@ class TradeBotApi(ApiBase):
         :returns: In .result :class:`~haasomeapi.dataobjects.tradebot.TradeBot`: Trade bot object
         """
 
-        response = super()._execute_request("/SetupSpotBotTradeAmount",  {"botGuid": botguid,
+        response = super()._execute_request("/SetupTradeBot",  {"botGuid": botguid,
                                                                           "botName": botname,
                                                                           "accountGuid": accountguid,
                                                                           "primaryCoin": primarycoin,
@@ -314,6 +317,11 @@ class TradeBotApi(ApiBase):
                                                                           "leverage": float(str(leverage).replace(',', '.')),
                                                                           "groupId": groupid,
                                                                           "useConsensus": str(useconsensus).lower(),
+                                                                          "buyWeight": buyweight,
+                                                                          "sellWeight": sellweight,
+                                                                          "longWeight": longweight,
+                                                                          "shortWeight": shortweight,
+                                                                          "exitWeight": exitweight,
                                                                           "copyMarketToElements": str(copymarketstoelements).lower()})
         try:
             return HaasomeClientResponse(EnumErrorCode(int(response["ErrorCode"])),
@@ -449,7 +457,7 @@ class TradeBotApi(ApiBase):
         """
 
         response = super()._execute_request("/AddIndicator",  {"botGuid": botguid,
-                                                               "indicatorType": EnumSafety(indicatortype).name.capitalize()})
+                                                               "indicatorType": EnumIndicator(indicatortype).name}) #removed .capitalize() from the name tag
 
         try:
             return HaasomeClientResponse(EnumErrorCode(int(response["ErrorCode"])),

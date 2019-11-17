@@ -744,7 +744,8 @@ class CustomBotApi(ApiBase):
                               fee: float, baseprice: float,  priceSpreadType: EnumFlashSpreadOptions, pricespread: float,
                               percentageboost: float, minpercentage: float, maxpercentage: float, amounttype: EnumCurrencyType,
                               amountspread: float, buyamount: float, sellamount: float, refilldelay: int, safetyenabled: bool,
-                              safetytriggerlevel: float, safetymoveinout: bool, followthetrend: bool, followthetrendchannelrange: int,
+                              safetytriggerlevel: float, safetymovein: bool,
+                              safetymoveout: bool, followthetrend: bool, followthetrendchannelrange: int,
                               followthetrendchanneloffset: int, followthetrendtimeout: int):
         """ Modify a Flash Crash bot
 
@@ -776,6 +777,8 @@ class CustomBotApi(ApiBase):
         :returns: :class:`~haasomeapi.dataobjects.util.HaasomeClientResponse`
         :returns: In .result :class:`~haasomeapi.dataobjects.custombots.FlashCrashBot`: Flash Crash bot object
         """
+        # if priceSpreadType = 0:
+            
 
         response = super()._execute_request("/SetupFlashCrashBot",  {"botGuid": botguid,
                                                                      "botName": botname,
@@ -796,7 +799,8 @@ class CustomBotApi(ApiBase):
                                                                      "refillDelay": refilldelay,
                                                                      "safetyEnabled": str(safetyenabled).lower(),
                                                                      "safetyTriggerLevel": safetytriggerlevel,
-                                                                     "safetyMoveInOut": str(safetymoveinout).lower(),
+                                                                     "safetyMoveOut": str(safetymoveout),
+                                                                     "safetyMoveIn":str(safetymovein),
                                                                      "fttEnabled": str(followthetrend).lower(),
                                                                      "fttRange": followthetrendchannelrange,
                                                                      "fttOffset": followthetrendchanneloffset,
@@ -926,6 +930,9 @@ class CustomBotApi(ApiBase):
             return HaasomeClientResponse(EnumErrorCode(int(response["ErrorCode"])),
                                          response["ErrorMessage"], {})
 
+    
+
+    
     def setup_mad_hatter_bot(self, botName: str, botGuid: str, accountGuid: str, primaryCoin: str, secondaryCoin: str, contractName: str, leverage: str, templateGuid: str, position: str, fee: float, tradeAmountType:  EnumBotTradeAmount, tradeAmount: float, useconsensus:bool, disableAfterStopLoss: bool,
                              interval: int, includeIncompleteInterval: bool, mappedBuySignal: EnumFundPosition, mappedSellSignal: EnumFundPosition):
         """ Modify Mad Hatter bot
@@ -946,6 +953,8 @@ class CustomBotApi(ApiBase):
         :param disableAfterStopLoss: bool: Disable bot after stop loss
         :param interval: int: Price Ticker Minute Interval. Ex. 1,2,3,,5,15,30, etc
         :param includeIncompleteInterval: bool: Allow a incomplete price ticker
+        :param mappedBuySignal: str: mappedBuySignal
+        :param mappedSellSignal: str: mappedSellSignal
 
         :returns: :class:`~haasomeapi.dataobjects.util.HaasomeClientResponse`
         :returns: In .result :class:`~haasomeapi.dataobjects.custombots.MadHatterBot`: Mad Hatter bot object
@@ -977,7 +986,7 @@ class CustomBotApi(ApiBase):
         except:
             return HaasomeClientResponse(EnumErrorCode(int(response["ErrorCode"])),
                                          response["ErrorMessage"], {})
-
+    
     def setup_order_bot(self, accountguid: str, botguid: str, botname: str, primarycoin: str, secondarycoin: str):
         """ Modify Order bot
 
@@ -1602,8 +1611,7 @@ class CustomBotApi(ApiBase):
     def rebalance_advanced_index_bot_index(self, botguid: str):
         """ Rebalance a advanced index bot
         :param botguid: str: Custom bot guid
-     
-     
+    
         :returns: :class:`~haasomeapi.dataobjects.util.HaasomeClientResponse`
         :returns: In .result :class:`~haasomeapi.dataobjects.custombots.AdvancedIndexBot`: Crypto Index bot object 
         """

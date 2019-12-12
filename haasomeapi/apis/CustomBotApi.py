@@ -50,7 +50,7 @@ class CustomBotApi(ApiBase):
 
     def _convert_json_bot_to_custom_bot_object(self, jsonstr: str):
         """ Internal function to easily convert json strings to BaseCustomBot objects
-        :param jsonstr: str: 
+        :param jsonstr: str:
 
         :returns: :class:`~haasomeapi.dataobjects.custombots.BaseCustomBot`
         """
@@ -71,7 +71,7 @@ class CustomBotApi(ApiBase):
     def _convert_json_bot_to_custom_bot_specific(self, bottype: EnumCustomBotType, jsonstr: str):
         """ Internal function to easily convert json strings to specific custom bot objects
         :param bottype: :class:`~haasomeapi.enums.EnumCustomBotType`
-        :param jsonstr: str: 
+        :param jsonstr: str:
         :returns: any: Returns a Class Instance of bottype specified
         """
 
@@ -124,23 +124,23 @@ class CustomBotApi(ApiBase):
     def _convert_index_to_json(self, index: CryptoIndexBotIndexSaveObject):
 
         index = {
-            "coin": index.coin, 
+            "coin": index.coin,
             "amount": index.amount,
             "buyThreshold": index.buyThreshold,
-            "sellThreshold": index.sellThreshold, 
+            "sellThreshold": index.sellThreshold,
             "stopLoss": index.stopLoss
         }
 
         return json.dumps(index,sort_key=True)
 
     def _convert_advanced_index_to_json(self, index: AdvancedIndexBotIndexSaveObject):
-        
+
         index = {
-            "coin": index.coin, 
-            "allocatedPercentage": index.allocatedPercentage, 
+            "coin": index.coin,
+            "allocatedPercentage": index.allocatedPercentage,
             "buyThreshold": index.buyThreshold,
-            "sellThreshold": index.sellThreshold, 
-            "stopLoss": index.stopLoss, 
+            "sellThreshold": index.sellThreshold,
+            "stopLoss": index.stopLoss,
             "trailingStop": index.trailingStop
         }
 
@@ -149,7 +149,7 @@ class CustomBotApi(ApiBase):
     def _convert_index_list_to_json(self, index: List[CryptoIndexBotIndexSaveObject]):
         """ Internal fucntion to converts a CryptoIndexBotIndexSaveObject list to a json string
 
-        :param index: List[CryptoIndexBotIndexSaveObject]: 
+        :param index: List[CryptoIndexBotIndexSaveObject]:
 
         :returns: str: Json string representation of specified list
         """
@@ -165,7 +165,7 @@ class CustomBotApi(ApiBase):
     def _convert_advanced_index_list_to_json(self, index: List[AdvancedIndexBotIndexSaveObject]):
         """ Internal fucntion to converts a CryptoIndexBotIndexSaveObject list to a json string
 
-        :param index: List[CryptoIndexBotIndexSaveObject]: 
+        :param index: List[CryptoIndexBotIndexSaveObject]:
 
         :returns: str: Json string representation of specified list
         """
@@ -181,7 +181,7 @@ class CustomBotApi(ApiBase):
     def _convert_emails_list_to_json(self, actions: List[EmailBotAction]):
         """ Internal fucntion to converts a EmailBotAction list to a json string
 
-        :param actions: List[EmailBotAction]: 
+        :param actions: List[EmailBotAction]:
 
         :returns: str: Json string representation of the specified list
         """
@@ -207,7 +207,7 @@ class CustomBotApi(ApiBase):
 
         :returns: str: Correct Name for enum
         """
-        
+
         botname = ""
 
         if bottype == EnumCustomBotType.MARKET_MAKING_BOT:
@@ -282,7 +282,7 @@ class CustomBotApi(ApiBase):
         """ Returns custom bot matching bot guid
 
         :param botguid: str: Custom bot guid
-        :param bottype: :class:`~haasomeapi.enums.EnumCustomBotType`: Type of bot to return 
+        :param bottype: :class:`~haasomeapi.enums.EnumCustomBotType`: Type of bot to return
 
         :returns: :class:`~haasomeapi.dataobjects.util.HaasomeClientResponse`
         :returns: In .result any: Specified bottype object
@@ -322,7 +322,7 @@ class CustomBotApi(ApiBase):
 
         :param botguid: str: Custm bot guid
         :param withextra: bool: with extra
-        
+
         :returns: :class:`~haasomeapi.dataobjects.util.HaasomeClientResponse`
         :returns: Int .result bool: If deactivation was successful
         """
@@ -341,7 +341,7 @@ class CustomBotApi(ApiBase):
         """ Create a new custom bot
 
         :param accountguid: str: Account guid
-        :param bottype: :class:`~haasomeapi.enums.EnumCustomBotType`: The bottype to create 
+        :param bottype: :class:`~haasomeapi.enums.EnumCustomBotType`: The bottype to create
         :param botname: str: Name for the new custom bot
         :param primarycoin: str: Primary currency Ex. If BNB/BTC then set this to BNB
         :param secondarycoin: str: Secondary currency Ex. If BNB/BTC then set this to BTC
@@ -369,7 +369,7 @@ class CustomBotApi(ApiBase):
         """ Create a new custom bot from market object
 
         :param accountguid: str: Account guid
-        :param bottype: :class:`~haasomeapi.enums.EnumCustomBotType`: The bottype to create 
+        :param bottype: :class:`~haasomeapi.enums.EnumCustomBotType`: The bottype to create
         :param botname: str: Name for the new custom bot
         :parama market: :class:`~haasomeapi.dataobjects.marketdata.Market`: Market object to use
 
@@ -434,7 +434,7 @@ class CustomBotApi(ApiBase):
         :param bottype: :class:`~haasomeapi.enums.EnumCustomBotType`: Custom bot type to return
 
         :returns: :class:`~haasomeapi.dataobjects.util.HaasomeClientResponse`
-        :returns: In .result any: Specified custom bot object 
+        :returns: In .result any: Specified custom bot object
         """
 
         response = super()._execute_request("/ClearCustomBot",  {"botGuid": botguid})
@@ -451,7 +451,7 @@ class CustomBotApi(ApiBase):
 
         :param botguid: str: Custom bot guid
         :param minutestotest: int: Amount of minutes to test in the past
-        
+
         :returns: :class:`~haasomeapi.dataobjects.util.HaasomeClientResponse`
         :returns: In .result :class:`~haasomeapi.dataobjects.custombots.BaseCustomBot`: BaseCustomBot of the bot that was backtested
         """
@@ -515,13 +515,13 @@ class CustomBotApi(ApiBase):
             return HaasomeClientResponse(EnumErrorCode(int(response["ErrorCode"])),
                                          response["ErrorMessage"], {})
 
-    def clone_custom_bot(self, accountguid: str, botguid: str, bottype: EnumCustomBotType,botname: str, 
+    def clone_custom_bot(self, accountguid: str, botguid: str, bottype: EnumCustomBotType,botname: str,
                          primarycoin: str,secondarycoin: str, contractname: str, leverage: float):
         """ Clone a custom bot
 
         :param accountguid: str: Account guid
         :param botguid: str: Custom bot guid
-        :param bottype: :class:`~haasomeapi.enums.EnumCustomBotType`: The bottype to create 
+        :param bottype: :class:`~haasomeapi.enums.EnumCustomBotType`: The bottype to create
         :param botname: str: Name for the new custom bot
         :param primarycoin: str: Primary currency Ex. If BNB/BTC then set this to BNB
         :param secondarycoin: str: Secondary currency Ex. If BNB/BTC then set this to BTC
@@ -586,8 +586,8 @@ class CustomBotApi(ApiBase):
         :param randomordersizey: float: Random order size end
         :param randomordertimex: int: Random order time in seconds start
         :param randomordertimey: int: Random order time in seconds stop
-        :param direction: :class:`~haasomeapi.enums.EnumOrderType`: Order direction (buy/sell) 
-        :param triggeronprice: bool: Trigger on a specific price 
+        :param direction: :class:`~haasomeapi.enums.EnumOrderType`: Order direction (buy/sell)
+        :param triggeronprice: bool: Trigger on a specific price
         :param triggerwhenhigher: bool: Trigger when marker price is higher than trigger price
         :param triggervalue: float: Trigger price
 
@@ -623,7 +623,7 @@ class CustomBotApi(ApiBase):
 
         :param accountguid: str: Account guid
         :param botguid: str: Custom bot guid
-        :param botname: str: Name for the new custom bot 
+        :param botname: str: Name for the new custom bot
         :param templateguid: str: Order template to use GUID
         :param basecoin: str: The base currency for the index bot Ex. BTC
         :param totalIndexValue: float: Total value the index should be using.
@@ -652,13 +652,13 @@ class CustomBotApi(ApiBase):
                                          response["ErrorMessage"], {})
 
     def setup_advanced_index_bot(self, accountguid: str, botguid: str, botname: str, templateguid: str, basecoin: str,
-                               totalIndexValue: float, rebalanceInterval: int, rebalanceType: EnumAdvancedIndexBotRebalanceType, 
+                               totalIndexValue: float, rebalanceInterval: int, rebalanceType: EnumAdvancedIndexBotRebalanceType,
                                allocateProfits: bool, preserveBaseIndexPrecentage:bool, index: List[AdvancedIndexBotIndexSaveObject] ):
         """ Modify a Crypto Index bot
 
         :param accountguid: str: Account guid
         :param botguid: str: Custom bot guid
-        :param botname: str: Name for the new custom bot 
+        :param botname: str: Name for the new custom bot
         :param templateguid: str: Order template to use GUID
         :param basecoin: str: The base currency for the index bot Ex. BTC
         :param totalIndexValue: float: Total value the index should be using.
@@ -708,7 +708,7 @@ class CustomBotApi(ApiBase):
         :param fee: float: Fee percentage to be used in calculations
         :param templateguid: str: Order template to be used GUID
         :param position: str: Position bot should start in EX. For BNB/BTC if you have no BNB set to BTC
-        :param actions: List[:class:`~haasomeapi.dataobjects.custombots.dataobjects.EmailBotAction`]: List of :class:`~haasomeapi.dataobjects.custombots.dataobjects.EmailBotAction` to build the email bot from 
+        :param actions: List[:class:`~haasomeapi.dataobjects.custombots.dataobjects.EmailBotAction`]: List of :class:`~haasomeapi.dataobjects.custombots.dataobjects.EmailBotAction` to build the email bot from
         :param stoploss: float: Stop loss percentage
         :param minchangetobuy: float: Min Change To Buy insurance setting
         :param minchangetosell: float: Min Change To Sell Insurance setting
@@ -756,12 +756,12 @@ class CustomBotApi(ApiBase):
         :param secondarycoin: str: Secondary currency Ex. If BNB/BTC then set this to BTC
         :param fee: float: Fee percentage to be used in calculations
         :param baseprice: float: Base price for FCB to start at
-        :param priceSpreadType: :class:`~haasomeapi.enums.EnumFlashSpreadOptions`: FCB Spread Type 
+        :param priceSpreadType: :class:`~haasomeapi.enums.EnumFlashSpreadOptions`: FCB Spread Type
         :param pricespread: float: Price spread value
         :param percentageboost: float: Percentage boost value to be set with PercentageBoost spread type.
         :param minpercentage: float: Min Percentage value to be used with percentage spread type
         :param maxpercentage: float: Max Percentage value to be used with percentage spread type
-        :param amounttype: :class:`~haasomeapi.enums.EnumCurrencyType`: Currency type 
+        :param amounttype: :class:`~haasomeapi.enums.EnumCurrencyType`: Currency type
         :param amountspread: float: Current amount spread value
         :param buyamount: float: Number of buy orders
         :param sellamount: float: Number of sell orders
@@ -778,7 +778,7 @@ class CustomBotApi(ApiBase):
         :returns: In .result :class:`~haasomeapi.dataobjects.custombots.FlashCrashBot`: Flash Crash bot object
         """
         # if priceSpreadType = 0:
-            
+
 
         response = super()._execute_request("/SetupFlashCrashBot",  {"botGuid": botguid,
                                                                      "botName": botname,
@@ -903,7 +903,7 @@ class CustomBotApi(ApiBase):
         :param secondarycoin: str: Secondary currency Ex. If BNB/BTC then set this to BTC
         :param tradeamount: float: Trade amount to use
         :param fee: float: Fee percentage to be used in calculations
-        :param offset: float: First order offset value 
+        :param offset: float: First order offset value
         :param resettimeout: int: Reset timeout in minutes
         :param usedsecondorder: bool: Use a second order
         :param secondoffset: float: Second order offset
@@ -930,9 +930,9 @@ class CustomBotApi(ApiBase):
             return HaasomeClientResponse(EnumErrorCode(int(response["ErrorCode"])),
                                          response["ErrorMessage"], {})
 
-    
 
-    
+
+
     def setup_mad_hatter_bot(self, botName: str, botGuid: str, accountGuid: str, primaryCoin: str, secondaryCoin: str, contractName: str, leverage: str, templateGuid: str, position: str, fee: float, tradeAmountType:  EnumBotTradeAmount, tradeAmount: float, useconsensus:bool, disableAfterStopLoss: bool,
                              interval: int, includeIncompleteInterval: bool, mappedBuySignal: EnumFundPosition, mappedSellSignal: EnumFundPosition):
         """ Modify Mad Hatter bot
@@ -986,7 +986,7 @@ class CustomBotApi(ApiBase):
         except:
             return HaasomeClientResponse(EnumErrorCode(int(response["ErrorCode"])),
                                          response["ErrorMessage"], {})
-    
+
     def setup_order_bot(self, accountguid: str, botguid: str, botname: str, primarycoin: str, secondarycoin: str):
         """ Modify Order bot
 
@@ -995,7 +995,7 @@ class CustomBotApi(ApiBase):
         :param botname: str: Name for the new custom bot
         :param primarycoin: str: Primary currency Ex. If BNB/BTC then set this to BNB
         :param secondarycoin: str: Secondary currency Ex. If BNB/BTC then set this to BTC
-        
+
         :returns: :class:`~haasomeapi.dataobjects.util.HaasomeClientResponse`
         :returns: In .result :class:`~haasomeapi.dataobjects.custombots.OrderBot`: Order bot object
         """
@@ -1012,7 +1012,7 @@ class CustomBotApi(ApiBase):
             return HaasomeClientResponse(EnumErrorCode(int(response["ErrorCode"])),
                                          response["ErrorMessage"], {})
 
-    def setup_ping_pong_bot(self, accountguid: str, botguid: str, botname: str, primarycoin: str, secondarycoin: str,
+    def setup_ping_pong_bot(self, accountguid: str, botguid: str, botname: str, primarycoin: str, secondarycoin: str, templateguid: str,
                             contractbame: str, leverage: float, amountType: EnumBotTradeAmount, tradeamount: float, position: str, fee: float):
         """ Modify Ping Pong bot
 
@@ -1021,6 +1021,7 @@ class CustomBotApi(ApiBase):
         :param botname: str: Name for the new custom bot
         :param primarycoin: str: Primary currency Ex. If BNB/BTC then set this to BNB
         :param secondarycoin: str: Secondary currency Ex. If BNB/BTC then set this to BTC
+        :param templateguid: str: Order template to use Guid
         :param contractname: str: Contract name (Optional)
         :param leverage: float: Leverage percentage to use (Optional)
         :param amountType: :class:`~haasomeapi.enums.EnumBotTradeAmount` Trade amount type
@@ -1037,6 +1038,7 @@ class CustomBotApi(ApiBase):
                                                                     "accountGuid": accountguid,
                                                                     "primaryCoin": primarycoin,
                                                                     "secondaryCoin": secondarycoin,
+                                                                    "templateGuid": templateguid,
                                                                     "contractName": contractbame,
                                                                     "leverage": float(str(leverage).replace(',', '.')),
                                                                     "tradeAmountType": str(EnumBotTradeAmount(amountType).value),
@@ -1067,8 +1069,8 @@ class CustomBotApi(ApiBase):
         :param tradeamount: float: Trade amount to use
         :param position: str: Position bot should start in EX. For BNB/BTC if you have no BNB set to BTC
         :param fee: float: Fee percentage to be used in calculations
-        :param targetpercentage: float: 
-        :param safetythreshold: float: 
+        :param targetpercentage: float:
+        :param safetythreshold: float:
 
         :returns: :class:`~haasomeapi.dataobjects.util.HaasomeClientResponse`
         :returns: In .result :class:`~haasomeapi.dataobjects.custombots.ScalperBot`: Scalper bot object
@@ -1096,7 +1098,7 @@ class CustomBotApi(ApiBase):
                                          response["ErrorMessage"], {})
 
     def setup_script_bot(self, accountguid: str, botguid: str, botname: str, primarycoin: str, secondarycoin: str,
-                         templateguid :str, contractbame: str, leverage: float, tradeamount: float, position: str, 
+                         templateguid :str, contractbame: str, leverage: float, tradeamount: float, position: str,
                          fee: float,scriptid: str):
         """ Modify Script bot
 
@@ -1105,7 +1107,7 @@ class CustomBotApi(ApiBase):
         :param botname: str: Name for the new custom bot
         :param primarycoin: str: Primary currency Ex. If BNB/BTC then set this to BNB
         :param secondarycoin: str: Secondary currency Ex. If BNB/BTC then set this to BTC
-       
+
         :param templateguid :str: Order template to use Guid
         :param contractbame: str: Contract name (Optional)
         :param leverage: float: Leverage percentage to use (Optional)
@@ -1151,7 +1153,7 @@ class CustomBotApi(ApiBase):
         :param contractname: str: Contract name (Optional)
         :param leverage: float: Leverage percentage to use (Optional)
         :param tradeamount: float: Trade amount to use
-        :param maxtradeamount: float: Max Trade amount 
+        :param maxtradeamount: float: Max Trade amount
         :param factorlong: float: Factor long value
         :param factorshort: float: Factor short value
         :param targetprofit: float: Target profit percentage
@@ -1184,7 +1186,7 @@ class CustomBotApi(ApiBase):
 
     def flash_crash_bot_quck_start(self, botguid: str):
         """ Flash crash quick start (Do not replace orders)
-        
+
         :param botguid: str: Custom bot guid
 
         :returns: :class:`~haasomeapi.dataobjects.util.HaasomeClientResponse`
@@ -1288,8 +1290,8 @@ class CustomBotApi(ApiBase):
         """ Modify Mad Hatter Indicator Parameter
 
         :param botguid: str: Custom bot guid
-        :param type: :class:`~haasomeapi.enums.EnumMadHatterIndicators`: Indicator type to modify 
-        :param fieldNo: int: Field to modify 
+        :param type: :class:`~haasomeapi.enums.EnumMadHatterIndicators`: Indicator type to modify
+        :param fieldNo: int: Field to modify
         :param value: any: Value for the field
 
         :returns: :class:`~haasomeapi.dataobjects.util.HaasomeClientResponse`
@@ -1312,7 +1314,7 @@ class CustomBotApi(ApiBase):
         """ Modify Mad hatter Safety Parameter
 
         :param botguid: str: Custom Bot guid
-        :param type: :class:`~haasomeapi.enums.EnumMadHatterSafeties`: Safety Type to modify 
+        :param type: :class:`~haasomeapi.enums.EnumMadHatterSafeties`: Safety Type to modify
         :param value: any: Safety Value
 
         :returns: :class:`~haasomeapi.dataobjects.util.HaasomeClientResponse`
@@ -1363,7 +1365,7 @@ class CustomBotApi(ApiBase):
         :param triggertype: :class:`~haasomeapi.enums.EnumOrderBotTriggerType`: Trigger type
 
         :returns: :class:`~haasomeapi.dataobjects.util.HaasomeClientResponse`
-        :returns: In .result :class:`~haasomeapi.dataobjects.custombots.OrderBot`: Order bot object 
+        :returns: In .result :class:`~haasomeapi.dataobjects.custombots.OrderBot`: Order bot object
         """
 
         response = super()._execute_request("/OrderBotAddOrder", {"botGuid": botguid,
@@ -1399,7 +1401,7 @@ class CustomBotApi(ApiBase):
         :param triggertype: :class:`~haasomeapi.enums.EnumOrderBotTriggerType`: Trigger type
 
         :returns: :class:`~haasomeapi.dataobjects.util.HaasomeClientResponse`
-        :returns: In .result :class:`~haasomeapi.dataobjects.custombots.OrderBot`: Order bot object 
+        :returns: In .result :class:`~haasomeapi.dataobjects.custombots.OrderBot`: Order bot object
         """
 
         response = super()._execute_request("/OrderBotEditOrder", {"botGuid": botguid,
@@ -1427,7 +1429,7 @@ class CustomBotApi(ApiBase):
         :param orderguid: str: Order guid
 
         :returns: :class:`~haasomeapi.dataobjects.util.HaasomeClientResponse`
-        :returns: In .result :class:`~haasomeapi.dataobjects.custombots.OrderBot`: Order bot object 
+        :returns: In .result :class:`~haasomeapi.dataobjects.custombots.OrderBot`: Order bot object
         """
 
         response = super()._execute_request("/OrderBotResetOrder", {"botGuid": botguid,
@@ -1447,7 +1449,7 @@ class CustomBotApi(ApiBase):
         :param orderguid: str: Order guid
 
         :returns: :class:`~haasomeapi.dataobjects.util.HaasomeClientResponse`
-        :returns: In .result :class:`~haasomeapi.dataobjects.custombots.OrderBot`: Order bot object 
+        :returns: In .result :class:`~haasomeapi.dataobjects.custombots.OrderBot`: Order bot object
         """
 
         response = super()._execute_request("/OrderBotRemoveOrder", {"botGuid": botguid,
@@ -1466,7 +1468,7 @@ class CustomBotApi(ApiBase):
         :param botguid: str: Custom bot guid
 
         :returns: :class:`~haasomeapi.dataobjects.util.HaasomeClientResponse`
-        :returns: In .result :class:`~haasomeapi.dataobjects.custombots.OrderBot`: Order bot object 
+        :returns: In .result :class:`~haasomeapi.dataobjects.custombots.OrderBot`: Order bot object
         """
 
         response = super()._execute_request("/OrderBotRemoveAllOrders", {"botGuid": botguid})
@@ -1484,9 +1486,9 @@ class CustomBotApi(ApiBase):
         :param botguid: str: Custom bot guid
         :param fieldno: int: Field Number to modify
         :param value: any: Value for field
-    
+
         :returns: :class:`~haasomeapi.dataobjects.util.HaasomeClientResponse`
-        :returns: In .result :class:`~haasomeapi.dataobjects.custombots.ScriptBot`: Script bot object 
+        :returns: In .result :class:`~haasomeapi.dataobjects.custombots.ScriptBot`: Script bot object
         """
 
         response = super()._execute_request("/OrderBotResetOrder", {"botGuid": botguid,
@@ -1506,9 +1508,9 @@ class CustomBotApi(ApiBase):
         :param index: :class:`~haasomeapi.dataobjects.custombots.dataobjects.CryptoIndexBotIndexSaveObject` Index to add
         :param reallocatebalance: bool: reallocate current index balance
         :param raisebalance: bool: increase current index balance
-    
+
         :returns: :class:`~haasomeapi.dataobjects.util.HaasomeClientResponse`
-        :returns: In .result :class:`~haasomeapi.dataobjects.custombots.CryptoIndexBot`: Crypto Index bot object 
+        :returns: In .result :class:`~haasomeapi.dataobjects.custombots.CryptoIndexBot`: Crypto Index bot object
         """
 
         response = super()._execute_request("/CryptoIndexBotAddIndex",{"botGuid": botguid,
@@ -1528,9 +1530,9 @@ class CustomBotApi(ApiBase):
         :param botguid: str: Custom bot guid
         :param coin: std: Coin to remove from index
         :param lowerbalance: bool: Reduce the index balance
-    
+
         :returns: :class:`~haasomeapi.dataobjects.util.HaasomeClientResponse`
-        :returns: In .result :class:`~haasomeapi.dataobjects.custombots.CryptoIndexBot`: Crypto Index bot object 
+        :returns: In .result :class:`~haasomeapi.dataobjects.custombots.CryptoIndexBot`: Crypto Index bot object
         """
 
         response = super()._execute_request("/CryptoIndexBotRemoveIndex",{"botGuid": botguid,
@@ -1550,9 +1552,9 @@ class CustomBotApi(ApiBase):
         :param index: :class:`~haasomeapi.dataobjects.custombots.dataobjects.AdvancedIndexBotIndexSaveObject` Index to add
         :param reallocatebalance: bool: reallocate current index balance
         :param raisebalance: bool: increase current index balance
-    
+
         :returns: :class:`~haasomeapi.dataobjects.util.HaasomeClientResponse`
-        :returns: In .result :class:`~haasomeapi.dataobjects.custombots.AdvancedIndexBot`: Crypto Index bot object 
+        :returns: In .result :class:`~haasomeapi.dataobjects.custombots.AdvancedIndexBot`: Crypto Index bot object
         """
 
         response = super()._execute_request("/AdvancedIndexBotAddIndex",{"botGuid": botguid,
@@ -1573,9 +1575,9 @@ class CustomBotApi(ApiBase):
         :param botguid: str: Custom bot guid
         :param coin: std: Coin to remove from index
         :param lowerbalance: bool: Reduce the index balance
-    
+
         :returns: :class:`~haasomeapi.dataobjects.util.HaasomeClientResponse`
-        :returns: In .result :class:`~haasomeapi.dataobjects.custombots.AdvancedIndexBot`: Crypto Index bot object 
+        :returns: In .result :class:`~haasomeapi.dataobjects.custombots.AdvancedIndexBot`: Crypto Index bot object
         """
 
         response = super()._execute_request("/AdvancedIndexBotRemoveIndex",{"botGuid": botguid,
@@ -1593,9 +1595,9 @@ class CustomBotApi(ApiBase):
         """ Includes a excluded index from the advanced index bot
         :param botguid: str: Custom bot guid
         :param coin: std: Coin to include from index
-    
+
         :returns: :class:`~haasomeapi.dataobjects.util.HaasomeClientResponse`
-        :returns: In .result :class:`~haasomeapi.dataobjects.custombots.AdvancedIndexBot`: Crypto Index bot object 
+        :returns: In .result :class:`~haasomeapi.dataobjects.custombots.AdvancedIndexBot`: Crypto Index bot object
         """
 
         response = super()._execute_request("/AdvancedIndexBotIncludeIndex",{"botGuid": botguid,
@@ -1611,9 +1613,9 @@ class CustomBotApi(ApiBase):
     def rebalance_advanced_index_bot_index(self, botguid: str):
         """ Rebalance a advanced index bot
         :param botguid: str: Custom bot guid
-    
+
         :returns: :class:`~haasomeapi.dataobjects.util.HaasomeClientResponse`
-        :returns: In .result :class:`~haasomeapi.dataobjects.custombots.AdvancedIndexBot`: Crypto Index bot object 
+        :returns: In .result :class:`~haasomeapi.dataobjects.custombots.AdvancedIndexBot`: Crypto Index bot object
         """
 
         response = super()._execute_request("/AdvancedIndexBotRebalanceBot",{"botGuid": botguid})

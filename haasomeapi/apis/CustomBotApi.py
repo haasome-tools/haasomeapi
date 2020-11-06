@@ -787,7 +787,8 @@ class CustomBotApi(ApiBase):
                                                                      "secondaryCoin": secondarycoin,
                                                                      "fee": float(str(fee).replace(',', '.')),
                                                                      "basePrice": float(str(baseprice).replace(',', '.')),
-                                                                     "priceSpreadType": EnumFlashSpreadOptions(priceSpreadType).name.capitalize(),
+                                                                     "priceSpreadType": EnumFlashSpreadOptions(
+                                                                         priceSpreadType).value,
                                                                      "priceSpread": float(str(pricespread).replace(',', '.')),
                                                                      "percentageBoost": float(str(percentageboost).replace(',', '.')),
                                                                      "minPercentage": float(str(minpercentage).replace(',', '.')),
